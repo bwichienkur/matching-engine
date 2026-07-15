@@ -1,0 +1,39 @@
+﻿USE [emd]
+GO
+
+/****** Object:  Table [dbo].[error]    Script Date: 08/12/2010 11:53:11 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[error](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[date] [datetime] NOT NULL,
+	[application] [varchar](100) NOT NULL,
+	[exception] [varchar](max) NOT NULL,
+ CONSTRAINT [PK_Error] PRIMARY KEY NONCLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+USE [emd]
+/****** Object:  Index [IX_error_date]    Script Date: 08/12/2010 11:53:11 ******/
+CREATE CLUSTERED INDEX [IX_error_date] ON [dbo].[error] 
+(
+	[date] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+
+

@@ -1,0 +1,110 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.ThankYouModel>
+
+<script src="@(Url.Action("GetJs", "Static", new { BasePath = "Common", FileName="thankyou", CompressJs= false }, Url.RequestContext.HttpContext.Request.Url.Scheme))" type="text/javascript"></script>
+
+<!-- START ThankYou Google Tag Events-->
+@System.Web.Mvc.Html.PartialExtensions.Partial(this.Html, "~/Templates/Common/ThankYouGoogleTag.cshtml", this.Model.UserSelectionProgramIdList)
+<!-- END ThankYou Google Tag Events-->
+
+<!-- START Image Check -->
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('.school-logo').checkImages();
+    });
+</script>
+<!-- END Image Check -->
+
+<div class="eddy-form-wizard-container pie">
+	<div class="eddy-form-wizard-body">
+		<div class="steps thank-you-page" id="thank-you-page">
+			<div class="thank-you-page-message">
+				<h2>@Model.UserFullName, Thank you!</h2>
+                @if (Model.SubmissionsFailed)
+                {
+                    <p>Unfortunately we are unable to match you to one or more of the programs you requested.<br /><br />Your information has been submitted to each of the schools below. When they contact you, we advise you to discuss your education goals with each of them.</p>
+                }
+                else
+                {
+                    <p>We know that finding the right school can be overwhelming and we hope that this free service has made that process easier for you. Your information has been submitted to each of the schools below. When they contact you, we advise you to discuss your education goals with each of them.</p>
+                }
+				
+				<p>Good luck in going back to school and earning your degree!</p>
+
+			</div>
+            @if(Model.OnlineCampuses.Count>0)
+            {
+			    <div class="online-school-submitted">
+				<h5 class="submitted-school-msg online-msg">Your information has been submitted to following <strong>Online</strong> schools:</h5>
+				<div class="image-text-group">								
+					<ul class="image-text">
+                        @foreach(var Campus in Model.OnlineCampuses)
+                        {
+						    <li >
+                                @if (Campus.ShowLogo)
+                                {
+                                    <div class="school-logo" data-src="@Campus.Logo" data-src-name="@Campus.CampusName">
+                                        <img src="" />
+                                    </div>
+                                }
+							    <div class="school-info">
+								    <p class="school-name"><a href="#">@Campus.CampusName</a></p>
+                                    <div class="online-school school-description hide">@Html.Raw(Campus.CampusDescription)</div>
+								    <p class="program-name"><a href="#">@Campus.ProgramName</a></p>
+                                    <div class="online-program program-description hide">@Html.Raw(Campus.ProgramDescription)</div>
+							    </div>
+						    </li>
+                        }
+						
+					</ul>				
+				</div>
+			</div>     
+            }
+
+            @if(Model.GroundCampuses.Count>0)
+            {    
+			    <div class="campus-school-submitted">
+				<h5 class="submitted-school-msg campus-msg">Your information has been submitted to following <strong>Campus</strong> schools:</h5>
+				<div class="image-text-group">								
+					<ul class="image-text">
+                        @foreach(var Campus in Model.GroundCampuses)
+                        {
+						    <li >
+                                @if (Campus.ShowLogo)
+                                {
+                                    <div class="school-logo" data-src="@Campus.Logo" data-src-name="@Campus.CampusName">
+                                        <img src="" />
+                                    </div>
+                                }
+                                
+							    <div class="school-info">
+								    <p class="school-name"><a href="#">@Campus.CampusName</a></p>
+                                    <div class="campus-school school-description hide">@Html.Raw(Campus.CampusDescription)</div>
+								    <p class="program-name"><a href="#">@Campus.ProgramName</a></p>
+                                    <div class="campus-program program-description hide">@Html.Raw(Campus.ProgramDescription)</div>
+							    </div>
+						    </li>
+                        }
+					</ul>
+				</div>
+			</div>
+            }
+            <div id="info-popup" class="popup-info hide">Description GOES HERE!</div>
+		</div>
+        <div class="eddy-form-wizard-footer clearfix">
+            <a href="javascript:FormsEngine.LoadWorkflowStep('START','');">
+                <div class="form-submit-button previous clearfix" id="form-navback-button" >
+				    <span>BACK</span>
+                </div>
+            </a>
+		</div><!-- end of #eddy-form-footer -->
+	</div><!-- end of ##eddy-form-wizard-body -->
+</div><!-- end of #eddy-form-wizard-container -->
+<!-- LeadList: @(Model.LeadList) -->
+<div id="dvThankYouSMPixelCode" style="display:none;">
+    @*@(Html.Raw(Model.SmartMatchPixels.Replace("<![CDATA[", "").Replace("]]>", "")))*@
+</div>
+<textarea id="ShowSMPixelsFired" style="width:500px;height:500px;display:none"></textarea>
+<div id="dvThankYouUSPixelCode" style="display:none;">
+    @*@(Html.Raw(Model.UserSelectionPixels.Replace("<![CDATA[", "").Replace("]]>", "")))*@
+</div>
+<textarea id="ShowUSPixelsFired" style="width:500px;height:500px;display:none"></textarea>

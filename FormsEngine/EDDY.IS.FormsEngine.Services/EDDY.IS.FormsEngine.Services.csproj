@@ -1,0 +1,1433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DB13A2D3-8E9F-47F0-83FA-588E5D92760B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EDDY.IS.FormsEngine.Services</RootNamespace>
+    <AssemblyName>EDDY.IS.FormsEngine.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.2</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <LangVersion>7.2</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Cobisi.EmailVerify.Net45, Version=5.6.0.0, Culture=neutral, PublicKeyToken=b863a804c9b2bdb0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EmailVerifyFor.Net.5.6.0.2684\lib\Cobisi.EmailVerify.Net45.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.Base, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e20c67ad3894fe, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.Base.2.0.4\lib\net48\EDDY.IS.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.Core.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e20c67ad3894fe, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.Core.Logging.2.0.4\lib\net48\EDDY.IS.Core.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.LocalCache, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a0e20c67ad3894fe, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.LocalCache.2.0.0\lib\net45\EDDY.IS.LocalCache.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.Util, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a0e20c67ad3894fe, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.Util.2.0.0\lib\net48\EDDY.IS.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.Validation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e20c67ad3894fe, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.Validation.2.0.0\lib\net48\EDDY.IS.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.1.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Bson, Version=1.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.Bson.1.0.2\lib\net45\Newtonsoft.Json.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="Pipelines.Sockets.Unofficial, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42ea0a778e13fbe2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Pipelines.Sockets.Unofficial.2.2.2\lib\net472\Pipelines.Sockets.Unofficial.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=4.6.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.6.0\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web, Version=4.6.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.4.6.0\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=4.6.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.4.6.0\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.2.5.61\lib\net472\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.PerformanceCounter, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.PerformanceCounter.5.0.0\lib\net461\System.Diagnostics.PerformanceCounter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.1\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.6.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Channels, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.5.0.0\lib\net461\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.3.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.3.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.3.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.3.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Verify.Net">
+      <HintPath>..\..\..\lib\Verify.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caching\BundleCache.cs" />
+    <Compile Include="Caching\TextFileCache.cs" />
+    <Compile Include="Classic\Base\FormsEngineAPIBase.cs" />
+    <Compile Include="Classic\FormsEngineAPI.svc.cs">
+      <DependentUpon>FormsEngineAPI.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Classic\IFormsEngine.cs" />
+    <Compile Include="Controllers\Base\ControllerCommon.cs" />
+    <Compile Include="Controllers\Base\DataBindControllerBase.cs" />
+    <Compile Include="Controllers\Base\FormValidationControllerBase.cs" />
+    <Compile Include="Controllers\Base\MatchingControllerBase.cs" />
+    <Compile Include="Controllers\Base\OpenMailControllerBase.cs" />
+    <Compile Include="Controllers\Base\SessionControllerBase.cs" />
+    <Compile Include="Controllers\Base\StaticControllerBase.cs" />
+    <Compile Include="Controllers\Base\TemplateManagerControllerBase.cs" />
+    <Compile Include="Controllers\CacheHelperController.cs" />
+    <Compile Include="Controllers\CCPAController.cs" />
+    <Compile Include="Controllers\Common\DataBindFilter.cs" />
+    <Compile Include="Controllers\Common\DataBindResultItem.cs" />
+    <Compile Include="Controllers\Common\HtmlHelperExtensions.cs" />
+    <Compile Include="Controllers\ComponentsController.cs" />
+    <Compile Include="Controllers\DataBindController.cs" />
+    <Compile Include="Controllers\FormValidationController.cs" />
+    <Compile Include="Controllers\InstitutionController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\MatchingController.cs" />
+    <Compile Include="Controllers\OpenMailController.cs" />
+    <Compile Include="Controllers\PrivacyPolicyController.cs" />
+    <Compile Include="Controllers\SchoolPickerWizardController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
+    <Compile Include="Controllers\StaticController.cs" />
+    <Compile Include="Controllers\SubmissionController.cs" />
+    <Compile Include="Controllers\TemplateManagerController.cs" />
+    <Compile Include="Controllers\ThankYouController.cs" />
+    <Compile Include="Controllers\WidgetSupportController.cs" />
+    <Compile Include="Formatters\JsonpFormatter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Caching\TemplateCache.cs" />
+    <Compile Include="Logging\WebISException.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\CampusBasicModel.cs" />
+    <Compile Include="Models\CampusWithInstitutionModel.cs" />
+    <Compile Include="Models\CCPAMessageModel.cs" />
+    <Compile Include="Models\NoMatchModel.cs" />
+    <Compile Include="Models\ProgramDDL.cs" />
+    <Compile Include="Models\Requests\SubmitSchoolPickerFormRequest.cs" />
+    <Compile Include="Models\SponsoredListingModel.cs" />
+    <Compile Include="Models\TemplateControlModel.cs" />
+    <Compile Include="Models\ThankYouModel.cs" />
+    <Compile Include="Models\CrossSellModel.cs" />
+    <Compile Include="Models\FormEngineModel.cs" />
+    <Compile Include="Models\ManagedChoiceModel.cs" />
+    <Compile Include="Models\ProgramDetail.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Classic\FormsEngineAPI.svc" />
+    <Content Include="clientaccesspolicy.xml" />
+    <Content Include="Clients\Ads\Ads-Example.htm" />
+    <Content Include="Clients\AutoSubmit\GoogleFormSample.htm" />
+    <Content Include="Clients\CallCenter-International\default.htm" />
+    <Content Include="Clients\FormLite_RP.htm" />
+    <Content Include="Clients\HostAndPost-TestClient.htm" />
+    <Content Include="Clients\Callcenter\default.htm" />
+    <Content Include="Clients\QDF.html" />
+    <Content Include="Clients\QDFPlugin.html" />
+    <Content Include="Clients\Wizard\PassThrough\SinglePage-ManagedChoice.htm" />
+    <Content Include="Clients\Wizard\PassThrough\SinglePage-NoMatch.htm" />
+    <Content Include="Clients\Wizard\PassThrough\SinglePage-Start.htm" />
+    <Content Include="Clients\Wizard\PassThrough\SinglePage-ThankYou.htm" />
+    <Content Include="Clients\Wizard\3rd party.htm" />
+    <Content Include="Clients\Wizard\ProgramWizard.htm" />
+    <Content Include="Clients\Wizard\InstitutionTest.htm" />
+    <Content Include="Clients\Wizard\SinglePage-ThankYou-EMS-RequestInfo.htm" />
+    <Content Include="Clients\Wizard\SinglePage-ThankYou-EMS-Apply.htm" />
+    <Content Include="Clients\Wizard\SinglePage-ThankYou-EMS.htm" />
+    <Content Include="Clients\Wizard\SchoolPickerWizard.htm" />
+    <Content Include="Clients\Wizard\WizardLite-Bootstrap - GPLP.htm" />
+    <Content Include="Clients\Wizard\WizardLite-Bootstrap.htm" />
+    <Content Include="Clients\Wizard\WizardLite _Jobs.htm" />
+    <Content Include="Clients\Wizard\WizardLite_AdvisingFlow.htm" />
+    <Content Include="Clients\Wizard\WizardLite_CallCenter.htm" />
+    <Content Include="Clients\Wizard\WizardLite_ECDrip_RP.htm" />
+    <Content Include="Clients\Wizard\WizardLite_ECMobile.htm" />
+    <Content Include="Clients\Wizard\WizardLite_ECDrip.htm" />
+    <Content Include="Clients\Wizard\WizardLite_ECIFrame.htm" />
+    <Content Include="Clients\Wizard\WizardLite_NewsL.htm" />
+    <Content Include="Clients\Wizard\SinglePage-NoMatch.htm" />
+    <Content Include="Clients\Wizard\SinglePage-ThankYou.htm" />
+    <Content Include="Clients\Wizard\SinglePage-ManagedChoice.htm" />
+    <Content Include="Clients\Wizard\SinglePage-Start.htm" />
+    <Content Include="Clients\Wizard\WizardLite.htm" />
+    <Content Include="Clients\FormLite.htm" />
+    <Content Include="Clients\ThankYou.htm" />
+    <Content Include="Clients\Wizard\WizardLite_Plain.htm" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="crossdomain.xml" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Templates\Common\css\AdditionalQuestions.css" />
+    <Content Include="Templates\Common\css\animate.css" />
+    <Content Include="Templates\Common\css\CCPA.css" />
+    <Content Include="Templates\Common\css\Compliance.css" />
+    <Content Include="Templates\Common\css\ManagedChoice.css" />
+    <Content Include="Templates\Common\css\Plain.css" />
+    <Content Include="Templates\Common\css\PlainManagedChoice.css" />
+    <Content Include="Templates\Common\css\PlainPlugin.css" />
+    <Content Include="Templates\Common\css\select2.min.css" />
+    <Content Include="Templates\Common\images\fa-question-circle.jpg" />
+    <Content Include="Templates\Common\images\fa-question-circle.png" />
+    <Content Include="Templates\Common\images\info.png" />
+    <Content Include="Templates\Common\images\question-circle.svg" />
+    <Content Include="Templates\Common\images\sponsored-explained-v2.png" />
+    <Content Include="Templates\Common\js\CustomLocationMap.js" />
+    <Content Include="Templates\Common\js\External\GoogleDFP.js" />
+    <Content Include="Templates\Common\js\External\LeadPingv3.js" />
+    <Content Include="Templates\Common\js\External\Vantage.js" />
+    <Content Include="Templates\Common\js\ManagedChoice_DaisychainPlain.js" />
+    <Content Include="Templates\Common\js\PluginGlobal.js" />
+    <Content Include="Templates\Common\js\QDF.js" />
+    <Content Include="Templates\Common\js\QDFBase.js" />
+    <Content Include="Templates\Common\js\QDFPlugin.js" />
+    <Content Include="Templates\Common\js\QDFPluginDynamicControls.js" />
+    <Content Include="Templates\Common\js\schoolPicker_GlobalFunctions.js" />
+    <Content Include="Templates\Common\js\jquery.inputmask.bundle.js" />
+    <Content Include="Templates\Common\js\jquery.inputmask.old.min.js" />
+    <Content Include="Templates\Common\js\jquery.inputmask.min.js" />
+    <Content Include="Templates\Common\js\input-mask.min.js" />
+    <Content Include="Templates\Common\js\masking-input.js" />
+    <Content Include="Templates\Common\js\jquery.maskedinput.js" />
+    <Content Include="Templates\Common\js\jquery.maskedinput.min.js" />
+    <Content Include="Templates\Common\js\jquery.placeholder.min.js" />
+    <Content Include="Templates\Common\js\jquery.validate.js" />
+    <Content Include="Templates\Common\js\json2.js" />
+    <Content Include="Templates\Common\js\select2.full.min.js" />
+    <Content Include="Clients\IPTest.aspx" />
+    <Content Include="Templates\Original\themes\CrossSellNoOverlay\Base.css" />
+    <Content Include="Templates\Original\themes\CrossSellNoOverlay\CrossSell.css" />
+    <Content Include="Templates\Original\themes\CrossSellAlternateBLOCK\Base.css" />
+    <Content Include="Templates\Original\themes\CrossSellAlternateBLOCK\CrossSell.css" />
+    <Content Include="Templates\Original\themes\CrossSellAlternateLIST\Base.css" />
+    <Content Include="Templates\Original\themes\CrossSellAlternateLIST\CrossSell.css" />
+    <Content Include="Templates\Original\themes\CrossSellNoOverlay\images\type-campus.gif" />
+    <Content Include="Templates\Original\themes\CrossSellNoOverlay\images\type-online.png" />
+    <Content Include="Templates\Original\themes\ECBlueGray\Base.css" />
+    <Content Include="Templates\Original\themes\ECBlueGray\CrossSell.css" />
+    <Content Include="Templates\Original\themes\ECBlueGray\images\ajax-loader.gif" />
+    <Content Include="Templates\Original\themes\ECBlueGray\images\close-button.gif" />
+    <Content Include="Templates\Original\themes\ECBlueGray\images\icon-campus-flag-blue.png" />
+    <Content Include="Templates\Original\themes\ECBlueGray\images\icon-campus-flag2-sm.png" />
+    <Content Include="Templates\Original\themes\ECBlueGray\images\icon-campus-flag2.png" />
+    <Content Include="Templates\Original\themes\ECBlueGray\images\icon-campus.png" />
+    <Content Include="Templates\Original\themes\ECBlueGray\images\icon-online-flag-blue.png" />
+    <Content Include="Templates\Original\themes\ECBlueGray\images\icon-online-flag2-sm.png" />
+    <Content Include="Templates\Original\themes\ECBlueGray\images\icon-online-flag2.png" />
+    <Content Include="Templates\Original\themes\ECBlueGray\images\request-button.png" />
+    <Content Include="Templates\Original\themes\ECBlueGray\images\tag.png" />
+    <Content Include="Templates\Original\themes\ECBlueGray\images\tooltip.gif" />
+    <Content Include="Templates\Original\themes\ECBlueGray\images\uab-logo.gif" />
+    <Content Include="Templates\Original\themes\premier\Base.css" />
+    <Content Include="Templates\Original\themes\premier\CrossSell.css" />
+    <Content Include="Templates\Original\themes\premier\images\ajax-loader.gif" />
+    <Content Include="Templates\Original\themes\premier\images\button-request-info.gif" />
+    <Content Include="Templates\Original\themes\premier\images\button-search-again.gif" />
+    <Content Include="Templates\Original\themes\premier\images\close-button.gif" />
+    <Content Include="Templates\Original\themes\premier\images\icon-campus-flag2.png" />
+    <Content Include="Templates\Original\themes\premier\images\icon-campus.png" />
+    <Content Include="Templates\Original\themes\premier\images\icon-online-flag2.png" />
+    <Content Include="Templates\Original\themes\premier\images\request-button.png" />
+    <Content Include="Templates\Original\themes\premier\images\tag.png" />
+    <Content Include="Templates\Original\themes\premier\images\tooltip.gif" />
+    <Content Include="Templates\Original\themes\premier\images\uab-logo.gif" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\Base.css" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\ajax-loader.gif" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\both.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\button_bg_1.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\button_bg_2.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\button_small_bg_1.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\button_small_bg_2.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\campus.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\close.gif" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\collegecredit.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\elearners.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\help.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\icon-campus-flag.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\icon-online-flag.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\online.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\previous.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\selectbox_bg.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\start-now.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\testdrivecollege.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\view_site.gif" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\images\yellow-arrow.png" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\ManagedChoice.css" />
+    <Content Include="Templates\ProgramWizard\themes\daisychain\Wizard.css" />
+    <Content Include="Templates\ProgramWizard\themes\default\Base.css" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\ajax-loader.gif" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\both.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\button_bg_1.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\button_bg_2.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\button_small_bg_1.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\button_small_bg_2.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\campus.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\close.gif" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\collegecredit.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\elearners.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\help.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\icon-campus-flag.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\icon-online-flag.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\online.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\previous.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\selectbox_bg.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\start-now.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\testdrivecollege.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\view_site.gif" />
+    <Content Include="Templates\ProgramWizard\themes\default\images\yellow-arrow.png" />
+    <Content Include="Templates\ProgramWizard\themes\default\ManagedChoice.css" />
+    <Content Include="Templates\ProgramWizard\themes\default\Wizard.css" />
+    <Content Include="Templates\QDFPlugin\js\QDFPlugin_Start.js" />
+    <Content Include="Templates\QDFPlugin\themes\default\Base.css" />
+    <Content Include="Templates\QDF\js\QDF_Start.js" />
+    <Content Include="Templates\QDF\themes\refinewidget\Base.css" />
+    <Content Include="Templates\SchoolPickerWizard\js\SchoolPickerWizard_Start.js" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\Base.css" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\ajax-loader.gif" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\both.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\button_bg_1.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\button_bg_2.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\button_small_bg_1.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\button_small_bg_2.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\campus.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\close.gif" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\collegecredit.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\elearners.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\help.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\icon-campus-flag.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\icon-online-flag.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\online.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\previous.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\selectbox_bg.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\start-now.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\testdrivecollege.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\view_site.gif" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\images\yellow-arrow.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\default\Wizard.css" />
+    <Content Include="Templates\SchoolPickerWizard\themes\iconFields\Base.css" />
+    <Content Include="Templates\SchoolPickerWizard\themes\iconFields\images\business-icon.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\iconFields\images\criminal-justice-icon.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\iconFields\images\education-icon.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\iconFields\images\fine-arts-icon.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\iconFields\images\health-medicine-icon.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\iconFields\images\liberal-arts-icon.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\iconFields\images\math-engineering-icon.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\iconFields\images\religious-studies-icon.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\iconFields\images\social-science-icon.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\iconFields\images\start-now.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\iconFields\images\technology-icon.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\iconFields\images\vocational-icon.png" />
+    <Content Include="Templates\SchoolPickerWizard\themes\iconFields\ManagedChoice.css" />
+    <Content Include="Templates\SchoolPickerWizard\themes\iconFields\Wizard.css" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\1-contact.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\2-school.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\3-step2.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\3-step3.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\3-thankyou.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\3step-1.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\back.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\back_hover.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\both.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\campus.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\matchme.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\next.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\next_hover.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\online.png" />
+    <Content Include="Templates\WizardDrip\themes\default\drip.standalone.css" />
+    <Content Include="Templates\WizardDrip\themes\default\images\both.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\btnMatchMeAgain.gif" />
+    <Content Include="Templates\WizardDrip\themes\default\images\campus.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\checkbox_green_big.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\checkbox_green_sm.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\droparrow.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Templates\Common\images\ajax-loader.gif" />
+    <Content Include="Templates\Common\js\DynamicControls.js" />
+    <Content Include="Templates\Common\js\Global.js" />
+    <Content Include="Templates\Common\js\jquery.json-2.4.min.js" />
+    <Content Include="Templates\Common\js\jqueryjson24min.js" />
+    <Content Include="Templates\Common\js\ManagedChoice.js" />
+    <Content Include="Templates\Common\js\ManagedChoice_GlobalFunctions.js" />
+    <Content Include="Templates\Common\js\ProgramTemplateShared.js" />
+    <Content Include="Templates\Common\js\ProgramTemplateSlider.js" />
+    <Content Include="Templates\Common\js\ThankYou.js" />
+    <Content Include="Templates\Common\js\Wizard_GlobalFunctions.js" />
+    <Content Include="Templates\WizardDrip\js\WizardDrip_Start.js" />
+    <Content Include="Templates\WizardDrip\js\WizardDrip_ManagedChoice.js" />
+    <Content Include="Templates\WizardDrip\themes\default\Base.css" />
+    <Content Include="Templates\WizardDrip\themes\default\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardDrip\themes\default\images\btn-clearall.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\btn-selectall.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\btnBack.gif" />
+    <Content Include="Templates\WizardDrip\themes\default\images\btnSubmitRequest2.gif" />
+    <Content Include="Templates\WizardDrip\themes\default\images\btnSubmitRequestForceMatch.gif" />
+    <Content Include="Templates\WizardDrip\themes\default\images\call_to_action_sprite.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\call_to_action_sprite_laststep.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\call_to_action_sprite_prev.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\close.gif" />
+    <Content Include="Templates\WizardDrip\themes\default\images\dividerShadowSchoolList.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\dripForm-bg.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\dripForm-bottom.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\EMD_Funnel_Slides_FINAL_Steps1-6_26.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\hdrChosenSchoolsCampus.gif" />
+    <Content Include="Templates\WizardDrip\themes\default\images\hdrChosenSchoolsOnline.gif" />
+    <Content Include="Templates\WizardDrip\themes\default\images\hdrMatchingProgress.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\help.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\invalidCheck.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\noMatchImg.jpg" />
+    <Content Include="Templates\WizardDrip\themes\default\images\noTabsBg-old.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\online.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\pbar-ani.gif" />
+    <Content Include="Templates\WizardDrip\themes\default\images\progDescBg.gif" />
+    <Content Include="Templates\WizardDrip\themes\default\images\progDescBtm.gif" />
+    <Content Include="Templates\WizardDrip\themes\default\images\progDescTop.gif" />
+    <Content Include="Templates\WizardDrip\themes\default\images\programMatch.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\radio_green_big.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\subHdrFinancialAid.gif" />
+    <Content Include="Templates\WizardDrip\themes\default\images\tabsBg.gif" />
+    <Content Include="Templates\WizardDrip\themes\default\images\tabsBtm.gif" />
+    <Content Include="Templates\WizardDrip\themes\default\images\tabsCampusSingle_on.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\tabsCampus_off.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\tabsCampus_on.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\tabsOnlineSingle_on.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\tabsOnline_off.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\tabsOnline_on.png" />
+    <Content Include="Templates\WizardDrip\themes\default\images\validCheck.png" />
+    <Content Include="Templates\WizardDrip\themes\default\ManagedChoice.css" />
+    <Content Include="Templates\WizardDrip\themes\default\Wizard.css" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\js\WizardCallCenterWhiteLabel_ManagedChoice.js" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\js\WizardCallCenterWhiteLabel_Start.js" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\Base.css" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\btn-clearall.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\btn-selectall.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\btnBack.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\btnStartMatch.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\btnSubmitRequest2.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\btnSubmitRequestForceMatch.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\call_to_action_sprite.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\call_to_action_sprite_laststep.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\call_to_action_sprite_prev.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\checkbox_green_big.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\checkbox_green_sm.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\close.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\dividerShadowSchoolList.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\dripForm-bg.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\dripForm-bottom.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\droparrow.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\hdrChosenSchoolsCampus.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\hdrChosenSchoolsOnline.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\hdrMatchingProgress.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\help.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\invalidCheck.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\noMatchImg.jpg" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\noTabsBg-old.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\pbar-ani.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\progDescBg.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\progDescBtm.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\progDescTop.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\programMatch.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\radio_green_big.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\set3_step1.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\set3_step2.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\set3_step3.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\subHdrFinancialAid.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\tabsBg.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\tabsBtm.gif" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\tabsCampusSingle_on.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\tabsCampus_off.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\tabsCampus_on.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\tabsOnlineSingle_on.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\tabsOnline_off.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\tabsOnline_on.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\images\validCheck.png" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\ManagedChoice.css" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\themes\default\Wizard.css" />
+    <Content Include="Templates\WizardDrip\themes\welkin\Base.css" />
+    <Content Include="Templates\WizardDrip\themes\welkin\drip.standalone.css" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\arrow.jpg" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\blue_loader.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\both.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\btn-clearall.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\btn-selectall.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\btnBack.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\btnMatchMeAgain.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\btnSubmitRequest2.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\btnSubmitRequestForceMatch.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\call_to_action_sprite.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\call_to_action_sprite_laststep.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\call_to_action_sprite_prev.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\campus-mc.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\campus.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\checkbox_green_big.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\checkbox_green_sm.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\clear_all.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\close.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\dividerShadowSchoolList.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\dripForm-bg.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\dripForm-bottom.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\drop-arrow.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\droparrow.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\EMD_Funnel_Slides_FINAL_Steps1-6_26.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\getinfo.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\hdrChosenSchoolsCampus.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\hdrChosenSchoolsOnline.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\hdrMatchingProgress.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\help.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\icon-campus-flag2.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\icon-online-flag2.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\info.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\invalidCheck.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\next-blue-hover.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\next-blue.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\next-hover.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\next.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\noMatchImg.jpg" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\noTabsBg-old.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\online-mc.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\online.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\pbar-ani.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\prev-hover.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\prev.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\progDescBg.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\progDescBtm.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\progDescTop.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\programMatch.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\radio_green_big.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\red-next-hover.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\red-next.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\red-prev-hover.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\red-prev.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\select_all.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\subHdrFinancialAid.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\tabsBg.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\tabsBtm.gif" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\tabsCampusSingle_on.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\tabsCampus_off.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\tabsCampus_on.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\tabsOnlineSingle_on.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\tabsOnline_off.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\tabsOnline_on.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\images\validCheck.png" />
+    <Content Include="Templates\WizardDrip\themes\welkin\ManagedChoice.css" />
+    <Content Include="Templates\WizardDrip\themes\welkin\Wizard.css" />
+    <Content Include="Templates\WizardDrip_RP\js\WizardDripRP_ManagedChoice.js" />
+    <Content Include="Templates\WizardDrip_RP\js\WizardDripRP_Start.js" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\Base.css" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\drip.standalone.css" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\both.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\btn-back-top.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\btn-clearall.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\btn-next-top.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\btn-selectall.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\btnBack.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\btnBack.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\btnMatchMeAgain.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\btnSubmitRequest2.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\btnSubmitRequestForceMatch.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\call_to_action_sprite.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\call_to_action_sprite_laststep.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\call_to_action_sprite_prev.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\campus.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\checkbox_green_big.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\checkbox_green_sm.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\checked.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\checked_old.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\close.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\dividerShadowSchoolList.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\dripForm-bg.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\dripForm-bottom.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\droparrow.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\EMD_Funnel_Slides_FINAL_Steps1-6_26.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\hdrChosenSchoolsCampus.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\hdrChosenSchoolsOnline.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\hdrMatchingProgress.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\help.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\icon-campus-flag2.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\icon-online-flag2.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\info.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\invalidCheck.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\noMatchImg.jpg" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\noTabsBg-old.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\online.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\pbar-ani.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\progDescBg.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\progDescBtm.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\progDescTop.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\programMatch.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\radio_green_big.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\subHdrFinancialAid.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\tabsBg.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\tabsBtm.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\tabsCampus.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\tabsCampusSingle_on.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\tabsCampus_off.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\tabsCampus_on.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\tabsCampus_sm.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\tabsCampus_xs.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\tabsOnline.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\tabsOnlineSingle_on.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\tabsOnline_off.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\tabsOnline_on.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\tabsOnline_sm.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\tabsOnline_xs.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\truste.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\trustelogo.gif" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\images\unchecked.png" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\ManagedChoice.css" />
+    <Content Include="Templates\WizardDrip_RP\themes\default\Wizard.css" />
+    <Content Include="Templates\WizardJobs\js\WizardJobs_ManagedChoice.js" />
+    <Content Include="Templates\WizardJobs\js\WizardJobs_Start.js" />
+    <Content Include="Templates\WizardJobs\themes\default\Base.css" />
+    <Content Include="Templates\WizardJobs\themes\default\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardJobs\themes\default\images\arrow_blue.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\both.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\btn-clearall.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\btn-selectall.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\button_bg_1.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\button_bg_2.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\button_small_bg_1.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\button_small_bg_2.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\campus.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\close-button-wf.gif" />
+    <Content Include="Templates\WizardJobs\themes\default\images\collegecredit.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\elearners.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\help.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\online.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\previous.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\radio.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\start-now.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\testdrivecollege.png" />
+    <Content Include="Templates\WizardJobs\themes\default\images\yellow-arrow.png" />
+    <Content Include="Templates\WizardJobs\themes\default\ManagedChoice.css" />
+    <Content Include="Templates\WizardJobs\themes\default\Wizard.css" />
+    <Content Include="Templates\WizardMobile\js\WizardECMobile_NoMatch.js" />
+    <Content Include="Templates\WizardMobile\themes\default\images\btn-choose-school-disable.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\btn-choose-school.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\btn-thankYou.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\btn-view-matches.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\check.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\click_to_call.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\closePopup.gif" />
+    <Content Include="Templates\WizardMobile\themes\default\images\dropdown.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\icon-campus-flag2.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\icon-online-flag2.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\invalidCheck.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\tabsCampus_off.gif" />
+    <Content Include="Templates\WizardMobile\themes\default\images\tabsCampus_on.gif" />
+    <Content Include="Templates\WizardMobile\themes\default\images\tabsOnline_off.gif" />
+    <Content Include="Templates\WizardMobile\themes\default\images\tabsOnline_on.gif" />
+    <Content Include="Templates\WizardMobile\themes\default\images\txt-scroll.gif" />
+    <Content Include="Templates\WizardMobile\themes\default\images\un-check.png" />
+    <Content Include="Templates\WizardPlain\js\WizardPlain_Start.js" />
+    <Content Include="Templates\WizardPlain\js\WizardPlain_ManagedChoice.js" />
+    <Content Include="Templates\WizardMobile\js\WizardECMobile_Start.js" />
+    <Content Include="Templates\WizardMobile\js\WizardECMobile_ManagedChoice.js" />
+    <Content Include="Templates\WizardMobile\themes\default\Base.css" />
+    <Content Include="Templates\WizardMobile\themes\default\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardMobile\themes\default\images\bg-footer.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\both.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\btn-back-top.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\btn-back.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\btn-next-top.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\btn-next.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\button_bg_1.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\button_bg_2.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\button_small_bg_1.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\button_small_bg_2.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\campus.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\checked.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\close.gif" />
+    <Content Include="Templates\WizardMobile\themes\default\images\collegecredit.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\dropdown.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\ec-logo.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\elearners.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\help.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\online.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\previous.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\start-now.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\testdrivecollege.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\un-check.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\unchecked.png" />
+    <Content Include="Templates\WizardMobile\themes\default\images\yellow-arrow.png" />
+    <Content Include="Templates\WizardMobile\themes\default\ManagedChoice.css" />
+    <Content Include="Templates\WizardMobile\themes\default\Wizard.css" />
+    <Content Include="Templates\WizardPlain\themes\alternate\Base.css" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\both.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\button_bg_1.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\button_bg_2.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\button_small_bg_1.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\button_small_bg_2.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\campus.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\close.gif" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\collegecredit.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\elearners.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\help.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\online.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\previous.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\start-now.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\testdrivecollege.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\view_site.gif" />
+    <Content Include="Templates\WizardPlain\themes\alternate\images\yellow-arrow.png" />
+    <Content Include="Templates\WizardPlain\themes\alternate\ManagedChoice.css" />
+    <Content Include="Templates\WizardPlain\themes\alternate\Wizard.css" />
+    <Content Include="Templates\WizardPlain\themes\alternate\Wizard.css" />
+    <Content Include="Templates\WizardPlain\themes\default\Base.css" />
+    <Content Include="Templates\WizardPlain\themes\default\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardPlain\themes\default\images\both.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\btnSubmitRequest2.gif" />
+    <Content Include="Templates\WizardPlain\themes\default\images\btnSubmitRequestForceMatch.gif" />
+    <Content Include="Templates\WizardPlain\themes\default\images\button_bg_1.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\button_bg_2.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\button_small_bg_1.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\button_small_bg_2.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\campus.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\close.gif" />
+    <Content Include="Templates\WizardPlain\themes\default\images\collegecredit.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\dividerShadowSchoolList.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\elearners.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\help.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\noTabsBg-old.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\online.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\previous.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\start-now.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\subHdrFinancialAid.gif" />
+    <Content Include="Templates\WizardPlain\themes\default\images\tabsBg.gif" />
+    <Content Include="Templates\WizardPlain\themes\default\images\tabsBtm.gif" />
+    <Content Include="Templates\WizardPlain\themes\default\images\tabsCampusSingle_on.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\tabsCampus_off.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\tabsCampus_on.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\tabsOnlineSingle_on.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\tabsOnline_off.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\tabsOnline_on.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\testdrivecollege.png" />
+    <Content Include="Templates\WizardPlain\themes\default\images\view_site.gif" />
+    <Content Include="Templates\WizardPlain\themes\default\images\yellow-arrow.png" />
+    <Content Include="Templates\WizardPlain\themes\default\ManagedChoice.css" />
+    <Content Include="Templates\WizardPlain\themes\default\Wizard.css" />
+    <Content Include="Templates\Original\themes\alternative\Base.css" />
+    <Content Include="Templates\Original\themes\alternative\CrossSell.css" />
+    <Content Include="Templates\Original\themes\alternative\images\ajax-loader.gif" />
+    <Content Include="Templates\Original\themes\alternative\images\button-request-info.gif" />
+    <Content Include="Templates\Original\themes\alternative\images\button-search-again.gif" />
+    <Content Include="Templates\Original\themes\alternative\images\close-button.gif" />
+    <Content Include="Templates\Original\themes\alternative\images\icon-campus-flag2.png" />
+    <Content Include="Templates\Original\themes\alternative\images\icon-campus.png" />
+    <Content Include="Templates\Original\themes\alternative\images\icon-online-flag2.png" />
+    <Content Include="Templates\Original\themes\alternative\images\tooltip.gif" />
+    <Content Include="Templates\Original\themes\alternative\images\uab-logo.gif" />
+    <Content Include="Templates\Original\themes\default\Base.css" />
+    <Content Include="Templates\Original\themes\default\CrossSell.css" />
+    <Content Include="Templates\Original\themes\default\images\ajax-loader.gif" />
+    <Content Include="Templates\Original\themes\default\images\button-request-info.gif" />
+    <Content Include="Templates\Original\themes\default\images\button-search-again.gif" />
+    <Content Include="Templates\Original\themes\default\images\close-button.gif" />
+    <Content Include="Templates\Original\themes\default\images\icon-campus-flag2.png" />
+    <Content Include="Templates\Original\themes\default\images\icon-campus.png" />
+    <Content Include="Templates\Original\themes\default\images\icon-online-flag2.png" />
+    <Content Include="Templates\Original\themes\default\images\tooltip.gif" />
+    <Content Include="Templates\Original\themes\default\images\uab-logo.gif" />
+    <Content Include="Templates\Common\js\ClientBase.js" />
+    <Content Include="Templates\Common\js\ClientWizardBase.js" />
+    <Content Include="Templates\Common\js\CrossSell.js" />
+    <Content Include="Templates\Common\js\ProgramTemplate.js" />
+    <Content Include="Templates\Common\js\Wizard.js" />
+    <Content Include="Templates\ProgramWizard\js\ProgramWizard_ManagedChoice.js" />
+    <Content Include="Templates\ProgramWizard\js\ProgramWizard_Start.js" />
+    <Content Include="Templates\Common\js\ManagedChoice_Daisychain.js" />
+    <Content Include="Templates\WizardProfessionalBootstrap\js\WizardProfessionalBootstrap_ManagedChoice_Alternative.js" />
+    <Content Include="Templates\WizardProfessionalBootstrap\js\WizardProfessionalBootstrap_ManagedChoice.js" />
+    <Content Include="Templates\WizardProfessionalBootstrap\js\WizardProfessionalBootstrap_Start.js" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\Base.css" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\both.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\button_bg_1.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\button_bg_2.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\button_small_bg_1.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\button_small_bg_2.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\campus.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\close.gif" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\collegecredit.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\elearners.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\help.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\online.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\previous.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\start-now.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\testdrivecollege.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\view_site.gif" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\images\yellow-arrow.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\ManagedChoice.css" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\alternative\Wizard.css" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\Base.css" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\both.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\button_bg_1.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\button_bg_2.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\button_small_bg_1.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\button_small_bg_2.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\campus.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\close.gif" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\collegecredit.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\elearners.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\help.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\online.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\previous.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\start-now.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\testdrivecollege.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\view_site.gif" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\images\yellow-arrow.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\ManagedChoice.css" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychainplain\Wizard.css" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\Base.css" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\both.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\button_bg_1.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\button_bg_2.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\button_small_bg_1.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\button_small_bg_2.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\campus.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\close.gif" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\collegecredit.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\elearners.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\help.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\online.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\previous.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\start-now.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\testdrivecollege.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\view_site.gif" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\images\yellow-arrow.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\ManagedChoice.css" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\daisychain\Wizard.css" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\IconFields\Base.css" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\IconFields\images\business-icon.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\IconFields\images\criminal-justice-icon.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\IconFields\images\education-icon.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\IconFields\images\fine-arts-icon.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\IconFields\images\health-medicine-icon.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\IconFields\images\liberal-arts-icon.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\IconFields\images\math-engineering-icon.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\IconFields\images\religious-studies-icon.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\IconFields\images\social-science-icon.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\IconFields\images\start-now.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\IconFields\images\technology-icon.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\IconFields\images\vocational-icon.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\IconFields\ManagedChoice.css" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\IconFields\Wizard.css" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\Base.css" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\both.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\button_bg_1.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\button_bg_2.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\button_small_bg_1.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\button_small_bg_2.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\campus.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\close.gif" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\collegecredit.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\elearners.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\help.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\online.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\previous.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\start-now.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\testdrivecollege.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\view_site.gif" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\images\yellow-arrow.png" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\ManagedChoice.css" />
+    <Content Include="Templates\WizardProfessionalBootstrap\themes\default\Wizard.css" />
+    <Content Include="Templates\WizardProfessional\js\WizardProfessional_ManagedChoice_Alternative.js" />
+    <Content Include="Templates\WizardProfessional\js\WizardProfessional_Start.js" />
+    <Content Include="Templates\WizardProfessional\js\WizardProfessional_ManagedChoice.js" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\Base.css" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\both.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\button_bg_1.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\button_bg_2.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\button_small_bg_1.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\button_small_bg_2.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\campus.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\close.gif" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\collegecredit.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\elearners.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\EMD_Funnel_Slides_FINAL_Steps1-6_26.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\help.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\icon-campus-flag2.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\icon-online-flag2.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\nomatch_btn.gif" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\online.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\previous.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\start-now.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\testdrivecollege.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\view_site.gif" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\images\yellow-arrow.png" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\ManagedChoice.css" />
+    <Content Include="Templates\WizardProfessional\themes\alternative\Wizard.css" />
+    <Content Include="Templates\WizardProfessional\themes\amber\Base.css" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\back.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\blue_button.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\both.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\close.gif" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\button_bg_1.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\button_bg_2.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\campus.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\collegecredit.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\elearners.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\help.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\icon-campus-flag2.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\icon-campus-flag-trans.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\icon-online-flag2.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\icon-online-flag-trans.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\previous.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\testdrivecollege.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\view_site.gif" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\yellow-arrow.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\Wizard.css" />
+    <Content Include="Templates\WizardProfessional\themes\amber\ManagedChoice.css" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\online.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardProfessional\themes\amber\images\start-now.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\Base.css" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\both.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\button_bg_1.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\button_bg_2.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\button_small_bg_1.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\button_small_bg_2.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\campus.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\close.gif" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\collegecredit.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\elearners.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\help.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\online.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\previous.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\start-now.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\testdrivecollege.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\images\yellow-arrow.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\ManagedChoice.css" />
+    <Content Include="Templates\WizardProfessional\themes\blue-top\Wizard.css" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\Base.css" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\both.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\button_bg_1.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\button_bg_2.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\button_small_bg_1.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\button_small_bg_2.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\campus.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\close.gif" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\collegecredit.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\elearners.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\help.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\online.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\previous.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\start-now.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\testdrivecollege.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\images\yellow-arrow.png" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\ManagedChoice.css" />
+    <Content Include="Templates\WizardProfessional\themes\orange-top\Wizard.css" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\Base.css" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\both.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\button_bg_1.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\button_bg_2.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\button_small_bg_1.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\button_small_bg_2.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\campus.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\close.gif" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\collegecredit.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\elearners.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\help.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\online.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\previous.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\start-now.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\testdrivecollege.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\view_site.gif" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\images\yellow-arrow.png" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\ManagedChoice.css" />
+    <Content Include="Templates\WizardProfessional\themes\blue-red\Wizard.css" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\view_site.gif" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\Base.css" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\both.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\button_bg_1.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\button_bg_2.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\button_small_bg_1.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\button_small_bg_2.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\campus.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\close.gif" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\collegecredit.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\elearners.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\help.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\online.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\previous.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\start-now.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\testdrivecollege.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\view_site.gif" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\images\yellow-arrow.png" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\ManagedChoice.css" />
+    <Content Include="Templates\WizardProfessional\themes\yellow-blue\Wizard.css" />
+    <Content Include="Templates\WizardProfessional\themes\default\Base.css" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\ajax-loader.gif" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\button_small_bg_1.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\button_small_bg_2.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\close.gif" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\collegecredit.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\elearners.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\help.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\icon-campus-flag.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\icon-online-flag.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\previous.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\testdrivecollege.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\yellow-arrow.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\Wizard.css" />
+    <Content Include="Templates\WizardProfessional\themes\default\ManagedChoice.css" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\button_bg_1.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\button_bg_2.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\campus.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\eddy_form_footer_bg.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\online.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\both.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\selectbox_bg.png" />
+    <Content Include="Templates\WizardProfessional\themes\default\images\start-now.png" />
+    <Content Include="Testing\chutzpah.json" />
+    <Content Include="Testing\jasmine\lib\jasmine-3.4.0\boot.js" />
+    <Content Include="Testing\jasmine\lib\jasmine-3.4.0\jasmine-html.js" />
+    <Content Include="Testing\jasmine\lib\jasmine-3.4.0\jasmine.css" />
+    <Content Include="Testing\jasmine\lib\jasmine-3.4.0\jasmine.js" />
+    <Content Include="Testing\jasmine\lib\jasmine-3.4.0\jasmine_favicon.png" />
+    <Content Include="Testing\jasmine\lib\jasmine-3.4.0\mock-ajax.js" />
+    <Content Include="Testing\jasmine\SchoolPickerWizardSpecRunner.html" />
+    <Content Include="Testing\jasmine\SpecRunner.html" />
+    <Content Include="Testing\jasmine\spec\GlobalSpec.js" />
+    <Content Include="Testing\jasmine\spec\SchoolPickerGlobalSpec.js" />
+    <Content Include="Testing\jasmine\spec\WizardSpec.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Templates\QDF\Start.cshtml" />
+    <Content Include="Templates\Common\Components\FailedMatchReplacement.cshtml" />
+    <Content Include="Templates\Common\Components\SchoolPickerMatch.cshtml" />
+    <Content Include="Templates\Common\ProgramTemplateProgramDDLWithoutGroups.cshtml" />
+    <Content Include="Templates\Common\CCPAMessage.cshtml" />
+    <Content Include="Templates\Common\PrivacyPolicy.cshtml" />
+    <Content Include="Templates\WizardProfessionalBootstrap\ManagedChoice_Daisychain.cshtml" />
+    <Content Include="Templates\Common\ManagedChoiceSchoolsDaisyChain.cshtml" />
+    <Content Include="Templates\Common\ManagedChoiceDisclaimer.cshtml" />
+    <Content Include="Templates\ProgramWizard\ManagedChoice_Daisychain.cshtml" />
+    <Content Include="Templates\Common\QDFPluginQuestions.cshtml" />
+    <Content Include="Templates\QDFPlugin\Start.cshtml" />
+    <Content Include="Templates\Common\ManagedChoiceDaisyChainDisclaimer.cshtml" />
+    <Content Include="Templates\Common\ManagedChoiceDaisyChainSmartMatchDisclaimer.cshtml" />
+    <Content Include="Templates\Common\Components\SponsoredListingPopUp.cshtml" />
+    <Content Include="Templates\Common\ManagedChoiceDaisyChainPlainDisclaimer.cshtml" />
+    <Content Include="Templates\Common\ManagedChoiceDaisyChainPlainSmartMatchDisclaimer.cshtml" />
+    <Content Include="Templates\Common\ManagedChoiceSchoolsDaisyChainPlain.cshtml" />
+    <Content Include="Templates\WizardProfessionalBootstrap\ManagedChoice_DaisychainPlain.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\LeadEngine\EDDY.IS.LeadEngine-RF\EDDY.IS.LeadEngine.csproj">
+      <Project>{779e8cec-5404-4888-83ea-24cd543b63f6}</Project>
+      <Name>EDDY.IS.LeadEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDDY.IS.FormsEngine.Core\EDDY.IS.FormsEngine.Core.csproj">
+      <Project>{E08C3116-075D-4952-89CD-E1D964E8DF96}</Project>
+      <Name>EDDY.IS.FormsEngine.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDDY.IS.FormsEngine.Infastructure\EDDY.IS.FormsEngine.Infastructure.csproj">
+      <Project>{DFE966C6-601F-4A73-9B8C-12C0EF9FE0EF}</Project>
+      <Name>EDDY.IS.FormsEngine.Infastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDDY.IS.FormsEngine.RF\EDDY.IS.FormsEngine.csproj">
+      <Project>{f9fbfa65-b5bd-4cfd-ba12-5b2ee01e1c32}</Project>
+      <Name>EDDY.IS.FormsEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Original\FormTemplate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Original\CrossSellTemplate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Properties\PublishProfiles\Release.pubxml" />
+    <Content Include="Templates\WizardProfessional\Start.cshtml" />
+    <Content Include="Templates\WizardProfessional\ManagedChoice.cshtml" />
+    <Content Include="Templates\WizardProfessional\ThankYou.cshtml" />
+    <Content Include="Templates\WizardProfessional\NoMatch.cshtml" />
+    <Content Include="Templates\WizardPlain\ManagedChoice.cshtml" />
+    <Content Include="Templates\WizardPlain\NoMatch.cshtml" />
+    <Content Include="Templates\WizardPlain\Start.cshtml" />
+    <Content Include="Templates\WizardPlain\ThankYou.cshtml" />
+    <Content Include="Templates\WizardDrip\ManagedChoice.cshtml" />
+    <Content Include="Templates\WizardDrip\NoMatch.cshtml" />
+    <Content Include="Templates\WizardDrip\Start.cshtml" />
+    <Content Include="Templates\WizardDrip\ThankYou.cshtml" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\ManagedChoice.cshtml" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\NoMatch.cshtml" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\Start.cshtml" />
+    <Content Include="Templates\WizardCallCenterWhiteLabel\ThankYou.cshtml" />
+    <Content Include="Templates\WizardMobile\ManagedChoice.cshtml" />
+    <Content Include="Templates\WizardMobile\NoMatch.cshtml" />
+    <Content Include="Templates\WizardMobile\Start.cshtml" />
+    <Content Include="Templates\WizardMobile\ThankYou.cshtml" />
+    <Content Include="Templates\Common\WizardQuestions.cshtml" />
+    <Content Include="Templates\Common\AdditionalQuestions.cshtml" />
+    <Content Include="Templates\WizardDrip_RP\ManagedChoice.cshtml" />
+    <Content Include="Templates\WizardDrip_RP\NoMatch.cshtml" />
+    <Content Include="Templates\WizardDrip_RP\Start.cshtml" />
+    <Content Include="Templates\WizardDrip_RP\ThankYou.cshtml" />
+    <Content Include="Templates\WizardJobs\ManagedChoice.cshtml" />
+    <Content Include="Templates\WizardJobs\NoMatch.cshtml" />
+    <Content Include="Templates\WizardJobs\Start.cshtml" />
+    <Content Include="Templates\WizardJobs\ThankYou.cshtml" />
+    <Content Include="Templates\WizardJobs\StartHeader.cshtml" />
+    <Content Include="Templates\Common\ManagedChoiceGoogleTag.cshtml" />
+    <Content Include="Templates\Common\ThankYouGoogleTag.cshtml" />
+    <Content Include="Templates\Common\ProgramTemplateProgramDDL.cshtml" />
+    <Content Include="Templates\WizardProfessionalBootstrap\ManagedChoice.cshtml" />
+    <Content Include="Templates\WizardProfessionalBootstrap\NoMatch.cshtml" />
+    <Content Include="Templates\WizardProfessionalBootstrap\Start.cshtml" />
+    <Content Include="Templates\WizardProfessionalBootstrap\ThankYou.cshtml" />
+    <Content Include="Templates\ProgramWizard\ManagedChoice.cshtml" />
+    <Content Include="Templates\ProgramWizard\NoMatch.cshtml" />
+    <Content Include="Templates\ProgramWizard\Start.cshtml" />
+    <Content Include="Templates\ProgramWizard\ThankYou.cshtml" />
+    <Content Include="Templates\WizardProfessionalBootstrap\ManagedChoice_Alternative.cshtml" />
+    <Content Include="Templates\WizardProfessional\ManagedChoice_Alternative.cshtml" />
+    <Content Include="Testing\jasmine\MIT.LICENSE" />
+    <Content Include="Templates\SchoolPickerWizard\NoMatch.cshtml" />
+    <Content Include="Templates\SchoolPickerWizard\Start.cshtml" />
+    <Content Include="Templates\SchoolPickerWizard\ThankYou.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Templates\WizardCallCenterWhiteLabel\themes\common\" />
+    <Folder Include="Templates\WizardDrip\themes\common\" />
+    <Folder Include="Templates\WizardJobs\themes\common\" />
+    <Folder Include="Templates\WizardMobile\themes\common\" />
+    <Folder Include="Templates\WizardPlain\themes\common\" />
+    <Folder Include="Templates\WizardProfessional\themes\common\" />
+    <Folder Include="Views\WidgetSupport\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59955</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59955/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://localhost/EDDY.IS.FormsEngine.Service</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

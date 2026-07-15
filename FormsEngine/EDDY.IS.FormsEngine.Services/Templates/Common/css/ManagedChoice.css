@@ -1,0 +1,52 @@
+﻿/* Google maps */
+.directories-popup-holder{
+	clear:both;
+	position:absolute;
+	z-index:10;
+	top:250px;
+	display:none;
+	padding:5px 0;
+	background:#FFF;
+
+    width:500px;
+    height:400px;
+    left:200px;
+    -moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius: 6px;
+	border-radius: 6px;
+	box-shadow: 2px 2px 15px 0px #888;
+	-moz-box-shadow: 2px 2px 15px 0px #888;
+	-webkit-box-shadow: 2px 2px 15px 0px #888;
+}
+.directories-popup-holder #campus-school-name {
+        width:90%;
+        float:left;
+        margin:8px 5px 15px;
+        font-weight:bold;
+    }
+#pop-up-map{
+	width:490px;
+	height:360px;
+    margin:5px auto;
+}
+
+.directories-popup-holder .close{
+	float:right;
+	z-index:10;
+	text-align: center;
+	line-height: 110%;
+    font-size:130%;
+    margin:7px 10px auto auto;
+}
+.campus-colleges .directories-popup-holder .close{
+	display:none;
+}
+.directories-popup-holder .close a{
+	color:#8F8F8F;
+	text-decoration:none;
+    font-weight:bold;
+}
+.directories-popup-holder .campus-infowindow {
+	font-size:.8em;
+}

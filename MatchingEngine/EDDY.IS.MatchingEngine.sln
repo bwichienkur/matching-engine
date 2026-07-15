@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.5.11723.231 stable
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDDY.IS.MatchingEngine.Service", "EDDY.IS.MatchingEngine.Service\EDDY.IS.MatchingEngine.Service.csproj", "{639DC88C-58E1-41B8-A64E-905CAABE2607}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDDY.IS.MatchingEngine", "EDDY.IS.MatchingEngine\EDDY.IS.MatchingEngine.csproj", "{9E6C2295-406B-4CB7-9DA4-22E115E0D206}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDDY.IS.MatchingEngine.Logging", "EDDY.IS.MatchingEngine.Logging\EDDY.IS.MatchingEngine.Logging.csproj", "{12DAB4D9-B20D-4BAD-9F36-8D85C509C975}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDDY.IS.MatchingEngine.UnitTests", "EDDY.IS.MatchingEngine.UnitTests\EDDY.IS.MatchingEngine.UnitTests.csproj", "{763D917F-0F99-409C-9349-2F7798A60AA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDDY.IS.SEOAllocation.Console", "EDDY.IS.SEOAllocation.Console\EDDY.IS.SEOAllocation.Console.csproj", "{20EC80BD-153B-4E37-93B8-4E3BFE9CC339}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDDY.IS.MatchResponseReplay.Console", "EDDY.IS.MatchResponseReplay.Console\EDDY.IS.MatchResponseReplay.Console.csproj", "{57841C10-4382-46A8-850C-AA0A1EB6351A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9E6C2295-406B-4CB7-9DA4-22E115E0D206} = {9E6C2295-406B-4CB7-9DA4-22E115E0D206}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{639DC88C-58E1-41B8-A64E-905CAABE2607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{639DC88C-58E1-41B8-A64E-905CAABE2607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{639DC88C-58E1-41B8-A64E-905CAABE2607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{639DC88C-58E1-41B8-A64E-905CAABE2607}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E6C2295-406B-4CB7-9DA4-22E115E0D206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E6C2295-406B-4CB7-9DA4-22E115E0D206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E6C2295-406B-4CB7-9DA4-22E115E0D206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E6C2295-406B-4CB7-9DA4-22E115E0D206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12DAB4D9-B20D-4BAD-9F36-8D85C509C975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12DAB4D9-B20D-4BAD-9F36-8D85C509C975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12DAB4D9-B20D-4BAD-9F36-8D85C509C975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12DAB4D9-B20D-4BAD-9F36-8D85C509C975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{763D917F-0F99-409C-9349-2F7798A60AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{763D917F-0F99-409C-9349-2F7798A60AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{763D917F-0F99-409C-9349-2F7798A60AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{763D917F-0F99-409C-9349-2F7798A60AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20EC80BD-153B-4E37-93B8-4E3BFE9CC339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20EC80BD-153B-4E37-93B8-4E3BFE9CC339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20EC80BD-153B-4E37-93B8-4E3BFE9CC339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20EC80BD-153B-4E37-93B8-4E3BFE9CC339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57841C10-4382-46A8-850C-AA0A1EB6351A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57841C10-4382-46A8-850C-AA0A1EB6351A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57841C10-4382-46A8-850C-AA0A1EB6351A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57841C10-4382-46A8-850C-AA0A1EB6351A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7091D31-6810-430D-8154-C5C87927410D}
+	EndGlobalSection
+EndGlobal

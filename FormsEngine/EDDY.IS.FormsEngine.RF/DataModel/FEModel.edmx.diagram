@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2d82a879c8144e2f9160d6c8c4234289" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="FEModel.SubmissionDetail" Width="2.125" PointX="11" PointY="12.875" />
+        <EntityTypeShape EntityType="FEModel.SubmissionDetailAdditional" Width="2.125" PointX="11" PointY="15.5" />
+        <EntityTypeShape EntityType="FEModel.SubmissionMatchResponse" Width="2.125" PointX="11" PointY="18.25" />
+        <EntityTypeShape EntityType="FEModel.SubmissionValidationError" Width="2.25" PointX="8.125" PointY="20.5" />
+        <EntityTypeShape EntityType="FEModel.ErrorCode" Width="1.5" PointX="0.75" PointY="18.125" />
+        <EntityTypeShape EntityType="FEModel.ErrorMessage" Width="1.5" PointX="6" PointY="17" />
+        <EntityTypeShape EntityType="FEModel.ResourceMetaData" Width="2.75" PointX="12.375" PointY="3.75" />
+        <EntityTypeShape EntityType="FEModel.StandardControl" Width="2.25" PointX="3.75" PointY="5.75" />
+        <EntityTypeShape EntityType="FEModel.StandardControlCode" Width="2.25" PointX="0.5" PointY="6.5" />
+        <EntityTypeShape EntityType="FEModel.StandardControlCodeFilter" Width="3" PointX="0.5" PointY="10.625" />
+        <EntityTypeShape EntityType="FEModel.StandardControlDataType" Width="2.125" PointX="0.625" PointY="15.375" />
+        <EntityTypeShape EntityType="FEModel.StandardControlType" Width="1.875" PointX="3.375" PointY="12.75" />
+        <EntityTypeShape EntityType="FEModel.StandardControlValidation" Width="2.125" PointX="6.875" PointY="6.875" />
+        <EntityTypeShape EntityType="FEModel.Template" Width="1.5" PointX="6" PointY="22.25" />
+        <EntityTypeShape EntityType="FEModel.TemplateAssignment" Width="2" PointX="8.25" PointY="22.875" />
+        <EntityTypeShape EntityType="FEModel.TemplateControl" Width="2.25" PointX="9.375" PointY="6" />
+        <EntityTypeShape EntityType="FEModel.TemplateControlDefault" Width="2.125" PointX="12.375" PointY="7" />
+        <EntityTypeShape EntityType="FEModel.TemplateSection" Width="2.375" PointX="7.375" PointY="1.375" />
+        <EntityTypeShape EntityType="FEModel.TemplateStep" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FEModel.TemplateType" Width="2.125" PointX="3.375" PointY="22.75" />
+        <EntityTypeShape EntityType="FEModel.ValidationLibrary" Width="2" PointX="3" PointY="17.75" />
+        <EntityTypeShape EntityType="FEModel.ValueList" Width="1.5" PointX="0.625" PointY="22.5" />
+        <AssociationConnector Association="FEModel.FK_ErrorMessage_ErrorCode" />
+        <AssociationConnector Association="FEModel.FK_ValidationLibrary_ErrorCode" />
+        <AssociationConnector Association="FEModel.FK_ErrorMessage_StandardControlType" />
+        <AssociationConnector Association="FEModel.FK_TemplateTypeId_TemplateType" />
+        <AssociationConnector Association="FEModel.FK_StandardControl_StandardControlCode" />
+        <AssociationConnector Association="FEModel.FK_StandardControl_StandardControlDataType" />
+        <AssociationConnector Association="FEModel.FK_StandardControl_StandardControlType" />
+        <AssociationConnector Association="FEModel.FK_StandardControlValidation_StandardControl" />
+        <AssociationConnector Association="FEModel.FK_TemplateControl_StandardControl" />
+        <AssociationConnector Association="FEModel.FK_StandardControlCodeFilter_StandardControlCode" />
+        <AssociationConnector Association="FEModel.FK_StandardControlCodeFilter_StandardControlCodeFilter" />
+        <AssociationConnector Association="FEModel.FK_StandardControlValidation_ValidationLibrary" />
+        <AssociationConnector Association="FEModel.FK_Template_TemplateType" />
+        <AssociationConnector Association="FEModel.FK_TemplateAssignment_Template" />
+        <AssociationConnector Association="FEModel.FK_TemplateControl_Template" />
+        <AssociationConnector Association="FEModel.FK_TemplateStep_Template" />
+        <AssociationConnector Association="FEModel.FK_TemplateControl_TemplateSection" />
+        <AssociationConnector Association="FEModel.FK_TemplateControlDefault_TemplateControl" />
+        <AssociationConnector Association="FEModel.FK_TemplateSection_TemplateStep" />
+        <AssociationConnector Association="FEModel.FK_SubmissionDetail_StandardControlCode" />
+        <EntityTypeShape EntityType="FEModel.ProgramTemplateMessage" Width="3.25" PointX="15" PointY="2.375" />
+        <EntityTypeShape EntityType="FEModel.HTMLRenderingStrategy" Width="2.25" PointX="11.875" PointY="26.125" />
+        <EntityTypeShape EntityType="FEModel.HTMLRenderingStrategyAssignment" Width="2" PointX="9" PointY="26.625" />
+        <AssociationConnector Association="FEModel.FK_HTMLRenderingStrategyAssignment_HTMLRenderingStrategy" />
+        <AssociationConnector Association="FEModel.FK_HTMLRenderingStrategyAssignment_TemplateType" />
+        <EntityTypeShape EntityType="FEModel.PreDefinedValueList" Width="1.5" PointX="0.75" PointY="18" />
+        <AssociationConnector Association="FEModel.FK_StandardControl_PreDefinedValueList" />
+        <AssociationConnector Association="FEModel.FK_ValueList_PreDefinedValueList" />
+        <EntityTypeShape EntityType="FEModel.VW_ProgramProductTemplate" Width="2.625" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FEModel.SubmissionLeadScoringResponse" Width="1.5" PointX="11" PointY="23.25" />
+        <EntityTypeShape EntityType="FEModel.StandardControlGroup" Width="2.375" PointX="10.625" PointY="0.625" />
+        <AssociationConnector Association="FEModel.FK_TemplateSection_StandardControlGroup" />
+        <EntityTypeShape EntityType="FEModel.TemplateApplicationOverride" Width="1.5" PointX="7.375" PointY="11.75" />
+        <EntityTypeShape EntityType="FEModel.VW_EMSInstitutionTCPAMessages" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="FEModel.Campaign" Width="1.5" PointX="14.375" PointY="10.75" />
+        <EntityTypeShape EntityType="FEModel.KVCode" Width="1.5" PointX="16.375" PointY="7.5" />
+        <EntityTypeShape EntityType="FEModel.KVCodeData" Width="1.5" PointX="18.625" PointY="7" />
+        <AssociationConnector Association="FEModel.FK_KVCodeData_KVCode" />
+        <EntityTypeShape EntityType="FEModel.ProgramLevel" Width="1.5" PointX="16.375" PointY="11.75" />
+        <EntityTypeShape EntityType="FEModel.Submission" Width="1.5" PointX="8.125" PointY="15" />
+        <AssociationConnector Association="FEModel.FK__Submissio__Submi__1DC909D8" />
+        <AssociationConnector Association="FEModel.FK_SubmissionDetail_Submission" />
+        <AssociationConnector Association="FEModel.FK_SubmissionDetailAdditional_Submission" />
+        <AssociationConnector Association="FEModel.FK_SubmissionLeadScoringResponse_Submission" />
+        <AssociationConnector Association="FEModel.FK_SubmissionMatchResponse_Submission" />
+        <EntityTypeShape EntityType="FEModel.VW_ProspectResubmissions" Width="1.5" PointX="16.375" PointY="16.75" />
+        <EntityTypeShape EntityType="FEModel.OpenMailProfile" Width="1.5" PointX="3" PointY="31" />
+        <EntityTypeShape EntityType="FEModel.OpenMailRule" Width="1.5" PointX="0.5" PointY="30.75" />
+        <AssociationConnector Association="FEModel.FK_OpenMailRule_OpenMailProfile" />
+        <AssociationConnector Association="FEModel.FK_OpenMailRule_StandardControlCode" />
+        <AssociationConnector Association="FEModel.FK_Campaign_OpenMailProfile" />
+        <EntityTypeShape EntityType="FEModel.VW_LandingPageSettings" Width="1.5" PointX="18.375" PointY="11.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

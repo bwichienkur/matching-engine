@@ -1,0 +1,333 @@
+﻿@charset "utf-8";
+
+/* EZ CUSTOM CHECK BUTTONS */
+.ez-hide { filter: alpha(opacity=0); opacity: 0; }
+.ez-checkbox { background-attachment: scroll; background-clip: border-box; background-color: transparent; background-image: url("[SERVER]/images/checkbox_green_sm.png"); background-origin: padding-box; background-position: 0 1px; background-repeat: no-repeat; background-size: auto auto; display: inline-block; float: left; height: 16px; width: 16px; }
+.ez-checked { background-position: 0 -15px; }
+.ez-checkbox input { cursor: pointer; height: 20px; width: 16px; }
+.ez-selected { background-position: 0 -15px; }
+.ez-checkbox-big { background-attachment: scroll; background-clip: border-box; background-color: transparent; background-image: url("[SERVER]/images/checkbox_green_big.png"); background-origin: padding-box; background-position: 0 1px; background-repeat: no-repeat; background-size: auto auto; display: inline-block; float: left; height: 32px; width: 32px; }
+.ez-radio { background-attachment: scroll; background-clip: border-box; background-color: transparent; background-image: url("[SERVER]/images/radio_green_big.png"); background-origin: padding-box; background-position: 0 1px; background-repeat: no-repeat; background-size: auto auto; display: inline-block; float: left; height: 32px; width: 32px; }
+.ez-checkbox-big input { width:30px; height:32px; cursor:pointer; }
+.ez-checked-big { background-position: 0 -30px; }
+
+/* FORM LABELS */
+.compactlabel-wrapper { display: inline-block; position: relative; float:left; }
+.compactlabel-wrapper-on { z-index: 5; }
+.compactlabel-wrapper label { position: absolute; z-index: 4; }
+.compactlabel-wrapper label.compactlabel-hide { z-index: 2; }
+.compactlabel-wrapper input { position: relative; z-index: 3; }
+.compactlabel-label-backing { position: absolute; z-index: 1; }
+
+/* personalized styles */
+.compactlabel-label-backing { padding: 2px 3px 4px 3px; border-style: solid; border-width: 1px 1px 0 1px; -moz-border-radius-top: 3px; border-radius: 3px; background-color: #fff5c9; box-shadow: inset 0px 0px 14px #FFF; -moz-box-shadow: inset 0px 0px 14px #FFF; -webkit-box-shadow: inset 0px 0px 14px #FFF; -webkit-transition: 1s background-color; color: #CCC; }
+.compactlabel-wrapper label { color: #999; padding: 8px 3px 3px 6px; }
+.compactlabel-wrapper-on,  .compactlabel-wrapper-on .compactlabel-label-backing { -moz-box-shadow: #ffcd77 0 0 5px; -webkit-box-shadow: #ffcd77 0 0 5px; box-shadow: #ffcd77 0 0 5px; }
+
+/* Selectmenu
+----------------------------------*/
+.ui-selectmenu { display: inline-block; position: relative; height: 1.7em; vertical-align: middle; text-decoration: none; overflow: hidden; zoom: 1; font-size:14px; padding: .4em .045em 0 .5em; float:left; }
+.eddy-form-wizard-container-jqueryui .ui-selectmenu-icon { position:absolute; right:6px; width:30px; height:23px; margin-top:-12px; top: 50%; background:url([SERVER]/images/droparrow.png) !important }
+.ui-selectmenu-menu { padding:0; margin:0; list-style:none; position:absolute; top: 0; display: none; overflow: auto; z-index: 1005; } /* z-index: 1005 to make selectmenu work with dialog */
+.ui-selectmenu-open { display: block; }
+.ui-selectmenu-menu-popup { margin-top: -1px; }
+.ui-selectmenu-menu-dropdown { }
+.ui-selectmenu-menu li { padding:0; margin:0; display: block; border-top: 1px dotted transparent; border-bottom: 1px dotted transparent; border-right-width: 0 !important; border-left-width: 0 !important; font-weight: normal !important; font-size:13px }
+.ui-selectmenu-menu li a, .ui-selectmenu-status { line-height: 1.4em; display: block; padding:2px; outline:none; text-decoration:none; color:#494949 }
+.ui-selectmenu-menu li.ui-state-disabled a { cursor: default; }
+.ui-selectmenu-menu li.ui-selectmenu-hasIcon a, .ui-selectmenu-hasIcon .ui-selectmenu-status { padding-left: 20px; position: relative; margin-left: 5px; }
+.ui-selectmenu-menu li .ui-icon, .ui-selectmenu-status .ui-icon { position: absolute; top: 1em; margin-top: -8px; left: 0; }
+.ui-selectmenu-status { line-height: 1.1em; font-size:14px }
+.ui-selectmenu-open li.ui-selectmenu-item-focus a { }
+.ui-selectmenu-open li.ui-selectmenu-item-selected { }
+.ui-selectmenu-menu li span, .ui-selectmenu-status span { display:block; margin-bottom: .2em; }
+.ui-selectmenu-menu li .ui-selectmenu-item-header { font-weight: bold; }
+.ui-selectmenu-menu li .ui-selectmenu-item-content { }
+.ui-selectmenu-menu li .ui-selectmenu-item-footer { opacity: .8; }
+/* for optgroups */
+.eddy-form-wizard-container-jqueryui .ui-selectmenu-menu .ui-selectmenu-group { font-size: 1em; }
+.eddy-form-wizard-container-jqueryui .ui-selectmenu-menu .ui-selectmenu-group .ui-selectmenu-group-label { line-height: 1.4em; display:block; padding: .6em .5em 0; font-weight: bold; }
+.eddy-form-wizard-container-jqueryui .ui-selectmenu-menu .ui-selectmenu-group ul { margin: 0; padding: 0; }
+/* IE6 workaround (dotted transparent borders) */
+* html .ui-selectmenu-menu li { border-color: pink; filter:chroma(color=pink); width:100%; }
+* html .ui-selectmenu-menu li a { position: relative }
+
+/* HACK TO MAKE jQuery UI Optional - Helen to clean up */
+.eddy-form-wizard-container-jqueryui .field-holder {
+    margin: 0 auto 1.5em;
+    float:left;
+    /*min-height: 30px;*/
+    padding: 2px;
+    width:100%;
+}
+
+.eddy-form-wizard-container-jqueryui .field-holder label{
+		margin: 0 8px 1em 0;
+	}
+
+.eddy-form-wizard-container-jqueryui .field-holder select,
+	.eddy-form-wizard-container-jqueryui .field-holder input{		
+     background:none;
+	padding: 8px 8px 6px;
+    float:left;
+}
+
+.eddy-form-wizard-container-jqueryui .field-holder input{
+        border-radius:4px;
+	}
+
+.eddy-form-wizard-container-jqueryui .field-holder select{
+    min-width:112px;
+}
+
+.eddy-form-wizard-container-jqueryui .field-holder input[type='checkbox']{
+	vertical-align:middle;
+}
+
+.eddy-form-wizard-container-jqueryui .field-holder .field-holder-group li{
+	width:48%;
+	margin:0 0 5px;
+	display:inline-block;
+	vertical-align:top;
+	width:49%;
+	margin:3px 0;
+	/*line-height: 10%\9;*/
+	*display:inline;
+	*float:left;		
+	*width:47%;
+}
+
+.selected-checkbox{
+    font-weight:bold;
+}
+
+.eddy-form-wizard-container-jqueryui .field-holder .field-holder-group label{
+		margin:0;
+		width:75%;
+        vertical-align:middle;
+	}
+
+.eddy-form-wizard-container-jqueryui label.error {
+    clear:both;
+    margin-bottom:0 !important;
+}
+
+.eddy-form-wizard-container-jqueryui .field-holder.radio label {
+    margin: 8px 10px 2px 0;
+    float:left;
+}
+
+
+/*Fix jQuery UI conflict*/
+.eddy-form-wizard-container-jqueryui .field-holder a.ui-selectmenu {
+    text-decoration:none;
+}
+.eddy-form-wizard-container-jqueryui .field-holder .field-holder-group .ez-checkbox-big,
+.eddy-form-wizard-container-jqueryui .field-holder .field-holder-group .ez-checkbox {
+    margin-right:5px;
+}
+
+.eddy-form-wizard-container-jqueryui .field-holder .ez-radio input{
+    width:32px;
+    height:32px;
+}
+.eddy-form-wizard-container-jqueryui .field-holder .ez-radio label.error {
+    position:absolute;
+    left:0;
+    bottom:-12px;
+}
+
+.eddy-form-wizard-container-jqueryui .field-holder .ui-selectmenu {
+    /*float:none;*/
+    margin-bottom:.3em;
+    margin-left:0;
+}
+.eddy-form-wizard-container-jqueryui .field-holder .ez-radio-big { background-position: 0 -30px; }
+
+.valid { float:left; background:url([SERVER]/images/validCheck.png) top center no-repeat; width:24px; height:22px; position:relative; top:0; margin:0 0 0 5px; }
+.invalid { float:left; background:url([SERVER]/images/invalidCheck.png) top center no-repeat; width:24px; height:22px; position:relative; top:0; margin:0 0 0 5px; }
+
+/*********************************************** End of Basic CSS for Professional Blue *************************/
+
+
+.eddy-form-wizard-container-jqueryui .field-holder.Categories .field-holder-group input[type='checkbox'] {
+        width:32px;
+        height:32px;
+    }
+    .eddy-form-wizard-container-jqueryui .field-holder.Categories .field-holder-group label {
+        margin-top:7px;
+    }
+
+.eddy-form-wizard-container-jqueryui .field-holder div.valid,
+.eddy-form-wizard-container-jqueryui .field-holder div.invalid {
+    display:inline-block;
+    top:4px;
+}
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .steps[data-title=DynamicQuestions] .field-holder fieldset legend,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .steps[data-title=DynamicQuestions] .field-holder label { /* ":not " not working in < IE8 */
+        float:none;
+    }
+
+    .eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .steps[data-title=DynamicQuestions] .field-holder label[for*=_Yes],
+    .eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .steps[data-title=DynamicQuestions] .field-holder label[for*=_No] {
+        float:left;
+    }
+
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.State,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Country,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.First_Name,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Last_Name {
+    clear:none;
+}
+
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Phone label,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Alternate_Phone label {
+    width: 110px;
+}
+    .eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.HaveTransferCredits fieldset,
+    .eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.us_citizen fieldset,
+    .eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.ECMilitaryRadio fieldset,
+    .eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder[data-controlcode=UserAgreement] fieldset{
+        width:88%;
+        float:left;
+    }
+
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.HaveTransferCredits fieldset legend,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.us_citizen fieldset legend,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.ECMilitaryRadio fieldset legend {
+    width:59%;
+}
+
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.BestTimeToContact select,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Desired_Start_Date select,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.EmploymentStatus select{
+    width:175px;
+}
+
+.eddy-form-wizard-container-jqueryui .field-holder.BestTimeToContact a.ui-selectmenu,
+.eddy-form-wizard-container-jqueryui .field-holder.Desired_Start_Date a.ui-selectmenu,
+.eddy-form-wizard-container-jqueryui .field-holder.EmploymentStatus a.ui-selectmenu{
+    width: 170px !important;
+    float:none;
+}
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Military_Affiliation label {
+    width:36%;
+}
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Military_Affiliation select {
+    width:185px;
+}
+
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Military_Affiliation a.ui-selectmenu {
+    width: 180px !important;
+    float:none;
+}
+
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.BestTimeToContact div.valid,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.BestTimeToContact div.invalid,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Desired_Start_Date div.valid,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Desired_Start_Date div.invalid,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.EmploymentStatus div.valid,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.EmploymentStatus div.invalid,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Military_Affiliation div.valid,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Military_Affiliation div.invalid,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.DynamicCampusSoftPreference div.valid,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.DynamicCampusSoftPreference div.invalid{
+    float:none;
+} 
+
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui  .field-holder.DynamicCampusSoftPreference select {
+    width:115px;
+}
+
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui  .field-holder.DynamicCampusSoftPreference a.ui-selectmenu {
+    width:110px !important;
+    float:none;
+}
+
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Prefix select{
+    width:110px;
+}
+
+.eddy-form-wizard-container-jqueryui .field-holder.Prefix a.ui-selectmenu {
+    width:105px !important;
+}
+.eddy-form-wizard-container-jqueryui .field-holder.Military_Affiliation label {
+    width:28%;
+}
+
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.City input,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Postal_Code_Duplicate input {
+    width:65%;
+}
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Email input {
+       width:81%;
+}
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.State select,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Country select {
+    width:190px;
+
+}
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.State a.ui-selectmenu,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Country a.ui-selectmenu {
+    width:182px !important;
+}
+
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.First_Name,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Last_Name{
+	display:inline-block;
+    width:47%;
+}
+    .eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.First_Name input,
+    .eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Last_Name input {
+        width:71%;
+    }
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.City,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Postal_Code_Duplicate {
+    display:inline-block;
+    width:39%;
+}
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.Country,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder.State {
+    display:inline-block;
+    width:58%;
+}
+
+    .eddy-form-wizard-container-jqueryui .field-holder.Phone div.invalid, 
+    .eddy-form-wizard-container-jqueryui .field-holder.Phone div.valid,
+    .eddy-form-wizard-container-jqueryui .field-holder.Alternate_Phone div.invalid,
+    .eddy-form-wizard-container-jqueryui .field-holder.Alternate_Phone div.valid {
+        float:none;
+    }
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder .replace_Phone,
+.eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .field-holder .replace_Alternate_Phone {
+    width:40px;
+    float:none;
+}
+
+ .eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .steps[data-title="DynamicQuestions"] .field-holder select {
+        width:125px;
+    }
+    .eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .steps[data-title="DynamicQuestions"] .field-holder .ui-selectmenu {
+        width:120px !important;
+    }
+    .eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .steps[data-title="DynamicQuestions"] .field-holder.radio div.valid,
+    .eddy-form-wizard-container.eddy-form-wizard-container-jqueryui .steps[data-title="DynamicQuestions"] .field-holder.radio div.invalid {
+        position: absolute;
+        bottom: 6px;
+        left: 120px;        
+        top: auto;
+    }
+
+
+.eddy-form-wizard-container-jqueryui .field-holder[data-controlcode=UserAgreement] .ez-checkbox {
+    width:auto;
+    height:auto;
+    min-height:16px;
+}
+.eddy-form-wizard-container-jqueryui .field-holder .ez-checked {
+    background-position:0 -64px;
+}
+.eddy-form-wizard-container-jqueryui .field-holder[data-controlcode=UserAgreement] div.valid,
+.eddy-form-wizard-container-jqueryui .field-holder[data-controlcode=UserAgreement] div.invalid {
+    float:none;
+}

@@ -1,0 +1,125 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.ThankYouModel>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> 
+<script src="@(Url.Action("GetJs", "Static", new { BasePath = "Common", FileName="thankyou", CompressJs= false }, Url.RequestContext.HttpContext.Request.Url.Scheme))" type="text/javascript"></script>
+
+<!-- START ThankYou Google Tag Events-->
+@System.Web.Mvc.Html.PartialExtensions.Partial(this.Html, "~/Templates/Common/ThankYouGoogleTag.cshtml", this.Model.UserSelectionProgramIdList)
+<!-- END ThankYou Google Tag Events-->
+
+<!-- START Image Check -->
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('.school-logo').checkImages();
+    });
+</script>
+<!-- END Image Check -->
+
+
+<div class="eddy-form-wizard-container pie">
+	<div id="eddy-form-wizard-thankyou-header" class="eddy-form-wizard-header pie">
+		<div class="start-now"><p>START NOW!</p></div>
+		<div class="wizard-header-content">
+			<div class="progress">
+				<span>PROGRESS</span>
+				<div class="progress-bar clearfix pie">
+					<div class="progress-bar-inside"></div>
+					<div class="progress-bar-number">100%</div>
+				</div>
+			</div>
+		<p></p>
+		</div>
+	</div><!-- end of #eddy-form-wizard-header -->
+	<div class="eddy-form-wizard-body">
+		<div-- class="steps thank-you-page" id="thank-you-page">
+			<div class="thank-you-page-message">
+				<h2>Thanks @Model.UserFullName for letting us help you take the first step in your educational journey!</h2>
+                @if (Model.SubmissionsFailed)
+                {
+                    <p>Unfortunately we are unable to match you to one or more of the programs you requested.<br /><br />Your information has been sent to:</p>
+                }
+                else
+                {
+                    <p>Your information has been sent to:</p>
+                }
+			
+			</div>
+                       
+			<div class="image-text-group">								
+				<ul class="image-text">
+                    @{
+                        string show_campus_program = "display:none;";
+                        string addLogoStyle = "";
+
+                        if (Model.Theme == "alternative")
+                        {
+                            show_campus_program = "display:table;";
+                            addLogoStyle = "school-logo-alternative";
+                        }
+                        var i = 0;
+                        var j = 0;
+                        string addClear = "";
+                    }
+
+                        @if(Model.OnlineCampuses.Count>0)
+                        {
+                        foreach(var Campus in Model.OnlineCampuses)
+                        {
+                            i = i + 1;
+                            addClear = ((i % 4) == 0) ? "clearfix" : "";
+						        
+                            if (Campus.ShowLogo)
+                            {
+                                <li class="campus-info-section @addClear">
+                                    <div class="school-logo vertical-center @addLogoStyle"  data-src="@Campus.Logo" data-src-name="@Campus.CampusName">
+                                        <img src="" />
+                                    </div>
+                                    <div class="campus-program-name" style="@show_campus_program">
+                                        <i class="campusFlagIcon onlineCampusFlagIcon fa fa-laptop"></i>
+                                        <span class="school-name">@Campus.CampusName</span>
+                                        <span class="program-name">@Campus.ProgramName</span>
+                                    </div>
+                                </li>
+                            }
+
+                            }
+                        }
+
+                    @if(Model.GroundCampuses.Count>0)
+                    {
+                        j = i;
+                        foreach (var Campus in Model.GroundCampuses)
+                        {
+                            if (Campus.ShowLogo)
+                            {
+                                j = j + 1;
+                                addClear = ((i % 4) == 0) ? "clearfix" : "";
+                                <li class="campus-info-section @addClear">
+                                    <div class="school-logo vertical-center @addLogoStyle"  data-src="@Campus.Logo" data-src-name="@Campus.CampusName">
+                                        <img src="" />
+                                    </div>
+                                    <div class="campus-program-name" style="@show_campus_program">
+                                        <i class="campusFlagIcon groundCampusFlagIcon fa fa-university"></i>
+                                        <span class="school-name">@Campus.CampusName</span>
+                                        <span class="program-name">@Campus.ProgramName</span>
+                                    </div>
+                                </li>
+                            }
+
+                        }
+                    }
+				</ul>				
+			</div>
+            
+
+            <div id="info-popup" class="popup-info hide">Description GOES HERE!</div>
+		</div>
+        <div class="eddy-form-wizard-footer clearfix">
+            <a href="javascript:FormsEngine.LoadWorkflowStep('START','');">
+                <div class="form-submit-button previous clearfix" id="form-navback-button" >
+				    <span>BACK</span>
+                </div>
+            </a>
+		</div><!-- end of #eddy-form-footer -->
+	</div><!-- end of ##eddy-form-wizard-body -->
+</div><!-- end of #eddy-form-wizard-container -->
+<!-- LeadList: @(Model.LeadList) -->

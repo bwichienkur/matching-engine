@@ -1,0 +1,392 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.ManagedChoiceModel>
+@using EDDY.IS.FormsEngine.Services.Controllers.Common
+
+
+@{
+    #region data logic
+
+    #region set data values specific to this rendering strategy (UI)
+
+    int RSMaxSchoolNameLength = 40;
+    int RSMaxSchoolDescriptionLength = 170;
+    // messages
+
+    string USERSELECT_HEADER_MESSAGE_1 = Model.GetResourceMetaDataText("VIEW.USERSELECT_HEADER_MESSAGE_DAISYCHAIN");
+    string SPONSORED_LISTINGS_TEXT = Model.GetResourceMetaDataText("VIEW.SPONSORED_LISTINGS_TEXT");
+    string DISCLAIMER_REFERENCE = Model.GetResourceMetaDataText("VIEW.DISCLAIMER_REFERENCE");
+    string DISCLAIMER_REFERENCE_LINK = Model.GetResourceMetaDataText("VIEW.DISCLAIMER_REFERENCE_LINK");
+    string EXPRESS_CONSENT_MESSAGE = Model.GetResourceMetaDataText("VIEW.EXPRESS_CONSENT_MESSAGE");
+    string PROGRAM_START_DATE_MESSAGE = Model.GetResourceMetaDataText("VIEW.PROGRAM_START_DATE_MESSAGE");
+    string US_CONSENT_VALIDATION_MSG = Model.GetResourceMetaDataText("VIEW.US_CONSENT_VALIDATION_MSG");
+    string EXPRESS_CONSENT_UNIFIED = Model.GetResourceMetaDataText("JS.WIZARD.USERAGREEMENT_UNIFIED");
+    #endregion
+
+    #region set other data points
+    string usHeaderText;
+    #endregion
+
+    #region determine data for this rendering strategy
+
+    // header text start
+    //usHeaderText = string.Format(USERSELECT_HEADER_MESSAGE_1, 1, Model.SchoolSelectionList.Count, Model.MaxManagedChoiceUserSelections);
+    usHeaderText = USERSELECT_HEADER_MESSAGE_1;
+    #endregion
+
+    #endregion
+
+}
+
+<!-- START Image Check -->
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('.school-logo').checkImages();
+        FormsEngine.SchoolSelectionTotalSchools = @(Model.SchoolSelectionList.Count);
+        FormsEngine.DaisyHeader = "@(string.Format(USERSELECT_HEADER_MESSAGE_1, "@@SCHOOL@@", Model.SchoolSelectionList.Count, Model.MaxManagedChoiceUserSelections))";
+        FormsEngine.AnySchoolSubmitted = @(Model.HasSmartMatchPrograms?"true":"false");
+    });
+</script>
+<!-- END Image Check -->
+
+<form id="eddynexusform-wizard-managedchoice" class="eddynexusform" name="eddynexusform-wizard-managedchoice" data-tf-element-role="offer">
+    <!-- Begin US Area -->
+    @{
+        if (Model.HasUserSelectPrograms)
+        {
+            <div id="mc-US-Area" class="mc-US-Area">
+
+                <div class="mc-US-Message">
+                    <h2 id="mc-US-GenericMessage" class="userselect_header_message"></h2>
+                </div>
+
+                <div id="mc-US-Message" class="mc-US-Message form-page-step-message">
+                    @if (!string.IsNullOrEmpty(Model.ProgramWizardMessage))
+                    {
+                        <h2 class="userselect_header_message" id="ProgramWizardMessage">@Model.ProgramWizardMessage</h2>
+                    }
+                    @if (!string.IsNullOrEmpty(usHeaderText))
+                    {
+                        <h2 class="userselect_header_message" id="DaisyHeader">@usHeaderText</h2>
+                    }
+                </div>
+
+                <div class="sponsored_listings text-right"><em>@SPONSORED_LISTINGS_TEXT</em></div>
+                <div id="mc-US-Display" class="mc-US-Display">
+                    @{
+                        List<int?> programTemplateIds = new List<int?>();
+                        int SchoolCount = 0;
+                        foreach (var school in Model.SchoolSelectionList)
+                        {
+                            SchoolCount++;
+                            //prepare data before using in UI - START
+                            // school name
+                            // copied from EddyForms CrossSell - if the prog name is longer than the rendering strategy’s program name area can support, use breadcrumbs for the name
+                            string schoolNameShort = school.InstitutionName;
+                            if (schoolNameShort.Length > RSMaxSchoolNameLength)
+                            {
+                                if (schoolNameShort.Substring(RSMaxSchoolNameLength, 1) == " ") // if at the max length it ends with a space, just append ...
+                                {
+                                    schoolNameShort = schoolNameShort.Substring(0, RSMaxSchoolNameLength) + "...";
+                                }
+                                else
+                                {
+                                    int endPosition = schoolNameShort.LastIndexOf(' ', RSMaxSchoolNameLength);
+                                    schoolNameShort = schoolNameShort.Substring(0, endPosition + 1) + "...";
+                                }
+                            }
+
+                            // school description
+                            // copied from EddyForms CrossSell - if the prog name is longer than the rendering strategy’s program name area can support, use breadcrumbs for the name
+                            string schoolDescriptionShort = school.InstitutionDescription;
+                            if (schoolDescriptionShort.Length > RSMaxSchoolDescriptionLength)
+                            {
+                                if (schoolDescriptionShort.Substring(RSMaxSchoolDescriptionLength, 1) == " ") // if at the max length it ends with a space, just append ...
+                                {
+                                    schoolDescriptionShort = schoolDescriptionShort.Substring(0, RSMaxSchoolDescriptionLength) + "...";
+                                }
+                                else
+                                {
+                                    int endPosition = schoolDescriptionShort.LastIndexOf(' ', RSMaxSchoolDescriptionLength);
+                                    schoolDescriptionShort = schoolDescriptionShort.Substring(0, endPosition + 1) + "...";
+                                }
+                            }
+
+                            // logo
+                            string logoFullURL = !string.IsNullOrEmpty(school.CampusLogoURL) ?
+                                  Model.EddyLogos.EddyLogoImagePathDomain + school.CampusLogoURL.Replace("{FILENAME}", string.Format(Model.EddyLogos.EddyLogoImageFileName, Model.EddyLogos.EddyLogoImageSizeSmall)) :
+                                  Model.EddyLogos.EddyLogoImagePathDomain + school.InstitutionLogoURL.Replace("{FILENAME}", string.Format(Model.EddyLogos.EddyLogoImageFileName, Model.EddyLogos.EddyLogoImageSizeSmall));
+
+                            // ground campus flag
+                            bool isGroundCampus = (school.CampusType.ToString().ToLower() == "ground") ? true : false;
+                            string campusTypeFlagCssClass = (school.CampusType.ToString().ToLower() == "ground") ? "groundcampusflag" : "onlinecampusflag";
+                            string institutionDescription = school.InstitutionDescription;
+
+                            string startDate = string.Empty;
+                            if (school.StartDateList != null)
+                            {
+                                if (school.StartDateList.Length > 0)
+                                {
+                                    List<DateTime> dateList = school.StartDateList.Select(dt => DateTime.Parse(dt)).ToList();
+                                    List<DateTime> futureDateList = dateList.Where(dt => dt >= DateTime.Today).ToList();
+                                    if (futureDateList != null)
+                                    {
+                                        if (futureDateList.Count > 0)
+                                        {
+                                            if (futureDateList.FirstOrDefault() != null)
+                                            {
+                                                DateTime startDateTime = futureDateList.FirstOrDefault();
+
+                                                startDate = string.Format(PROGRAM_START_DATE_MESSAGE, startDateTime.ToString("MMMM dd, yyyy"));
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+
+                            //prepare data before using in UI - END
+                            <div name="mc-us-schoolcontainer" class="mc-us-school"
+                                 data-institution-name="@school.InstitutionName"
+                                 data-institution-description="@Server.UrlEncode(institutionDescription)"
+                                 data-institution-disclaimer="@Server.UrlEncode(school.InstitutionDisclaimer)"
+                                 data-institution-disclaimer-type="@school.InstitutionDisclaimerType"
+                                 data-isgroundcampus="@isGroundCampus"
+                                 data-campusid="@school.CampusId"
+                                 data-campus-name="@school.CampusName"
+                                 data-campus-city="@school.City"
+                                 data-hideschoolfromtcpa="@school.Is2USchool.ToString().ToLower()"
+                                 data-campus-state="@school.State"
+                                 id="SchoolContainer@(SchoolCount)">
+                                <div class="field-holder form-group checkbox @campusTypeFlagCssClass">
+                                    <div class="row">
+                                        <div class="col-xs-8 school-info-container">
+                                            <input name="ms-us-school-checkbox" class="ms-us-school-checkbox" checked="checked" type="checkbox" data-campusid="@school.CampusId" />
+                                            <!--<i class="fa fa-square-o checkbox-icon"></i>-->
+                                            <div class="school-name"><a href="#" class="us-institution-popup-link">@school.InstitutionName</a></div>
+                                            @if (!string.IsNullOrWhiteSpace(startDate))
+                                            {
+                                                <div class="school-start-date">@startDate</div>
+                                            }
+                                            <div class="more-info">
+                                                <div class="program-info">
+                                                    <a href="#" name="us-program-popup-link" class="us-program-popup-link hide">
+                                                        Program Information
+                                                    </a>
+                                                </div>
+                                                <div class="disclosure-info">
+
+                                                    @{
+                                                        if (school.InstitutionDisclaimer != null && school.InstitutionDisclaimer.Length > 0 && school.InstitutionDisclaimerType != null)
+                                                        {
+                                                            if (school.InstitutionDisclaimerType == EDDY.IS.FormsEngine.MatchingEngine.DisclaimerType.Link)
+                                                            {
+                                                                <a href="@school.InstitutionDisclaimer" target="_blank" class="us-disclosure-popup-link-linkout">
+                                                                    Disclosure Information
+                                                                </a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a href="#" class="us-disclosure-popup-link">
+                                                                    Disclosure Information
+                                                                </a>
+                                                                <div class="dvUserSelectSchoolDisclaimer" style="display:none">
+                                                                    @school.InstitutionDisclaimer
+                                                                </div>
+                                                            }
+                                                        }
+                                                    }
+
+
+                                                </div>
+                                                @{
+                                                    if (isGroundCampus)
+                                                    {
+                                                        <div class="campus-location">@school.City, @school.State</div>
+                                                    }
+                                                }
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-xs-4 text-center school-logo-container"><a href="#" class="us-institution-popup-link"><img class="img-responsive" src="@logoFullURL" /></a></div>
+                                    </div>
+                                    <div class="row">
+                                        @{
+                                            if (isGroundCampus)
+                                            {
+                                                <i class="campusFlagIcon groundCampusFlagIcon fa fa-university" name="groundCampusFlagIcon" title="@("Local Campus School \n" + @school.Address1 + ", " + @school.Address2 + " \n" + @school.City + ", " + @school.State)"
+                                                   campus-address="@(@school.Address1 + ", " + @school.Address2 + " \n" + @school.City + ", " + @school.State)">
+                                                </i>
+                                            }
+                                            else
+                                            {
+                                                <i class="campusFlagIcon onlineCampusFlagIcon fa fa-laptop" name="onlineCampusFlagIcon" title="Online School">
+                                                </i>
+                                            }
+                                        }
+                                        @{
+                                            bool singleProgram = school.ProgramList != null && school.ProgramList.Count() == 1;
+                                        }
+
+                                        <select name="mc-us-program-ddl" class="mc-us-program-ddl select-field form-control @(singleProgram ? "select-singleitem" : "")" data-campusid="@school.CampusId">
+                                            @{
+                                                var programByDegreeLevel = from program in school.ProgramList
+                                                                           group program by program.ProgramLevelName
+                                                                                into programGroup
+                                                                           select new { ProgramLevelName = programGroup.Key, Programs = programGroup.ToList() };
+
+                                                bool userDesiredProgramLevelIdExists = false;
+                                                if (Model.UserDesiredProgramLevelId > 0)
+                                                {
+                                                    foreach (var p in school.ProgramList)
+                                                    {
+                                                        if (p.ProgramLevelId == Model.UserDesiredProgramLevelId)
+                                                        {
+                                                            userDesiredProgramLevelIdExists = true;
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+
+                                                foreach (var programLevelName in programByDegreeLevel.OrderBy(p => p.ProgramLevelName))
+                                                {
+                                                    decimal maxProgramRankScore = 0;
+                                                    bool selectedLevel = false;
+                                                    bool selectedProgram = false;
+
+                                                    if (userDesiredProgramLevelIdExists)
+                                                    {
+                                                        if (programLevelName.Programs[0].ProgramLevelId == Model.UserDesiredProgramLevelId)
+                                                        {
+                                                            selectedLevel = true;
+                                                            maxProgramRankScore = (from p in programLevelName.Programs
+                                                                                   select p.ProgramRankScore).Max();
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        maxProgramRankScore = (from p in school.ProgramList
+                                                                               select p.ProgramRankScore).Max();
+                                                    }
+
+
+                                                    <optgroup label="@programLevelName.ProgramLevelName"
+                                                              data-degree-level-name="@programLevelName.Programs[0].ProgramLevelName"
+                                                              data-degree-level-id="@programLevelName.Programs[0].ProgramLevelId"
+                                                              data-userselectedlevelid="@programLevelName.Programs[0].ProgramLevelId"
+                                                              data-selectedlevel="@selectedLevel"
+                                                              data-maxscore="@maxProgramRankScore.ToString()">
+                                                        @{
+                                                            bool selectionAlreadyMade = false;
+                                                            foreach (var program in programLevelName.Programs.OrderBy(p => p.ProgramName))
+                                                            {
+                                                                //if we have not added this to our list of possible program template ids then add it.
+                                                                if (program.TemplateId != null && !programTemplateIds.Contains(program.TemplateId))
+                                                                {
+                                                                    if (Model.AlreadyAskedTemplateIds != null && !Model.AlreadyAskedTemplateIds.Contains(Convert.ToInt32(program.TemplateId)))
+                                                                    {
+                                                                        programTemplateIds.Add(program.TemplateId);
+                                                                    }
+                                                                    else if (Model.AlreadyAskedTemplateIds == null)
+                                                                    {
+                                                                        programTemplateIds.Add(program.TemplateId);
+                                                                    }
+                                                                }
+                                                                selectedProgram = false;
+                                                                if (Decimal.Equals(program.ProgramRankScore, maxProgramRankScore) && !selectionAlreadyMade && (!userDesiredProgramLevelIdExists || userDesiredProgramLevelIdExists && selectedLevel))
+                                                                {
+                                                                    selectedProgram = true;
+                                                                    selectionAlreadyMade = true;
+                                                                }
+
+                                                                bool hasProgramDescription = false;
+                                                                // hack to avoid ME having to pass too much unnecessary data
+                                                                if (program.ProgramDescription != null && program.ProgramDescription == "1"
+                                                                    ||
+                                                                    program.ProgramDisclaimer != null && program.ProgramDisclaimer == "1")
+                                                                {
+                                                                    hasProgramDescription = true;
+                                                                }
+
+                                                                <option value="@program.ProgramProductId"
+                                                                        data-campusid="@school.CampusId"
+                                                                        data-program-name="@program.ProgramName"
+                                                                        data-programid="@program.ProgramId"
+                                                                        data-programproductid="@program.ProgramProductId"
+                                                                        data-programdegreelevelid="@program.ProgramLevelId"
+                                                                        data-program-level-name="@program.ProgramLevelName"
+                                                                        data-templateid="@program.TemplateId"
+                                                                        data-programrankscore="@program.ProgramRankScore"
+                                                                        data-hasprogramdescription="@hasProgramDescription"
+                                                                        data-programtype="@program.ProgramType"
+                                                                        data-showtwoucheckbox="@program.ShowTwoULeadShareControl"
+                                                                        @(selectedProgram ? "selected=selected" : "")>
+                                                                    @program.ProgramName
+                                                                </option>
+                                                            }
+                                                        }
+                                                    </optgroup>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <!--placeholder div for potential additional questions to apply for this program.-->
+                                    <div>&nbsp;</div>
+                                    <div name="mc-SM-additional-questions" data-campusid="@school.CampusId"></div>
+                                    <div class="ExpressConsentOptInSchoolSelection" data-campusid="@school.CampusId">
+                                        <div class="schoolExpressConsentError" data-campusid="@school.CampusId"> @US_CONSENT_VALIDATION_MSG </div>
+                                        <br>
+                                        <input class="schoolExpressConsentCheckbox" type="checkbox" data-campusid="@school.CampusId" id="MCExpressConsent_@(SchoolCount)" name="leadid_tcpa_disclosure_@(SchoolCount)"><label for="MCExpressConsent_@(SchoolCount)" class="schoolExpressConsentMessage" data-campusid="@school.CampusId" data-institution-name="@school.InstitutionName" data-tf-element-role="consent-language">@(Html.Raw(string.IsNullOrEmpty(school.CustomTCPA) ? EXPRESS_CONSENT_UNIFIED : school.CustomTCPA))</label>
+                                        <div class="schoolExpressConsentError" data-campusid="@school.CampusId"> @US_CONSENT_VALIDATION_MSG </div>
+                                    </div>
+                                </div>
+                                <div class="buttons-container">
+                                    <div name="managechoice-form-school-submit-button" class="form-submit-button clearfix btn-choose-school" data-campusid="@school.CampusId" data-institutionid="@school.InstitutionId" data-stepnumber="@(SchoolCount)" data-tf-element-role="submit">
+                                        <div class="form-submit-button-inner">
+                                            <span class="form-submit-button-label">
+                                                <span>Submit</span><br />
+                                                <span class="fa fa-arrow-circle-right form-submit-button-icon"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    @if (Model.SchoolSelectionList.Count > 1)
+                                    {
+                                        <div class="form-school-next-button text-center btnThankYou" name="managechoice-form-school-next-button" data-stepnumber="@(SchoolCount)">
+                                            <span>
+                                                @if (SchoolCount == Model.SchoolSelectionList.Count)
+                                                {
+                                                    @:No thanks, show me confirmation
+                                                }
+                                                else
+                                                {
+                                                    @:No thanks
+                                                }
+                                            </span>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                        } //end school container
+                    }
+                </div>
+                <div id="us-institution-popup" class="us-institution-popup popup-info col-sm-12 col-xs-12 hide">us-institution-popup GOES HERE!</div>
+                <div id="us-institution-disclaimer-popup" class="us-institution-disclaimer-popup popup-info col-sm-12 col-xs-12 hide">us-institution-disclaimer-popup GOES HERE!</div>
+                <div id="us-program-popup" class="us-program-popup popup-info col-sm-12 col-xs-12 hide">us-program-popup GOES HERE!</div>
+
+                <div id="mc-SM-additional-questions-templates-used" data-program-templates-used="@string.Join(",", programTemplateIds.ToArray())"></div>
+            </div>
+            @System.Web.Mvc.Html.PartialExtensions.Partial(this.Html, "~/Templates/Common/ManagedChoiceDaisyChainDisclaimer.cshtml", this.Model)
+
+            <div class="sponsored_listings text-right"><em>@SPONSORED_LISTINGS_TEXT</em></div>
+        }
+    }
+    <!-- End US Area -->
+
+
+
+
+
+</form>
+

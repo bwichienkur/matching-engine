@@ -1,0 +1,413 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.FormEngineModel>
+@using EDDY.IS.FormsEngine.Services.Controllers.Common
+
+@Html.InlineScriptBlock("~/Templates/Common/js/External/LeadPingv3.js")
+<script type="text/javascript" src="@(Url.Action("GetWizardTemplateJS","TemplateManager",new { TemplateId = Model.DynamicControlsJavascriptURLArguments.TemplateId, RenderingStrategy=Model.DynamicControlsJavascriptURLArguments.RenderingStrategy, IsBeta=Model.DynamicControlsJavascriptURLArguments.IsBeta, IgnoreTemplateCache = Model.DynamicControlsJavascriptURLArguments.IgnoreTemplateCache, SeedToken = Guid.NewGuid().ToString() }, Url.RequestContext.HttpContext.Request.Url.Scheme))"></script>
+@Html.InlineScriptBlock("~/Templates/WizardMobile/js/WizardECMobile_Start.js")
+
+@{
+    string CALL_NOW_MSG = Model.GetResourceMetaDataText("VIEW.CALL_NOW");
+    string CALL_START_MATCHING_MSG = Model.GetResourceMetaDataText("VIEW.CALL_START_MATCHING");
+    string CALL_DEFAULT_PHONE = Model.GetResourceMetaDataText("VIEW.CALL_DEFAULT_PHONE");
+}
+
+<div id="ErrorBoxX">
+    @foreach (var controlType in this.Model.ControlTypes)
+    {
+        foreach (var error in controlType.ErrorMessages)
+        {
+            <input type="hidden" code="ERR_@(error.ErrorCode.Code)_{@controlType.StandardControlTypeName}" value="@error.Message" />
+        }
+    }
+</div>
+<div class="dripContent" id="divcontent">
+    <div data-role="page" id="step1" data-theme="c">
+        <div data-role="header" class="header" data-theme="none">
+
+            <div id="mobile_header_image">
+            </div>
+            <div id="mobile_header_text">
+            </div>
+        </div>
+    </div>
+    <div class="eddy-form-wizard-container pie" id="WizardStepContainer">
+
+        <div class="eddy-form-wizard-body">
+            @System.Web.Mvc.Html.PartialExtensions.Partial(this.Html, "~/Templates/Common/Components/SponsoredListingPopUp.cshtml", new EDDY.IS.FormsEngine.Services.Models.SponsoredListingModel(this.Model))
+            <form id="eddynexusform-wizard" name="eddynexusform-wizard" templateid="@Model.Template.TemplateId" method="POST" action="javascript:void(0)" autocomplete="on">
+                @{
+                    int StepCount = 0;
+                    var inlineDropDown = Model.Template.InlineDropDowns;
+                }
+
+                <div id="ErrorMessage" style="margin-top:20px;" class="error-summary"></div>
+                @foreach (var step in this.Model.Template.TemplateSteps.OrderBy(t => t.Sequence))
+                {
+                    StepCount++;
+                    int SectionCount = 0;
+                    <div name="step" class="steps" id="Step@(StepCount)" data-step="@(StepCount)" @(StepCount > 1 ? "style=display:none" : "")>
+                        <div class="form-page-step-message">
+                            <h3>@step.Name</h3>
+                        </div>
+                        @if (StepCount == 1)
+                        {
+                            <div style="align-content:center;display:none" id="clickToCallDiv">
+                                <p style="font-family: Helvetica,Arial,sans-serif; margin-bottom: 4px;">@CALL_NOW_MSG</p>
+                                <a id="clickToCallLink" href="tel:@CALL_DEFAULT_PHONE" class="ui-link"><div class="clickToCallImage"></div></a>
+                                <p style="font-family: Helvetica,Arial,sans-serif; margin-top: 0;">@CALL_START_MATCHING_MSG</p>
+                            </div>
+                        }
+                        @foreach (var sect in step.TemplateSections.OrderBy(s => s.Sequence))
+                        {
+                            var sectionName = sect.Name;
+                            SectionCount++;
+                            <fieldset name="section" class="sections" id="Section@(SectionCount)">
+                                @(!string.IsNullOrEmpty(sectionName) ? Html.Raw("<legend>" + sectionName + "</legend>") : Html.Raw(""))
+
+                                @foreach (var control in sect.TemplateControls.OrderBy(c => c.RowSequence))
+                                {
+                                    string ControlLabel;
+                                    if (control.StandardControl.StandardControlType.StandardControlTypeName.ToLower() == "check box")
+                                    {
+                                        ControlLabel = string.IsNullOrWhiteSpace(control.InstanceLabel) ? control.StandardControl.DefaultLabel : control.InstanceLabel;
+                                    }
+                                    else
+                                    {
+                                        ControlLabel = string.IsNullOrWhiteSpace(control.InstanceLabel) ? "" : control.InstanceLabel;
+                                    }
+                                    var ControlLabelRequired = control.IsRequired == true && !string.IsNullOrWhiteSpace(ControlLabel) ? "*" : "";
+                                    var ControlTypeName = control.StandardControl.StandardControlType.StandardControlTypeName;
+                                    var ControlCode = control.StandardControl.StandardControlCode.Code;
+                                    var CustomValidation = control.StandardControl.StandardControlValidations.Count > 0 ? control.StandardControl.StandardControlValidations.First().ValidationLibrary : null;
+                                    var ValidationLibrary = CustomValidation != null ? "customRegex=" + CustomValidation.Expression + " customErrorCode=" + CustomValidation.ErrorCode.Code : "";
+                                    var AutocompleteText = !string.IsNullOrWhiteSpace(control.StandardControl.AutoCompleteName) ? "autocomplete=" + control.StandardControl.AutoCompleteName : "";
+                                    bool IsPredefinedValueList = control.StandardControl.PreDefinedValueList != null && control.StandardControl.PreDefinedValueList.ValueListItems != null;
+                                    bool IsMatchingEngineAdditionalField = IsPredefinedValueList && control.StandardControl.PreDefinedValueList.IsMatchingEngineAdditionalField;
+                                    bool IsCampusPreference = control.StandardControl.StandardControlCode.Code == "CampusPreference";
+                                    bool IsGreenCard = control.StandardControl.StandardControlCode.Code == "GCH";
+                                    bool IsSearchablePredfinedValueList = control.StandardControl.SearchablePredefinedValueList.HasValue ? control.StandardControl.SearchablePredefinedValueList.Value : false;
+                                    bool typeahead = control.IsTypeAhead.HasValue && control.IsTypeAhead.Value;
+
+                                    switch (control.StandardControl.StandardControlType.StandardControlTypeName)
+                                    {
+                                        case "Hidden":
+                                            <input type="hidden" controltypename="@ControlTypeName" step="@StepCount" section="@SectionCount" id="@control.TemplateControlId" id-sort="@control.RowSequence" code="@ControlCode" data-controlcode="@ControlCode" data-controltypename="@ControlTypeName" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" value="@control.StandardControl.DefaultValue" name="@control.StandardControl.FieldName" />
+                                            break;
+                                        case "Text Box":
+                                            <div name="field-holder" class="field-holder @ControlCode" data-controlcode="@ControlCode" data-controltypename="@ControlTypeName" data-rowsequence="@control.RowSequence">
+                                                @if (!string.IsNullOrEmpty(ControlLabel))
+                                                {
+                                                    <label for="@control.TemplateControlId">
+                                                        @(ControlLabel + ControlLabelRequired)
+                                                    </label>
+                                                }
+
+                                                @if (@ControlCode == "Phone" || @ControlCode == "Alternate_Phone")
+                                                {
+                                                    <input type="tel" controltypename="@ControlTypeName" step="@StepCount" section="@SectionCount" value="@control.StandardControl.DefaultValue" datatype="@control.StandardControl.StandardControlDataType.Name" code="@control.StandardControl.StandardControlCode.Code" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="text-field" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") minlength="@control.StandardControl.MinLength" maxlength="@control.StandardControl.MaxLength" @(ValidationLibrary) placeholder="@control.InstanceWaterMark" mask="@control.StandardControl.Mask" @(AutocompleteText) />
+                                                }
+                                                else
+                                                {
+                                                    <input type="text" controltypename="@ControlTypeName" step="@StepCount" section="@SectionCount" value="@control.StandardControl.DefaultValue" datatype="@control.StandardControl.StandardControlDataType.Name" code="@control.StandardControl.StandardControlCode.Code" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="text-field" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") minlength="@control.StandardControl.MinLength" maxlength="@control.StandardControl.MaxLength" @(ValidationLibrary) placeholder="@control.InstanceWaterMark" @(AutocompleteText) />
+                                                }
+                                            </div>
+                                            if (control.StandardControl.StandardControlCode.Code == "Alternate_Phone")
+                                            {
+                                                <div class="field-holder UseDayTimePhone checkbox">
+                                                    <fieldset>
+                                                        <input type="checkbox" step="@StepCount" id="UseDaytimePhone" label-name="Use Day-time Phone" class="checkbox-field valid" name="UseDayTimePhone" novalidate="true">
+                                                        <label for="UseDayTimePhone">
+                                                            Use Day-time Phone
+                                                        </label>
+                                                    </fieldset>
+                                                </div>
+                                            }
+                                            break;
+                                        case "Drop-Down":
+                                            <div name="field-holder" class="field-holder @(control.StandardControl.FieldName == "Smart_Military_Affiliation" ? "radio" : "") @ControlCode" data-controlcode="@ControlCode" data-controltypename="@ControlTypeName" data-rowsequence="@control.RowSequence">
+                                                @if (!string.IsNullOrEmpty(ControlLabel))
+                                                {
+                                                    <label for="@control.TemplateControlId" class="@(inlineDropDown?"inline-hidden-label":"")">
+                                                        @(ControlLabel + ControlLabelRequired)
+                                                    </label>
+                                                }
+                                                @if (control.StandardControl.FieldName == "Smart_Military_Affiliation")
+                                                {
+                                                    <fieldset>
+                                                        <input type="radio" step="@StepCount" controltypename="Radio Buttons" value="Yes" id="military_yes" name="military_yesno" class="radio-field " @(control.IsRequired == true ? "required=required" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "") />
+                                                        <label for="military_yes">Yes</label>
+                                                        <input type="radio" step="@StepCount" controltypename="Radio Buttons" value="No" id="military_no" name="military_yesno" class="radio-field " @(control.IsRequired == true ? "required=required" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "") />
+                                                        <label for="military_no">No</label>
+                                                    </fieldset>
+                                                }
+                                                @if (control.StandardControl.FieldName == "Smart_Highest_Level_Of_Education_Completed")
+                                                {
+                                                    <fieldset>
+                                                        @if (inlineDropDown)
+                                                        {
+                                                            @:<div class="inlineDropDown-wrapper">
+                                                            }
+                                                        <select step="@StepCount" controltypename="@ControlTypeName" section="@SectionCount" id="ddlHighestLevelNoCredits" id-sort="@control.RowSequence" name="ddlHighestLevelNoCredits" class="select-field @(inlineDropDown? "inlineDropDown":"")" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "")>
+                                                            @if (IsPredefinedValueList)
+                                                            {
+                                                                <option value="" @(inlineDropDown ? "disabled=true selected=selected" : "")>@(inlineDropDown && !string.IsNullOrEmpty(ControlLabel) ? ControlLabel : "-- SELECT --")</option>
+
+                                                                foreach (var item in control.StandardControl.PreDefinedValueList.ValueListItems.Where(p => !p.Text.Contains("Credits")))
+                                                                {
+                                                                    <option value="@item.Value" key="@item.Key" @(item.IsDefault == true ? "selected" : "")>@item.Text</option>
+                                                                    //keep it in order add some credits after high school
+                                                                    if (item.Text == "High School Diploma")
+                                                                    {
+                                                                        <option value="-1">Some College</option>
+                                                                    }
+                                                                }
+                                                            }
+                                                        </select>
+                                                        @if (inlineDropDown)
+                                                        {
+                                                        @:</div>
+                                                    }
+                                                        @if (inlineDropDown)
+                                                        {
+                                                            @:<div class="inlineDropDown-wrapper">
+                                                            }
+                                                        <select step="@StepCount" controltypename="@ControlTypeName" section="@SectionCount" value="@control.StandardControl.DefaultValue" code="@control.StandardControl.StandardControlCode.Code" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="select-field @(inlineDropDown? "inlineDropDown": "") @(typeahead? "typeahead select2":"") @(IsSearchablePredfinedValueList? "searchablePredfinedValueList":"")" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "") @(control.StandardControl.FieldName == "Smart_Military_Affiliation" || control.StandardControl.FieldName == "Smart_Highest_Level_Of_Education_Completed" ? "style=display:none" : "")>
+                                                            @if (IsPredefinedValueList)
+                                                            {
+                                                                <option value="" @(inlineDropDown ? "disabled=true selected=selected" : "")>@(inlineDropDown && !string.IsNullOrEmpty(ControlLabel) ? ControlLabel : "-- SELECT --")</option>
+
+                                                                if (IsSearchablePredfinedValueList)
+                                                                {
+                                                                    foreach (var item in control.StandardControl.PreDefinedValueList.ValueListItems.Take(20).ToList())
+                                                                    {
+                                                                        <option value="@item.Value" key="@item.Key" @(item.IsDefault == true ? "selected" : "")>@item.Text</option>
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                    foreach (var item in control.StandardControl.PreDefinedValueList.ValueListItems)
+                                                                    {
+                                                                        <option value="@item.Value" key="@item.Key" @(item.IsDefault == true ? "selected" : "")>@item.Text</option>
+                                                                        <option value="@item.Value" key="@item.Key" @(item.IsDefault == true ? "selected" : "")>@item.Text</option>
+                                                                    }
+                                                                }
+                                                            }
+                                                            }
+                                                        </select>
+                                                        @if (inlineDropDown)
+                                                        {
+                                                        @:</div>
+                                                    }
+                                                    </fieldset>
+                                                }
+                                                @if (inlineDropDown)
+                                                {
+                                                    @:<div class="inlineDropDown-wrapper">
+                                                    }
+                                                <select step="@StepCount" controltypename="@ControlTypeName" section="@SectionCount" value="@control.StandardControl.DefaultValue" code="@control.StandardControl.StandardControlCode.Code" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="select-field @(inlineDropDown? "inlineDropDown": "")" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "") @(control.StandardControl.FieldName == "Smart_Military_Affiliation" || control.StandardControl.FieldName == "Smart_Highest_Level_Of_Education_Completed" ? "style=display:none" : "")>
+                                                    @if (IsPredefinedValueList)
+                                                    {
+                                                        <option value="" @(inlineDropDown ? "disabled=true selected=selected" : "")>@(inlineDropDown && !string.IsNullOrEmpty(ControlLabel) ? ControlLabel : "-- SELECT --")</option>
+
+                                                        foreach (var item in control.StandardControl.PreDefinedValueList.ValueListItems)
+                                                        {
+                                                            <option value="@item.Value" key="@item.Key" @(item.IsDefault == true ? "selected" : "")>@item.Text</option>
+                                                        }
+                                                    }
+                                                </select>
+                                                @if (inlineDropDown)
+                                                {
+                                                @:</div>
+                                            }
+                                            </div>
+                                            break;
+                                        case "Text Area":
+                                            <div name="field-holder" class="field-holder @ControlCode" data-controlcode="@ControlCode" data-controltypename="@ControlTypeName" data-rowsequence="@control.RowSequence">
+                                                @if (!string.IsNullOrEmpty(ControlLabel))
+                                                {
+                                                    <label for="@control.TemplateControlId">
+                                                        @(ControlLabel + ControlLabelRequired)
+                                                    </label>
+                                                }
+                                                <input type="textarea" step="@StepCount" controltypename="@ControlTypeName" value="@control.StandardControl.DefaultValue" datatype="@control.StandardControl.StandardControlDataType.Name" code="@control.StandardControl.StandardControlCode.Code" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="textarea-field" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") minlength="@control.StandardControl.MinLength" maxlength="@control.StandardControl.MaxLength" @(ValidationLibrary) placeholder="@control.InstanceWaterMark" />
+
+                                            </div>
+                                            break;
+                                        case "Check Box":
+                                            <div name="field-holder" class="field-holder checkbox" data-controlcode="@ControlCode" data-controltypename="@ControlTypeName" data-rowsequence="@control.RowSequence" data-fieldholdercode="@ControlCode">
+                                                <fieldset>
+                                                    <input type="checkbox" step="@StepCount" controltypename="@ControlTypeName" value="@(ControlLabel)" code="@control.StandardControl.StandardControlCode.Code" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="checkbox-field" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") @(control.StandardControl.DefaultValue == ControlLabel ? "checked=checked" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "") />
+                                                    <label for="@control.TemplateControlId">
+                                                        @(ControlLabelRequired + ControlLabel)
+                                                    </label>
+                                                </fieldset>
+                                            </div>
+                                            break;
+                                        case "Radio Buttons":
+                                            <div name="field-holder" class="field-holder radio @ControlCode" data-controlcode="@ControlCode" data-controltypename="@ControlTypeName" data-rowsequence="@control.RowSequence" style="@(IsCampusPreference || IsGreenCard ? " display:none" : "")">
+                                                <!-- fieldset added by Helen -->
+                                                <fieldset>
+                                                    <legend for="@control.TemplateControlId">
+                                                        @(ControlLabel + ControlLabelRequired)
+                                                    </legend>
+
+                                                    @if (IsPredefinedValueList)
+                                                    {
+                                                        if (control.StandardControl.StandardControlCode.Code == "CampusSoftPreference")
+                                                        {
+                                                            <div class="image-checkbox-group">
+                                                                <ul class="image-checkbox">
+                                                                    @foreach (var item in control.StandardControl.PreDefinedValueList.ValueListItems)
+                                                                    {
+                                                                        <li class="image-checkbox-field-holder @(item.Value.ToLower())">
+                                                                            <a href="#"><div class="campus-preference-@(item.Value.ToLower())"></div></a>
+                                                                            <input type="radio" step="@StepCount" controltypename="@ControlTypeName" value="@item.Value" key="@item.Key" code="@control.StandardControl.StandardControlCode.Code" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@(control.TemplateControlId + "_" + item.Value)" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="radio-field " label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") @(item.IsDefault == true ? "checked" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "") />
+                                                                        </li>
+                                                                    }
+                                                                </ul>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+                                                            foreach (var item in control.StandardControl.PreDefinedValueList.ValueListItems)
+                                                            {
+
+                                                                <input type="radio" step="@StepCount" controltypename="@ControlTypeName" value="@item.Value" key="@item.Key" code="@control.StandardControl.StandardControlCode.Code" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@(control.TemplateControlId + "_" + item.Value)" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="radio-field " label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") @(item.IsDefault == true ? "checked" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "") />
+                                                                <label for="@(control.TemplateControlId + "_" + item.Value)">
+                                                                    @item.Text
+                                                                </label>
+                                                            }
+                                                        }
+                                                    }
+                                                </fieldset>
+                                            </div>
+                                            break;
+                                        case "Multi Check Box List":
+                                            <div class="field-holder form-group @ControlCode" data-controlcode="@ControlCode" data-controltypename="@ControlTypeName" style="@(control.StandardControl.FieldName == "DesiredGrad_Level_Of_Education" ? "display:none":"")">
+                                                <fieldset>
+                                                    @if (!string.IsNullOrEmpty(ControlLabel))
+                                                    {
+                                                        <label for="@control.TemplateControlId" class="question">
+                                                            @(ControlLabel + ControlLabelRequired)
+                                                        </label>
+                                                    }
+                                                    @if (IsPredefinedValueList)
+                                                    {
+                                                        foreach (var item in control.StandardControl.PreDefinedValueList.ValueListItems)
+                                                        {
+                                                            <ul class="field-holder-group checkbox" style="list-style:none">
+                                                                <li>
+                                                                    <input type="checkbox" controltypename="@ControlTypeName" value="@item.Value" key="@item.Key" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@(control.TemplateControlId + "_" + item.Value)" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="checkbox-field" label-name="@(ControlLabel)" @( control.IsRequired == true ? "required=required" : "" ) @( item.IsDefault == true ? "checked" : "" ) @( IsMatchingEngineAdditionalField == true ? "me-filter=true" : "" ) />
+                                                                    <label for="@(control.TemplateControlId + "_" + item.Value)">
+                                                                        @item.Text
+                                                                    </label>
+                                                                </li>
+                                                            </ul>
+                                                        }
+                                                    }
+                                                </fieldset>
+
+                                            </div>
+                                            break;
+                                        case "Label":
+                                            <div name="field-holder" class="field-holder @ControlCode" data-controlcode="@ControlCode" data-controltypename="@ControlTypeName">
+                                                <input type="hidden" datatype="@control.StandardControl.StandardControlDataType.Name" code="@control.StandardControl.StandardControlCode.Code" id="@control.TemplateControlId" name="@control.StandardControl.FieldName" />
+                                                <label for="@control.TemplateControlId">
+                                                    @(ControlLabel)
+                                                </label>
+                                            </div>
+                                            break;
+                                        case "Categories":
+                                            <div name="field-holder" class="field-holder interest-field @ControlCode" data-code="@ControlCode" data-controltypename="@ControlTypeName" data-rowsequence="@control.RowSequence">
+                                                <fieldset>
+                                                    <legend> @(ControlLabel + ControlLabelRequired)</legend>
+                                                    <p>Please select your interest areas. You may go back anytime to modify your choices.</p>
+                                                    <ul class="field-holder-group" code="@control.StandardControl.StandardControlCode.Code" id-sort="@control.RowSequence">
+                                                        <li>
+                                                            Loading...
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                                <input type="hidden" id="@control.TemplateControlId" name="Categories_Selections" value="" label-name="@(ControlLabel)" controltypename="@ControlTypeName" @(control.IsRequired == true ? "required=required" : "") code="@control.StandardControl.StandardControlCode.Code" id-sort="@control.RowSequence" />
+                                            </div>
+                                            break;
+                                        case "SubCategories":
+                                            <div name="field-holder" class="field-holder interest-field has-scrollbar @ControlCode" data-code="@ControlCode" data-controltypename="@ControlTypeName" data-rowsequence="@control.RowSequence">
+                                                <fieldset>
+                                                    <legend> @(ControlLabel + ControlLabelRequired)</legend>
+                                                    <ul class="field-holder-group" code="@control.StandardControl.StandardControlCode.Code" id-sort="@control.RowSequence">
+                                                        <li>
+                                                            Loading...
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                                <input type="hidden" id="@control.TemplateControlId" name="SubCategories_Selections" value="" label-name="@(ControlLabel)" controltypename="@ControlTypeName" @(control.IsRequired == true ? "required=required" : "") code="@control.StandardControl.StandardControlCode.Code" id-sort="@control.RowSequence" />
+                                            </div>
+                                            break;
+                                        case "Specialties":
+                                            <div name="field-holder" class="field-holder interest-field has-scrollbar @ControlCode" data-code="@ControlCode" data-controltypename="@ControlTypeName" data-rowsequence="@control.RowSequence" data-controlcode="@ControlCode">
+                                                <fieldset>
+                                                    <legend> @(ControlLabel + ControlLabelRequired)</legend>
+                                                    <ul class="field-holder-group" code="@ControlCode" id-sort="@control.RowSequence">
+                                                        <li>
+                                                            Loading...
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                                <input type="hidden" id="@control.TemplateControlId" name="Specialties_Selections" value="" label-name="@(ControlLabel)" controltypename="@ControlTypeName" @(control.IsRequired == true ? "required=required" : "") code="@ControlCode" id-sort="@control.RowSequence" step="@StepCount" />
+                                            </div>
+                                            break;
+                                        default:
+                                            <text>Control Code "@ControlCode" Type "@ControlTypeName" is not supported by Template "@Model.Template.TemplateName" RenderingStrategy "@Model.RenderingStrategy" </text>
+                                            break;
+                                    }
+                                }
+                            </fieldset>
+                        }
+
+                    </div>
+                }
+
+                <!--Dynamic questions -->
+                <div name="step" class="steps" id="Step@(StepCount + 1)" data-title="DynamicQuestions" data-step="@(StepCount + 1)" style="display:none">
+                    <div class="sections" id="Section1">
+                    </div>
+                    <div class="sections" id="DynamicQuestionsUserAgreementSection">
+                    </div>
+                </div>
+            </form>
+
+            <div id="mobile_copy">
+            </div>
+
+            <div id="mobile_success_kit">
+            </div>
+
+            <div id="mobile_disclaimer">
+            </div>
+
+            <div class="bottom">
+                <div class="footer">
+                    <div id="wizard-form-submit-button" class="btnNext">
+                        <a id="next-top"></a>
+                        <a id="next"></a>
+                    </div>
+
+                    <div id="form-navback-button" class="btnPrev" style="display: none;">
+                        <a id="prev-top"></a>
+                        <a id="prev"></a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div><!-- end of eddy-form-wizard-body -->
+        <div class="eddy-form-wizard-footer">
+            <div>
+                @{System.Web.Mvc.Html.ChildActionExtensions.RenderAction(this.Html, "CCPAMessage", "CCPA");}
+            </div>
+        </div><!-- end of #eddy-form-footer -->
+    </div><!-- end of #eddy-form-wizard-container -->
+</div>

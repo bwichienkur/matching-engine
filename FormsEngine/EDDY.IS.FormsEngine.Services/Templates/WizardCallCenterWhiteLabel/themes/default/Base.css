@@ -1,0 +1,599 @@
+﻿/*********************************************** Basic CSS for Professional Blue *************************/
+/*******************Will move into a seperate css file, and imported by specific css file ********************/
+
+.eddy-form-wizard-container {
+    width: 680px;
+}
+
+    .hide, .eddy-form-wizard-container .hide, .eddy-form-wizard-container .hidden {
+        display: none;
+    }
+
+    .eddy-form-wizard-container .header-step-1of3 {
+        width: 455px !important;
+    }
+
+    .eddy-form-wizard-container .header-step-1of3 {
+        background: url("[SERVER]/images/1-contact.png") no-repeat;
+        width: 660px !important;
+        height: 61px;
+        text-indent: -999px;
+        cursor: default;
+        margin-top: 5px;
+        float: left;
+        color: transparent;
+        margin-left: 12px;
+    }
+
+    .eddy-form-wizard-container .header-step-2of3 {
+        background: url("[SERVER]/images/2-school.png") no-repeat;
+        width: 662px !important;
+        height: 75px;
+        text-indent: -999px;
+        cursor: default;
+        float: left;
+        color: transparent;
+    }
+
+    .eddy-form-wizard-container .header-step-3of3 {
+        background: url("[SERVER]/images/3-thankyou.png") no-repeat;
+        width: 670px !important;
+        height: 75px;
+        text-indent: -999px;
+        cursor: default;
+        float: left;
+        color: transparent;
+        margin-left: 10px;
+    }
+
+.eddy-form-wizard-header .programMatches {
+    background: url("[SERVER]/images/programMatch.png") no-repeat left top;
+    float: right;
+    height: 80px;
+    position: absolute;
+    left: 400px;
+    top: 0;
+    width: 100px;
+}
+
+    .eddy-form-wizard-header .programMatches span {
+        bottom: 14px;
+        color: #5D5D5D;
+        font-size: 19px;
+        font-weight: bold;
+        height: 25px;
+        left: 12px;
+        margin-right: auto;
+        margin-top: 0;
+        position: absolute;
+        text-align: center;
+        text-shadow: 1px 1px 1px #FFFFFF;
+        width: 73px;
+    }
+
+.eddy-form-container .clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+/* loader  */
+
+.eddy-form-container .FEoverlay {
+    background: none repeat scroll 0 0 #FFF;
+    height: 100%;
+    left: 0px;
+    opacity: 0.85;
+    filter: alpha(opacity = 95);
+    zoom: 1;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 10;
+    min-height: 2000px;
+}
+
+
+.eddy-form-container #FEloader {
+    width: 248px;
+    height: 200px;
+    margin: 0 15px;
+    background: url("[SERVER]/images/ajax-loader.gif") no-repeat 100px 60px;
+    background-size: 48px 48px;
+    font-family: Arial, Helvetica, sans-serif Aharoni !important;
+    color: #262626;
+    text-align: center;
+    z-index: 11;
+}
+
+    .eddy-form-container #FEloader .loading {
+        font-weight: bold !important;
+        font-size: 16px !important;
+        text-transform: uppercase !important;
+        margin: 120px 0 5px 0 !important;
+    }
+
+    .eddy-form-container #FEloader .loadingParagraph {
+        font-weight: normal;
+        font-size: 14px;
+        font-style: italic;
+        color: #262626;
+        margin: 0;
+    }
+
+    .eddy-form-container #FEloader.loaderOn {
+        top: 20%;
+        left: 20%;
+        position: fixed;
+    }
+
+
+.eddy-form-wizard-container input.error, .eddy-form-wizard-container select.error {
+    border: 1px solid #B9121B;
+}
+
+.eddy-form-wizard-container label.error {
+    color: #B9121B;
+    font-size: 13px !important;
+    font-weight: normal;
+    border: none;
+    margin-bottom: 0 !important;
+    position: absolute !important;
+}
+
+.eddy-form-wizard-container [name=mc-SM-additional-questions] label.error {
+    color: #B9121B;
+    font-size: 13px !important;
+    font-weight: normal;
+    border: none;
+    margin-bottom: 0 !important;
+    position: inherit !important;
+}
+
+
+.eddy-form-wizard-container .error-summary, .eddy-form-wizard-container .UserAgreement ul {
+    color: #B9121B;
+    font-size: 14px;
+    margin: 10px 0 10px 90px;
+    padding: 0;
+    width: auto;
+}
+
+    .eddy-form-wizard-container .error-summary li, .UserAgreement fieldset ul li {
+        background: none repeat scroll 0 0 transparent;
+        clear: both;
+        color: #B9121B;
+        font-size: 15px;
+        list-style-type: disc !important;
+        margin: 5px 0;
+        padding: 0;
+        position: relative;
+        width: auto !important;
+    }
+
+    .eddy-form-wizard-container .error-summary label.error, .eddy-form-wizard-container .UserAgreement label.error {
+        background: none repeat scroll 0 0 transparent;
+        clear: both;
+        color: #B9121B;
+        display: block;
+        font-size: 12px;
+        font-weight: normal;
+        list-style-type: disc !important;
+        margin: 0 0 8px;
+        padding: 0;
+        position: relative;
+        text-align: left;
+        width: auto;
+    }
+
+.eddy-form-wizard-container .field-holder .ez-radio label.error {
+    position: absolute;
+    left: 0;
+    bottom: -12px;
+}
+
+/* popup */
+.eddy-form-wizard-container .popup-info {
+    position: fixed;
+    z-index: 10;
+    background: white;
+    padding: 0;
+    overflow-y: auto;
+    top: 300px !important;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -khtml-border-radius: 12px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+
+    .eddy-form-wizard-container .popup-info .popup-close {
+        text-decoration: none;
+        background: url("[SERVER]/images/close.gif") no-repeat center;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    .eddy-form-wizard-container .popup-info h4 {
+        margin: 0 1.5em 0.5em 0;
+    }
+
+/* Popup window */
+.eddy-form-wizard-container .popup-info #progDescTop {
+    background: url("[SERVER]/images/progDescTop.gif") no-repeat;
+    height: 15px;
+    width: 465px;
+    display: block;
+}
+
+.eddy-form-wizard-container .popup-info .popup-info-wrapper {
+    background: url("[SERVER]/images/progDescBg.gif") repeat-y;
+    padding: 0 15px 15px;
+}
+
+.eddy-form-wizard-container .popup-info #progDescBtm {
+    background: url("[SERVER]/images/progDescBtm.gif") no-repeat;
+    height: 15px;
+    width: 465px;
+    display: block;
+}
+
+.eddy-form-wizard-container .popup-info .us-institution-logo {
+    display: block;
+    float: left;
+    margin: 0 .5em .6em 0;
+}
+
+.eddy-form-wizard-container .popup-info .sm-institution-popup-CampusName {
+    margin: 0 0 2px 0;
+}
+
+.eddy-form-wizard-container .popup-info .us-program-popup-ProgramDescription,
+.eddy-form-wizard-container .popup-info .sm-institution-popup-InstitutionDescription,
+.eddy-form-wizard-container .popup-info .Description {
+    clear: both;
+    display: block;
+}
+
+.eddy-form-wizard-container .popup-info .us-program-popup-InstitutionName {
+    color: #22275A;
+    margin: 0;
+}
+
+.eddy-form-wizard-container .popup-info .us-program-popup-ProgramName {
+    font-weight: normal;
+    margin-right: 1.5em;
+}
+
+.eddy-form-wizard-container .popup-info .sm-institution-popup-CampusCity,
+.eddy-form-wizard-container .popup-info .sm-institution-popup-CampusState {
+    display: inline-block;
+}
+
+
+.eddy-form-container #eddy-form-wizard-managedchoice-container .FEoverlay {
+    width: 470px;
+    left: 0;
+    top: 0;
+    height: 98%;
+}
+
+.eddy-form-wizard-container .required-mark {
+    font-size: 11px;
+}
+
+
+/* Button */
+.eddy-form-wizard-container .btnNext {
+    background: url("[SERVER]/images/next.png") no-repeat 0 0px;
+    cursor: pointer;
+    height: 53px;
+    width: 90px;
+    float: right;
+    padding-right: 130px;
+}
+
+    .eddy-form-wizard-container .btnNext.buttonLastStep {
+        background: url("[SERVER]/images/next.png") no-repeat 0 0px;
+    }
+
+.eddy-form-wizard-container .btnPrev {
+    margin-top: 8px auto;
+    left: -5px;
+    width: 120px;
+    float: left;
+    display: block;
+    height: 48px;
+    background: url("[SERVER]/images/back.png") no-repeat 0 0px;
+    line-height: normal !important;
+    padding: 0 !important;
+    cursor: pointer;
+    bottom: 46%;
+}
+
+.eddy-form-container div.eddy-form-wizard-container div.eddy-form-wizard-footer a div#form-navback-button.form-submit-button {
+    width: 120px;
+    display: block;
+    height: 48px;
+    background: url("[SERVER]/images/back.png") no-repeat 0 0px;
+}
+
+    .eddy-form-container div.eddy-form-wizard-container div.eddy-form-wizard-footer a div#form-navback-button.form-submit-button:hover {
+        background: url("[SERVER]/images/back_hover.png") no-repeat 0 0px;
+    }
+
+.eddy-form-wizard-container .btnPrev:hover {
+    background: url("[SERVER]/images/back_hover.png") no-repeat 0 0px;
+}
+
+.eddy-form-wizard-container .btnNext.buttonLastStep a {
+    background: url("[SERVER]/images/btnStartMatch.gif") no-repeat 0 0;
+}
+
+.eddy-form-wizard-container .btnNext a:hover {
+    background-position: 0 56px;
+    outline: none;
+}
+
+.eddy-form-wizard-container .btnPrev a {
+    text-indent: -9999px;
+}
+
+    .eddy-form-wizard-container .btnPrev a:hover {
+        background-position: 0 41px;
+        outline: none;
+        background: url("[SERVER]/images/back_hover.png") no-repeat 0 0px;
+    }
+
+.eddy-form-wizard-container div#thank-you-page,
+.eddy-form-wizard-container div#no-match-page {
+    margin-top: 45px;
+}
+
+
+.eddy-form-wizard-container .popup-info .popup-info-wrapper {
+    width: 435px;
+}
+
+.eddy-form-wizard-header button {
+    font-size: 110%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    line-height: 30px;
+}
+
+#eddy-form-wizard-managedchoice-container {
+    padding-left: 10px;
+}
+
+.eddy-form-wizard-container div.thank-you-page-message div.thank-you-msg {
+    margin-top: 60px;
+}
+
+.eddy-form-wizard-container div.eddy-form-wizard-body div#thank-you-page {
+    padding-left: 15px;
+}
+
+.eddy-form-wizard-container .btnNext {
+    cursor: pointer;
+}
+
+.eddy-form-wizard-container div.eddy-form-wizard-body div#thank-you-page div div.image-text-group ul.image-text li {
+    background: url("[SERVER]/images/dividerShadowSchoolList.png") no-repeat scroll center bottom rgba(0, 0, 0, 0);
+    list-style: none outside none;
+    margin-bottom: 15px;
+    margin-left: -20px;
+    padding-bottom: 35px;
+}
+
+.eddy-form-wizard-body div#thank-you-page div div.image-text-group ul.image-text li div.school-logo {
+    float: left;
+    width: 145px;
+}
+
+#thank-you-page div div.image-text-group ul.image-text li div.school-info p.school-name,
+#thank-you-page div div.image-text-group ul.image-text li div.school-info p.program-name {
+    line-height: 10px;
+}
+
+#thank-you-page div div.image-text-group ul.image-text li div.school-info p a {
+    color: #22275A;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+    #thank-you-page div div.image-text-group ul.image-text li div.school-info p a:hover {
+        text-decoration: none;
+    }
+
+#thank-you-page div div.image-text-group ul.image-text li div.school-info p.program-name {
+    font-size: 11px;
+    margin: 0 0 3px;
+}
+
+.eddy-form-wizard-container div.eddy-form-wizard-body div#thank-you-page div.online-school-submitted {
+    background: url("[SERVER]/images/hdrChosenSchoolsOnline.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    padding-top: 40px;
+}
+
+.eddy-form-wizard-container div.eddy-form-wizard-body div#thank-you-page div.campus-school-submitted {
+    background: url("[SERVER]/images/hdrChosenSchoolsCampus.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    padding-top: 40px;
+}
+
+#thank-you-page div div.image-text-group ul.image-text li div.school-logo img {
+    border: 1px solid #999;
+}
+
+#thank-you-page div div.image-text-group ul.image-text li div.school-logo .school-logo-name {
+    display: table-cell !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+div#thank-you-page div.thank-you-page-message p {
+    width: 650px;
+}
+
+#eddy-form-wizard-managedchoice-container.eddy-form-wizard-container .eddy-form-wizard-body {
+    width: 640px !important;
+}
+
+#managed-choice-list div#mc-us-choice-list div#mc-US-Area.mc-US-Area fieldset {
+    width: 423px;
+}
+
+.eddy-form-wizard-container #OnlineCampusTabs {
+    margin-left: 90px;
+}
+
+.eddy-form-wizard-container #mc-us-choice-list {
+    margin-left: 90px;
+}
+
+.eddy-form-wizard-container .sponsored_listings {
+    padding-right: 100px !important;
+}
+
+.eddy-form-wizard-container .managedchoice-express-consent {
+    width: 440px !important;
+}
+
+
+#no-match-page div.form-page-step-message div.matchAgain div.form-submit-button a {
+    background: url("[SERVER]/images/matchme.png") no-repeat scroll left center rgba(0, 0, 0, 0);
+    float: left;
+    height: 61px;
+    margin-left: 20px;
+    width: 216px;
+}
+
+.eddy-form-wizard-container .image-checkbox-group li div {
+    border: medium none !important;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+    vertical-align: bottom;
+    width: 117px;
+    height: 76px;
+}
+
+.eddy-form-wizard-container .campus-preference-online {
+    background: url("[SERVER]/images/online.png") no-repeat scroll 0 0 / 120px auto rgba(0, 0, 0, 0);
+}
+
+.eddy-form-wizard-container .campus-preference-campus {
+    background: url("[SERVER]/images/campus.png") no-repeat scroll 0 0 / 120px auto rgba(0, 0, 0, 0);
+}
+
+.eddy-form-wizard-container .campus-preference-both {
+    background: url("[SERVER]/images/both.png") no-repeat scroll 0 0 / 120px auto rgba(0, 0, 0, 0);
+}
+
+
+
+.eddy-form-wizard-container .image-checkbox-group .image-checkbox li {
+    display: inline-block;
+    padding: 5px;
+    width: 21%;
+    *float: left;
+    *width: 30%;
+}
+
+    .eddy-form-wizard-container .image-checkbox-group .image-checkbox li.selected {
+        background: #DDD;
+        box-shadow: inset 2px 2px 15px 0px #888;
+        -moz-box-shadow: inset 2px 2px 15px 0px #888;
+        -webkit-box-shadow: inset 2px 2px 15px 0px #888;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -khtml-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+.eddy-form-wizard-container .image-checkbox-group .image-checkbox input {
+    display: block;
+    margin: 5px auto;
+    background: transparent;
+}
+
+.eddy-form-wizard-container .image-checkbox-group .image-checkbox a {
+    outline: none;
+}
+/* TwoULeadShare Text Formatting*/
+.eddy-form-container .twou-leadshare-text {
+    font-size: 11px;
+    font-weight: normal;
+    color: #333333;
+}
+
+/* Inline Drop Down */
+.inlineDropDown-wrapper select::-ms-expand {
+    display: none;
+}
+
+.inlineDropDown-wrapper {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    width: 100% !important;
+    border: none !important;
+}
+
+.eddy-form-container .eddy-form-wizard-container .field-holder select.inlineDropDown {
+    background: transparent !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.inlineDropDown-wrapper:after {
+    content: "\f0d7";
+    font-family: FontAwesome;
+    font-size: 15px;
+    padding: 8px 8px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    text-align: center;
+    width: 40px;
+    height: 100%;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+.eddy-form-wizard-container .inlineDropDown {
+    width: 99% !important;
+    border-radius: 0 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+}
+
+.eddy-form-wizard-container .inline-hidden-label,
+.eddy-form-wizard-container .inline-hidden-option {
+    display: none !important;
+}
+/* End Inline Drop Down */
+
+.eddy-form-container [code="Desired_City"] {
+    width: 250px;
+}
+
+.eddy-form-container [code="Desired_Country"] {
+    width: 250px;
+}
+

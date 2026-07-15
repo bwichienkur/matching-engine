@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>IS-Form Engine WizardTemplate</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="http://cms.educationdynamics.com/sites/all/files/css/animate.min.css" />
+    <!--<script src="//cdn.optimizely.com/js/5309656004034560.js"></script>-->
+    <script type="text/javascript" src="/Static/GetBundledWizardJs?minifyJavascript=false"></script>
+    <script language="javascript" type="text/javascript">
+
+        var FormsEngine = FormsEngine || {};
+
+        //FormsEngine.JornayaDelayUntilSecondStep = true;
+        //FormsEngine.JornayaDelayUntilFirstUserInteraction = true;
+
+        /* REQUIRED */
+        //FormsEngine.RenderingExperience = "Prospect";
+        FormsEngine.RenderingStrategy = 'SCHOOLPICKERWIZARD';
+        FormsEngine.RenderingDiv = 'eddy-form-container';
+        FormsEngine.SelfContained = true; //false: must contain page to redirect and divs will be ignored
+        FormsEngine.IsBeta = false;
+        FormsEngine.TrackId = "1DB1CD60-FFB3-4940-BEEF-7F0C280ADE71";
+        FormsEngine.ShouldGetZipCodeFromIp = true;
+        FormsEngine.SelectFirstSchoolInCarousel = false;
+        FormsEngine.DontAllowAutoForwardStep = true;
+        FormsEngine.Theme = "plain";
+
+        /* Optional */
+        //FormsEngine.Theme = "iconfields";
+        //FormsEngine.AdditionalFields = [];
+        //FormsEngine.AdditionalFields.push(["AlexN", "WasHere"]);
+        //FormsEngine.AdditionalFields.push(["AndThisIs", "WhateverYouWant"]);
+        FormsEngine.DebugMode = true;
+        FormsEngine.SessionId = '00000000-0000-0000-0000-0000-000000000000';
+        FormsEngine.MatchResponseGuid = '00000000-0000-0000-0000-0000-000000000000';
+        FormsEngine.CompressJs = false;
+        //FormsEngine.ExpressConsentOn = true;
+        //FormsEngine.WorkflowChanged = function (data) { alert('This is the workflow step you should load related content ' + data); }
+        FormsEngine.TemplateId = 543;
+        FormsEngine.ApplicationId = 9;
+        //FormsEngine.DefaultCampusPreference = "Campus";
+        //http://prod.elearners.local/l/top-certifications-now#_Step7
+        //FormsEngine.SmartAddressEditText = "Change This...";
+
+        //FormsEngine.WizardAlternativeExpressConsent = "YEES I acknowledge that, by CLICKING the checkbox as my official signature, I consent to representatives of {thirdpartyschool}{/thirdpartyschool}{school}{/school} EducationDynamics, LLC contacting me about educational {thirdpartytype}and/or loan consolidation{/thirdpartytype} opportunities via email, text, or phone, including my mobile phone number(s){mobile-number}, using an automatic dialer, or pre-recorded message.  Message and data rates may apply. I understand that my consent is not a requirement for enrollment, and I may withdraw my consent at any time.";
+        /* FormsEngine.TCPAMessageChanged = function (text) {
+             var result = (text==undefined||text==null) ? "" : text;
+
+             //All caps All Text
+             //result = text.toUpperCase();
+
+             //All caps school names
+             //var startPos = result.indexOf('to representatives of');
+             //var endPos = result.indexOf('EducationDynamics, LLC contacting');
+             //var schools = result.substring(startPos + 21, endPos + 22);
+             //result = result.replace(schools, schools.toUpperCase());
+
+             //Bolding
+             //var startPos = result.indexOf('to representatives of');
+             //var endPos = result.indexOf('EducationDynamics, LLC contacting');
+             //var schools = result.substring(startPos + 21, endPos + 22);
+             //result = result.replace(schools, '<b>' + schools + '</b>');
+
+             //Break lines
+             //var startPos = result.indexOf('to representatives of');
+             //var endPos = result.indexOf('EducationDynamics, LLC contacting');
+             //result = result.replace('EducationDynamics,', 'EducationDynamics+');
+             //var schools = result.substring(startPos + 21, endPos + 22);
+             //var split = schools.split(',').join(',</p><p style="text-indent: 2em;">').replace('EducationDynamics+', 'EducationDynamics,');
+             //result = result.replace(schools, ':<br/><p style="text-indent: 2em;">' + split + '</p>');
+
+             //Transition
+             //var userAgreementControl = jQuery(FormsEngine.DefaultFormTag).find('input[code="UserAgreement"]').parents('div.field-holder');
+             //jQuery(userAgreementControl).fadeOut();
+             //jQuery(userAgreementControl).fadeIn();
+
+             return result;
+         }*/
+
+
+        //FormsEngine.StartLeaveBehindURL = "http://cms.educationdynamics.com/eddy_pop_exit/15";
+
+
+        jQuery.cookie('FE_IPOverride', '4.59.89.98');
+
+
+        FormsEngine.LoadForm();
+
+    </script>
+
+
+</head>
+<body class="bootstrap-anchors-processed">
+    <div name="eddy-form-container" class="eddy-form-container" style="border:solid;border-color:green;max-width:500px;">
+    </div>
+    <br /> <br />
+
+    <div style="text-align:center">
+        <a href="javascript:FormsEngine.LoadWorkflowStep('START','');"> [Start]</a> -
+        <a href="javascript:FormsEngine.LoadWorkflowStep('MANAGEDCHOICE','');"> [School Selection]</a> -
+        <a href="javascript:FormsEngine.LoadWorkflowStep('THANKYOU','');"> [Thank You]</a> -
+        <a href="javascript:FormsEngine.LoadWorkflowStep('NOMATCH','');"> [No Match]</a>
+    </div>
+    <div style='height:800px;'> &nbsp; </div>
+</body>
+</html>

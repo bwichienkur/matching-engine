@@ -1,0 +1,169 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.TemplateControlModel>
+
+<link href="@(Url.Action("GetCommonCss", "Static", new { FileName = "AdditionalQuestions" }, Url.RequestContext.HttpContext.Request.Url.Scheme))" rel="stylesheet" type="text/css" />
+
+
+<fieldset id="Section1" class="sections" name="section">
+    <legend id="additionalQuestionLabel" class="aq-label">Additional Questions</legend>
+    <!-- Controls render -->
+    @foreach (var control in Model.ControlList.OrderBy(c => c.RowSequence))
+    {
+        var ControlLabel = string.IsNullOrWhiteSpace(control.InstanceLabel) ? control.StandardControl.DefaultLabel : control.InstanceLabel;
+        var ControlTypeName = control.StandardControl.StandardControlType.StandardControlTypeName;
+        var ControlCode = control.StandardControl.StandardControlCode.Code;
+        var CustomValidation = control.StandardControl.StandardControlValidations.Count > 0 ? control.StandardControl.StandardControlValidations.First().ValidationLibrary : null;
+        var ValidationLibrary = CustomValidation != null ? "customRegex=" + CustomValidation.Expression + " customErrorCode=" + CustomValidation.ErrorCode.Code : "";
+        bool IsPredefinedValueList = control.StandardControl.PreDefinedValueList != null && control.StandardControl.PreDefinedValueList.ValueListItems != null;
+        bool IsMatchingEngineAdditionalField = IsPredefinedValueList && control.StandardControl.PreDefinedValueList.IsMatchingEngineAdditionalField;
+        bool IsCampusPreference = control.StandardControl.StandardControlCode.Code == "CampusPreference";
+        bool IsSearchablePredfinedValueList = control.StandardControl.SearchablePredefinedValueList.HasValue ? control.StandardControl.SearchablePredefinedValueList.Value : false;
+        switch (control.StandardControl.StandardControlType.StandardControlTypeName)
+        {
+            case "Hidden":
+                <input type="hidden" controltypename="@ControlTypeName" id="@control.TemplateControlId" id-sort="@control.RowSequence" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" value="@control.StandardControl.DefaultValue" name="@control.StandardControl.FieldName" data-controltypename="@ControlTypeName" />
+                break;
+            case "Text Box":
+                <div class="field-holder form-group @ControlCode" data-rowsequence="additional_@control.RowSequence" data-controlcode="@ControlCode" data-controltypename="@ControlTypeName">
+                    <label for="@control.TemplateControlId">
+                        @(ControlLabel)
+                    </label>
+                    <input id="@control.TemplateControlId" id-sort="@control.RowSequence" type="text" controltypename="@ControlTypeName" value="@control.StandardControl.DefaultValue" datatype="@control.StandardControl.StandardControlDataType.Name" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" name="@control.StandardControl.FieldName" class="text-field form-control" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") minlength="@control.StandardControl.MinLength" maxlength="@control.StandardControl.MaxLength" @(ValidationLibrary) />
+                    <label data-error="true" for="@ControlCode" style="display: none;" class="error">Please enter a value</label>
+                    <div id="@(ControlCode)_ValidationIcon" style="display:none"></div>
+                </div>
+                break;
+            case "Drop-Down":
+                <div class="field-holder form-group @ControlCode" data-rowsequence="additional_@control.RowSequence" data-controlcode="@ControlCode" data-controltypename="@ControlTypeName">
+                    <label data-question="true" for="@control.TemplateControlId" class="@(Model.InlineDropDownRender? "inline-hidden-label": "")">
+                        @(ControlLabel)
+                    </label>
+                    @if (Model.InlineDropDownRender)
+                    {
+                        @:<div class="inlineDropDown-wrapper">
+                        }
+                    <select id="@control.TemplateControlId" id-sort="@control.RowSequence" controltypename="@ControlTypeName" value="@control.StandardControl.DefaultValue" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" name="@control.StandardControl.FieldName" class="select-field form-control @(Model.InlineDropDownRender? "inlineDropDown": "")" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "")>
+                        @if (IsPredefinedValueList)
+                        {
+                            <option value="" @(Model.InlineDropDownRender ? "disabled=true selected=true" : "")>@(Model.InlineDropDownRender && !string.IsNullOrEmpty(ControlLabel) ? ControlLabel : "-- SELECT --")</option>
+                            if (IsSearchablePredfinedValueList)
+                            {
+                                foreach (var item in control.StandardControl.PreDefinedValueList.ValueListItems.Take(20).ToList())
+                                {
+                                    <option value="@item.Value" key="@item.Key" @(item.IsDefault == true ? "selected" : "")>@item.Text</option>
+                                }
+                            }
+                            else
+                            {
+                                foreach (var item in control.StandardControl.PreDefinedValueList.ValueListItems)
+                                {
+                                    <option value="@item.Value" key="@item.Key" @(item.IsDefault == true ? "selected" : "")>@item.Text</option>
+                                }
+                            }
+                        }
+                        }
+                    </select>
+                    @if (Model.InlineDropDownRender)
+                    {
+                    @:</div>
+                }
+                    <label data-error="true" for="@ControlCode" style="display: none;" class="error">Please select a value</label>
+                    <div id="@(ControlCode)_ValidationIcon" style="display:none"></div>
+                </div>
+                break;
+            case "Text Area":
+                <div class="field-holder form-group @ControlCode" data-rowsequence="additional_@control.RowSequence" data-controlcode="@ControlCode" data-controltypename="@ControlTypeName">
+                    <label for="@control.TemplateControlId">
+                        @(ControlLabel)
+                    </label>
+                    <input type="textarea" controltypename="@ControlTypeName" value="@control.StandardControl.DefaultValue" datatype="@control.StandardControl.StandardControlDataType.Name" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="textarea-field" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") minlength="@control.StandardControl.MinLength" maxlength="@control.StandardControl.MaxLength" @(ValidationLibrary) />
+                    <div id="@(ControlCode)_ValidationIcon" style="display:none"></div>
+                </div>
+                break;
+            case "Check Box":
+                <div class="field-holder form-group @ControlCode checkbox" data-rowsequence="additional_@control.RowSequence" data-controlcode="@ControlCode" data-controltypename="@ControlTypeName">
+                    <i class="fa fa-square-o checkbox-icon"></i>
+                    <input type="checkbox" controltypename="@ControlTypeName" value="@(ControlLabel)" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="checkbox-field" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "") />
+                    <label for="@control.TemplateControlId">
+                        @(ControlLabel)
+                    </label>
+                    <div id="@(ControlCode)_ValidationIcon" style="display:none"></div>
+                </div>
+                break;
+            case "Radio Buttons":
+                <div class="field-holder form-group @ControlCode TransformOnMobile RadioStaticTransform" data-rowsequence="additional_@control.RowSequence" data-controlcode="@ControlCode" data-controltypename="@ControlTypeName">
+                    <!-- fieldset added by Helen -->
+                    <fieldset>
+
+                        <label data-question="true" for="@control.TemplateControlId">
+                            @(ControlLabel)
+                        </label>
+                        @if (IsPredefinedValueList)
+                        {
+                            if (control.StandardControl.StandardControlCode.Code == "CampusSoftPreference")
+                            {
+                                <div class="image-checkbox-group">
+                                    <ul class="image-checkbox">
+                                        @foreach (var item in control.StandardControl.PreDefinedValueList.ValueListItems)
+                                        {
+                                            <li class="image-checkbox-field-holder @(item.Value.ToLower())">
+                                                <a href="#"><div class="campus-preference-@(item.Value.ToLower())"></div></a>
+                                                <input id="@(control.TemplateControlId + "_" + item.Value)" id-sort="@control.RowSequence" type="radio" controltypename="@ControlTypeName" value="@item.Value" key="@item.Key" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" name="@control.StandardControl.FieldName" class="radio-field " label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") @(item.IsDefault == true ? "checked" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "") />
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+                            else
+                            {
+                                foreach (var item in control.StandardControl.PreDefinedValueList.ValueListItems)
+                                {
+                                    <div class="radio-inline">
+                                        <input id="@(control.TemplateControlId + "_" + item.Value)" id-sort="@control.RowSequence" type="radio" controltypename="@ControlTypeName" value="@item.Value" key="@item.Key" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" name="@control.StandardControl.FieldName" class="radio-field " label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") @(item.IsDefault == true ? "checked" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "") />
+                                        <label for="@(control.TemplateControlId + "_" + item.Value)">
+                                            @item.Text
+                                        </label>
+                                    </div>
+                                }
+                                <label data-error="true" for="@ControlCode" style="display: none;" class="error">Please select a value</label>
+                            }
+                        }
+                    </fieldset>
+                    <div id="@(ControlCode)_ValidationIcon" style="display:none"></div>
+                </div>
+                break;
+            case "Multi Check Box List":
+                <div class="field-holder form-group @ControlCode" data-rowsequence="additional_@control.RowSequence" data-controlcode="@ControlCode" data-controltypename="@ControlTypeName">
+
+                    <label for="@control.TemplateControlId" class="question">
+                        @(ControlLabel)
+                    </label>
+
+                    <fieldset>
+                        @if (IsPredefinedValueList)
+                        {
+                            foreach (var item in control.StandardControl.PreDefinedValueList.ValueListItems)
+                            {
+
+                                <input type="checkbox" controltypename="@ControlTypeName" value="@item.Value" key="@item.Key" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@(control.TemplateControlId + "_" + item.Value)" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="checkbox-field" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") @(item.IsDefault == true ? "checked" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "") />
+                                <label for="@(control.TemplateControlId + "_" + item.Value)">
+                                    @item.Text
+                                </label>
+                            }
+                        }
+                    </fieldset>
+                    <div id="@(ControlCode)_ValidationIcon" style="display:none"></div>
+                </div>
+                break;
+            case "Label":
+                <div class="field-holder form-group @ControlCode" data-controltypename="@ControlTypeName">
+                    <p datatype="@control.StandardControl.StandardControlDataType.Name" code="@ControlCode" id="@control.TemplateControlId" name="@control.StandardControl.FieldName" class="label-field">@(ControlLabel)</p>
+                </div>
+                break;
+            default:
+                <text>Control Type "@control.StandardControl.StandardControlType.StandardControlTypeName" is not supported on the Wizard Additional Questions.  </text>
+                break;
+        }
+
+    }
+</fieldset>
+

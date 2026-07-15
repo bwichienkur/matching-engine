@@ -1,0 +1,100 @@
+﻿<!--
+SPONSORED POPUP CSS-- >
+
+.eddy-form-sponsored-link .button {
+    font-size: 1em;
+    padding: 0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    position: relative;
+}
+
+.eddy-form-sponsored-link {
+    margin-bottom: 15px !important;
+}
+
+    .eddy-form-sponsored-link a {
+        color: #428bca;
+    }
+    .eddy-form-sponsored-link .button:hover {
+        text-decoration: underline
+    }
+
+    .eddy-form-sponsored-link .fa-question-circle {
+       
+      
+        display: inline-block;
+        content: url("[SERVERCOMMON]/images/fa-question-circle.png");
+     
+        vertical-align: middle;
+       
+        margin-top: -5px;
+        margin-left: 5px;
+    }
+
+        
+
+    .eddy-form-sponsored-link .SponsoredListImage {
+        content: url("[SERVERCOMMON]/images/sponsored-explained-v2.png");
+    }
+
+    .eddy-form-sponsored-link .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+        .eddy-form-sponsored-link .overlay:target {
+            visibility: visible;
+            opacity: 1;
+            z-index: 1000;
+        }
+
+    .eddy-form-sponsored-link .popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        width: 400px;
+        position: relative;
+        transition: all 5s ease-in-out;
+    }
+
+
+        .eddy-form-sponsored-link .popup .close-x {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+            .eddy-form-sponsored-link .popup .close-x:hover {
+                color: #8E6D83;
+            }
+
+        .eddy-form-sponsored-link .popup .content {
+            overflow: auto;
+        }
+
+        .eddy-form-sponsored-link .popup .close {
+            float: none;
+            opacity: 1;
+        }
+
+@media(max-width: 768px) {
+
+    .eddy-form-sponsored-link .popup {
+        width: 90%;
+    }
+}

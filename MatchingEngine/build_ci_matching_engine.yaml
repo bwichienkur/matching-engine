@@ -1,0 +1,67 @@
+trigger:
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - MatchingEngine
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: 'MatchingEngine/EDDY.IS.MatchingEngine.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+stages:
+- stage: Build
+  jobs:
+  - job: BuildJob
+    displayName: Build Solution
+    
+    steps:
+    - task: NuGetToolInstaller@1
+      displayName: Use Nuget 6.0.x
+      inputs:
+        versionSpec: 6.0.x
+        checkLatest: true
+    - task: NuGetCommand@2
+      displayName: Restore Packages ExternalMatch
+      inputs:
+        restoreSolution: 'ExternalMatch/EDDY.IS.ExternalMatch.sln'
+        feedRestore: 0463f636-c458-4488-987d-6723a95d4270/59f62db5-0e2c-4b1d-8dc8-19ad086f5e5d
+    - task: NuGetCommand@2
+      displayName: Restore Packages
+      inputs:
+        restoreSolution: '$(solution)'
+        feedRestore: 0463f636-c458-4488-987d-6723a95d4270/59f62db5-0e2c-4b1d-8dc8-19ad086f5e5d
+    - task: VSBuild@1
+      inputs:
+        solution: '$(solution)'
+        msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site" /p:OutputPath="$(Agent.BuildDirectory)\o\$(Build.DefinitionName)"'
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)'
+
+    # - task: VSTest@3
+    #   inputs:
+    #     testSelector: 'testAssemblies'
+    #     testAssemblyVer2: |
+    #       $(Agent.BuildDirectory)\o\$(Build.DefinitionName)\**\CompliancePortal.UnitTests.dll
+    #     searchFolder: '$(Build.StagingDirectory)'
+    #     testRunTitle: 'Compliance Portal Unit Tests'  # Title for the test run
+    #     codeCoverageEnabled: true  # Enable code coverage collection
+    #     platform: '$(buildPlatform)'  # Ensure it matches the platform used in the build step
+    #     configuration: '$(buildConfiguration)'  # Ensure it matches the configuration used in the build step
+
+#     - task: ecdc45f6-832d-4ad9-b52b-ee49e94659be@1
+#       inputs:
+#         path: $(Agent.BuildDirectory)\o\$(Build.DefinitionName)
+#         artifactName: $(Build.DefinitionName)
+
+# - stage: Backup_and_Deploy
+#   displayName: Backup and Deploy
+#   jobs:
+#   - template: ../deployment-template.yml
+#     parameters:
+#      environment: ${{ parameters.environment }}

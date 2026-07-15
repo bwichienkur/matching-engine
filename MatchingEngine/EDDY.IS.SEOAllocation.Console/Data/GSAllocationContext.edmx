@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GSAllocationContext.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="GSAllocationDetail">
+          <Key>
+            <PropertyRef Name="GSAllocationDetailId" />
+          </Key>
+          <Property Name="GSAllocationDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GSAllocationMasterId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ProgramId" Type="int" Nullable="false" />
+          <Property Name="ProgramLevelId" Type="int" Nullable="false" />
+          <Property Name="ProgramProductId" Type="int" Nullable="false" />
+          <Property Name="ProgramCampusTypeId" Type="int" Nullable="false" />
+          <Property Name="InstitutionId" Type="int" Nullable="false" />
+          <Property Name="ClickLeadProgramTypeId" Type="int" Nullable="false" />
+          <Property Name="PaidStatusTypeId" Type="int" Nullable="false" />
+          <Property Name="RPL" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="ClickPrice" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GSAllocationMaster">
+          <Key>
+            <PropertyRef Name="GSAllocationMasterId" />
+          </Key>
+          <Property Name="GSAllocationMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NodeId" Type="int" Nullable="false" />
+          <Property Name="URL" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="RunTime" Type="datetime" Nullable="false" />
+          <Property Name="ProgramCount" Type="int" Nullable="false" />
+          <Property Name="InstitutionCount" Type="int" Nullable="false" />
+          <Property Name="PaidClickProgramCount" Type="int" Nullable="false" />
+          <Property Name="PaidLeadProgramCount" Type="int" Nullable="false" />
+          <Property Name="PaidClickLeadProgramCount" Type="int" Nullable="false" />
+          <Property Name="FreeProgramCount" Type="int" Nullable="false" />
+          <Property Name="PaidProgramCount" Type="int" Nullable="false" />
+          <Property Name="FraidProgramCount" Type="int" Nullable="false" />
+          <Property Name="RPLSum" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="ClickPriceSum" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_GSAllocationDetail_GSAllocationMaster">
+          <End Role="GSAllocationMaster" Type="Self.GSAllocationMaster" Multiplicity="1" />
+          <End Role="GSAllocationDetail" Type="Self.GSAllocationDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GSAllocationMaster">
+              <PropertyRef Name="GSAllocationMasterId" />
+            </Principal>
+            <Dependent Role="GSAllocationDetail">
+              <PropertyRef Name="GSAllocationMasterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GSAllocationContextStoreContainer">
+          <EntitySet Name="GSAllocationDetail" EntityType="Self.GSAllocationDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GSAllocationMaster" EntityType="Self.GSAllocationMaster" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_GSAllocationDetail_GSAllocationMaster" Association="Self.FK_GSAllocationDetail_GSAllocationMaster">
+            <End Role="GSAllocationMaster" EntitySet="GSAllocationMaster" />
+            <End Role="GSAllocationDetail" EntitySet="GSAllocationDetail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="GSAllocationContext" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="GSAllocationContextContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GSAllocationDetails" EntityType="GSAllocationContext.GSAllocationDetail" />
+          <EntitySet Name="GSAllocationMasters" EntityType="GSAllocationContext.GSAllocationMaster" />
+          <AssociationSet Name="FK_GSAllocationDetail_GSAllocationMaster" Association="GSAllocationContext.FK_GSAllocationDetail_GSAllocationMaster">
+            <End Role="GSAllocationMaster" EntitySet="GSAllocationMasters" />
+            <End Role="GSAllocationDetail" EntitySet="GSAllocationDetails" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="GSAllocationDetail">
+          <Key>
+            <PropertyRef Name="GSAllocationDetailId" />
+          </Key>
+          <Property Name="GSAllocationDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GSAllocationMasterId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ProgramId" Type="Int32" Nullable="false" />
+          <Property Name="ProgramLevelId" Type="Int32" Nullable="false" />
+          <Property Name="ProgramProductId" Type="Int32" Nullable="false" />
+          <Property Name="ProgramCampusTypeId" Type="Int32" Nullable="false" />
+          <Property Name="InstitutionId" Type="Int32" Nullable="false" />
+          <Property Name="ClickLeadProgramTypeId" Type="Int32" Nullable="false" />
+          <Property Name="PaidStatusTypeId" Type="Int32" Nullable="false" />
+          <Property Name="RPL" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="ClickPrice" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <NavigationProperty Name="GSAllocationMaster" Relationship="GSAllocationContext.FK_GSAllocationDetail_GSAllocationMaster" FromRole="GSAllocationDetail" ToRole="GSAllocationMaster" />
+        </EntityType>
+        <EntityType Name="GSAllocationMaster">
+          <Key>
+            <PropertyRef Name="GSAllocationMasterId" />
+          </Key>
+          <Property Name="GSAllocationMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NodeId" Type="Int32" Nullable="false" />
+          <Property Name="URL" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="RunTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProgramCount" Type="Int32" Nullable="false" />
+          <Property Name="InstitutionCount" Type="Int32" Nullable="false" />
+          <Property Name="PaidClickProgramCount" Type="Int32" Nullable="false" />
+          <Property Name="PaidLeadProgramCount" Type="Int32" Nullable="false" />
+          <Property Name="PaidClickLeadProgramCount" Type="Int32" Nullable="false" />
+          <Property Name="FreeProgramCount" Type="Int32" Nullable="false" />
+          <Property Name="PaidProgramCount" Type="Int32" Nullable="false" />
+          <Property Name="FraidProgramCount" Type="Int32" Nullable="false" />
+          <Property Name="RPLSum" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="ClickPriceSum" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <NavigationProperty Name="GSAllocationDetails" Relationship="GSAllocationContext.FK_GSAllocationDetail_GSAllocationMaster" FromRole="GSAllocationMaster" ToRole="GSAllocationDetail" />
+        </EntityType>
+        <Association Name="FK_GSAllocationDetail_GSAllocationMaster">
+          <End Type="GSAllocationContext.GSAllocationMaster" Role="GSAllocationMaster" Multiplicity="1" />
+          <End Type="GSAllocationContext.GSAllocationDetail" Role="GSAllocationDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GSAllocationMaster">
+              <PropertyRef Name="GSAllocationMasterId" />
+            </Principal>
+            <Dependent Role="GSAllocationDetail">
+              <PropertyRef Name="GSAllocationMasterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="GSAllocationContext" />
+        <Alias Key="Target" Value="GSAllocationContext.Store" />
+        <EntityContainerMapping CdmEntityContainer="GSAllocationContextContainer" StorageEntityContainer="GSAllocationContextStoreContainer">
+          <EntitySetMapping Name="GSAllocationDetails">
+            <EntityTypeMapping TypeName="GSAllocationContext.GSAllocationDetail">
+              <MappingFragment StoreEntitySet="GSAllocationDetail">
+                <ScalarProperty Name="ClickPrice" ColumnName="ClickPrice" />
+                <ScalarProperty Name="RPL" ColumnName="RPL" />
+                <ScalarProperty Name="PaidStatusTypeId" ColumnName="PaidStatusTypeId" />
+                <ScalarProperty Name="ClickLeadProgramTypeId" ColumnName="ClickLeadProgramTypeId" />
+                <ScalarProperty Name="InstitutionId" ColumnName="InstitutionId" />
+                <ScalarProperty Name="ProgramCampusTypeId" ColumnName="ProgramCampusTypeId" />
+                <ScalarProperty Name="ProgramProductId" ColumnName="ProgramProductId" />
+                <ScalarProperty Name="ProgramLevelId" ColumnName="ProgramLevelId" />
+                <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="GSAllocationMasterId" ColumnName="GSAllocationMasterId" />
+                <ScalarProperty Name="GSAllocationDetailId" ColumnName="GSAllocationDetailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GSAllocationMasters">
+            <EntityTypeMapping TypeName="GSAllocationContext.GSAllocationMaster">
+              <MappingFragment StoreEntitySet="GSAllocationMaster">
+                <ScalarProperty Name="ClickPriceSum" ColumnName="ClickPriceSum" />
+                <ScalarProperty Name="RPLSum" ColumnName="RPLSum" />
+                <ScalarProperty Name="FraidProgramCount" ColumnName="FraidProgramCount" />
+                <ScalarProperty Name="PaidProgramCount" ColumnName="PaidProgramCount" />
+                <ScalarProperty Name="FreeProgramCount" ColumnName="FreeProgramCount" />
+                <ScalarProperty Name="PaidClickLeadProgramCount" ColumnName="PaidClickLeadProgramCount" />
+                <ScalarProperty Name="PaidLeadProgramCount" ColumnName="PaidLeadProgramCount" />
+                <ScalarProperty Name="PaidClickProgramCount" ColumnName="PaidClickProgramCount" />
+                <ScalarProperty Name="InstitutionCount" ColumnName="InstitutionCount" />
+                <ScalarProperty Name="ProgramCount" ColumnName="ProgramCount" />
+                <ScalarProperty Name="RunTime" ColumnName="RunTime" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="NodeId" ColumnName="NodeId" />
+                <ScalarProperty Name="GSAllocationMasterId" ColumnName="GSAllocationMasterId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

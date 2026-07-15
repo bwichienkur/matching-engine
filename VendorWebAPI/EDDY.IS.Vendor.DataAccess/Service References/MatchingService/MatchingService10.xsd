@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://tag-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" />
+  <xs:import schemaLocation="http://tag-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://tag-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine" />
+  <xs:element name="GetFormPrograms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q1:DirectoryMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFormProgramsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetFormProgramsResult" nillable="true" type="q2:FormProgramResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstitutions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q3:DirectoryMatchRequest" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="campusOption" type="q4:GetInstitutionCampusOption" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstitutionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetInstitutionsResult" nillable="true" type="q5:InstitutionResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampuses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q6:DirectoryMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampusesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetCampusesResult" nillable="true" type="q7:CampusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApolloCampuses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="apolloRequest" nillable="true" type="q8:ApolloCampusRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApolloCampusesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetApolloCampusesResult" nillable="true" type="q9:ApolloCampusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNeoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="neoRequest" nillable="true" type="q10:NeoMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNeoResponseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetNeoResponseResult" nillable="true" type="q11:NeoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPrograms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q12:DirectoryMatchRequest" />
+        <xs:element minOccurs="0" name="includeProgramDetail" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetProgramsResult" nillable="true" type="q13:ProgramResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacetedNavigation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q14:DirectoryMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacetedNavigationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetFacetedNavigationResult" nillable="true" type="q15:NavigationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSiteMapGeoInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q16:DirectoryMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSiteMapGeoInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetSiteMapGeoInfoResult" nillable="true" type="q17:SiteMapResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q18:DirectoryMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetCategoriesResult" nillable="true" type="q19:CategoryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubjects">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q20:DirectoryMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubjectsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetSubjectsResult" nillable="true" type="q21:SubjectResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpecialties">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q22:DirectoryMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpecialtiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetSpecialtiesResult" nillable="true" type="q23:SpecialtyResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramLevels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q24:DirectoryMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramLevelsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetProgramLevelsResult" nillable="true" type="q25:ProgramLevelResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramsForCrossSell">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="crossSellRequest" nillable="true" type="q26:CrossSellMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramsForCrossSellResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetProgramsForCrossSellResult" nillable="true" type="q27:CrossSellProgramResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstitutionDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="applicationId" type="xs:int" />
+        <xs:element minOccurs="0" name="institutionId" type="xs:int" />
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TrackGuid" type="q28:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstitutionDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetInstitutionDetailsResult" nillable="true" type="q29:InstitutionDetailResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="applicationId" type="xs:int" />
+        <xs:element minOccurs="0" name="programId" type="xs:int" />
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TrackGuid" type="q30:guid" />
+        <xs:element minOccurs="0" name="includeProgramGroupRollup" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="campusId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetProgramDetailsResult" nillable="true" type="q31:ProgramDetailResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramDisplayGroupDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="applicationId" type="xs:int" />
+        <xs:element minOccurs="0" name="programDisplayGroupId" type="xs:int" />
+        <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TrackGuid" type="q32:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramDisplayGroupDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetProgramDisplayGroupDetailsResult" nillable="true" type="q33:ProgramDetailResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoriesAllIfNone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q34:DirectoryMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoriesAllIfNoneResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetCategoriesAllIfNoneResult" nillable="true" type="q35:CategoryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubjectsAllIfNone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q36:DirectoryMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubjectsAllIfNoneResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetSubjectsAllIfNoneResult" nillable="true" type="q37:SubjectResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpecialtiesAllIfNone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q38:DirectoryMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpecialtiesAllIfNoneResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetSpecialtiesAllIfNoneResult" nillable="true" type="q39:SpecialtyResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramLevelsAllIfNone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q40:DirectoryMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramLevelsAllIfNoneResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetProgramLevelsAllIfNoneResult" nillable="true" type="q41:ProgramLevelResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampusTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q42:DirectoryMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampusTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetCampusTypesResult" nillable="true" type="q43:CampusTypeMatchResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWizardMatches">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="wizardMatchRequest" nillable="true" type="q44:WizardMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWizardMatchesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetWizardMatchesResult" nillable="true" type="q45:WizardMatchResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplatesForMatches">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q46:DirectoryMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplatesForMatchesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetTemplatesForMatchesResult" nillable="true" type="q47:TemplateMatchResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampusZipCodeRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campusId" type="xs:int" />
+        <xs:element xmlns:q48="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="trackGuid" type="q48:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampusZipCodeRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetCampusZipCodeRulesResult" nillable="true" type="q49:CampusZipCodeRuleResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRulesForProgramProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProgramProductId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRulesForProgramProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetRulesForProgramProductResult" nillable="true" type="q50:ArrayOfProgramRuleDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateProgram">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="request" nillable="true" type="q51:ProgramValidateRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateProgramResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="ValidateProgramResult" nillable="true" type="q52:ProgramValidateResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateProgramProducts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="request" nillable="true" type="q53:ProgramProductValidateRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateProgramProductsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="ValidateProgramProductsResult" nillable="true" type="q54:ProgramProductValidateResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateCountryAndProgram">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="request" nillable="true" type="q55:CountryValidateRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateCountryAndProgramResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="ValidateCountryAndProgramResult" nillable="true" type="q56:ProgramValidateResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateAPIProgram">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="request" nillable="true" type="q57:ProgramValidateRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateAPIProgramResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="ValidateAPIProgramResult" nillable="true" type="q58:ProgramValidateResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApiProgram">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="programId" type="xs:int" />
+        <xs:element xmlns:q59="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="trackGuid" type="q59:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApiProgramResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetApiProgramResult" nillable="true" type="q60:ApiProgramResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramDescription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="programId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramDescriptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProgramDescriptionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RefreshCacheItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine" minOccurs="0" name="key" type="q61:MatchingCacheItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RefreshCacheItemResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveCacheItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveCacheItemResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignDetailByTrackID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TrackID" type="q62:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignDetailByTrackIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetCampaignDetailByTrackIDResult" nillable="true" type="q63:CampaignDetailResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoriesWithSubjects">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="directoryMatchRequest" nillable="true" type="q64:DirectoryMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoriesWithSubjectsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetCategoriesWithSubjectsResult" nillable="true" type="q65:CategoryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdServerClientRelationships">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="adServerMatchRequest" nillable="true" type="q66:AdServerMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdServerClientRelationshipsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="GetAdServerClientRelationshipsResult" nillable="true" type="q67:AdServerClientRelationshipResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,2072 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EDDY.IS.Vendor.Web.API</name>
+    </assembly>
+    <members>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Describes a type model.
+            </summary>
+        </member>
+        <member name="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            Generates model descriptions for given types.
+            </summary>
+        </member>
+        <member name="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
+            </summary>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,EDDY.IS.Vendor.Web.API.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,EDDY.IS.Vendor.Web.API.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},EDDY.IS.Vendor.Web.API.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey.#ctor(EDDY.IS.Vendor.Web.API.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,EDDY.IS.Vendor.Web.API.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:EDDY.IS.Vendor.Web.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EDDY.IS.Vendor.Web.API.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.DirectoryController.GetPrograms(EDDY.IS.Vendor.Entities.DirectoryRequest)">
+             <summary>
+             <para>This method returns a list of all programs currently available for this API Key that matches the given input parameters (ANDed together). Output order is based upon EDDY’s own internal optimization algorithm. </para> 
+             </summary>
+             <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+             <param name="InstitutionId">Institution</param> 
+             <param name="CampusId">Campus Id.</param>
+             <param name="CategoryIds">Category(s) Comma-delimited list of CategoryIds.</param>
+             <param name="SubjectIds">Subject(s) Comma-delimited list of SubjectIds.</param> 
+             <param name="SpecialtyIds">Specialty(s) Comma-delimited list of SpecialtyIds.</param> 
+             <param name="ProgramLevelIds">Program Level(s) list of ProgramLevelIds </param>
+             <param name="ProspectFilters">Additional prospect data, if available</param> 
+             <param name="CampusType">Online or Ground or All</param>
+             <param name="StartPage">Required | Start page.</param>
+             <param name="PageSize">Required | Number of records per page.</param> 
+             <example><![CDATA[
+             {
+                 "CampusType": "all",
+                 "APIKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                 "CategoryIds": [25,21],
+                 "SubjectIds": [658],
+                 "SpecialtyIds": [2],
+                 "ProgramLevelIds": [2,3,6,18,22,21],
+                 "CampusId": 6259,
+                 "PageSize": 10,
+                 "StartPage": 1,
+                 "ProspectFilters": [{"QuestionKey":"RNLicense","QuestionValue":"Yes"}]
+            }
+             ]]></example>
+             <returns>
+             <![CDATA[
+             { 
+               "IsSuccessful": true, 
+               "Body": {
+                    "StartPage": 1,
+                    "PageSize": 10,
+                    "TotalItems": 114,
+                    "TotalPages": 12,
+                    "ItemList": [{
+                         "ProgramId": 176385,
+                          "ProgramName": "Bachelor of Science in Music Business",
+                          "ProgramDescription": "<p>\n\tLearn what it takes to build a career in one of entertainment&rsquo;s most exciting industries through Full Sail University&rsquo;s Music Business Bachelor&rsquo;s Degree Program. Learn fundamentals such as marketing, human relations, finance, and accounting, as well as unique music industry topics like artist development, music distribution, record label development, and the negotiation process. This specialized program can prepare you for a role as a creative leader within an organization, or as the head of your own business.</p>\n<p>\n\tCourse Highlights:</p>\n<ul>\n\t<li>\n\t\tRecord Label Development</li>\n\t<li>\n\t\tConcert Management and Publicity</li>\n\t<li>\n\t\tArtist Development</li>\n\t<li>\n\t\tMusic Distribution</li>\n\t<li>\n\t\tMusic Copyright and Publishing</li>\n\t<li>\n\t\tMusic Business Law and Contract Negotiations</li>\n</ul>",
+                          "ProgramLevel": {
+                          "ProgramLevelId": 3,
+                          "ProgramLevelName": "Bachelor"
+                             },
+                             "EstimatedRevShare": 9.60,
+                    "EducationLevels": [
+                         {
+                         "EducationLevelId": 2,
+                            "EducationLevelName": "G.E.D."
+                         },
+                         {
+                            "EducationLevelId": 3,
+                              "EducationLevelName": "High School Diploma"
+                          },                   
+                          {
+                              "EducationLevelId": 8,
+                              "EducationLevelName": "Associate"
+                          },
+                          {
+                               "EducationLevelId": 9,
+                                "EducationLevelName": "Bachelor"
+                          }
+                           ],
+                           "Category": {
+                              "Subjects": [
+                                  {
+                                      "SubjectId": 617,
+                                      "SubjectName": "Hospitality Management",
+                                     "DirectoryURL": "www.elearners.com/a/EDDYAPI3/form617"
+                                   }
+                            ],
+                            "CategoryId": 21,
+                             "CategoryName": "Business",
+                             "DirectoryURL": "www.elearners.com/a/EDDYAPI3/form21"
+                         },
+                         "DirectoryURL": "www.elearners.com/a/EDDYAPI3/form/179/176385",
+                         "Institution": {
+                             "InstitutionId": 179,
+                             "InstitutionName": "Full Sail University",
+                             "InstitutionDescription": "<p>\r\n\tFull Sail University offers campus and online degree programs that are designed for the world of entertainment, media, arts, and technology. Offering associate&#39;s, bachelor&#39;s, and master&#39;s degrees, Full Sail&#39;s approach is centered on real-world industry experience and creative problem solving.</p>\r\n<p>\r\n\tOur philosophy centers on recognizing the value in creative thinking and the importance of hands-on experience. We put this into action with an approach that emphasizes problem-solving, learning by doing, and empowering our students to generate their own concepts and ideas.</p>\r\n",
+                            "LogoURL": "http://content.uat.educationdynamics.local/logo/179/Logo_240x80.gif",
+                              "Campuses": [
+                                 {
+                                     "CampusId": 6259,
+                                     "CampusName": "Winter Park, FL",
+                                    "CampusType": "Ground",
+                                     "Address": "3300 University Boulevard",
+                                     "City": "Winter Park",
+                                     "Country": {
+                                        "Name": "United States",
+                                        "CountryCode": "US"
+                                     },
+                                    "State": {
+                                       "Name": "Florida",
+                                       "StateCode": "FL"
+                                     },
+                                   "PostalCode": "32792"
+                                 }
+                            ]
+                         }
+                         }
+                     ]
+                },
+                "ResponseDateTime": "2017-01-20T15:52:03.0842179-05:00",
+                "RequestDateTime": "2017-01-20T15:51:59.9125753-05:00",
+                "ResponseGuid": "f7c3cc70-fe6e-4763-9479-9d6845cc8096",
+                "Messages": [
+                    {
+                        "MessageCode": "msg0038",
+                        "Message": "Validation Passed."
+                    }
+                ],
+                "TotalResponseTime": 684
+             } 
+             ]]>
+             </returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.DirectoryController.GetProgramMatches(EDDY.IS.Vendor.Entities.ContactRequest)">
+             <summary>
+             <para>This method returns a list of matching programs for the user data submitted.</para> 
+             </summary>
+             <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+             <param name="CategoryIds">Category(s) Comma-delimited list of CategoryIds.</param>
+             <param name="SubjectIds">Subject(s) Comma-delimited list of SubjectIds.</param> 
+             <param name="SpecialtyIds">Specialty(s) Comma-delimited list of SpecialtyIds.</param> 
+             <param name="Prefix">Prefix or title, e.g., "Mrs.", "Mr.", "Ms.". </param> 
+             <param name="FirstName">Required | First name.</param>
+             <param name="LastName">Required | Last name.</param>
+             <param name="City">Required | City name.</param> 
+             <param name="PostalCode">Required | Postal code or Zip code.</param>
+             <param name="State">Required | Two-character US state abbreviation, e.g., "NJ".</param> 
+             <param name="Country">Required | Two-character country code, e.g., "US".</param>
+             <param name="USCitizen">Is a Citizen of the United States. Accepted values: "Yes", "No".</param> 
+             <param name="Email">Required | Email address.</param>
+             <param name="Phone">Required | Phone number.</param> 
+             <param name="AlternatePhone">Optional | Alternate phone number.</param>
+             <param name="Age">Age.</param> 
+             <param name="YearHighestEducationCompleted">Year Highest Education was completed.</param>
+             <param name="HighestLevelofEducationCompleted">Id of the highest level of education completed. We only accept the string value i.e., "2". Accepted Values: [{"Value": "2", "Text": "G.E.D."}, {"Value": "3", "Text": "High School Diploma"}, {"Value": "4", "Text": "Some College ,1-29 Credits"}, {"Value": "5", "Text": "Some College, 30-59 Credits"}, {"Value": "6", "Text": "Some College,60-89 Credits"}, {"Value": "7", "Text": "Some College, 90+ Credits"}, {"Value": "8", "Text": "Associate"}, {"Value": "9", "Text": "Bachelor"}, {"Value": "10", "Text": "Master"}, {"Value": "11", "Text": "Doctorate"}, {"Value": "1", "Text": "Haven't completed High School"}].</param> 
+             <param name="MilitaryAffiliation">Military Affiliation Id. We only accept the string value i.e., "126". Accepted Values: [{"Value": "126", "Text": "NoMilitaryAffiliation"}, {"Value": "101", "Text": "AF-ActiveDuty(AD)"}, {"Value": "105", "Text": "AF-Civilian"}, {"Value": "102", "Text": "AF-SelectiveReserve(SR)"}, {"Value": "103", "Text": "AF-SpouseofADorSR"}, {"Value": "104", "Text": "AF-Veteran"}, {"Value": "106", "Text": "AR-ActiveDuty(AD)"}, {"Value": "110", "Text": "AR-Civilian"}, {"Value": "107", "Text": "AR-SelectiveReserve(SR)"}, {"Value": "108", "Text": "AR-SpouseofADorSR"}, {"Value": "109", "Text": "AR-Veteran"}, {"Value": "111", "Text": "CG-ActiveDuty(AD)"}, {"Value": "115", "Text": "CG-Civilian"}, {"Value": "112", "Text": "CG-SelectiveReserve(SR)"}, {"Value": "113", "Text": "CG-SpouseofADorSR"}, {"Value": "114", "Text": "CG-Veteran"}, {"Value": "116", "Text": "MC-ActiveDuty(AD)"}, {"Value": "120", "Text": "MC-Civilian"}, {"Value": "117", "Text": "MC-SelectiveReserve(SR)"}, {"Value": "118", "Text": "MC-SpouseofADorSR"}, {"Value": "119", "Text": "MC-Veteran"}, {"Value": "121", "Text": "NV-ActiveDuty(AD)"}, {"Value": "125", "Text": "NV-Civilian"}, {"Value": "122", "Text": "NV-SelectiveReserve(SR)"}, {"Value": "123", "Text": "NV-SpouseofADorSR"}, {"Value": "124", "Text": "NV-Veteran"}].</param>
+             <param name="DesiredStartDate">Desired start date. We only accept the string value i.e., "Immediately". Accepted Values: [{"Value": "Immediately", "Text": "Immediately"}, {"Value": "1-3 Months", "Text":"1-3 Months"}, {"Value":"4-6 Months", "Text": "4-6 Months"}, {"Value": "7-12 Months", "Text": "7-12 Months"}, {"Value": "More than 1 Year", "Text": "More than 1 Year"}, {"Value": "Not Sure", "Text": "Not Sure"}]</param> 
+             <param name="ProgramLevelId">We only accept the string value i.e. "2". Accepted Values:  { "ProgramLevelId": 2,"ProgramLevelName": "Associate"},{ "ProgramLevelId": 3,"ProgramLevelName": "Bachelor"},{ "ProgramLevelId": 22,"ProgramLevelName": "Diploma"},{"ProgramLevelId": 8,"ProgramLevelName": "Master"},{"ProgramLevelId": 18,"ProgramLevelName": "Undergraduate Certificate"}</param> 
+             <param name="LeadIdToken">Required | The ID provided by Jornaya LeadiD.</param>
+             <param name="IncludeAdditionalProgramQuestions">Include Program additional questions. Accepted values: True, False.</param>
+             <param name="AdditionalQuestions">Additional prospect data, if available.</param> 
+             <param name="StartPage">Required | Start page.</param>
+             <param name="PageSize">Required | Number of records per page.</param> 
+             <param name="LeadSourceUrl">Required | Valid URL where the lead was generated (Landing URL).</param>
+             <param name="LeadInitiatingUrl">Required | Valid URL where the lead was initiated (Initiating URL).</param>
+             <param name="SS1">Sub affiliate.</param>
+             <param name="SS2">BPO Company Name.</param>
+             <example>
+             <![CDATA[
+             {
+                 "apiKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                 "CategoryIds": [25],
+                 "active": true,
+                 "firstName": "Testfirst",
+                 "lastname": "Testlast",
+                 "prefix": "Mr.",
+                 "Address": "801 test Corner Ct",
+                 "Address2": "apt a",
+                 "city": "Green Bay",
+                 "postalcode": "55555",
+                 "state": "WI",
+                 "country": "US",
+                 "Email": "test@test.com",
+                 "Phone": "5555555555",
+                 "AlternatePhone": "5555555555",
+                 "Age": "21",
+                 "YearHighestEducationCompleted": "1978",
+                 "HighestLevelofEducationCompleted": "9",
+                 "MilitaryAffiliation": "126",
+                 "DesiredStartDate": "Immediately",
+                 "ProgramLevelId": 2,
+                 "leadIdToken" : "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                 "USCitizen": "Yes",
+                 "SubjectIds": [658],
+                 "SpecialtyIds": [2],
+                 "IncludeAdditionalProgramQuestions": true,
+                 "ProgramId": 7243,
+                 "AffiliateId": "",
+                 "StartPage": 1,
+                 "PageSize": 10,
+                 "LeadSourceUrl": "https://www.EducationDynamics.com/lead"
+                 "LeadInitiatingUrl": "https://www.EducationDynamics.com/start"
+                 "SS1": "Sub affiliate",
+                 "SS2": "BPO Company Name",
+                 "AdditionalQuestions":  [{"QuestionKey":"RNLicense","QuestionValue":"Yes"}]
+             }
+            ]]>
+             </example>
+             <returns>
+             <![CDATA[
+            {
+             "IsSuccessful": true,
+             "Body": {
+             "StartPage": 1,
+             "PageSize": 10,
+             "TotalItems": 4,
+             "TotalPages": 1,
+             "ItemList": [
+                 {
+                     "MatchedInstitution": {
+                         "InstitutionId": 444,
+                         "InstitutionName": "University of Saint Mary",
+                         "InstitutionDescription":"Description of institution",
+                         "LogoURL": "http://logo.educationdynamics.local/444/Logo_240x80.gif"
+                     },
+                     "MatchedPrograms": [
+                         {
+                             "ProgramId": 2698,
+                             "ProgramName": "RN to Bachelor of Science in Nursing",
+                             "EstimatedRevShare": 9.60,
+                             "AdditionalQuestions": [
+                                    {
+                                         "Label": "GPA for highest level of education",
+                                         "Name": "GPA",
+                                         "Rules": [
+                                               {
+                                                  "RuleName": "GPA 3.0 Minimum",
+                                                  "RuleValue": 3,
+                                                  "FieldName": "GPA"
+                                             }
+                                         ],
+                                         "InputType": "Drop-Down",
+                                         "FormTemplateFieldOptions": [
+                                             {
+                                                 "OptionValue": "Less than 2.0",
+                                                 "OptionText": "Less than 2.0",
+                                             },
+                                             {
+                                                 "OptionValue": "2.0-2.4",
+                                                 "OptionText": "2.0-2.4",
+                                             },
+                                             {
+                                                 "OptionValue": "2.5-2.74",
+                                                 "OptionText": "2.5-2.74",
+                                             },
+                                             {
+                                                 "OptionValue": "2.75-2.9",
+                                                 "OptionText": "2.75-2.9",
+                                             },
+                                             {
+                                                 "OptionValue": "3.0-3.4",
+                                                 "OptionText": "3.0-3.4",
+                                             },
+                                             {
+                                                "OptionValue": "3.5 or Higher",
+                                                "OptionText": "3.5 or Higher",
+                                             }
+                                         ]
+                                     }
+                                 ]
+                             }
+                         ]
+                      }
+                      
+                          ]
+                                     
+                      }
+                  ]
+             },
+             "ResponseDateTime": "2017-01-23T17:10:54.9066218-05:00",
+             "RequestDateTime": "2017-01-23T17:10:38.9139773-05:00",
+             "ResponseGuid": "ac82298a-c54b-4a62-9de0-c8de442803a5",
+             "Messages": [
+                   {
+                       "MessageCode": "msg0038",
+                       "Message": "Validation Passed."
+                   }
+               ],
+             "TotalResponseTime": 240
+            }
+             ]]>
+             </returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.DirectoryController.GetInstitutions(EDDY.IS.Vendor.Entities.DirectoryRequest)">
+            <summary>
+            <para>This method returns a list of institutions currently available for this API Key that match the given input parameters (ORed together within a parameter, but ANDed together across parameters). Output order is based upon Eddy’s own internal optimization algorithm.  </para> 
+            </summary>
+            <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+            <param name="CategoryIds">Category(s) Comma-delimited list of CategoryIds.</param>
+            <param name="SubjectIds">Subject(s) Comma-delimited list of SubjectIds.</param> 
+            <param name="ProgramLevelIds">Program Level(s) Comma-delimited list of ProgramLevelIds </param>
+            <param name="CampusType">Online or Ground or All</param>
+             <param name="StartPage">Required | Start page.</param>
+             <param name="PageSize">Required | Number of records per page.</param> 
+             <example>
+             <![CDATA[
+             {
+                 "InstitutionId": "141",
+                 "CampusType": "All",
+                 "APIKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                 "CategoryIds": [25,21],
+                 "SubjectIds": [658],
+                 "ProgramLevelIds": [2,3,6,18,22,8],
+                 "PageSize": 10,
+                 "StartPage": 1
+             }
+             ]]>
+             </example>
+             <returns>
+             <![CDATA[
+            {
+                "IsSuccessful": true,
+                "Body": {
+                    "StartPage": 1,
+                    "PageSize": 10,
+                    "TotalItems": 1,
+                    "TotalPages": 1,
+                    "ItemList": [
+                  {
+                       "InstitutionId": 141,
+                            "InstitutionName": "Rasmussen College",
+                            "InstitutionDescription": "tFlex Choice: Online, On Campus",
+                            "LogoURL": "http://content.educationdynamics.local/logo/141/Logo_240x80.gif",
+                            "InstitutionFormURL": "www.elearners.com/a/Mydirectory/form/141",
+                            "Campuses": [
+                                {
+                                    "CampusId": 9306,
+                                    "CampusName": "Wausau, WI",
+                                    "Address": "1101 Westwood Dr",
+                                    "City": "Wausau",
+                                    "Country": {
+                                        "CountryId": 4,
+                                        "Name": "United States",
+                                        "CountryCode": "US"
+                                    },
+                                    "State": {
+                                        "StateId": 51,
+                                        "Name": "Wisconsin",
+                                        "StateCode": "WI"
+                                    },
+                                    "CampusType": "Ground",
+                                    "PostalCode": "54401"
+                                }]
+                    ]
+                },
+                "ResponseDateTime": "2017-01-20T10:11:07.7055258-05:00",
+                "RequestDateTime": "2017-01-20T10:11:07.6331136-05:00",
+                "ResponseGuid": "a9f58bb4-dc4f-474a-ae7d-e52576139152",
+                "Messages": [
+                    {
+                        "MessageCode": "msg0038",
+                        "Message": "Validation Passed."
+                    }
+                ],
+                "TotalResponseTime": 74
+            } ]]>
+            
+             </returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.DirectoryController.GetCampuses(EDDY.IS.Vendor.Entities.DirectoryRequest)">
+             <summary>
+             <para>This method returns detailed information on one particular campus, including its geographic restrictions.</para> 
+             </summary>
+             <ParameterDescription>Test</ParameterDescription>
+             <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+             <param name="CampusId">Required | Campus Id.</param> 
+             <param name="StartPage">Required | Start page.</param>
+             <param name="PageSize">Required | Number of records per page.</param> 
+             <example>
+             <![CDATA[
+             {
+                 "CampusId": "9306",
+                 "APIKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                 "StartPage": 1,
+                 "PageSize": 10
+             }
+             ]]>
+             </example>
+             <returns>
+             <![CDATA[
+                    {
+                "IsSuccessful": true,
+                "Body": {
+                    "StartPage": 1,
+                    "PageSize": 10,
+                    "TotalItems": 1,
+                    "TotalPages": 1,
+                    "ItemList": [
+                     {
+                             "Institution": {
+                                 "InstitutionId": 5326,
+                                 "InstitutionName": "Southern Technical College",
+                                 "InstitutionDescription": "<p>\r\n\tSouthern Technical College is the....",
+                                 "LogoURL": "http://content.qa.educationdynamics.local/logo/5326/Logo_240x80.gif"
+                             },
+                             "Address": null,
+                             "City": null,
+                             "Country": {
+                                 "CountryId": 4,
+                                 "Name": "United States",
+                                 "CountryCode": "US"
+                             },
+                             "CampusId": 9129,
+                             "CampusName": "Ft Myers, FL",
+                             "State": {
+                                 "StateId": 11,
+                                 "Name": "Florida",
+                                 "StateCode": "FL"
+                             },
+                             "CampusType": "Ground",
+                             "PostalCode": "33907",
+                             "ExcludedZips": null,
+                             "IncludedZips": [
+                                 "33905",
+                                 "34134",
+                                 "33972",
+                                 "33924"
+                             ],
+                             "IsActive": false,
+                             "LogoURL": "http://content.qa.educationdynamics.local/logo/5326/Logo_240x80.gif"
+                        }
+                    ]
+                },
+                "ResponseDateTime": "2017-01-20T13:30:10.6270768-05:00",
+                "RequestDateTime": "2017-01-20T13:30:10.6113456-05:00",
+                "ResponseGuid": "5e497d0a-1be2-458e-b282-db100436ca12",
+                "Messages": [
+                    {
+                        "MessageCode": "msg0038",
+                        "Message": "Validation Passed."
+                }
+                ],
+                "TotalResponseTime": 16
+            } ]]>
+            
+             </returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.DirectoryController.GetCategories(EDDY.IS.Vendor.Entities.DirectoryRequest)">
+            <summary>
+            <para>This method returns a list of all categories currently available for this API Key that matches the given input parameters (ANDed together). The Category IDs returned can be used as inputs to the other API methods when filtering results.  </para> 
+            </summary>
+            <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+            <param name="InstitutionId">Institution</param> 
+            <param name="ProgramLevelIds">Program Level(s) Comma-delimited list of ProgramLevelIds </param>
+            <param name="CampusType">Online or Ground or All</param>
+             <param name="StartPage">Required | Start page.</param>
+             <param name="PageSize">Required | Number of records per page.</param> 
+             <example>
+             <![CDATA[
+             {
+                 "APIKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                 "StartPage": 1,
+                 "PageSize": 10
+             }    
+             ]]>
+             </example>
+             <returns>
+             <![CDATA[
+            {
+                "IsSuccessful": true,
+                "Body": {
+                    "StartPage": 1,
+                    "PageSize": 10,
+                    "TotalItems": 2,
+                    "TotalPages": 1,
+                    "ItemList": [
+                        {
+                            "CategoryId": 21,
+                            "CategoryName": "Business",
+                            "DirectoryURL": "www.elearners.com/a/Mydirectory/search/programs?category=21",
+                        }
+                    ]
+                },
+                "ResponseDateTime": "2017-01-20T13:30:10.6270768-05:00",
+                "RequestDateTime": "2017-01-20T13:30:10.6113456-05:00",
+                "ResponseGuid": "5e497d0a-1be2-458e-b282-db100436ca12",
+                "Messages": [
+                    {
+                        "MessageCode": "msg0038",
+                        "Message": "Validation Passed."
+                }
+                ],
+                "TotalResponseTime": 16
+            } ]]>
+            
+             </returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.DirectoryController.GetSubCategories(EDDY.IS.Vendor.Entities.DirectoryRequest)">
+             <summary>
+             <para>This method returns a list of all subcategories currently available for this API Key that matches the given input parameters (ANDed together). The SubCategory IDs returned can be used as inputs to the other API methods when filtering results. </para> 
+             </summary>
+             <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+             <param name="InstitutionId">Institution</param> 
+             <param name="CategoryIds">Category(s) Comma-delimited list of CategoryIds.</param>
+             <param name="ProgramLevelIds">Program Level(s) Comma-delimited list of ProgramLevelIds </param>
+             <param name="CampusType">Online or Ground or All</param>
+             <param name="StartPage">Required | Start page.</param>
+             <param name="PageSize">Required | Number of records per page.</param> 
+             <example>
+             <![CDATA[
+             {
+                 "APIKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                 "CategoryIds": [25],
+                 "ProgramLevelIds": [2,3,6,18,22,8],
+                 "PageSize": 10,
+                 "StartPage": 1
+             }
+             ]]>
+             </example>
+             <returns>
+             <![CDATA[
+            {
+                "IsSuccessful": true,
+                "Body": {
+                    "StartPage": 1,
+                    "PageSize": 10,
+                    "TotalItems": 1,
+                    "TotalPages": 1,
+                    "ItemList": [
+                         {
+                           "SubjectId": 610,
+                           "SubjectName": "Accounting",
+                           "DirectoryURL": "www.elearners.com/a/Mydirectory/search/programs?subject=610"
+                         }
+                    ]
+                },
+                "ResponseDateTime": "2017-01-20T13:30:10.6270768-05:00",
+                "RequestDateTime": "2017-01-20T13:30:10.6113456-05:00",
+                "ResponseGuid": "5e497d0a-1be2-458e-b282-db100436ca12",
+                "Messages": [
+                    {
+                        "MessageCode": "msg0038",
+                        "Message": "Validation Passed."
+                }
+                ],
+                "TotalResponseTime": 16
+            } ]]>
+            
+             </returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.DirectoryController.GetSpecialties(EDDY.IS.Vendor.Entities.DirectoryRequest)">
+             <summary>
+             <para>This method returns a list of all subcategories currently available for this API Key that matches the given input parameters (ANDed together). The SubCategory IDs returned can be used as inputs to the other API methods when filtering results. </para> 
+             </summary>
+             <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+             <param name="InstitutionId">Institution</param> 
+             <param name="SubjectIds">Subject(s) Comma-delimited list of SubjectIds.</param>
+             <param name="ProgramLevelIds">Program Level(s) Comma-delimited list of ProgramLevelIds </param>
+             <param name="CampusType">Online or Ground or All</param>
+             <param name="StartPage">Required | Start page.</param>
+             <param name="PageSize">Required | Number of records per page.</param> 
+             <example>
+             <![CDATA[
+             {
+                 "APIKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                 "SubjectIds": [25],
+                 "ProgramLevelIds": [2,3,6,18,22,8],
+                 "PageSize": 10,
+                 "StartPage": 1
+             }
+             ]]>
+             </example>
+             <returns>
+             <![CDATA[
+            {
+                "IsSuccessful": true,
+                "Body": {
+                    "StartPage": 1,
+                    "PageSize": 10,
+                    "TotalItems": 1,
+                    "TotalPages": 1,
+                    "ItemList": [
+                         {
+                           "SpecialtyId": 610,
+                           "SpecialtyName": "Accounting",
+                           "DirectoryURL": "www.elearners.com/a/Mydirectory/search/programs?subject=610"
+                         }
+                    ]
+                },
+                "ResponseDateTime": "2017-01-20T13:30:10.6270768-05:00",
+                "RequestDateTime": "2017-01-20T13:30:10.6113456-05:00",
+                "ResponseGuid": "5e497d0a-1be2-458e-b282-db100436ca12",
+                "Messages": [
+                    {
+                        "MessageCode": "msg0038",
+                        "Message": "Validation Passed."
+                }
+                ],
+                "TotalResponseTime": 16
+            } ]]>
+            
+             </returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.DirectoryController.GetLevels(EDDY.IS.Vendor.Entities.DirectoryRequest)">
+            <summary>
+            <para>This method returns a list of all currently available program levels for this API Key that match the given input parameters (ANDed together). The Level IDs returned can be used as inputs to the other API methods when filtering results. </para> 
+            </summary>
+            <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+            <param name="InstitutionId">Institution</param> 
+             <param name="CategoryIds">Category(s) Comma-delimited list of CategoryIds.</param>
+             <param name="SubjectIds">Subject(s) Comma-delimited list of SubjectIds.</param> 
+             <param name="CampusType">Online or Ground or All</param>
+             <param name="StartPage">Required | Start page.</param>
+             <param name="PageSize">Required | Number of records per page.</param> 
+             <example><![CDATA[
+             {
+                 "CampusType": "all",
+                 "APIKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                 "CategoryIds": [25,21],
+                 "SubjectIds": [658],
+                 "PageSize": 10,
+                 "StartPage": 1
+               }
+             ]]></example>
+             <returns>
+             <![CDATA[
+            {
+                "IsSuccessful": true,
+                "Body": {
+                    "StartPage": 1,
+                    "PageSize": 10,
+                    "TotalItems": 2,
+                    "TotalPages": 1,
+                    "ItemList": [
+                          {
+                            "ProgramLevelId": 2,
+                            "ProgramLevelName": "Associate"
+                        },
+                        {
+                            "ProgramLevelId": 3,
+                            "ProgramLevelName": "Bachelor"
+                         }
+                    ]
+                },
+                "ResponseDateTime": "2017-01-20T13:30:10.6270768-05:00",
+                "RequestDateTime": "2017-01-20T13:30:10.6113456-05:00",
+                "ResponseGuid": "5e497d0a-1be2-458e-b282-db100436ca12",
+                "Messages": [
+                    {
+                        "MessageCode": "msg0038",
+                        "Message": "Validation Passed."
+                }
+                ],
+                "TotalResponseTime": 16
+            }
+             ]]>
+             </returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.DirectoryController.GetAllocation(EDDY.IS.Vendor.Entities.DirectoryRequest)">
+             <summary>
+             <para>Partners can use this method to check if there is any allocation available to them for the specified categories, subcategories, or levels. </para> 
+             </summary>
+             <ParameterDescription>Test</ParameterDescription>
+             <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+             <param name="CategoryIds">Category(s) Comma-delimited list of CategoryIds.</param>
+             <param name="SubjectIds">Subject(s) Comma-delimited list of SubjectIds.</param> 
+             <param name="ProgramLevelIds">Program Level(s) list of ProgramLevelIds </param>
+             <example>
+             <![CDATA[
+             {
+                 "APIKey" : "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                 "CategoryIds" : [25],
+                 "SubjectIds" : [658],
+                 "ProgramLevelIds" : [2]
+              }
+             ]]>
+             </example>
+             <returns>
+            <![CDATA[
+             {
+            "IsSuccessful": true,
+            "Body": {
+                "HasAllocation": true,
+                "CheckedCategoryIds": "25,21",
+                "CheckedSubjectIds": "658",
+                "CheckedLevelIds": "2,3,6,18,22,8"
+            },
+            "ResponseDateTime": "2017-01-23T15:15:00.8528916-05:00",
+            "RequestDateTime": "2017-01-23T15:15:00.6676364-05:00",
+            "ResponseGuid": "4ce35e5c-374a-4ab9-86b1-cdef61e7cdf1",
+            "Messages": [
+                {
+                    "MessageCode": "msg0038",
+                    "Message": "Validation Passed."
+            }
+             ],
+            "TotalResponseTime": 188
+            }
+             ]]>
+             </returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.DirectoryController.GetZipsByCampusId(EDDY.IS.Vendor.Entities.DirectoryRequest)">
+             <summary>        
+             <para>This method returns a list of all zip codes for this API Key that match the given input parameters for the given campus. </para> 
+             </summary>
+             <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>        
+             <param name="CampusId">Required | Campus Id.</param>
+             <example><![CDATA[        
+             {
+                 "APIKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                 "CampusId": "622"        
+                 
+             }
+             ]]></example>
+             <returns>
+             <![CDATA[
+             {
+                "IsSuccessful": true,
+                "Body": 
+                    {
+                        "CampusId": 622,
+                        "ZipCode": [
+                            17565,
+                            17564,
+                            17563
+                        ]
+                    },
+                "ResponseDateTime": "2021-04-08T13:23:08.468054-06:00",
+                "RequestDateTime": "2021-04-08T13:22:29.4296603-06:00",
+                "ResponseGuid": "4c6e992d-df1e-4da2-8015-c07afa847b11",
+                "Messages": [
+                    {
+                        "MessageCode": "msg0038",
+                        "Message": "Validation Passed."
+                    }
+                ],
+                "TotalResponseTime": 39039
+            } 
+             ]]>
+             </returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.LeadController.PostLead(EDDY.IS.Vendor.Entities.ContactRequest)">
+             <summary>
+             <para>The Host and Post service is located at https://partners.educationdynamics.com/api/lead/save . The posting service can be called using simple HTTP POST, and will return an JSON-formatted response indicating the success or failure of the partner’s submission, along with details if applicable. The Request must include all the required key-value pairs defined by the API’s https://partners.educationdynamics.com/api/program/form method.</para> 
+             </summary>
+             <ParameterDescription>Test</ParameterDescription>
+             <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+             <param name="AgentId">Required field if Call Center Partner.</param>
+             <param name="AgentName">Required field if Call Center Partner.</param>
+             <param name="DialerKey">Required field if Call Center Partner.</param>
+             <param name="CategoryIds">Category(s) Comma-delimited list of CategoryIds.</param>
+             <param name="SubCategoryIds">Subcategory(s) Comma-delimited list of SubCategoryIds.</param> 
+             <param name="ProgramLevelId">We only accept the string value i.e. "2". Accepted values:  { "ProgramLevelId": 2,"ProgramLevelName": "Associate"},{ "ProgramLevelId": 3,"ProgramLevelName": "Bachelor"},{ "ProgramLevelId": 22,"ProgramLevelName": "Diploma"},{"ProgramLevelId": 8,"ProgramLevelName": "Master"},{"ProgramLevelId": 18,"ProgramLevelName": "Undergraduate Certificate"}</param> 
+             <param name="Prefix">Prefix or title, e.g., "Mrs.", "Mr.", "Ms.".</param> 
+             <param name="FirstName">Required | First name.</param>
+             <param name="LastName">Required | Last name.</param>
+             <param name="Address">Address</param>
+             <param name="City">Required | City.</param> 
+             <param name="PostalCode">Required | Postal code or Zip code.</param>
+             <param name="State">Required | Two-character US state abbreviation, e.g. "NJ".</param> 
+             <param name="Country">Required | Two-character country code, e.g., "US".</param>
+             <param name="USCitizen">Is a Citizen of the United States. Accepted values: "Yes", "No".</param> 
+             <param name="Email">Email address.</param>
+             <param name="Phone">Required | Phone number.</param> 
+             <param name="AlternatePhone">Optional | Alternate phone number.</param>
+             <param name="Age">Age.</param> 
+             <param name="YearHighestEducationCompleted">Year Highest Education was completed.</param>
+             <param name="HighestLevelofEducationCompleted">Id of the highest level of education completed. We only accept the string value i.e., "2". Accepted Values: [{"Value": "2", "Text": "G.E.D."}, {"Value": "3", "Text": "High School Diploma"}, {"Value": "4", "Text": "Some College ,1-29 Credits"}, {"Value": "5", "Text": "Some College, 30-59 Credits"}, {"Value": "6", "Text": "Some College,60-89 Credits"}, {"Value": "7", "Text": "Some College, 90+ Credits"}, {"Value": "8", "Text": "Associate"}, {"Value": "9", "Text": "Bachelor"}, {"Value": "10", "Text": "Master"}, {"Value": "11", "Text": "Doctorate"}, {"Value": "1", "Text": "Haven't completed High School"}].</param> 
+             <param name="MilitaryAffiliation">Military Affiliation Id. We only accept the string value i.e., "126". Accepted Values: [{"Value": "126", "Text": "NoMilitaryAffiliation"}, {"Value": "101", "Text": "AF-ActiveDuty(AD)"}, {"Value": "105", "Text": "AF-Civilian"}, {"Value": "102", "Text": "AF-SelectiveReserve(SR)"}, {"Value": "103", "Text": "AF-SpouseofADorSR"}, {"Value": "104", "Text": "AF-Veteran"}, {"Value": "106", "Text": "AR-ActiveDuty(AD)"}, {"Value": "110", "Text": "AR-Civilian"}, {"Value": "107", "Text": "AR-SelectiveReserve(SR)"}, {"Value": "108", "Text": "AR-SpouseofADorSR"}, {"Value": "109", "Text": "AR-Veteran"}, {"Value": "111", "Text": "CG-ActiveDuty(AD)"}, {"Value": "115", "Text": "CG-Civilian"}, {"Value": "112", "Text": "CG-SelectiveReserve(SR)"}, {"Value": "113", "Text": "CG-SpouseofADorSR"}, {"Value": "114", "Text": "CG-Veteran"}, {"Value": "116", "Text": "MC-ActiveDuty(AD)"}, {"Value": "120", "Text": "MC-Civilian"}, {"Value": "117", "Text": "MC-SelectiveReserve(SR)"}, {"Value": "118", "Text": "MC-SpouseofADorSR"}, {"Value": "119", "Text": "MC-Veteran"}, {"Value": "121", "Text": "NV-ActiveDuty(AD)"}, {"Value": "125", "Text": "NV-Civilian"}, {"Value": "122", "Text": "NV-SelectiveReserve(SR)"}, {"Value": "123", "Text": "NV-SpouseofADorSR"}, {"Value": "124", "Text": "NV-Veteran"}].</param>
+             <param name="DesiredStartDate">Desired start date. We only accept the string value i.e., "Immediately". Accepted Values: [{"Value": "Immediately", "Text": "Immediately"}, {"Value": "1-3 Months", "Text":"1-3 Months"}, {"Value":"4-6 Months", "Text": "4-6 Months"}, {"Value": "7-12 Months", "Text": "7-12 Months"}, {"Value": "More than 1 Year", "Text": "More than 1 Year"}, {"Value": "Not Sure", "Text": "Not Sure"}]</param> 
+             <param name="USCitizen">Is a Citizen of the United States. Accepted values: "Yes", "No".</param> 
+             <param name="ProgramId">Program Id.</param> 
+             <param name="CampusId">Campus Id.</param> 
+             <param name="AffiliateId">Affiliate Id.</param> 
+             <param name="AdditionalQuestions">Additional prospect data, if available.</param> 
+             <param name="LeadIdToken">Required | The ID provided by Jornaya LeadiD.</param>
+             <param name="LeadSourceUrl">Required | Valid URL where the lead was generated (Landing URL).</param>
+             <param name="LeadInitiatingUrl">Required | Valid URL where the lead was initiated (Initiating URL).</param>
+             <param name="SS1">Sub affiliate.</param>
+             <param name="SS2">BPO Company Name.</param>
+             <param name="SourceCode">Required when EMS Partner.</param>
+             <param name="UserAgreement">Required | TCPA information.</param> 
+            <example>
+             {
+                 "apiKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                 "categoryIds": [25],
+                 "firstName": "Testfirst",
+                 "lastname": "Testlast",
+                 "prefix": "Mr.",
+                 "address": "801 test Corner Ct",
+                 "address2": "apt a",
+                 "city": "Green Bay",
+                 "postalcode": "55555",
+                 "state": "WI",
+                 "country": "US",
+                 "email": "test@test.com",
+                 "phone": "5555555555",
+                 "alternatePhone": "5555555555",
+                 "age": "21",
+                 "yearHighestEducationCompleted": "1978",
+                 "highestLevelofEducationCompleted": "9",
+                 "militaryAffiliation": "126",
+                 "desiredStartDate": "Immediately",
+                 "USCitizen": "Yes",
+                 "subjectIds": [658],
+                 "programLevelID": 2,
+                 "includeAdditionalProgramQuestions": true,
+                 "programId": 7243,
+                 "campusId": 4919,
+                 "affiliateId": "",
+                 "additionalQuestions": [{"QuestionKey":"RNLicense","QuestionValue":"Yes"}],
+                 "leadSourceUrl": "https://www.EducationDynamics.com/lead",
+                 "leadInitiatingUrl": "https://www.EducationDynamics.com/start",
+                 "SS1": "Sub affiliate",
+                 "SS2": "BPO Company Name",
+                 "leadIdToken": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                 "userAgreement": "I agree to the user Agreement"
+             }
+             </example>
+             <returns>
+             Successfully saved leads will return with a "IsSuccessful" flag value as "true".
+             
+             The below is an example of a successfully saved lead.
+            {
+             "IsSuccessful": true,
+             "Body": {
+                 "UID": "xxx-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                 "LeadTier": 0
+             },
+             "ResponseDateTime": "2017-01-30T10:06:18.5930446-05:00",
+             "RequestDateTime": "2017-01-30T10:05:14.7594556-05:00",
+             "ResponseGuid": "1b99830e-6bdf-48be-9a51-97a79f5a5003",
+             "Messages": [
+                {
+                    "MessageCode": "msg0038",
+                     "Message": "Validation Passed."
+                }
+             ],
+             "TotalResponseTime": 120
+            }
+            
+             Unsuccessfully saved leads will return with a "IsSuccessful" flag value as "false"
+             The "Messages" portion of the return body will also include one or more validation messages as to why the lead failed to save.
+             The below is an example of an unsuccessfully saved lead.
+             
+            {
+             "IsSuccessful": false,
+             "Body": null,
+             "ResponseDateTime": "2019-06-04T13:28:05.8561884-04:00",
+             "RequestDateTime": "2019-06-04T13:28:03.4897363-04:00",
+             "ResponseGuid": "a204e540-c53f-45bc-a92e-200f802149dd",
+             "Messages": [
+                 {
+                     "MessageCode": "msg0009",
+                     "Message": "Exception occurred."
+                 }
+             ],
+             "TotalResponseTime": 2366
+            }
+             </returns>   
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.MarketingController.PostLeadBasic(EDDY.IS.Vendor.Entities.ContactRequest)">
+             <summary>
+             <para>The Host and Post service is located at https://partners.educationdynamics.com/api/Marketing/lead-save . The posting service can be called using simple HTTP POST, and will return an JSON-formatted response indicating the success or failure of the partner’s submission, along with details if applicable. The Request must include all the required key-value pairs defined by the API’s https://partners.educationdynamics.com/api/program/form method.  </para> 
+             </summary>
+             <ParameterDescription>Test</ParameterDescription>
+             <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+             <param name="FirstName">Required | First name.</param>
+             <param name="LastName">Required | Last name.</param>
+             <param name="Address">Address.</param>
+             <param name="City">Required | City.</param> 
+             <param name="State">Two-character US state abbreviation, e.g., "NJ".</param>  
+             <param name="PostalCode">Required | Postal code or Zip code.</param>
+             <param name="Country">Required | Two-character country code, e.g., "US".</param>
+             <param name="Email">Required | Email address.</param>
+             <param name="Phone">Required | Phone number.</param> 
+             <param name="ProgramId">Required | Program Id.</param> 
+             <param name="HighestLevelofEducationCompleted">Id of the highest level of education completed. We only accept the string value i.e., "2". Accepted Values: [{"Value": "2", "Text": "G.E.D."}, {"Value": "3", "Text": "High School Diploma"}, {"Value": "4", "Text": "Some College ,1-29 Credits"}, {"Value": "5", "Text": "Some College, 30-59 Credits"}, {"Value": "6", "Text": "Some College,60-89 Credits"}, {"Value": "7", "Text": "Some College, 90+ Credits"}, {"Value": "8", "Text": "Associate"}, {"Value": "9", "Text": "Bachelor"}, {"Value": "10", "Text": "Master"}, {"Value": "11", "Text": "Doctorate"}, {"Value": "1", "Text": "Haven't completed High School"}].</param> 
+             <param name="CampusId">Campus Id.</param> 
+             <param name="AdditionalQuestions">Additional prospect data, if available.</param> 
+             <param name="UserAgreement">Required | TCPA info</param> 
+            <example>
+             {
+             "apiKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+             "firstName": "Testfirst",
+             "lastname": "Testlast",
+             "Address": "801 test Corner Ct",
+             "city": "Green Bay",
+             "postalcode": "55555",
+             "state": "WI",
+             "country": "US",
+             "Email": "test@test.com",
+             "Phone": "5555555555",
+             "ProgramId": 7243,
+             "CampusId": 4919,
+             "HighestLevelofEducationCompleted": "9",
+             "AdditionalQuestions":  [{"QuestionKey":"RNLicense","QuestionValue":"Yes"},{"QuestionKey":"UTMVendor","QuestionValue":"UTMVendorValue"},{"QuestionKey":"UTMCampaign","QuestionValue":"UTMCampaignValue"},{"QuestionKey":"UTMChannel","QuestionValue":"UTMChannelValue"}],
+             "UserAgreement":"I agree to the user Agreement"
+             }
+             </example>
+             <returns>
+             Successfully saved leads will return with a "IsSuccessful" flag value as "true".
+             
+             The below is an example of a successfully saved lead.
+            {
+             "IsSuccessful": true,
+             "Body": {
+                 "UID": "xxx-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                 "LeadTier": 0
+             },
+             "ResponseDateTime": "2017-01-30T10:06:18.5930446-05:00",
+             "RequestDateTime": "2017-01-30T10:05:14.7594556-05:00",
+             "ResponseGuid": "1b99830e-6bdf-48be-9a51-97a79f5a5003",
+             "Messages": [
+                {
+                    "MessageCode": "msg0038",
+                     "Message": "Validation Passed."
+                }
+             ],
+             "TotalResponseTime": 120
+            }
+            
+             Unsuccessfully saved leads will return with a "IsSuccessful" flag value as "false"
+             The "Messages" portion of the return body will also include one or more validation messages as to why the lead failed to save.
+             The below is an example of an unsuccessfully saved lead.
+             
+            {
+             "IsSuccessful": false,
+             "Body": null,
+             "ResponseDateTime": "2019-06-04T13:28:05.8561884-04:00",
+             "RequestDateTime": "2019-06-04T13:28:03.4897363-04:00",
+             "ResponseGuid": "a204e540-c53f-45bc-a92e-200f802149dd",
+             "Messages": [
+                 {
+                     "MessageCode": "msg0009",
+                     "Message": "Exception occurred."
+                 }
+             ],
+             "TotalResponseTime": 2366
+            }
+             </returns>   
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.ProgramController.GetProgramDetails(EDDY.IS.Vendor.Entities.DirectoryRequest)">
+             <summary>
+             <para>This method returns program detail information</para> 
+             </summary>
+             <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+             <param name="ProgramId">Required | Program Id.</param>
+             <param name="CampusId">Required | Campus Id.</param>
+             <example><![CDATA[
+             https://partners.educationdynamics.com/api/program/details?apiKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX&ProgramId=7243&CampusId=4919
+             {
+                 "APIKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                 "ProgramId": "7243",
+                 "CampusId": "4919"
+             }
+             ]]></example>
+             <returns>
+             <![CDATA[
+            {
+                 {
+               "IsSuccessful": true,
+               "Body": 
+                 }
+                         "ProgramId": 176385,
+                          "ProgramName": "Bachelor of Science in Music Business",
+                          "ProgramDescription": "Program description",
+                          "ProgramLevel": {
+                          "ProgramLevelId": 3,
+                          "ProgramLevelName": "Bachelor"
+                             },
+                    "EducationLevels": [
+                         {
+                         "EducationLevelId": 2,
+                            "EducationLevelName": "G.E.D."
+                         },
+                         {
+                            "EducationLevelId": 3,
+                              "EducationLevelName": "High School Diploma"
+                          },                   
+                          {
+                              "EducationLevelId": 8,
+                              "EducationLevelName": "Associate"
+                          },
+                          {
+                               "EducationLevelId": 9,
+                                "EducationLevelName": "Bachelor"
+                          }
+                           ],
+                           "Category": {
+                              "Subjects": [
+                                  {
+                                      "SubjectId": 617,
+                                      "SubjectName": "Hospitality Management",
+                                     "DirectoryURL": "www.elearners.com/a/EDDYAPI3/form617"
+                                   }
+                            ],
+                            "CategoryId": 21,
+                             "CategoryName": "Business",
+                             "DirectoryURL": "www.elearners.com/a/EDDYAPI3/form21"
+                         },
+                         "DirectoryURL": "www.elearners.com/a/EDDYAPI3/form/179/176385",
+                         "Institution": {
+                             "InstitutionId": 179,
+                             "InstitutionName": "Full Sail University",
+                             "InstitutionDescription": "Institution description",
+                            "LogoURL": "http://content.uat.educationdynamics.local/logo/179/Logo_240x80.gif",
+                             "Campuses": [
+                                 {
+                                     "CampusId": 6259,
+                                     "CampusName": "Winter Park, FL",
+                                    "CampusType": "Ground",
+                                     "Address": "3300 University Boulevard",
+                                     "City": "Winter Park",
+                                     "Country": {
+                                        "Name": "United States",
+                                        "CountryCode": "US"
+                                     },
+                                    "State": {
+                                       "Name": "Florida",
+                                       "StateCode": "FL"
+                                     },
+                                   "PostalCode": "32792"
+                                 }
+                            ]
+                     }
+                 },
+                "ResponseDateTime": "2017-03-15T16:12:58.9998237-04:00",
+                "RequestDateTime": "2017-03-15T16:08:21.9993076-04:00",
+                "ResponseGuid": "532d5f13-c526-4fd9-8571-31c421f4f24a",
+                "Messages": [
+                   {
+                        "MessageCode": "msg0038",
+                        "Message": "Validation Passed."
+                }
+                ],
+                "TotalResponseTime": 66
+            }
+             ]]>
+             </returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.ProgramController.GetProgramFormTemplate(EDDY.IS.Vendor.Entities.ContactRequest)">
+             <summary>
+             <para>Host and Post partners can use this method to get back the field names and Types for a program. The list of possible input type property values are "Text Box","Text Area","Radio Buttons","Multi Check Box List","Drop-Down","Label","Check Box","Date", and "Hidden"  </para> 
+             </summary>
+             <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+             <param name="ProgramId">Required | Program Id.</param>
+             <example>
+             <![CDATA[
+            {
+                 "APIKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                 "ProgramId": "7243"
+            }
+             ]]>
+             </example>
+             <returns>
+             <![CDATA[
+                   {
+                "IsSuccessful": true,
+                "Body": {
+                    "Fields": [
+                         {
+                             "Label": "GPA for highest level of education",
+                             "Name": "GPA",
+                             "Rules": [
+                                         {
+                                             "RuleName": "GPA 3.0 Minimum",
+                                             "RuleValue": 3,
+                                             "FieldName": "GPA"
+                                         }
+                                     ],
+                             "InputType": "Drop-Down",
+                             "FormTemplateFieldOptions": [
+                                             {
+                                                 "OptionValue": "Less than 2.0",
+                                                 "OptionText": "Less than 2.0",
+                                             },
+                                             {
+                                                 "OptionValue": "2.0-2.4",
+                                                 "OptionText": "2.0-2.4",
+                                             },
+                                             {
+                                                 "OptionValue": "2.5-2.74",
+                                                 "OptionText": "2.5-2.74",
+                                             },
+                                             {
+                                                 "OptionValue": "2.75-2.9",
+                                                 "OptionText": "2.75-2.9",
+                                             },
+                                             {
+                                                 "OptionValue": "3.0-3.4",
+                                                 "OptionText": "3.0-3.4",
+                                             },
+                                             {
+                                                "OptionValue": "3.5 or Higher",
+                                                "OptionText": "3.5 or Higher",
+                                             }
+                                         ]
+                      }
+                    ]
+                },
+                "ResponseDateTime": "2017-03-15T16:46:22.8626779-04:00",
+                "RequestDateTime": "2017-03-15T16:46:05.19354-04:00",
+                "ResponseGuid": "5abfb29d-9ea4-4a88-a147-28edd6177fd4",
+                "Messages": [
+                    {
+                        "MessageCode": "msg0038",
+                        "Message": "Validation Passed."
+                    }
+                ],
+                "TotalResponseTime": 676
+            }
+             ]]>
+             </returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.ProspectController.PostProspect(EDDY.IS.Vendor.Entities.ContactRequest)">
+             <summary>
+             <para>Once a campaign has been created, the APIKey and Posting instructions can be provided to the Call Center partner. The partner will post prospect data into ISHP using the APIKey provided.</para> 
+             </summary>
+             <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+             <param name="FirstName">Required | First name.</param>
+             <param name="LastName">Required | Last name.</param>
+             <param name="City">Required | City.</param> 
+             <param name="PostalCode">Required | Postal code or Zip code.</param>
+             <param name="State">Required | Two-character US state abbreviation, e.g., "NJ".</param> 
+             <param name="Country">Required | Two-character country code, e.g., "US".</param>
+             <param name="Email">Required | Email address.</param>
+             <param name="Phone">Required | Phone number.</param> 
+             <param name="AlternatePhone">Optional | Alternate phone number.</param>
+             <param name="AreaOfInterest">Optional | Area of interest.</param> 
+             <param name="YearHighestEducationCompleted">Year Highest Education was completed.</param>
+             <param name="ExternalSystemId">External system Id.</param>
+             <param name="ProspectSourceUrl">Required | Valid URL where the prospect was generated (CallCenter URL).</param>
+             <param name="ProspectInitiatingUrl">Required | Valid URL where the prospect was initiated.</param>
+             <example>
+             
+            {
+             "apiKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+             "firstName": "Testfirst",
+             "lastname": "Testlast",
+             "address": "801 test Corner Ct",
+             "address2": "apt a",
+             "city": "Green Bay",
+             "postalcode": "55555",
+             "state": "WI",
+             "country": "US",
+             "email": "test@test.com",
+             "phone": "5555555555",
+             "alternatePhone": "5555555555",
+             "yearHighestEducationCompleted": "1978",
+             "externalSystemId": "123"
+             "prospectSourceUrl": "https://www.EducationDynamics.com/lead"
+             "prospectInitiatingUrl": "https://www.EducationDynamics.com/start"
+            }
+             </example>
+             <returns>
+             {
+             "IsSuccessful": true,
+             "Body": {
+                 "ProspectId": 8787805,
+                 "ProspectFlowId": 10959192
+                 },
+             "ResponseDateTime": "2017-01-31T16:02:33.9357698-05:00",
+             "RequestDateTime": "2017-01-31T16:02:07.5655017-05:00",
+             "ResponseGuid": "6fc82d18-1f2e-4a1b-8fa6-36573a56f695",
+             "Messages": [
+                     {
+                     "MessageCode": "msg0038",
+                     "Message": "Validation Passed."
+                     }
+                 ],
+             "TotalResponseTime": 13
+             }
+             </returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.ProspectController.ValidateProspect(EDDY.IS.Vendor.Entities.ContactRequest)">
+             <summary>
+             <para>Once a campaign has been created, the APIKey and Posting instructions can be provided to the Call Center partner. The partner will post a potential prospect data to ensure the it is valid before posting to save it using the APIKey provided.</para> 
+             </summary>
+             <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+             <param name="FirstName">Required | First name.</param>
+             <param name="LastName">Required | Last name.</param>
+             <param name="City">Required | City.</param> 
+             <param name="PostalCode">Required | Postal code or Zip code. </param>
+             <param name="State">Required | Two-character US state abbreviation, e.g., "NJ".</param> 
+             <param name="Country">Required | Two-character country code, e.g., "US".</param>
+             <param name="Email">Optional | Email address.</param>
+             <param name="Phone">Required | Phone number.</param> 
+             <param name="AlternatePhone">Optional | Alternate phone number.</param>
+             <param name="AreaOfInterest">Optional | Area of interest.</param> 
+             <param name="YearHighestEducationCompleted">Year Highest Education was completed.</param>
+             <param name="ExternalSystemId">External system Id.</param>
+             <example>
+             
+            {
+             "apiKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+             "firstName": "Testfirst",
+             "lastname": "Testlast",
+             "address": "801 test Corner Ct",
+             "address2": "apt a",
+             "city": "Green Bay",
+             "postalcode": "55555",
+             "state": "WI",
+             "country": "US",
+             "email": "test@test.com",
+             "phone": "5555555555",
+             "alternatePhone": "5555555555",
+             "yearHighestEducationCompleted": "1978",
+             "externalSystemId": "123"
+            }
+             </example>
+             <returns>
+             {
+             "IsSuccessful": true,
+             "Body": null,
+             "ResponseDateTime": "2017-01-31T16:02:33.9357698-05:00",
+             "RequestDateTime": "2017-01-31T16:02:07.5655017-05:00",
+             "ResponseGuid": "6fc82d18-1f2e-4a1b-8fa6-36573a56f695",
+             "Messages": [
+                     {
+                     "MessageCode": "msg0069",
+                     "Message": "Prospect is Valid"
+                     }
+                 ],
+             "TotalResponseTime": 13
+             }
+             </returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.ProspectController.PostProspectSaveByProspectId(EDDY.IS.Vendor.Entities.ContactRequest)">
+             <summary>
+             <para>Once a campaign has been created, the APIKey and Posting instructions can be provided to the Call Center partner. The partner will post prospect data into ISHP using the APIKey provided.</para> 
+             </summary>
+             <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+             <param name="FirstName">Required | First name.</param>
+             <param name="LastName">Required | Last name.</param>
+             <param name="City">Required | City.</param> 
+             <param name="PostalCode">Required | Postal code or Zip code. </param>
+             <param name="State">Required | Two-character US state abbreviation, e.g., "NJ".</param> 
+             <param name="Country">Required | Two-character country code, e.g., "US".</param>
+             <param name="Email">Required | Email address.</param>
+             <param name="Phone">Required | Phone number.</param> 
+             <param name="AlternatePhone">Optional | Alternate phone number.</param>
+             <param name="AreaOfInterest">Optional | Area of interest.</param> 
+             <param name="YearHighestEducationCompleted">Year Highest Education was completed.</param>
+             <param name="ExternalSystemId">External system Id.</param>
+             <param name="ProspectSourceUrl">Required | Valid URL where the prospect was generated (Call Center URL).</param>
+             <param name="ProspectInitiatingUrl">Required | Valid URL where the prospect was initiated.</param>
+             <example>
+             
+            {
+             "apiKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+             "firstName": "Testfirst",
+             "lastname": "Testlast",
+             "address": "801 test Corner Ct",
+             "address2": "apt a",
+             "city": "Green Bay",
+             "postalcode": "55555",
+             "state": "WI",
+             "country": "US",
+             "email": "test@test.com",
+             "Phone": "5555555555",
+             "alternatePhone": "5555555555",
+             "yearHighestEducationCompleted": "1978",
+             "externalSystemId": "123"
+             "prospectSourceUrl": "https://www.EducationDynamics.com/lead"
+             "prospectInitiatingUrl": "https://www.EducationDynamics.com/start"
+            }
+             </example>
+             <returns>
+             {
+             "IsSuccessful": true,
+             "Body": {
+                 "ProspectId": 8787805,
+                 "ProspectFlowId": 10959192
+                 },
+             "ResponseDateTime": "2017-01-31T16:02:33.9357698-05:00",
+             "RequestDateTime": "2017-01-31T16:02:07.5655017-05:00",
+             "ResponseGuid": "6fc82d18-1f2e-4a1b-8fa6-36573a56f695",
+             "Messages": [
+                     {
+                     "MessageCode": "msg0038",
+                     "Message": "Validation Passed."
+                     }
+                 ],
+             "TotalResponseTime": 13
+             }
+             </returns>
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.InstitutionsController.PostLeadBasic(EDDY.IS.Vendor.Entities.ContactRequest)">
+             <summary>
+             <para>The Host and Post service is located at https://partners.educationdynamics.com/api/Institutions/lead-save . The posting service can be called using simple HTTP POST, and will return an JSON-formatted response indicating the success or failure of the partner’s submission, along with details if applicable. The Request must include all the required key-value pairs defined by the API’s https://partners.educationdynamics.com/api/program/form method.  </para> 
+             </summary>
+             <ParameterDescription>Test</ParameterDescription>
+             <param name="APIKey">Required | Partner Credentials. This value will be provided by the EDDY Account Management team.</param>
+             <param name="FirstName">Required | First name.</param>
+             <param name="LastName">Required | Last name.</param>
+             <param name="Address">Address</param>
+             <param name="City">Required | City.</param> 
+             <param name="State">Required | Two-character US state abbreviation, e.g., "NJ".</param>  
+             <param name="PostalCode">Required | Postal code or Zip code.</param>
+             <param name="Country">Required | Two-character country code, e.g., "US".</param>
+             <param name="Email">Required | Email address.</param>
+             <param name="Phone">Required | Phone number.</param> 
+             <param name="ProgramId">Required | | Program Id.</param> 
+             <param name="HighestLevelofEducationCompleted">Id of the highest level of education completed. We only accept the string value i.e., "2". Accepted Values: [{"Value": "2", "Text": "G.E.D."}, {"Value": "3", "Text": "High School Diploma"}, {"Value": "4", "Text": "Some College ,1-29 Credits"}, {"Value": "5", "Text": "Some College, 30-59 Credits"}, {"Value": "6", "Text": "Some College,60-89 Credits"}, {"Value": "7", "Text": "Some College, 90+ Credits"}, {"Value": "8", "Text": "Associate"}, {"Value": "9", "Text": "Bachelor"}, {"Value": "10", "Text": "Master"}, {"Value": "11", "Text": "Doctorate"}, {"Value": "1", "Text": "Haven't completed High School"}].</param> 
+             <param name="CampusId">Campus Id.</param> 
+             <param name="SourceCode">Required when EMS Partner.</param>
+             <param name="AdditionalQuestions">
+             Optional | Additional prospect data, if available.
+             &lt;br /&gt;
+             This field should be provided as a collection of JSON objects using the following format:
+             &lt;br /&gt;
+             [{ "QuestionKey":"KeyName", "QuestionValue":"Value" }]
+             &lt;br /&gt;
+             Example:
+             &lt;br /&gt;
+             [{"QuestionKey":"UTMCampaign","QuestionValue":"SpringCampaign"},{"QuestionKey":"LeadInitiatingUrl","QuestionValue":"https%3A%2F%2Fexample.com%2Flandingpage"}]
+             &lt;br /&gt;
+             Any URLs included in QuestionValue should be URL encoded.
+             &lt;br /&gt;
+             The following standardized QuestionKey values are commonly supported and should be named exactly as listed:
+             &lt;ul&gt;
+             &lt;li&gt;UTMCampaign&lt;/li&gt;
+             &lt;li&gt;UTMChannel&lt;/li&gt;
+             &lt;li&gt;UTMVendor&lt;/li&gt;
+             &lt;li&gt;externalid&lt;/li&gt;
+             &lt;li&gt;utm_content&lt;/li&gt;
+             &lt;li&gt;utm_medium&lt;/li&gt;
+             &lt;li&gt;utm_source&lt;/li&gt;
+             &lt;li&gt;utm_term&lt;/li&gt;
+             &lt;li&gt;utm_campaign&lt;/li&gt;
+             &lt;li&gt;FormName&lt;/li&gt;
+             &lt;li&gt;LeadInitiatingUrl&lt;/li&gt;
+             &lt;li&gt;FormLeadUrl&lt;/li&gt;
+             &lt;li&gt;LeadSourceUrl&lt;/li&gt;
+             &lt;li&gt;SourceCode&lt;/li&gt;
+             &lt;li&gt;LeadSourceType&lt;/li&gt;
+             &lt;li&gt;EddyIPAddress&lt;/li&gt;
+             &lt;li&gt;gclid&lt;/li&gt;
+             &lt;li&gt;fbclid&lt;/li&gt;
+             &lt;li&gt;msclkid&lt;/li&gt;
+             &lt;li&gt;RN_license&lt;/li&gt;
+             &lt;li&gt;StartTerm&lt;/li&gt;
+             &lt;li&gt;HSGradYear&lt;/li&gt;
+             &lt;/ul&gt;
+             </param>    
+             <param name="UserAgreement">Required | TCPA info</param> 
+            <example>
+             {
+             "apiKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+             "firstName": "Testfirst",
+             "lastname": "Testlast",
+             "Address": "801 test Corner Ct",
+             "city": "Green Bay",
+             "postalcode": "55555",
+             "state": "WI",
+             "country": "US",
+             "Email": "test@test.com",
+             "Phone": "5555555555",
+             "ProgramId": 7243,
+             "CampusId": 4919,
+             "HighestLevelofEducationCompleted": "9",
+             "SourceCode": "STUDY-UG",
+             "AdditionalQuestions":  [{"QuestionKey":"RNLicense","QuestionValue":"Yes"},{"QuestionKey":"UTMVendor","QuestionValue":"UTMVendorValue"},{"QuestionKey":"UTMCampaign","QuestionValue":"UTMCampaignValue"},{"QuestionKey":"UTMChannel","QuestionValue":"UTMChannelValue"}],
+             "UserAgreement":"I agree to the user Agreement"
+             }
+             </example>
+             <returns>
+             Successfully saved leads will return with a "IsSuccessful" flag value as "true".
+             
+             The below is an example of a successfully saved lead.
+            {
+             "IsSuccessful": true,
+             "Body": {
+                 "UID": "xxx-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                 "LeadTier": 0
+             },
+             "ResponseDateTime": "2017-01-30T10:06:18.5930446-05:00",
+             "RequestDateTime": "2017-01-30T10:05:14.7594556-05:00",
+             "ResponseGuid": "1b99830e-6bdf-48be-9a51-97a79f5a5003",
+             "Messages": [
+                {
+                    "MessageCode": "msg0038",
+                     "Message": "Validation Passed."
+                }
+             ],
+             "TotalResponseTime": 120
+            }
+            
+             Unsuccessfully saved leads will return with a "IsSuccessful" flag value as "false"
+             The "Messages" portion of the return body will also include one or more validation messages as to why the lead failed to save.
+             The below is an example of an unsuccessfully saved lead.
+             
+            {
+             "IsSuccessful": false,
+             "Body": null,
+             "ResponseDateTime": "2019-06-04T13:28:05.8561884-04:00",
+             "RequestDateTime": "2019-06-04T13:28:03.4897363-04:00",
+             "ResponseGuid": "a204e540-c53f-45bc-a92e-200f802149dd",
+             "Messages": [
+                 {
+                     "MessageCode": "msg0009",
+                     "Message": "Exception occurred."
+                 }
+             ],
+             "TotalResponseTime": 2366
+            }
+             </returns>     
+        </member>
+        <member name="M:EDDY.IS.Vendor.Web.API.Controllers.InstitutionsController.PostLeadUpdate(EDDY.IS.Vendor.Entities.LeadUpdateRequest)">
+            <summary>
+            <para>
+            The Lead Update service is located at https://partners.educationdynamics.com/api/Institutions/lead-update.
+            The posting service can be called using HTTP POST and will return a JSON-formatted response indicating the
+            success or failure of the partner’s submission, along with response messages when applicable.
+            This endpoint updates an existing EMS lead. The request must include EMSInstitutionId and LookUpKeyList.
+            LookUpKeyList determines which identifiers should be used to locate the existing lead. At least one valid
+            lookup value must be supplied for the provided LookUpKeyList.
+            If more than one lookup key is provided, the service will attempt to locate the lead using each lookup key
+            until a matching lead is found.
+            </para>
+            </summary>
+             <param name="APIKey">Required | Partner credentials. &lt;br /&gt;This value will be provided by the EDDY Account Management team.</param>
+             <param name="EMSInstitutionId">Required | EMS Institution Id. &lt;br /&gt;This value will be provided by the EDDY Account Management team.</param>
+             <param name="LookUpKeyList">
+             Required | List of integer lookup keys used to locate the lead to update.
+             &lt;br /&gt;
+             Accepted values:
+             &lt;ul&gt;
+             &lt;li&gt;1 = ExternalId&lt;/li&gt;
+             &lt;li&gt;4 = EmailAddress&lt;/li&gt;
+             &lt;li&gt;6 = ISLeadId&lt;/li&gt;
+             &lt;li&gt;7 = Phone1&lt;/li&gt;
+             &lt;li&gt;8 = EMSLeadId&lt;/li&gt;
+             &lt;li&gt;9 = FirstLastName&lt;/li&gt;
+             &lt;li&gt;10 = NameAndEmailorPhone&lt;/li&gt;
+             &lt;/ul&gt;
+             At least one corresponding lookup value must be supplied.
+             </param>
+             <param name="EMSLeadId">EMS Lead Id. &lt;br /&gt;Required when LookUpKeyList includes EMSLeadId.</param>
+             <param name="ISLeadId">IS Lead Id. &lt;br /&gt;Required when LookUpKeyList includes ISLeadId.</param>
+             <param name="ExternalId">External lead identifier. &lt;br /&gt;Required when LookUpKeyList includes ExternalId.</param>
+             <param name="FirstName">First name. &lt;br /&gt;Required when LookUpKeyList includes FirstLastName or NameAndEmailorPhone.</param>
+             <param name="LastName">Last name. &lt;br /&gt;Required when LookUpKeyList includes FirstLastName or NameAndEmailorPhone.</param>
+             <param name="Email">Email address. &lt;br /&gt;Required when LookUpKeyList includes EmailAddress, or when LookUpKeyList includes NameAndEmailorPhone and Phone is not provided.</param>
+             <param name="Phone">Phone number. &lt;br /&gt;Required when LookUpKeyList includes Phone1, or when LookUpKeyList includes NameAndEmailorPhone and Email is not provided.</param>
+             <param name="LeadStateId">
+             Lead state id.&lt;br /&gt;
+             Accepted values:
+             &lt;ul&gt;
+             &lt;li&gt;1 = Active&lt;/li&gt;
+             &lt;li&gt;2 = Closed&lt;/li&gt;
+             &lt;/ul&gt;
+             If LeadStateId is set to 2 (Closed), ClosedReasonCode should also be provided.
+             </param>
+             <param name="ClosedReasonCode">
+             Closed reason code.
+             &lt;br /&gt;
+             This should only be provided when LeadStateId is set to 2 (Closed).
+             &lt;br /&gt;
+             If LeadStateId is set to 2, ClosedReasonCode should also be provided.
+             </param>
+             <param name="ClientApplicationDegreeName">Application degree name.</param>
+             <param name="CustomFields">Additional custom field data. Preferred format is JSON.</param>
+             <param name="ClientRegistered">Registration status.</param>
+             <param name="ClientInitialStartTerm">Initial start term.</param>
+             <param name="ClientNotes">Notes associated with the lead.</param>
+             <param name="ClientStatus">
+             Current client status. Partners should map their statuses to the supported standardized client status values.
+             &lt;br /&gt;
+             Certain client statuses correspond to client date fields. If a supported ClientStatus is provided and the matching
+             date field is not provided, the service may default that matching date to the current date when the lead does not
+             already have a value for that date.
+             &lt;br /&gt;
+             Supported standardized status values:
+             &lt;ul&gt;
+             &lt;li&gt;ApplicationsCompleted&lt;/li&gt;
+             &lt;li&gt;Interviews&lt;/li&gt;
+             &lt;li&gt;Starts&lt;/li&gt;
+             &lt;li&gt;Contacts&lt;/li&gt;
+             &lt;li&gt;Enrollments&lt;/li&gt;
+             &lt;li&gt;ApplicationsStarted&lt;/li&gt;
+             &lt;li&gt;Admit&lt;/li&gt;
+             &lt;li&gt;Appointment&lt;/li&gt;
+             &lt;li&gt;Qualifies&lt;/li&gt;
+             &lt;li&gt;Graduated&lt;/li&gt;
+             &lt;li&gt;Persists&lt;/li&gt;
+             &lt;li&gt;ApplicationSubmitted&lt;/li&gt;
+             &lt;li&gt;Deposit&lt;/li&gt;
+             &lt;li&gt;ApplicationsDenied&lt;/li&gt;
+             &lt;/ul&gt;
+             </param>        
+             <param name="ClientApplicationStartTerm">Application start term.</param>
+             <param name="PendingApplicationChecklistItems">Pending application checklist items.</param>
+             <param name="CompletedApplicationChecklistItems">Completed application checklist items.</param>
+             <param name="ClientApplicationDate">Application date.</param>
+             <param name="ClientStatusUpdatedDate">Status updated date.</param>
+             <param name="ClientInterviewDate">Interview date.</param>
+             <param name="ClientStartDate">Start date.</param>
+             <param name="ClientStartReceivedDate">Start received date.</param>
+             <param name="ClientContactDate">Contact date.</param>
+             <param name="ClientEnrollDate">Enrollment date.</param>
+             <param name="ClientApplicationStartDate">Application start date.</param>
+             <param name="ClientAdmitDate">Admit date.</param>
+             <param name="ClientAppointmentDate">Appointment date.</param>
+             <param name="ClientQualifiedDate">Qualified date.</param>
+             <param name="ClientGraduateDate">Graduation date.</param>
+             <param name="ClientFirstTermPersistDate">First term persist date.</param>
+             <param name="ClientFAFSAReceivedDate">FAFSA received date.</param>
+             <param name="ClientApplicationSubmittedDate">Application submitted date.</param>
+             <param name="ClientDepositDate">Deposit date.</param>
+             <param name="ClientApplicationDeniedDate">Application denied date.</param>
+             <example>
+             {
+               "apiKey": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+               "emsInstitutionId": XXX,
+               "lookUpKeyList": [1,4],
+               "externalId": "ABC123",
+               "email": "test@test.com",
+               "clientApplicationDegreeName": "Bachelor of Science",
+               "customFields": "{\"FieldName\":\"FieldValue\"}",
+               "clientRegistered": "Yes",
+               "clientNotes": "Updated client notes.",
+               "clientStatus": "ApplicationsCompleted",
+               "clientApplicationStartTerm": "Fall 2026",
+               "pendingApplicationChecklistItems": "Transcript, FAFSA",
+               "clientApplicationDate": "2026-05-06",
+               "clientStatusUpdatedDate": "2026-05-06"
+             }
+             </example>
+             <returns>
+             Successfully updated leads will return with an "IsSuccessful" value of true.
+             The "Body" may include lead update context such as EMSInstitutionId and LeadGUID when available.
+             The "Messages" collection will include one or more response messages from the API message configuration.
+            
+             Example successful response:
+             {
+               "IsSuccessful": true,
+               "Body": {
+                 "EMSInstitutionId": 1234,
+                 "LeadGUID": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+               },
+               "ResponseDateTime": "2026-05-08T14:39:28.1899614-04:00",
+               "RequestDateTime": "2026-05-08T14:39:28.1779627-04:00",
+               "ResponseGuid": "b959696d-5bb5-4954-9bd6-d7cc3d981257",
+               "Messages": [
+                 {
+                   "MessageCode": "msg0117",
+                   "Message": "Lead update was submitted successfully."
+                 }
+               ],
+               "TotalResponseTime": 0
+             }
+            
+             If the lead is found but no update is needed, the response may return IsSuccessful as true with a Body value
+             indicating "No Updates Needed" and a message explaining that the lead was found but no values changed.
+            
+             Validation errors will return a Bad Request response with "IsSuccessful" as false, "Body" as "ValidationFailed",
+             and one or more messages explaining what needs to be corrected.
+            
+             Possible validation messages include:
+             - EMSInstitutionId is required.
+             - LeadStateId must be either 1 or 2 when provided.
+             - LookUpKeyList is required.
+             - Invalid lookup key.
+             - At least one valid lookup value is required for the provided LookUpKeyList.
+            
+             Example validation failure response:
+             {
+               "IsSuccessful": false,
+               "Body": "ValidationFailed",
+               "ResponseDateTime": "2026-05-08T14:39:28.1899614-04:00",
+               "RequestDateTime": "2026-05-08T14:39:28.1779627-04:00",
+               "ResponseGuid": "b959696d-5bb5-4954-9bd6-d7cc3d981257",
+               "Messages": [
+                 {
+                   "MessageCode": "msg0108",
+                   "Message": "EMSInstitutionId is required."
+                 },
+                 {
+                   "MessageCode": "msg0109",
+                   "Message": "LeadStateId must be either 1 or 2 when provided."
+                 },
+                 {
+                   "MessageCode": "msg0110",
+                   "Message": "LookUpKeyList is required."
+                 }
+               ],
+               "TotalResponseTime": 0
+             }
+            
+             If no existing EMS lead can be found using the provided lookup keys, the response will return
+             "IsSuccessful" as false, a Body value indicating "Lead Not Found", and a configured response message.
+            
+             If the lead update cannot be submitted to the lead service, the response will return
+             "IsSuccessful" as false, a Body value indicating "Update Failed", and a configured response message.
+            
+             If an unexpected exception occurs while updating the lead, the response will return
+             "IsSuccessful" as false and include a configured exception response message.
+             </returns>
+        </member>
+    </members>
+</doc>

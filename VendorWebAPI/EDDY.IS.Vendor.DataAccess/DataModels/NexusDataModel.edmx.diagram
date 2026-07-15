@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="694f6753b5604fbfac054bc6930bf69f" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="NexusModel.Campaign" Width="1.5" PointX="28.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NexusModel.CampaignType" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NexusModel.Vendor" Width="1.5" PointX="5.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NexusModel.VendorAPISetting" Width="1.5" PointX="5.125" PointY="6.25" IsExpanded="true" />
+        <AssociationConnector Association="NexusModel.FK_Campaign_CampaignType" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="NexusModel.Category" Width="1.5" PointX="7.375" PointY="8.375" />
+        <EntityTypeShape EntityType="NexusModel.CategorySubject" Width="3" PointX="9.625" PointY="4" />
+        <EntityTypeShape EntityType="NexusModel.Country" Width="1.5" PointX="9.375" PointY="9" />
+        <EntityTypeShape EntityType="NexusModel.State" Width="1.5" PointX="11.625" PointY="9.625" />
+        <EntityTypeShape EntityType="NexusModel.Subject" Width="1.5" PointX="7.375" PointY="4.375" />
+        <AssociationConnector Association="NexusModel.FK_CategorySubject_Category" />
+        <AssociationConnector Association="NexusModel.FK_CategorySubject_Subject" />
+        <AssociationConnector Association="NexusModel.FK_State_Country" />
+        <EntityTypeShape EntityType="NexusModel.DirectoryApplicationUrl" Width="4.75" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="NexusModel.Directory" Width="1.5" PointX="11.375" PointY="13.5" />
+        <EntityTypeShape EntityType="NexusModel.CampaignDetail" Width="1.5" PointX="5.25" PointY="36.125" />
+        <AssociationConnector Association="NexusModel.FK_CampaignDetails_Campaign" />
+        <EntityTypeShape EntityType="NexusModel.CampaignPeriod" Width="4.5" PointX="5.25" PointY="45" />
+        <AssociationConnector Association="NexusModel.FK_CampaignPeriod_Campaign" />
+        <EntityTypeShape EntityType="NexusModel.VendorAPIContactToStandardControlMap" Width="1.5" PointX="13.375" PointY="4.75" />
+        <EntityTypeShape EntityType="NexusModel.VendorAPIMessage" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="NexusModel.CampaignStatu" Width="1.5" PointX="7.375" PointY="14" />
+        <AssociationConnector Association="NexusModel.FK_CampaignPeriod_CampaignStatus" />
+        <EntityTypeShape EntityType="NexusModel.ProgramLevel" Width="1.5" PointX="13.375" PointY="12.75" />
+        <EntityTypeShape EntityType="NexusModel.Program" Width="1.5" PointX="15.625" PointY="11.125" />
+        <AssociationConnector Association="NexusModel.FK_Program_ProgramLevelId" />
+        <EntityTypeShape EntityType="NexusModel.vwInstitutionAddress" Width="1.5" PointX="3.375" PointY="13.75" />
+        <EntityTypeShape EntityType="NexusModel.Institution" Width="1.5" PointX="15.375" PointY="1.25" />
+        <AssociationConnector Association="NexusModel.FK_Program_InstitutionId" />
+        <EntityTypeShape EntityType="NexusModel.Campus" Width="1.5" PointX="17.625" PointY="2.875" />
+        <AssociationConnector Association="NexusModel.FK_Campus_InstitutionId" />
+        <EntityTypeShape EntityType="NexusModel.MilitaryStatus" Width="1.5" PointX="0.75" PointY="16.75" />
+        <EntityTypeShape EntityType="NexusModel.ResourceMetaData" Width="1.5" PointX="5.375" PointY="17.75" />
+        <EntityTypeShape EntityType="NexusModel.CallCenterLead" Width="1.5" PointX="7.375" PointY="17.75" />
+        <EntityTypeShape EntityType="NexusModel.ClientRelationship" Width="1.5" PointX="17.625" PointY="19.625" />
+        <AssociationConnector Association="NexusModel.FK_ClientRelationship_InstitutionId" />
+        <EntityTypeShape EntityType="NexusModel.VW_Matching_ProgramProduct_Prod" Width="1.5" PointX="18.375" PointY="9.75" />
+        <EntityTypeShape EntityType="NexusModel.StoreFront" Width="1.5" PointX="5.125" PointY="28" />
+        <AssociationConnector Association="NexusModel.FK__CallCente__Store__3D653D83" />
+        <EntityTypeShape EntityType="NexusModel.Specialty" Width="1.5" PointX="7.375" PointY="17.75" />
+        <EntityTypeShape EntityType="NexusModel.CallCenter" Width="1.5" PointX="7.75" PointY="22.375" />
+        <AssociationConnector Association="NexusModel.FK_CallCenter_Vendor" />
+        <EntityTypeShape EntityType="NexusModel.User" Width="1.5" PointX="9.125" PointY="26.625" />
+        <AssociationConnector Association="NexusModel.FK__CallCente__CallC__183F7123" />
+        <AssociationConnector Association="NexusModel.FK_Directory_CreatedBy" />
+        <AssociationConnector Association="NexusModel.FK_Directory_UpdatedBy" />
+        <EntityTypeShape EntityType="NexusModel.Lead" Width="1.5" PointX="11.375" PointY="20.75" />
+        <AssociationConnector Association="NexusModel.FK__CallCente__LeadI__1CCF1C16" />
+        <EntityTypeShape EntityType="NexusModel.View_EDDY_GET_ZipCodes" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NexusModel.USZipCodeAreaCodeMerge" Width="1.5" PointX="13.375" PointY="19.75" />
+        <EntityTypeShape EntityType="NexusModel.VW_EMSLead" Width="1.5" PointX="20.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html>
+<head>
+    <meta charset="UTF-8" />
+	<title>IS-Form Engine WizardTemplate</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    
+    <!--<script src="//cdn.optimizely.com/js/5309656004034560.js"></script>-->
+    <script type="text/javascript" src="/Static/GetBundledWizardJs?minifyJavascript=false"></script>
+  
+<script type="text/javascript">
+
+    var FormsEngine = FormsEngine || {};
+    FormsEngine.RenderingStrategy = "WIZARDMOBILE";
+    FormsEngine.RenderingDiv = "eddy-form-container";
+    FormsEngine.TemplateId = 67;
+    FormsEngine.SelfContained = true;
+    FormsEngine.IsBeta = false;
+    FormsEngine.TrackId = 'CDE00622-27CE-4BC2-9868-EB04A1B59501';
+    FormsEngine.ApplicationId = 9;
+    FormsEngine.Theme = "plain";
+    FormsEngine.SessionId = '00000000-0000-0000-0000-0000-000000000000';
+    FormsEngine.MatchResponseGuid = '00000000-0000-0000-0000-0000-000000000000';
+    FormsEngine.CompressJs = false;
+    //FormsEngine.WorkflowChanged = function (data) { form_wizard_change_workflow(data); };
+
+    //FormsEngine.WizardAlternativeExpressConsent = "YEES I acknowledge that, by CLICKING the checkbox as my official signature, I consent to representatives of {thirdpartyschool}{/thirdpartyschool}{school}{/school} EducationDynamics, LLC contacting me about educational {thirdpartytype}and/or loan consolidation{/thirdpartytype} opportunities via email, text, or phone, including my mobile phone number(s){mobile-number}, using an automatic dialer, or pre-recorded message.  Message and data rates may apply. I understand that my consent is not a requirement for enrollment, and I may withdraw my consent at any time.";
+    FormsEngine.LoadForm();
+</script>
+    
+</head>
+<body>
+        <div name="eddy-form-container" class="eddy-form-container">
+        </div>
+    </div>
+</div>
+
+
+    <div style="text-align:center">
+        <a href="javascript:FormsEngine.LoadWorkflowStep('START','');"> [Start]</a> - 
+        <a href="javascript:FormsEngine.LoadWorkflowStep('MANAGEDCHOICE','');"> [School Selection]</a> - 
+        <a href="javascript:FormsEngine.LoadWorkflowStep('THANKYOU','');"> [Thank You]</a> - 
+        <a href="javascript:FormsEngine.LoadWorkflowStep('NOMATCH','');"> [No Match]</a> 
+    </div>
+
+
+</body>
+</html>

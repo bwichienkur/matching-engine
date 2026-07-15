@@ -1,0 +1,23 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.ProgramDDL>
+
+<option value="" data-default="default" data-anycampus="@this.Model.AnyCampusResult" data-anyonline="@this.Model.AnyOnlineResult" @(Model.InlineDropDown ? "disabled=true selected=true" : "") class="@(Model.InlineDropDown? "inline-hidden-option": "")" data-customtcpa="@Model.CustomTCPA">- Select -</option>
+@foreach (var group in this.Model.ProgramOptGroupList)
+{
+    if (!string.IsNullOrWhiteSpace(group.Name))
+    {
+        <optgroup label="@group.Name">
+
+            @foreach (var program in group.ProgramList.OrderBy(t => t.Name))
+            {
+                <option value="@program.Id" data-paidstatustypeid="@program.PaidStatusTypeId" data-templateid="@program.TemplateId" data-productid="@program.ProductId" data-programproductid="@program.ProgramProductId" data-hideschoolfromtcpa="@program.Is2USchool.ToString().ToLower()" data-programtype="@program.ProgramType" data-showtwoucheckbox="@program.ShowTwoULeadShareControl" data-programrankscore="@program.ProgramRankScore"> @program.Name </option>
+            }
+        </optgroup>
+    }
+    else
+    {
+        foreach (var program in group.ProgramList.OrderBy(t => t.Name))
+        {
+            <option value="@program.Id" data-paidstatustypeid="@program.PaidStatusTypeId" data-templateid="@program.TemplateId" data-productid="@program.ProductId" data-programproductid="@program.ProgramProductId" data-hideschoolfromtcpa="@program.Is2USchool.ToString().ToLower()" data-programtype="@program.ProgramType" data-showtwoucheckbox="@program.ShowTwoULeadShareControl" data-programrankscore="@program.ProgramRankScore"> @program.Name </option>
+        }
+    }
+}

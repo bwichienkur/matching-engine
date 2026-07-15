@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{946243E6-28C4-4D35-B42C-ACB08FB5FB85}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EDDY.IS.MatchingEngine.Test</RootNamespace>
+    <AssemblyName>EDDY.IS.MatchingEngine.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="Service References\MatchingService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UnitTest1.cs" />
+    <Compile Include="UnitTest_SchoolRankingEngine.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\EDDY.IS.Core\EDDY.IS.Core.csproj">
+      <Project>{68572e4b-99ba-40c1-aeb9-cad36c1eb1d0}</Project>
+      <Name>EDDY.IS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\EDDY.IS.LocalCache\EDDY.IS.LocalCache\EDDY.IS.LocalCache.csproj">
+      <Project>{1ea93f69-7ca4-49be-9b1b-2907b503801f}</Project>
+      <Name>EDDY.IS.LocalCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDDY.IS.MatchingEngine\EDDY.IS.MatchingEngine.csproj">
+      <Project>{9e6c2295-406b-4cb7-9da4-22e115e0d206}</Project>
+      <Name>EDDY.IS.MatchingEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\DataSources\EDDY.IS.MatchingEngine.DTO.CampusResponse.datasource" />
+    <None Include="Properties\DataSources\EDDY.IS.MatchingEngine.DTO.CategoryResponse.datasource" />
+    <None Include="Properties\DataSources\EDDY.IS.MatchingEngine.DTO.CrossSellProgramResponse.datasource" />
+    <None Include="Properties\DataSources\EDDY.IS.MatchingEngine.DTO.FormProgramResponse.datasource" />
+    <None Include="Properties\DataSources\EDDY.IS.MatchingEngine.DTO.InstitutionDetailResponse.datasource" />
+    <None Include="Properties\DataSources\EDDY.IS.MatchingEngine.DTO.InstitutionResponse.datasource" />
+    <None Include="Properties\DataSources\EDDY.IS.MatchingEngine.DTO.ProgramDetailResponse.datasource" />
+    <None Include="Properties\DataSources\EDDY.IS.MatchingEngine.DTO.ProgramLevelResponse.datasource" />
+    <None Include="Properties\DataSources\EDDY.IS.MatchingEngine.DTO.ProgramResponse.datasource" />
+    <None Include="Properties\DataSources\EDDY.IS.MatchingEngine.DTO.ProgramValidateResponse.datasource" />
+    <None Include="Properties\DataSources\EDDY.IS.MatchingEngine.DTO.SubjectResponse.datasource" />
+    <None Include="Service References\MatchingService\MatchingService.wsdl" />
+    <None Include="Service References\MatchingService\MatchingService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingService\MatchingService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingService\MatchingService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingService\MatchingService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingService\MatchingService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingService\MatchingService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingService\MatchingService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingService\MatchingService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MatchingService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MatchingService\MatchingService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MatchingService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MatchingService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MatchingService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

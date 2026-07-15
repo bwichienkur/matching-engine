@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadScoring.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadScoring.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://emsfe-issvc1/EDDY.IS.LeadScoring.Service/LeadScoringService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://emsfe-issvc1/EDDY.IS.LeadScoring.Service/LeadScoringService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ScoringRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CampaignTrackGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="CriteriaInput" nillable="true" type="tns:CriteriaInput" />
+      <xs:element minOccurs="0" name="ProspectInput" nillable="true" type="tns:ProspectInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScoringRequest" nillable="true" type="tns:ScoringRequest" />
+  <xs:complexType name="CriteriaInput">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CategoryList" nillable="true" type="q1:ArrayOfint" />
+      <xs:element minOccurs="0" name="ProgramLevelId" nillable="true" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SubjectList" nillable="true" type="q2:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CriteriaInput" nillable="true" type="tns:CriteriaInput" />
+  <xs:complexType name="ProspectInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Age" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EducationLevelId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HSGraduationYear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsCitizen" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMilitary" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MilitaryStatusId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Phone1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StateCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StateId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StreetAddress" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProspectInput" nillable="true" type="tns:ProspectInput" />
+  <xs:complexType name="ScoringResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LeadScoringGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="LeadScoringTierLevel" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductAssignment" nillable="true" type="tns:ProductAssignment" />
+      <xs:element minOccurs="0" name="ScoringResponseType" type="tns:ScoringResponseType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScoringResponse" nillable="true" type="tns:ScoringResponse" />
+  <xs:complexType name="ProductAssignment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChosenModelProductId" type="xs:int" />
+      <xs:element minOccurs="0" name="CrProductAssignmentList" nillable="true" type="tns:ArrayOfCrProductAssignment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductAssignment" nillable="true" type="tns:ProductAssignment" />
+  <xs:complexType name="ArrayOfCrProductAssignment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CrProductAssignment" nillable="true" type="tns:CrProductAssignment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCrProductAssignment" nillable="true" type="tns:ArrayOfCrProductAssignment" />
+  <xs:complexType name="CrProductAssignment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CrId" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CrProductAssignment" nillable="true" type="tns:CrProductAssignment" />
+  <xs:simpleType name="ScoringResponseType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CampaignNotActive">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InvalidCampaign">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NoValidUniverse">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UniverseProductAssignmentOff">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="VendorServiceCallFailed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="VendorServiceCallTimeout">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ScoringNotAllowedForCampaign">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ScoringResponseType" nillable="true" type="tns:ScoringResponseType" />
+</xs:schema>

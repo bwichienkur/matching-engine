@@ -1,0 +1,252 @@
+﻿
+/*********** Wizard Start Form ***********************/
+.eddy-form-wizard-container .field-holder.full select{
+	width: 93.5%;
+}
+.eddy-form-wizard-container .field-holder.medium  select{
+	width: 63.5%;
+}
+.eddy-form-wizard-container .field-holder.full input{
+	width: 91.5%;
+}
+.eddy-form-wizard-container .field-holder.medium input{
+	width: 58.5%;
+}
+
+
+	
+
+	.eddy-form-wizard-container .field-holder.has-scrollbar .field-holder-group{
+		overflow-y:auto;
+		/*background: #EDEDED;*/
+		padding:8px 0 8px 8px;
+        height:210px;
+        margin:0;
+	}
+
+    .eddy-form-wizard-container .field-holder.has-scrollbar.no-scroll .field-holder-group{
+        height:auto;
+	}
+
+	
+.eddy-form-wizard-container .campus-preference-online{
+    background: url("[SERVER]/images/online.png") no-repeat scroll 0 0;
+    border: medium none !important;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+    vertical-align: bottom;
+    width: 177px;
+    height: 76px;
+}
+.eddy-form-wizard-container .campus-preference-campus{
+    background: url("[SERVER]/images/campus.png") no-repeat scroll 0 0;
+    border: medium none !important;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+    vertical-align: bottom;
+    width: 177px;
+    height: 76px;
+}
+.eddy-form-wizard-container .campus-preference-both{
+    background: url("[SERVER]/images/both.png") no-repeat scroll 0 0;
+    border: medium none !important;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+    vertical-align: bottom;
+    width: 177px;
+    height: 76px;
+}
+
+
+
+.eddy-form-wizard-container .image-checkbox-group .image-checkbox li{
+	display:inline-block;
+	padding:5px;
+	width:30%;
+	*float:left;
+	*width:30%;
+}
+	.eddy-form-wizard-container .image-checkbox-group .image-checkbox li.selected{
+		background:#DDD;
+		box-shadow: inset 2px 2px 15px 0px #888;
+		-moz-box-shadow: inset 2px 2px 15px 0px #888;
+		-webkit-box-shadow: inset 2px 2px 15px 0px #888;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		-khtml-border-radius: 10px;
+		border-radius: 10px;
+	}
+	
+.eddy-form-wizard-container .image-checkbox-group .image-checkbox input{
+	display:block;
+	margin:5px auto;
+    background:transparent;
+}
+.eddy-form-wizard-container .image-checkbox-group .image-checkbox a{
+	outline:none;
+}
+
+.eddy-form-wizard-container .select-all-categories,
+.eddy-form-wizard-container .select-all-subcategories {
+    background:url("[SERVER]/images/btn-selectall.png") no-repeat;
+    width:77px;
+    height:21px;
+    text-indent:-999px;
+    cursor:pointer;
+    margin-top:1.3em;
+    float:left;
+    color:transparent;
+}
+.eddy-form-wizard-container .de-select-all-categories,
+.eddy-form-wizard-container .de-select-all-subcategories {
+    background:url("[SERVER]/images/btn-clearall.png") no-repeat;
+    width:77px;
+    height:21px;
+    text-indent:-999px;
+    cursor:pointer;
+    margin:1.3em 0 0 .5em;
+    float:left;
+    color:transparent;
+}
+
+
+/********************** CSS for specific fields **********************/
+.eddy-form-wizard-container .field-holder.Phone label,
+.eddy-form-wizard-container .field-holder.Alternate_Phone label,
+.eddy-form-wizard-container .field-holder.BestTimeToContact label,
+.eddy-form-wizard-container .field-holder.Desired_Start_Date label,
+.eddy-form-wizard-container .field-holder.EmploymentStatus label,
+.eddy-form-wizard-container .field-holder.Military_Affiliation label,
+.eddy-form-wizard-container .field-holder.DynamicCampusSoftPreference label{
+    border:none;
+    display:inline-block;
+    font-weight:normal;
+    text-align:right;
+    margin-bottom:4px \0/;
+}
+.eddy-form-wizard-container .field-holder.HaveTransferCredits fieldset legend,
+.eddy-form-wizard-container .field-holder.us_citizen fieldset legend {
+    border:none;
+    display:inline-block;
+    font-weight:normal;
+    text-align:right;
+
+}
+.eddy-form-wizard-container .field-holder.HaveTransferCredits legend,
+.eddy-form-wizard-container .field-holder.us_citizen legend {
+    float:left;
+}
+.eddy-form-wizard-container .field-holder.Phone label,
+.eddy-form-wizard-container .field-holder.Alternate_Phone label {
+    width: 32%;
+}
+.eddy-form-wizard-container .field-holder.Phone labe.error,
+.eddy-form-wizard-container .field-holder.Alternate_Phone label.error {
+    width: auto;
+}
+.eddy-form-wizard-container .field-holder.BestTimeToContact label,
+.eddy-form-wizard-container .field-holder.Desired_Start_Date label,
+.eddy-form-wizard-container .field-holder.EmploymentStatus label{
+    width:38%;
+}
+.eddy-form-wizard-container .field-holder.BestTimeToContact label.error,
+.eddy-form-wizard-container .field-holder.Desired_Start_Date label.error,
+.eddy-form-wizard-container .field-holder.EmploymentStatus label.error{
+    width:auto;
+}
+.eddy-form-wizard-container .field-holder.HaveTransferCredits legend,
+.eddy-form-wizard-container .field-holder.us_citizen legend {    
+    width:53%;
+}
+.eddy-form-wizard-container .field-holder.BestTimeToContact select,
+.eddy-form-wizard-container .field-holder.Desired_Start_Date select,
+.eddy-form-wizard-container .field-holder.EmploymentStatus select{
+    width:49%;
+    display:inline-block;
+}
+
+.eddy-form-wizard-container .field-holder.Military_Affiliation select {
+    width:80%;
+}
+.eddy-form-wizard-container .field-holder.Prefix select{
+    width:120px;
+}
+
+.eddy-form-wizard-container .field-holder.City input,
+.eddy-form-wizard-container .field-holder.Postal_Code_Duplicate input,
+.eddy-form-wizard-container .field-holder.Email input {
+       width:84%;
+}
+.eddy-form-wizard-container .field-holder.State select,
+.eddy-form-wizard-container .field-holder.Country select {
+    width:92%;
+}
+
+.eddy-form-wizard-container .field-holder.Age input,
+.eddy-form-wizard-container .field-holder.Postal_Code input{
+	width:20%;
+}
+
+.eddy-form-wizard-container .field-holder.First_Name,
+.eddy-form-wizard-container .field-holder.Last_Name{
+	display:inline-block;
+    width:44%;
+}
+.eddy-form-wizard-container .field-holder.City,
+.eddy-form-wizard-container .field-holder.Postal_Code_Duplicate {
+    display:inline-block;
+    width:35%;
+}
+.eddy-form-wizard-container .field-holder.Country,
+.eddy-form-wizard-container .field-holder.State {
+    display:inline-block;
+    width:56%
+}
+    .eddy-form-wizard-container .field-holder.Address input,
+    .eddy-form-wizard-container .field-holder.Address_2 input{
+        width:87%;
+    }
+.eddy-form-wizard-container .field-holder.Email label {
+    font-weight:normal;
+    border:none;
+}
+.eddy-form-wizard-container .field-holder.Categories ul,
+.eddy-form-wizard-container .field-holder.SubCategories ul {
+    background:#FFFEEF;
+    border:1px solid #EEE;
+    padding:.4em .4em .4em .9em;
+}
+
+.eddy-form-wizard-container .field-holder.UseDayTimePhone {
+    width:60%;
+    margin-left:10em;
+}
+.eddy-form-wizard-container .field-holder.Alternate_Phone {
+    margin-bottom:0;
+}
+.eddy-form-wizard-container .field-holder.Phone input[name="Phone"],
+.eddy-form-wizard-container .field-holder.Alternate_Phone input[name="Alternate_Phone"] {
+    display:none;
+}
+.eddy-form-wizard-container .field-holder .replace_Phone,
+.eddy-form-wizard-container .field-holder .replace_Alternate_Phone {
+    width:35px;
+    display:inline-block;
+    margin:0;
+}
+.eddy-form-wizard-container .field-holder .replace_Phone[name='suffix'],
+.eddy-form-wizard-container .field-holder .replace_Alternate_Phone[name='suffix'] {
+    width:50px;
+}
+
+.eddy-form-wizard-container .steps[data-title="DynamicQuestions"] {
+    margin-top:1.2em;
+}
+
+

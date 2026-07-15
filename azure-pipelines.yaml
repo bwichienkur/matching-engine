@@ -1,0 +1,104 @@
+trigger:
+  branches:
+    include:
+      - development
+      - qa
+      - uat
+      - main
+
+pool:
+  name: 'Back Office'
+  demands:
+    - Agent.OS -equals Windows_NT
+
+resources:
+  repositories:
+    - repository: PipelineTemplates
+      type: git
+      name: Technology Management/AzurePipelines
+      ref: refs/heads/V1.0
+
+stages:
+- stage: CICD_MatchingEngine
+  displayName: "CI/CD - MatchingEngine"
+  dependsOn: []
+  condition: eq('${{ parameters.runRollback }}', 'Deployment')
+  jobs:
+  - template: pipelines/templates/build-deploy.yaml
+    parameters:
+      app: MatchingEngine
+      solution: 'MatchingEngine\EDDY.IS.MatchingEngine.sln'
+      appPool: 'EDDY.IS.MatchingEngine.Service'
+      serverDestPath: 'F:\inetpub\wwwroot\EDDY.IS.MatchingEngine.Service'
+      NugetPackageConfig: 'nuget.config'
+      buildConfiguration: 'Release'
+      PublishProfile: 'NonProd'
+
+- stage: RollBack_MatchingEngine
+  displayName: "RollBack - MatchingEngine"
+  dependsOn: []
+  condition: eq('${{ parameters.runRollback }}', 'RollBack')
+  jobs:
+  - template: pipelines/templates/rollback.yaml@PipelineTemplates
+    parameters:
+      app: MatchingEngine
+      appPool: 'EDDY.IS.MatchingEngine.Service'
+      serverDestPath: 'F:\inetpub\wwwroot\EDDY.IS.MatchingEngine.Service'
+      Revision: ${{ parameters.revision }}
+      runRollback: ${{ parameters.runRollback }}
+
+- stage: CICD_FormsEngine
+  displayName: "CICD - FormsEngine"
+  dependsOn: []
+  condition: eq('${{ parameters.runRollback }}', 'Deployment')
+  jobs:
+  - template: pipelines/templates/ci-build.yaml@PipelineTemplates
+    parameters:
+      app: FormsEngine
+      solution: 'FormsEngine\EDDY.IS.FormsEngine.sln'
+      appPool: 'EDDY.IS.FormsEngine.Service'
+      serverDestPath: 'F:\inetpub\wwwroot\EDDY.IS.FormsEngine.Service'
+      NugetPackageConfig: 'nuget.config'
+      buildConfiguration: 'Release'
+      PublishProfile: 'NonProd'
+
+- stage: RollBack_FormsEngine
+  displayName: "RollBack - FormsEngine"
+  dependsOn: []
+  condition: eq('${{ parameters.runRollback }}', 'RollBack')
+  jobs:
+  - template: pipelines/templates/rollback.yaml@PipelineTemplates
+    parameters:
+      app: FormsEngine
+      appPool: 'EDDY.IS.FormsEngine.Service'
+      serverDestPath: 'F:\inetpub\wwwroot\EDDY.IS.FormsEngine.Service'
+      Revision: ${{ parameters.revision }}
+      runRollback: ${{ parameters.runRollback }}
+
+- stage: CICD_VendorWebAPI
+  displayName: "CICD - VendorWebAPI"
+  dependsOn: []
+  condition: eq('${{ parameters.runRollback }}', 'Deployment')
+  jobs:
+  - template: pipelines/templates/build-deploy.yaml
+    parameters:
+      app: VendorWebAPI
+      solution: 'VendorWebAPI\EDDY.IS.Vendor.Web.API.sln'
+      appPool: 'CheetahPool'
+      serverDestPath: 'F:\inetpub\wwwroot\EDDY.IS.Vendor.Web.API'
+      NugetPackageConfig: 'VendorWebAPI\nuget.config'
+      buildConfiguration: 'Release'
+      PublishProfile: 'NonProd'
+
+- stage: RollBack_VendorWebAPI
+  displayName: "RollBack - VendorWebAPI"
+  dependsOn: []
+  condition: eq('${{ parameters.runRollback }}', 'RollBack')
+  jobs:
+  - template: pipelines/templates/rollback.yaml@PipelineTemplates
+    parameters:
+      app: VendorWebAPI
+      appPool: 'CheetahPool'
+      serverDestPath: 'F:\inetpub\wwwroot\EDDY.IS.Vendor.Web.API'
+      Revision: ${{ parameters.revision }}
+      runRollback: ${{ parameters.runRollback }}

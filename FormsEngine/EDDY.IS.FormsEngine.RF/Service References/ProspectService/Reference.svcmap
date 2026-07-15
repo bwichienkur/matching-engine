@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="689a122f-2679-46a4-8c6f-e486442a27b7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://cycle-issvc1/EDDY.ProspectService.Service/ProspectService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ProspectService.disco" MetadataType="Disco" ID="2dab0ba0-2b71-449e-81e3-326d019b0d56" SourceId="1" SourceUrl="http://cycle-issvc1/EDDY.ProspectService.Service/ProspectService.svc?disco" />
+    <MetadataFile FileName="ProspectService.xsd" MetadataType="Schema" ID="cbdaef74-9833-4772-b45d-f04b3e816ccc" SourceId="1" SourceUrl="http://cycle-issvc1/EDDY.ProspectService.Service/ProspectService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ProspectService.wsdl" MetadataType="Wsdl" ID="7571d748-9217-43d4-a7b5-f3aec12790a7" SourceId="1" SourceUrl="http://cycle-issvc1/EDDY.ProspectService.Service/ProspectService.svc?wsdl" />
+    <MetadataFile FileName="ProspectService1.wsdl" MetadataType="Wsdl" ID="10461c7f-8a6b-4548-bb84-4497c7e0819a" SourceId="1" SourceUrl="http://cycle-issvc1/EDDY.ProspectService.Service/ProspectService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ProspectService1.xsd" MetadataType="Schema" ID="5c103e4a-36c8-4c54-88c7-41cad75e0e31" SourceId="1" SourceUrl="http://cycle-issvc1/EDDY.ProspectService.Service/ProspectService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ProspectService2.xsd" MetadataType="Schema" ID="de723361-fa9a-4d61-b11c-3411011a6ed0" SourceId="1" SourceUrl="http://cycle-issvc1/EDDY.ProspectService.Service/ProspectService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ProspectService3.xsd" MetadataType="Schema" ID="5aa2fd16-04fe-4452-a0d8-a81614b818ce" SourceId="1" SourceUrl="http://cycle-issvc1/EDDY.ProspectService.Service/ProspectService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ProspectService4.xsd" MetadataType="Schema" ID="483125c5-becd-4dcd-9ea6-3dd2384ba00b" SourceId="1" SourceUrl="http://cycle-issvc1/EDDY.ProspectService.Service/ProspectService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ProspectService5.xsd" MetadataType="Schema" ID="98dcb5cc-3be5-4c8d-a3a2-da20afde72b8" SourceId="1" SourceUrl="http://cycle-issvc1/EDDY.ProspectService.Service/ProspectService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

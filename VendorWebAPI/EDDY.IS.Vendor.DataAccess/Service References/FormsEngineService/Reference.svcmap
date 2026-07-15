@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="90f238bd-8eb0-47b9-8bea-4a9290e579fd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FormsEngineAPI11.xsd" MetadataType="Schema" ID="92ed97b6-b0a6-47d6-82c3-b3a4f7272853" SourceId="1" SourceUrl="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd6" />
+    <MetadataFile FileName="FormsEngineAPI12.xsd" MetadataType="Schema" ID="5a0a06e8-cbd4-4230-bbb9-940e0242556d" SourceId="1" SourceUrl="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd8" />
+    <MetadataFile FileName="FormsEngineAPI13.xsd" MetadataType="Schema" ID="d36dc31b-3d33-42fb-a639-eb821d38a16e" SourceId="1" SourceUrl="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd5" />
+    <MetadataFile FileName="FormsEngineAPI14.xsd" MetadataType="Schema" ID="9d76103e-f855-4107-a50f-083055ddfdca" SourceId="1" SourceUrl="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd2" />
+    <MetadataFile FileName="FormsEngineAPI1.disco" MetadataType="Disco" ID="df8795b2-4ff8-4653-a625-d9f5f565cd54" SourceId="1" SourceUrl="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?disco" />
+    <MetadataFile FileName="FormsEngineAPI15.xsd" MetadataType="Schema" ID="431436b5-d153-4ed3-80ff-73c57ca3bbed" SourceId="1" SourceUrl="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd4" />
+    <MetadataFile FileName="FormsEngineAPI16.xsd" MetadataType="Schema" ID="029fbef8-9cb8-43c5-bfd0-8cc0a5512c4e" SourceId="1" SourceUrl="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd1" />
+    <MetadataFile FileName="FormsEngineAPI17.xsd" MetadataType="Schema" ID="1177546e-3bfa-45c7-9a5b-5eb07be6e500" SourceId="1" SourceUrl="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd10" />
+    <MetadataFile FileName="FormsEngineAPI18.xsd" MetadataType="Schema" ID="2ce34e20-b6e5-4c77-9654-a0e583236ed2" SourceId="1" SourceUrl="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd7" />
+    <MetadataFile FileName="FormsEngineAPI19.xsd" MetadataType="Schema" ID="96d7c03e-0ea3-4635-bb7e-d0766aae7b0b" SourceId="1" SourceUrl="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd3" />
+    <MetadataFile FileName="FormsEngineAPI1.wsdl" MetadataType="Wsdl" ID="584eea3f-a1a9-4f3d-bb45-969c8e11b720" SourceId="1" SourceUrl="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?wsdl" />
+    <MetadataFile FileName="FormsEngineAPI20.xsd" MetadataType="Schema" ID="30f9b1cd-1a5f-4ac6-8bba-f096b5e8f04c" SourceId="1" SourceUrl="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd0" />
+    <MetadataFile FileName="FormsEngineAPI21.xsd" MetadataType="Schema" ID="dddc89b7-ca41-4a0d-85db-4d9933e04b3a" SourceId="1" SourceUrl="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd9" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

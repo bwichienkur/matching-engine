@@ -1,0 +1,62 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: 'Common/EDDY.IS.Common.ExceptionHandler/EDDY.IS.Common.ExceptionHandler.sln'
+  csProj: 'Common/EDDY.IS.Common.ExceptionHandler/EDDY.IS.Common.ExceptionHandler.csproj'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- script: |
+    echo ##vso[task.setvariable variable=PackageVersion]$(packageVersion)
+  displayName: 'Set Package Version'
+
+- task: NuGetToolInstaller@0
+  displayName: 'Use NuGet 6.0.x'
+  inputs:
+    versionSpec: 6.0.x
+    checkLatest: true
+
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: $(solution)
+    vstsFeed: '0463f636-c458-4488-987d-6723a95d4270/59f62db5-0e2c-4b1d-8dc8-19ad086f5e5d'
+
+- task: VSBuild@1
+  displayName: 'Build solution'
+  inputs:
+    solution: $(solution)
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactstagingdirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
+
+- task: NuGetCommand@2
+  displayName: 'NuGet pack'
+  inputs:
+    command: pack
+    packagesToPack: $(csProj)
+    versioningScheme: 'byEnvVar'
+    versionEnvVar: 'PackageVersion'
+
+- task: PublishSymbols@2
+  displayName: 'Publish symbols path'
+  inputs:
+    SearchPattern: '**\bin\**\*.pdb'
+    PublishSymbols: false
+  continueOnError: true
+
+- task: NuGetCommand@2
+  displayName: 'NuGet push'
+  inputs:
+    command: push
+    publishVstsFeed: '0463f636-c458-4488-987d-6723a95d4270/59f62db5-0e2c-4b1d-8dc8-19ad086f5e5d'

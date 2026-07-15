@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="FormsEngineAPI" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadEngine.DTO.Request" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.Base" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFormsEngine_GetRenderingStrategies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRenderingStrategies" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_GetRenderingStrategies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRenderingStrategiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_GetRenderingStrategiesByType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRenderingStrategiesByType" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_GetRenderingStrategiesByType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRenderingStrategiesByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_GetProgramTemplateModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramTemplateModel" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_GetProgramTemplateModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramTemplateModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_GetProgramTemplateModelByTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramTemplateModelByTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_GetProgramTemplateModelByTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramTemplateModelByTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ValidateForm_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateForm" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ValidateForm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_BuildProspect_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuildProspect" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_BuildProspect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuildProspectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ValidateFormPost_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateFormPost" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ValidateFormPost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateFormPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ProcessHostAndPostLead_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessHostAndPostLead" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ProcessHostAndPostLead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessHostAndPostLeadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ProcessHostAndPostLeadPost_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessHostAndPostLeadPost" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ProcessHostAndPostLeadPost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessHostAndPostLeadPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_GetProgramMatches_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramMatches" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_GetProgramMatches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramMatchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_GetEnhancedProgramMatches_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnhancedProgramMatches" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_GetEnhancedProgramMatches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnhancedProgramMatchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_GetProgramMatchesPost_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramMatchesPost" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_GetProgramMatchesPost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramMatchesPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ValidateMultipleForms_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateMultipleForms" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ValidateMultipleForms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateMultipleFormsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ValidateEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateEmail" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ValidateEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ProcessApolloSubmission_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessApolloSubmission" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ProcessApolloSubmission_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessApolloSubmissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ReleaseTitaniumLead_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReleaseTitaniumLead" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_ReleaseTitaniumLead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReleaseTitaniumLeadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_RetrieveTemplateControlsByProgramTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveTemplateControlsByProgramTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_RetrieveTemplateControlsByProgramTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveTemplateControlsByProgramTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_GetProgramAllTemplatesMergedModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramAllTemplatesMergedModel" />
+  </wsdl:message>
+  <wsdl:message name="IFormsEngine_GetProgramAllTemplatesMergedModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramAllTemplatesMergedModelResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFormsEngine">
+    <wsdl:operation name="GetRenderingStrategies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/GetRenderingStrategies" message="tns:IFormsEngine_GetRenderingStrategies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/GetRenderingStrategiesResponse" message="tns:IFormsEngine_GetRenderingStrategies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRenderingStrategiesByType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/GetRenderingStrategiesByType" message="tns:IFormsEngine_GetRenderingStrategiesByType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/GetRenderingStrategiesByTypeResponse" message="tns:IFormsEngine_GetRenderingStrategiesByType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramTemplateModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/GetProgramTemplateModel" message="tns:IFormsEngine_GetProgramTemplateModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/GetProgramTemplateModelResponse" message="tns:IFormsEngine_GetProgramTemplateModel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramTemplateModelByTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/GetProgramTemplateModelByTemplate" message="tns:IFormsEngine_GetProgramTemplateModelByTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/GetProgramTemplateModelByTemplateResponse" message="tns:IFormsEngine_GetProgramTemplateModelByTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateForm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/ValidateForm" message="tns:IFormsEngine_ValidateForm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/ValidateFormResponse" message="tns:IFormsEngine_ValidateForm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuildProspect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/BuildProspect" message="tns:IFormsEngine_BuildProspect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/BuildProspectResponse" message="tns:IFormsEngine_BuildProspect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateFormPost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/ValidateFormPost" message="tns:IFormsEngine_ValidateFormPost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/ValidateFormPostResponse" message="tns:IFormsEngine_ValidateFormPost_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessHostAndPostLead">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/ProcessHostAndPostLead" message="tns:IFormsEngine_ProcessHostAndPostLead_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/ProcessHostAndPostLeadResponse" message="tns:IFormsEngine_ProcessHostAndPostLead_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessHostAndPostLeadPost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/ProcessHostAndPostLeadPost" message="tns:IFormsEngine_ProcessHostAndPostLeadPost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/ProcessHostAndPostLeadPostResponse" message="tns:IFormsEngine_ProcessHostAndPostLeadPost_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramMatches">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/GetProgramMatches" message="tns:IFormsEngine_GetProgramMatches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/GetProgramMatchesResponse" message="tns:IFormsEngine_GetProgramMatches_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnhancedProgramMatches">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/GetEnhancedProgramMatches" message="tns:IFormsEngine_GetEnhancedProgramMatches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/GetEnhancedProgramMatchesResponse" message="tns:IFormsEngine_GetEnhancedProgramMatches_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramMatchesPost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/GetProgramMatchesPost" message="tns:IFormsEngine_GetProgramMatchesPost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/GetProgramMatchesPostResponse" message="tns:IFormsEngine_GetProgramMatchesPost_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMultipleForms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/ValidateMultipleForms" message="tns:IFormsEngine_ValidateMultipleForms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/ValidateMultipleFormsResponse" message="tns:IFormsEngine_ValidateMultipleForms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/ValidateEmail" message="tns:IFormsEngine_ValidateEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/ValidateEmailResponse" message="tns:IFormsEngine_ValidateEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessApolloSubmission">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/ProcessApolloSubmission" message="tns:IFormsEngine_ProcessApolloSubmission_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/ProcessApolloSubmissionResponse" message="tns:IFormsEngine_ProcessApolloSubmission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseTitaniumLead">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/ReleaseTitaniumLead" message="tns:IFormsEngine_ReleaseTitaniumLead_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/ReleaseTitaniumLeadResponse" message="tns:IFormsEngine_ReleaseTitaniumLead_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTemplateControlsByProgramTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/RetrieveTemplateControlsByProgramTemplate" message="tns:IFormsEngine_RetrieveTemplateControlsByProgramTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/RetrieveTemplateControlsByProgramTemplateResponse" message="tns:IFormsEngine_RetrieveTemplateControlsByProgramTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramAllTemplatesMergedModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormsEngine/GetProgramAllTemplatesMergedModel" message="tns:IFormsEngine_GetProgramAllTemplatesMergedModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormsEngine/GetProgramAllTemplatesMergedModelResponse" message="tns:IFormsEngine_GetProgramAllTemplatesMergedModel_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFormsEngine" type="tns:IFormsEngine">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRenderingStrategies">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/GetRenderingStrategies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRenderingStrategiesByType">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/GetRenderingStrategiesByType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramTemplateModel">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/GetProgramTemplateModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramTemplateModelByTemplate">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/GetProgramTemplateModelByTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateForm">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/ValidateForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuildProspect">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/BuildProspect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateFormPost">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/ValidateFormPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessHostAndPostLead">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/ProcessHostAndPostLead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessHostAndPostLeadPost">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/ProcessHostAndPostLeadPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramMatches">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/GetProgramMatches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnhancedProgramMatches">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/GetEnhancedProgramMatches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramMatchesPost">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/GetProgramMatchesPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMultipleForms">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/ValidateMultipleForms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateEmail">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/ValidateEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessApolloSubmission">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/ProcessApolloSubmission" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseTitaniumLead">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/ReleaseTitaniumLead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTemplateControlsByProgramTemplate">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/RetrieveTemplateControlsByProgramTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramAllTemplatesMergedModel">
+      <soap:operation soapAction="http://tempuri.org/IFormsEngine/GetProgramAllTemplatesMergedModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FormsEngineAPI">
+    <wsdl:port name="BasicHttpBinding_IFormsEngine" binding="tns:BasicHttpBinding_IFormsEngine">
+      <soap:address location="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

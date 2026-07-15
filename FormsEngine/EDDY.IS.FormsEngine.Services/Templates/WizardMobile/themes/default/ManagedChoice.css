@@ -1,0 +1,247 @@
+﻿.btnCtaConfirmMatches {
+    background: url("[SERVER]/images/btn-view-matches.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    display: block;
+    height: 35px;
+    margin: 0 auto;
+    width: 174px;
+}
+.btnCtaConfirmMatches:hover {
+    background-position: 0 -40px;
+}
+.btnChooseSchoolDisabled {
+    background: url("[SERVER]/images/btn-choose-school-disable.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    clear: both;
+    height: 37px;
+    margin: 8px 0 0;
+    width: 100%;
+}
+.btnChooseSchool {
+    background: url("[SERVER]/images/btn-choose-school.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    clear: both;
+    height: 37px;
+    margin: 8px 0 0;
+    width: 100%;
+}
+.btnChooseSchool:hover {
+    background: url("[SERVER]/images/btn-choose-school.png") no-repeat scroll 0 -40px rgba(0, 0, 0, 0);
+}
+input.btnChooseSchool:hover {
+    background: url("[SERVER]/images/btn-choose-school.png") no-repeat scroll 0 -40px rgba(0, 0, 0, 0);
+}
+input.btnThankYou {
+    background: url("[SERVER]/images/btn-thankYou.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    float: left;
+    height: 37px;
+    width: 280px;
+}
+input.btnThankYou:hover {
+    background: url("[SERVER]/images/btn-thankYou.png") no-repeat scroll 0 -40px rgba(0, 0, 0, 0);
+}
+.hdrClassList {
+    color: #FE9504;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+}
+.hdrClassListFixed {
+    margin: 0 !important;
+}
+div.txtScroll {
+    clear: both;
+    height: 30px;
+    margin: 0 auto;
+    width: 302px;
+}
+.scrollDownImage {
+    width: 302px;
+    height: 30px;
+    display: block;
+    background: url("[SERVER]/images/txt-scroll.gif"); 
+    margin: 0 auto;
+}
+.tabsOnlineOn {
+    background: url("[SERVER]/images/tabsOnline_on.gif") no-repeat scroll center top rgba(0, 0, 0, 0);
+    float: left;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.tabsOnlineOff {
+    background: url("[SERVER]/images/tabsOnline_off.gif") no-repeat scroll center top rgba(0, 0, 0, 0);
+    float: left;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.tabsCampusOn {
+    background: url("[SERVER]/images/tabsCampus_on.gif") no-repeat scroll center top rgba(0, 0, 0, 0);
+    float: left;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.tabsCampusOff {
+    background: url("[SERVER]/images/tabsCampus_off.gif") no-repeat scroll center top rgba(0, 0, 0, 0);
+    float: left;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.sponsoredList {
+    float: right;
+}
+.SchoolSelectionTabHeader {
+    background: linear-gradient(#FFFFFF, #F1F1F1) repeat scroll 0 0 #FFFFFF;
+    border-top: 1px solid #BBBBBB;
+    color: #394552;
+    font-weight: bold;
+    height: 80px;
+    overflow: hidden;
+    text-shadow: 0 1px 0 #FFFFFF;
+    width: 100%;
+}
+
+.popupClose {
+    background: url("[SERVER]/images/closePopup.gif") no-repeat scroll center top rgba(0, 0, 0, 0);
+    height: 37px;
+    width: 37px;
+    margin: 0;
+    padding: 0;
+}
+.close_popup {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 9999;
+}
+.modalPopup {
+    background-color: #F2F1F1;
+    border: 1px solid #000000;
+    font-size: 12px !important;
+    height: 2000px;
+    left: 3000px;
+    margin-top: 20px;
+    overflow: auto;
+    padding: 10px;
+    position: absolute !important;
+    top: 0 !important;
+    width: 90%;
+}
+.programDescLnk {
+    display: block;
+    float: left;
+    font-size: 11px;
+    height: 18px;
+    margin-top: 12px;
+}
+#schoolDesc {
+    height: 100%;
+    overflow-y: auto;
+}
+#schoolDesc p {
+    font-size: 12px;
+    line-height: 135%;
+    padding: 5px 0;
+}
+#schoolDescTop {
+    background: url("[SERVER]/images/progDescTop.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: none;
+}
+#schoolDescBg {
+    background: url("[SERVER]/images/progDescBg.gif") repeat-y scroll 0 0 rgba(0, 0, 0, 0);
+    padding: 0 3px 3px;
+    position: relative;
+}
+#schoolDescBtm {
+    background: url("[SERVER]/images/progDescBtm.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: none;
+    height: 15px;
+}
+#shadow-containerDesc {
+    float: left;
+    height: auto;
+    left: 3px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    position: relative;
+    top: 3px;
+}
+#shadow-containerDesc .shadow2, #shadow-containerDesc .shadow3, #shadow-containerDesc .shadow-container-inside {
+    left: -1px;
+    position: relative;
+    top: -1px;
+}
+#shadow-containerDesc .shadow1 {
+    background: none repeat scroll 0 0 #CFCFD1;
+}
+#shadow-containerDesc .shadow2 {
+    background: none repeat scroll 0 0 #DBDADB;
+}
+#shadow-containerDesc .shadow3 {
+    background: none repeat scroll 0 0 #B8B6B8;
+}
+#shadow-containerDesc .shadow-container-inside {
+    background: none repeat scroll 0 0 #F2F1F1;
+    border: 1px solid #848284;
+    padding: 0;
+}
+#school-shadow-containerDesc {
+    float: left;
+    height: auto;
+    left: 3px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    position: relative;
+    top: 3px;
+}
+#school-shadow-containerDesc .shadow2, #shadow-containerDesc .shadow3, #shadow-containerDesc .shadow-container-inside {
+    left: -1px;
+    position: relative;
+    top: -1px;
+}
+#school-shadow-containerDesc .shadow1 {
+    background: none repeat scroll 0 0 #CFCFD1;
+}
+#school-shadow-containerDesc .shadow2 {
+    background: none repeat scroll 0 0 #BFBFC1;
+}
+#school-shadow-containerDesc .shadow3 {
+    background: none repeat scroll 0 0 #A9A9AB;
+}
+#school-shadow-containerDesc .shadow-container-inside {
+    background: none repeat scroll 0 0 #F2F1F1;
+    border: 1px solid #848284;
+    padding: 0;
+}
+.programDrop select, .featuredExpand select {
+    background: linear-gradient(#FFFFFF, #CECECE) repeat scroll 0 0 #FFFFFF;
+    border: 0 none;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px 6px #F5CD7F;
+    clear: both;
+    color: #394552;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 0 10px;
+    padding: 10px;
+    text-shadow: 0 1px 0 #FFFFFF;
+    width: 100% !important;
+}
+.hide, .hidden {
+    display: none;
+}
+
+.schoolExpressConsentError {
+    color:red;
+    display: none;
+}
+

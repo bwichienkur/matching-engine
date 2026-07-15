@@ -1,0 +1,111 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>IS-Form Engine QDFTemplate</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="http://cms.educationdynamics.com/sites/all/files/css/animate.min.css" />
+    <script src="http://agrservice.qsqapl1.educationdynamics.local/scripts/bundles/eddyadaggregator"></script>
+    <script type="text/javascript" src="/Static/GetBundledQDFJs?minifyJavascript=false"></script>
+    <script type="text/javascript" src="/Static/GetBundledQDFPluginJs?minifyJavascript=false"></script>
+
+    <script language="javascript" type="text/javascript">
+
+        var FormsEngine = FormsEngine || {};
+
+        /* REQUIRED */
+        FormsEngine.RenderingStrategy = 'QDF';
+        FormsEngine.RenderingDiv = 'qdf-form';
+        FormsEngine.SelfContained = true; //false: must contain page to redirect and divs will be ignored
+        FormsEngine.IsBeta = false;
+        FormsEngine.PlacementToken = 'ccc3a71c-c55c-4e5c-bf99-666fc7e00e20'
+        FormsEngine.TrackId = '9536d911-d265-427c-8c6f-a6512adc1885';
+        FormsEngine.TemplateId = 701;
+        FormsEngine.ApplicationId = 9;
+
+        /* Optional */
+        FormsEngine.DebugMode = true;
+        FormsEngine.SessionId = '00000000-0000-0000-0000-0000-000000000000';
+        FormsEngine.MatchResponseGuid = '00000000-0000-0000-0000-0000-000000000000';
+        FormsEngine.CompressJs = false;
+        FormsEngine.Theme = 'refinewidget';
+
+        FormsEngine.PassThruItems = [];
+
+        //var setting = {};
+        //setting.QuestionName = 'Categories';
+        //setting.Answers = '21';
+        //window.FormsEngine.PassThruItems.push(setting);
+
+        //var setting = {};
+        //setting.QuestionName = 'Specialties';
+        //setting.Answers = '753,1153';
+        //window.FormsEngine.PassThruItems.push(setting);
+
+        //var setting = {};
+        //setting.QuestionName = 'Desired_Degree_Level';
+        //setting.Answers = '3,8';
+        //window.FormsEngine.PassThruItems.push(setting);
+
+        FormsEngine.SubmitButtonLabelTextLast = "ENTER";
+
+
+        FormsEngine.LoadForm();
+    </script>
+
+</head>
+<body class="responsive">
+    <div name="qdfpluginDiv" class="qdfplugin-container">
+
+    </div>
+
+    <!-- The following script is required, including the placementtoken and trackId as supplied by your rep -->
+    <script language="javascript" type="text/javascript">
+        $('[name=qdfpluginDiv]').eddyQDF({
+            trackId: "b0b789d7-0096-4cfb-b5aa-90170e9fea12",
+            templateId: 700,
+            targetUrl: "https://www.gradschools.com/get-matched-to-grad-schools",
+            subSource2: "",
+            leadInitiatingUrl: "",
+            passThruItems: [
+
+                //{ QuestionName: 'Categories', Answers: '21' },
+
+                //{ QuestionName: 'SubCategories', Answers: '610' },
+
+                //{ QuestionName: 'Desired_Degree_Level', Answers: '8' },
+
+            ],
+
+        });
+    </script>
+
+    <!--test with a second plugin-->
+    <!--<div name="qdfpluginDiv2" class="qdfplugin-container">
+
+    </div>-->
+
+    <!-- The following script is required, including the placementtoken and trackId as supplied by your rep -->
+    <!--<script language="javascript" type="text/javascript">
+        $('[name=qdfpluginDiv2]').eddyQDF({
+            trackId: "E72C6518-DAC0-43C5-8F1E-BA10F674A2B2", //trackId is supplied by your rep
+            templateId: 641,
+            passThruItems: [
+                { QuestionName: 'Desired_Degree_Level', Answers: '11' },
+                //{ QuestionName: 'Categories', Answers: '21' },
+                //{ QuestionName: 'SubCategories', Answers: '610' }
+            ],
+        });
+    </script>-->
+
+    <!--Test with a qdf and adstack-->
+    <div name="qdf-form" class="eddy-form-container">
+    </div>
+    <br /> <br />
+    <!--The Ad container-->
+    <div id="eddyListings"></div>
+</body>
+</html>

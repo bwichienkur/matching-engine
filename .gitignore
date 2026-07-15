@@ -1,0 +1,10 @@
+bin/
+obj/
+.vs/
+*.suo
+*.user
+*.cache
+*.vssscc
+/VendorWebAPI/packages
+/MatchingEngine/packages
+/FormsEngine/packages

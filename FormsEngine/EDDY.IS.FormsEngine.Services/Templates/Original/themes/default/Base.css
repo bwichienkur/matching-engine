@@ -1,0 +1,761 @@
+﻿@charset "utf-8";
+/* CSS RESET */
+
+#eddy-form-container ol, #eddy-form-container ul { list-style: none; margin: 0 20px; padding: 0; }
+#eddy-form-container blockquote, #eddy-form-container q { quotes: none; }
+    blockquote:before, #eddy-form-container blockquote:after, #eddy-form-container q:before, #eddy-form-container q:after { content: ''; content: none; }
+#eddy-form-container :focus { outline: 0; }
+#eddy-form-container ins { text-decoration: none; }
+#eddy-form-container del { text-decoration: line-through; }
+#eddy-form-container table { border-collapse: collapse; border-spacing: 0; }
+#eddy-form-container fieldset {border-width:0;}
+
+
+
+/* SECTION STRUCTURE */
+#eddy-form-container {
+	width:93%;
+	font-family: Arial,Helvetica,sans-serif; 
+	margin:20px auto;
+	
+}
+#eddy-form-container h1 {
+    color: #111111;
+    font-size: 22px;
+    font-style: italic;
+    margin: 1em 0 0.5em 1em;
+}
+#eddy-form-container h1#school-name {
+    font-family: Georgia,'Palatino Linotype',serif;
+    font-weight: normal;
+    margin: 0;
+}
+#eddy-form-container:not(.GradSchool) h4 { background: none repeat scroll 0 0 #0569A6;
+    color: #FFFFFF;
+    display: block;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: bold;
+    padding: 4px 8px;
+    margin: 0 auto;
+}
+#eddy-form-container:not(.GradSchool) h4{
+
+}
+    .Step  { width: 691px;  margin: 0 auto;
+    padding: 0 0 1em;}
+#eddy-form-container .Section {clear: both;
+    margin: 0 auto;
+    padding: 4px 8px;
+    position: relative;
+    width: 691px; }
+
+
+#eddy-form-container fieldset{
+	margin-bottom: 1em;
+	padding: 0.5em;
+}
+
+/* GENERAL FORM FIELD POSITION */
+#eddy-form-container .text-field, .select-field, .label-holder { margin: 0px 0px 0px 0px; }
+
+#eddy-form-container .field-holder {  
+	clear: both;
+	margin: 0; 
+	position: relative; 
+	vertical-align: middle;
+	text-align:left;
+	min-height:30px;
+	padding:4px;
+}
+
+#eddy-form-container .field-holder label {  
+	display:inline-block; 
+	color: #333333; 
+	font-size: 14px; 
+	font-weight: normal; 
+	margin: 0 8px 0 3px;
+	text-align: left; 
+	width: 20%; 
+	vertical-align:bottom;
+	min-height:25px;
+	line-height:120%;
+}
+#eddy-form-container li.Age label {
+    width:49%;
+}
+#eddy-form-container li.State label, 
+#eddy-form-container li.Country label{
+    width:18.5%;
+}
+#eddy-form-container .Section3 li.Postal_Code label, 
+#eddy-form-container li.Prefix label, 
+#eddy-form-container li.First_Name label, 
+#eddy-form-container li.Last_Name label { 
+	width: auto; 
+}
+
+#eddy-form-container .field-holder input, 
+#eddy-form-container .field-holder select{  
+	background: none repeat scroll 0 0 #FFFFFF; 
+	border: 1px solid #959595;
+	font-size: 12px; 
+	margin-bottom: 4px; 
+	padding: 4px; 
+	width: 75%; 
+	vertical-align: top;
+}
+    #eddy-form-container .field-holder input[type='checkbox'] {
+        border:none;
+    }
+#eddy-form-container .field-holder select{
+	width:76.6%;
+}
+
+#eddy-form-container .Section1 li.Postal_Code input {width:30%;}
+
+#eddy-form-container li.Age input {
+    width:30%;
+}
+#eddy-form-container li.Postal_Code input, 
+#eddy-form-container li.Prefix select, 
+#eddy-form-container li.First_Name input, 
+#eddy-form-container li.Last_Name input {
+	width: 43%; 
+}
+
+
+
+#eddy-form-container li.Age {
+    width:40%;
+    display:inline-block; 
+    clear: none; 
+    *float:left;
+}
+
+#eddy-form-container .Section3 li.Postal_Code,
+#eddy-form-container li.Prefix, 
+#eddy-form-container li.Country,
+#eddy-form-container li.First_Name, 
+#eddy-form-container li.Last_Name{ 
+	display:inline-block; 
+	width: 31.4%;  
+	clear: none; 
+    *float:left;
+}
+
+#eddy-form-container li.Country{
+    width: 56%;
+}
+
+
+#eddy-form-container li.Last_Name{
+	text-align:right;
+}
+#eddy-form-container li.City, 
+#eddy-form-container li.State, 
+#eddy-form-container li.Phone, 
+#eddy-form-container li.Alternate_Phone {
+	display:inline-block; 
+	width: 48%;  
+	clear: none; 
+}
+#eddy-form-container li.Alternate_Phone{
+	text-align:right;
+}
+#eddy-form-container li.City label, 
+/*#eddy-form-container li.State label, */
+#eddy-form-container li.Phone label, 
+#eddy-form-container li.Alternate_Phone label { 
+	width: 41.3%; 
+}
+#eddy-form-container li.City input, 
+/*#eddy-form-container li.State select, */
+#eddy-form-container li.Phone input{ 
+	width: 49%; 
+}
+#eddy-form-container li.Alternate_Phone input { 
+	width: 45.4%;
+}
+
+#eddy-form-container li.Preferred_Methods_of_Contact label.question{float:left; margin-top:.3em;}
+#eddy-form-container li.Preferred_Methods_of_Contact fieldset {display:inline-block; margin-top: 0; }
+#eddy-form-container li.Preferred_Methods_of_Contact input { width: auto; }
+#eddy-form-container li.Preferred_Methods_of_Contact fieldset label { text-align: left; width: auto; }
+#eddy-form-container div.checkbox input { width: auto; }
+#eddy-form-container div.checkbox label{ width:90%; font-size: 12px; line-height: 15px; }
+#eddynexusformSubmit {  	
+    cursor: pointer;
+    display: block;
+    font-size: 18px;
+    margin: 12px auto 0;
+    padding: 0.5em 2em 0.55em !important;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    vertical-align: baseline;
+	width:220px;
+    background: #FAA51A; /* for non-css3 browsers */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAA51A', endColorstr='#F47A20') !important; /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#FAA51A), to(#F47A20)) !important; /* for webkit browsers */
+    background: -moz-linear-gradient(center top , #FAA51A, #F47A20) repeat scroll 0 0 transparent !important; /* for firefox 3.6+ */
+    border: 1px solid #DA7C0C !important; 
+	color: #fff; 
+	font-weight: bold;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    line-height:1;
+	}
+
+/* TOP BOX ERROR MESSAGE */
+#ErrorBox li { list-style: none; }
+#ErrorBox  { color: red; background-color: #FFF; line-height: 18px; padding: 5px; width: 50%; margin: 10px; }
+/*#ErrorBox label.error, #eddy-form-container .UserAgreement li label.error  { color: red; float: none; font-size: 12px; }*/
+
+/* INLINE VALIDATION ERROR MESSAGE */
+#eddy-form-container input.error, #eddy-form-container select.error { border: 1px solid #B9121B; }
+#eddy-form-container label.error { color: #B9121B; font-size: 12px; } 
+
+/* SECTION SEPERATED ERROR SUMMARY */
+#eddy-form-container .error-summary, #eddy-form-container .UserAgreement ul { 
+    color: #B9121B;
+    font-size: 14px;
+    margin: 10px 0 10px 90px;
+    padding: 0;
+    width: auto;
+
+}
+#eddy-form-container .UserAgreement ul {
+	margin-left: 65px;
+}
+
+#eddy-form-container .error-summary li, .UserAgreement fieldset ul li { 
+    clear: both;
+    margin: 0 auto;
+    padding: 4px 8px;
+    position: relative;
+    width: 610px;  background: none repeat scroll 0 0 transparent;
+    font-size: 15px;
+    list-style-type: disc !important;
+    margin: 5px 0;
+    padding: 0;
+    width: auto !important; 
+    color: #B9121B;
+    }
+
+#eddy-form-container .error-summary label.error, #eddy-form-container .UserAgreement label.error {
+    clear: both;
+    position: relative;
+    background: none repeat scroll 0 0 transparent;
+    font-size: 15px;
+    list-style-type: disc !important;
+    margin: 0 0 8px 0;
+    padding: 0;
+    width: auto; 
+    color: #B9121B;   
+    text-align: left;
+	display:block;
+    font-weight:normal;
+}
+/* Required Mark */
+#eddy-form-container .required-mark {
+    text-align: left;
+    margin-bottom: .5em;
+    font-size: 12px;
+}
+/* RADIO BUTTON STYLING */
+#eddy-form-container .field-holder.radio label {  
+	width: auto; 
+	margin-right:2px; 
+	vertical-align:top;
+}
+#eddy-form-container .field-holder.radio label.question{
+	width:20%;
+	vertical-align:bottom;
+}
+#eddy-form-container .field-holder.radio input {  width: 20px; margin: 0 20px 0 2px; padding-top: 0; border:none;}
+
+
+
+/* UAB */
+#eddy-form-container .uab-1 {
+    padding: 10px !important;
+    width: 640px !important;
+}
+#eddy-form-container .uab-popup {
+    background: none repeat scroll 0 0 #E5EBEE;
+    border: 1px solid #FFFFFF;
+    left: auto;
+    padding: 0.75em 1.5em;
+    position: absolute;
+    right: auto;
+    top: 18%;
+    width: 610px !important;
+    z-index: 9999;
+}
+
+
+#eddy-form-container .uab-popup a.close-overlay {
+    display: block;
+    font-family: georgia,serif;
+    font-size: 12px;
+    text-align: right;
+}
+
+#eddy-form-container .uab-popup a.close-button {
+    background: url("[SERVER]/images/close-button.gif") no-repeat scroll 0 0 transparent;
+    border: medium none !important;
+    cursor: pointer;
+    display: block;
+    float: right;
+    height: 26px;
+    margin: 0;
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    width: 26px;
+}
+
+
+#eddy-form-container .uab-logo {
+    background: url("[SERVER]/images/uab-logo.gif") no-repeat scroll 0 0 transparent;
+    background-size:100%;
+    display: block;
+    height: 150px;
+    margin: 10px auto;
+    width: 620px;
+}
+
+#eddy-form-container .uab-1 .medium  {
+    font-size: 12px !important;
+    font-weight: bold !important;
+    padding: 0.4em 1.5em 0.42em !important;
+}
+#eddy-form-container .uab-text { 
+    margin: 10px 0px 5px 0px; font-family: Georgia,'Palatino Linotype',serif;
+    font-size: 23px !important;
+    font-weight: normal;
+    margin: 0;
+}
+#eddy-form-container .uab-1 .blue {
+    background: -moz-linear-gradient(center top , #00ADEE, #0078A5) repeat scroll 0 0 transparent;
+    border: 1px solid #0076A3;
+    color: #D9EEF7;
+}
+#eddy-form-container .uab-1 .button {
+    border-radius: 0.5em 0.5em 0.5em 0.5em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: inline-block;
+    font: 14px/100% Arial,Helvetica,sans-serif;
+    left: 25%;
+    margin: 10px 2px;
+    outline: medium none;
+    padding: 0.5em 2em 0.55em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    vertical-align: baseline;
+}
+
+#eddy-form-container .hide, #eddy-form-container .hidden {
+    display: none;
+}
+
+#eddy-form-container .FEoverlay {
+	background: none repeat scroll 0 0 #000000;
+    height: 100%;
+    left: 0;
+    opacity: 0.7;
+	filter: alpha(opacity = 70);
+	zoom:1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9998;
+}
+
+/* loader  */
+
+#eddy-form-container #FEloader {
+	width: 248px;
+	height: 200px;
+	margin: 0 auto;
+	background: #fff url("[SERVER]/images/ajax-loader.gif") no-repeat 100px 60px;
+	background-size: 48px 48px;
+	border: 1px solid #D0D6D9;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	font-family: Arial, Helvetica, sans-serif Aharoni !important;
+	color: #262626;
+	text-align: center;
+    z-index: 9999;
+}
+#eddy-form-container #FEloader .loading {
+	font-weight: bold !important;
+	font-size: 16px !important;
+	text-transform: uppercase !important;
+	margin: 120px 0 5px 0 !important;
+}
+#eddy-form-container #FEloader .loadingParagraph {
+	font-weight: normal;
+	font-size: 14px;
+	font-style: italic;
+	color: #262626;
+	margin: 0;
+}
+
+#eddy-form-container .privacy-holder {
+    color: #CACACA;
+    text-align: center;
+    font-family: Arial,Helvetica,sans-serif;
+    line-height: 1;
+    font-size: 13px;
+    margin-top: 30px;
+}
+
+#eddy-form-container .tooltip {
+    background: url("[SERVER]/images/tooltip.gif") no-repeat scroll 0 0 transparent;
+    background-size: 16px 16px;
+    border: medium none !important;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    text-decoration:none;
+}
+
+
+  
+#eddy-form-container .ttip {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px double #E5EBEE;
+    border-radius: 4px 4px 4px 4px;
+    color: #333333;
+    display: none;
+    font-size: 11px;
+    line-height: 120%;
+    margin-left: 100px;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    width: 180px;
+    height:auto;
+    z-index: 1000;
+}
+
+
+#eddy-form-container #FEloader.loaderOn {
+    /*margin: -150px 0 0 -150px;*/
+    margin-top:-150px;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+}
+
+.eddy-form-container #eddynexusform.GradSchoolTemplate h4{
+    display:none;
+}
+/* hardcode field alignment only for Gradschool templates*/
+#eddy-form-container .GradSchoolTemplate li.First_Name{
+    width:50%;
+}
+#eddy-form-container .GradSchoolTemplate li.Last_Name{
+    width:46%;
+}
+#eddy-form-container .GradSchoolTemplate li.Country{
+    display:block;
+    width:auto;
+}
+#eddy-form-container .GradSchoolTemplate li.Country label{
+    width:20%;
+}
+#eddy-form-container .GradSchoolTemplate li.First_Name label{
+    width:39.5%;
+}
+#eddy-form-container .GradSchoolTemplate li.Last_Name label{
+    width:41.3%;
+}
+#eddy-form-container .GradSchoolTemplate li.First_Name input{
+    width:48%;
+}
+#eddy-form-container .GradSchoolTemplate li.Last_Name input{
+    width:49%;
+}
+#eddy-form-container .GradSchoolTemplate li.Country select{
+    width:76.6%;
+}
+
+/* Responsive Styles */
+
+@media all and (max-width: 940px) and (min-width: 801px)
+{
+    .responsive #eddy-form-container .uab-popup
+    {
+        top:10%;
+        left: 10%;
+    }
+
+}
+
+@media all and (max-width: 912px)
+{
+
+    .responsive .form #page-holder
+    {
+        min-width:230px;
+    }
+
+    .responsive #eddy-form-container #eddynexusform .field-holder,
+    .responsive #eddy-form-container li.Age,
+    .responsive #eddy-form-container .Section3 li.Postal_Code, 
+    .responsive #eddy-form-container li.Country,    
+    .responsive #eddy-form-container .GradSchoolTemplate li.Country,
+    .responsive #eddy-form-container li.Prefix, 
+    .responsive #eddy-form-container li.First_Name,
+    .responsive #eddy-form-container .GradSchoolTemplate li.First_Name, 
+    .responsive #eddy-form-container li.Last_Name,
+    .responsive #eddy-form-container .GradSchoolTemplate li.Last_Name, 
+    .responsive #eddy-form-container li.City, 
+    .responsive #eddy-form-container li.State, 
+    .responsive #eddy-form-container li.Phone, 
+    .responsive #eddy-form-container li.Alternate_Phone
+    {
+        display:table;
+        width:100%;
+    }
+
+    .responsive #eddy-form-container #eddynexusform .field-holder > label:not([for*="_Yes"]):not([for*="_No"]),
+    .responsive #eddy-form-container .field-holder.radio label.question,
+    .responsive #eddy-form-container li.Age label,
+    .responsive #eddy-form-container .Section3 li.Postal_Code label, 
+    .responsive #eddy-form-container li.Country label, 
+    .responsive #eddy-form-container .GradSchoolTemplate li.Country label,
+    .responsive #eddy-form-container li.Prefix label, 
+    .responsive #eddy-form-container li.First_Name label, 
+    .responsive #eddy-form-container .GradSchoolTemplate li.First_Name label,
+    .responsive #eddy-form-container li.Last_Name label,
+    .responsive #eddy-form-container .GradSchoolTemplate li.Last_Name label,
+    .responsive #eddy-form-container li.City label, 
+    .responsive #eddy-form-container li.State label, 
+    .responsive #eddy-form-container li.Phone label, 
+    .responsive #eddy-form-container li.Alternate_Phone label
+    {
+        display:table-cell;
+        width:38%!important;
+        padding-right:2%;
+        vertical-align:top;
+        text-align:right;
+    }
+ 
+    .responsive #eddy-form-container .field-holder select,
+    .responsive #eddy-form-container li.State select,
+    .responsive #eddy-form-container .GradSchoolTemplate li.Country select
+    {
+        display:table-cell;
+        width:100%;
+    }
+
+    .responsive #eddy-form-container .field-holder input[type=text],
+    .responsive #eddy-form-container .field-holder input[type=tel],
+    .responsive #eddy-form-container .GradSchoolTemplate .field-holder input[type=text]
+    {
+        width: 98%;
+        display:table-cell;
+        padding: 4px 1%;
+    }
+
+    .responsive #eddy-form-container .radio input {
+        height: 10px;
+        margin: -5px 0 0;
+        position: absolute;
+        visibility: hidden;
+        width: 10px;
+    }
+    .responsive #eddy-form-container .field-holder.radio label:not(.question) {
+        border: 1px solid #CCCCCC;
+        text-shadow: 0 1px 0 #FFFFFF;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 0;
+        position: relative;
+        color: #000;
+        clear: none;
+        display: inline-block;
+        overflow: hidden;
+        padding: 2% 0;
+        position: relative;
+        text-align: center;
+        width:48%!important;
+        margin:0;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        text-align:center!important;
+        background: rgb(238,238,238); /* Old browsers */
+        background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+
+    }
+    .responsive #eddy-form-container .field-holder.radio label:hover:not(.question),
+    .responsive #eddy-form-container .field-holder.radio label.checked
+    {
+        background: #5393c5; /* Old browsers */
+        background: -moz-linear-gradient(top, #5393c5 0%, #6facd5 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5393c5), color-stop(100%,#6facd5)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #5393c5 0%,#6facd5 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #5393c5 0%,#6facd5 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #5393c5 0%,#6facd5 100%); /* IE10+ */
+        background: linear-gradient(to bottom, #5393c5 0%,#6facd5 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5393c5', endColorstr='#6facd5',GradientType=0 ); /* IE6-9 */
+        color:#fff;
+        text-shadow: 0 1px 0 #000;
+    }
+
+    .responsive #eddy-form-container li.Postal_Code input[type=text], 
+    .responsive #eddy-form-container li.Age input[type=text],
+    .responsive #eddy-form-container li.Prefix input[type=text]
+    {
+        width: 50%;
+    }
+
+    .responsive #eddy-form-container .field-holder label
+    {
+        min-height:0;
+    }
+
+    .responsive #eddy-form-container .cross-sell-express-consent
+    {
+        padding:0;
+        width:100%;
+    }
+
+    .responsive #eddy-form-container .uab-popup {
+        width: 88% !important;
+        top:8%;
+    }
+
+    .responsive .uab-logo
+    {
+        width:100%!important;
+    }
+
+}
+
+@media all and (max-width: 768px){
+    .responsive #eddy-form-container .field-holder input, 
+    .responsive #eddy-form-container .field-holder select{
+        font-size:15px;
+    }
+}
+
+@media all and (max-width: 360px)
+{
+    .responsive #eddy-form-container .field-holder,
+    .responsive #eddy-form-container li.Age,
+    .responsive #eddy-form-container .Section3 li.Postal_Code,
+    .responsive #eddy-form-container li.Country,
+    .responsive #eddy-form-container li.Prefix,
+    .responsive #eddy-form-container li.First_Name,
+    .responsive #eddy-form-container li.Last_Name,
+    .responsive #eddy-form-container li.City,
+    .responsive #eddy-form-container li.State,
+    .responsive #eddy-form-container li.Phone,
+    .responsive #eddy-form-container li.Alternate_Phone
+    {
+        display: block;
+    }
+
+        .responsive #eddy-form-container .field-holder > label,
+        .responsive #eddy-form-container .field-holder.radio label.question,
+        .responsive #eddy-form-container li.Age label,
+        .responsive #eddy-form-container .Section3 li.Postal_Code label,
+        .responsive #eddy-form-container li.Country label,
+        .responsive #eddy-form-container li.Prefix label,
+        .responsive #eddy-form-container li.First_Name label,
+        .responsive #eddy-form-container li.Last_Name label,
+        .responsive #eddy-form-container li.City label,
+        .responsive #eddy-form-container li.State label,
+        .responsive #eddy-form-container li.Phone label,
+        .responsive #eddy-form-container li.Alternate_Phone label
+        {
+            display: block;
+            width: 100%!important;
+            padding-right: 0;
+            text-align: left;
+            min-height: 0;
+            padding-bottom: 4px;
+            margin: 0;
+        }
+
+    .responsive #eddy-form-container .field-holder input[type=text],
+    .responsive #eddy-form-container .field-holder input[type=tel],
+    .responsive #eddy-form-container .field-holder select,
+    .responsive #eddy-form-container li.State select
+    {
+        display: block;
+    }
+}
+/* TwoULeadShare Text Formatting*/
+.eddy-form-container .twou-leadshare-text{
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: normal;
+    color: #333333;
+}
+
+/* Inline Drop Down */
+.inlineDropDown-wrapper select::-ms-expand{
+  display:none;
+}
+
+.inlineDropDown-wrapper {    
+    overflow: hidden; 
+    position: relative;
+    display: inline-block;
+    width: 100% !important;
+    border:none !important;
+}
+
+#eddy-form-container .field-holder select.inlineDropDown{       
+    background: transparent !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.inlineDropDown-wrapper:after {
+    content:"\f0d7";
+    font-family: FontAwesome;
+    font-size: 15px;
+    padding: 8px 8px;
+    position: absolute; right: 0; top: 0;
+    z-index: 1;
+    text-align: center;
+    width: 40px;
+    height: 100%;      
+    pointer-events: none;
+    box-sizing: border-box;   
+}
+
+#eddy-form-container .inlineDropDown {
+    width: 99% !important;
+    border-radius: 0 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+}
+
+#eddy-form-container .inline-hidden-label,
+#eddy-form-container .inlineDropDown option.inline-hidden-option {
+    display:none !important;
+}
+/* End Inline Drop Down */

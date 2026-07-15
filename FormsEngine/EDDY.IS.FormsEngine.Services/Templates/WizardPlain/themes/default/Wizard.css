@@ -1,0 +1,194 @@
+﻿div[data-controlcode='K12'] { display: none; }
+
+/*********** Wizard Start Form ***********************/
+
+/*
+
+	.eddy-form-wizard-container .field-holder.full select{
+		width: 93.5%;
+	}
+	.eddy-form-wizard-container .field-holder.medium  select{
+		width: 63.5%;
+	}
+	.eddy-form-wizard-container .field-holder.full input{
+		width: 91.5%;
+	}
+	.eddy-form-wizard-container .field-holder.medium input{
+		width: 58.5%;
+	}
+	.eddy-form-wizard-container .field-holder input{
+		width:15%;
+	}
+	
+
+	.eddy-form-wizard-container .field-holder.has-scrollbar .field-holder-group{
+		overflow-y:auto;
+		background: #EDEDED;
+		padding:8px 0 8px 8px;
+	}
+	.eddy-form-wizard-container .field-holder.has-scrollbar.interest-subject .field-holder-group{
+		height:208px;
+		margin:0;
+	}
+	
+.eddy-form-wizard-container .campus-preference-online{
+    background: url("[SERVER]/images/online.png") no-repeat scroll 0 0;
+    border: medium none !important;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+    vertical-align: bottom;
+    width: 177px;
+    height: 76px;
+}
+.eddy-form-wizard-container .campus-preference-campus{
+    background: url("[SERVER]/images/campus.png") no-repeat scroll 0 0;
+    border: medium none !important;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+    vertical-align: bottom;
+    width: 177px;
+    height: 76px;
+}
+.eddy-form-wizard-container .campus-preference-both{
+    background: url("[SERVER]/images/both.png") no-repeat scroll 0 0;
+    border: medium none !important;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+    vertical-align: bottom;
+    width: 177px;
+    height: 76px;
+}
+
+
+
+.eddy-form-wizard-container .image-checkbox-group .image-checkbox li,
+.eddy-form-wizard-container .image-text-group .image-text li{
+	display:inline-block;
+	padding:5px;
+	width:30%;
+	*float:left;
+	*width:30%;
+}
+	.eddy-form-wizard-container .image-checkbox-group .image-checkbox li.selected{
+		background:#DDD;
+		box-shadow: inset 2px 2px 15px 0px #888;
+		-moz-box-shadow: inset 2px 2px 15px 0px #888;
+		-webkit-box-shadow: inset 2px 2px 15px 0px #888;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		-khtml-border-radius: 10px;
+		border-radius: 10px;
+	}
+.eddy-form-wizard-container .image-text-group .image-checkbox img{
+	width:117px;
+	height:76px;
+	margin-bottom:4px;
+	display:inline-block;
+	outline:none;
+	border:none;
+}
+
+.eddy-form-wizard-container .image-text-group .image-text .school-logo{
+	width:122px;
+	height:82px;
+	background:#FFF;
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	box-shadow: inset 2px 2px 15px 0px #888;
+	-moz-box-shadow: inset 2px 2px 15px 0px #888;
+	-webkit-box-shadow: inset 2px 2px 15px 0px #888;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	border-radius: 4px;
+}
+	.eddy-form-wizard-container .image-text-group .image-text .school-logo img{
+		margin:auto;
+	}
+	.eddy-form-wizard-container .image-text-group .image-text .school-info{
+		text-align:center;
+		font-size:12px;
+	}
+	.eddy-form-wizard-container .image-text-group .image-text .school-info p{
+		margin:0 auto;
+		width:80%;
+	}
+	.eddy-form-wizard-container .image-text-group .image-text .school-info .school-name{
+		font-weight:bold;
+		margin:8px auto 3px;		
+	}
+	.eddy-form-wizard-container .image-text-group .image-text  .school-info .change-program-link{
+		margin-top:8px;
+		display:block;
+		font-size:11px;
+		text-decoration:none;
+	}
+	
+.eddy-form-wizard-container .image-checkbox-group .image-checkbox input{
+	display:block;
+	margin:5px auto;
+}
+.eddy-form-wizard-container .image-checkbox-group .image-checkbox a{
+	outline:none;
+}
+
+*/
+
+/* special CSS for fields */		
+
+/*
+	
+.eddy-form-wizard-container .field-holder.zipcode fieldset > input{
+	width:15%;
+}
+.eddy-form-wizard-container .field-holder.phone-number fieldset > input{
+	width:8%;
+	margin:0 5px 8px;
+}
+.eddy-form-wizard-container fieldset .field-holder.address,
+.eddy-form-wizard-container fieldset .field-holder.address2,
+.eddy-form-wizard-container fieldset .field-holder.city,
+.eddy-form-wizard-container fieldset .field-holder.first-name,
+.eddy-form-wizard-container fieldset .field-holder.last-name{
+	display:inline-block;
+}
+
+.eddy-form-wizard-container .field-holder.school-choice .field-holder-group li{
+	display:block;
+	width:auto;
+	margin:10px 20px 20px;
+}
+.eddy-form-wizard-container .field-holder.school-choice .field-holder-group label{
+	font-weight:bold;
+}
+.eddy-form-wizard-container .field-holder.school-choice .field-holder-group select{
+	margin-left:20px;
+	width:85%;
+}
+.eddy-form-wizard-container .nomatch-steps .form-submit-button{
+	margin-left:0;
+
+}
+/*
+	.eddy-form-wizard-container .field-holder.zipcode fieldset label{
+		display:inline;
+		font-weight:normal;
+	}
+	*/
+
+/*
+
+.select-all-categories, .select-all-subcategories {
+    background-color: #d1f5d1;
+}
+.de-select-all-categories, .de-select-all-subcategories {
+    background-color: #fbd0d9;
+}
+*/

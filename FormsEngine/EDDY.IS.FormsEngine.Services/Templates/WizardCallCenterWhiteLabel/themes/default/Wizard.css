@@ -1,0 +1,106 @@
+﻿div[data-controlcode='K12'] { display: none; }
+
+/*********** Wizard Start Form ***********************/
+
+    .eddy-form-wizard-container label {
+        display: inline !important;
+        font-weight: normal;
+    }
+
+    #WizardStepContainer.eddy-form-wizard-container div.eddy-form-wizard-body {
+        margin-top: 80px;
+    }
+
+    .eddy-form-wizard-container .field-holder.has-scrollbar {
+        margin-bottom: 50px;
+    }
+
+    .eddy-form-wizard-container .field-holder.has-scrollbar .featured-subcategories.field-holder-group {
+        height: auto;
+    }
+	
+    .eddy-form-wizard-container .field-holder.has-scrollbar .field-holder-group{
+		overflow-y:auto;
+		/*background: #EDEDED;*/
+		padding:8px 0 8px 8px;
+        height:210px;
+        margin:0;
+	}
+
+    .eddy-form-wizard-container .field-holder.has-scrollbar.no-scroll .field-holder-group{
+        height:auto;
+	}
+
+    
+.eddy-form-wizard-container .select-all-categories,
+.eddy-form-wizard-container .select-all-subcategories,
+.eddy-form-wizard-container .select-all-specialties {
+    background:url("[SERVER]/images/btn-selectall.png") no-repeat;
+    width:77px;
+    height:21px;
+    text-indent:-999px;
+    cursor:pointer;
+
+    float:left;
+    color:transparent;
+}
+.eddy-form-wizard-container .de-select-all-categories,
+.eddy-form-wizard-container .de-select-all-subcategories,
+.eddy-form-wizard-container .de-select-all-specialties  {
+    background:url("[SERVER]/images/btn-clearall.png") no-repeat;
+    width:77px;
+    height:21px;
+    text-indent:-999px;
+    cursor:pointer;
+    margin:0 0 0 .5em;
+    float:left;
+    color:transparent;
+}
+#WizardStepContainer.eddy-form-wizard-container {
+    padding: 10px;
+    
+}
+
+#eddynexusform-wizard legend {
+    font-weight: bold;
+}
+#eddynexusform-wizard div.field-holder {
+    padding-bottom: 5px;
+}
+ {
+    margin-bottom: 20px;
+}
+input[type=checkbox]:checked + label {
+   color: #611111;
+}
+#eddynexusform-wizard div.Highest_Level_of_Education_Completed {
+    padding-top:10px;
+}
+.field-holder select.select-field {
+    height: 20px;
+}
+#eddynexusform-wizard div#Step1.steps fieldset#Section2.sections div.field-holder label {
+    padding-right: 10px;
+}
+#eddynexusform-wizard div#Step1.steps fieldset#Section2.sections div.field-holder {
+    padding-bottom: 7px;
+}
+#eddynexusform-wizard div.Desired_Start_Date,
+#eddynexusform-wizard div.Military_Affiliation,
+#eddynexusform-wizard div.EmploymentStatus {
+    padding-top:10px;
+    padding-bottom: 20px;
+}
+
+#eddynexusform-wizard div.field-holder fieldset ul.field-holder-group li {
+    padding-bottom: 3px;
+}
+
+#eddynexusform-wizard fieldset > div:not([data-controlcode=UserAgreement]) > label {
+    width: 25%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}

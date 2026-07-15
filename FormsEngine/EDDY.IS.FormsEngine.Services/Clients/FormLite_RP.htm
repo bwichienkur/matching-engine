@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html>
+<head>
+    <meta charset="UTF-8" />
+	<title>IS-Form Engine ProgramTemplate</title>
+	<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    
+    
+<!--    <script src="//cdn.optimizely.com/js/5309656004034560.js"></script>-->
+    <!--<script src="http://cdn.optimizely.com/js/101930973.js"></script>-->
+	<script language="javascript" type="text/javascript">
+
+	    var FormsEngine = FormsEngine || {};
+
+	    /* REQUIRED */
+	    //FormsEngine.RenderingStrategy = 'ORIGINAL';
+	    //FormsEngine.RenderingDiv = 'eddy-form-container';
+	    FormsEngine.ThankYouPage = "http://localhost:59955/Clients/ThankYou.htm";
+	    //FormsEngine.IsBeta = false;
+	    //FormsEngine.InstitutionId = 179;
+	    //FormsEngine.InstitutionName = 'Full Sail University';
+	    //FormsEngine.TrackId = '49254C4C-DA6C-4141-BB5A-2D849CF715C1';
+
+	   
+	    FormsEngine.RenderingStrategy = 'Original';
+	    FormsEngine.RenderingDiv = 'eddy-form-container';
+	    FormsEngine.ThankYouPage = '/a/mphprogramslistcom/form/thank-you';
+	    FormsEngine.IsBeta = false;
+	    FormsEngine.InstitutionId = 142;
+         FormsEngine.InstitutionName = 'Sacred Heart University';
+	    FormsEngine.TrackId = 'c7d1b7ba-5cea-48c8-98db-e3d53724365a';
+	    FormsEngine.ApplicationId = 2;
+	    //FormsEngine.ProgramId = 2814;
+	    FormsEngine.MatchResponseGuid =  "00000000-0000-0000-0000-0000-000000000000";
+
+	    FormsEngine.JornayaAlternativeCampaignId = "9AD30C48-0EA6-3C31-5D5C-740AAF90E844";
+	    //FormsEngine.ProgramId = 2814;
+	    //FormsEngine.RenderingStrategy = "ORIGINAL";
+	    //FormsEngine.RenderingDiv = "eddy-form-container";
+	    //FormsEngine.Theme = "default";
+	    //FormsEngine.IsBeta = false;
+	    ////FormsEngine.TrackId = jQuery.cookie('_CampaignTrackID');
+	    //FormsEngine.ApplicationId = 2;
+	    //FormsEngine.MatchResponseGuid = (jQuery.cookie('_matchingResponseGuid')) ? jQuery.cookie('_matchingResponseGuid') : '00000000-0000-0000-0000-0000-000000000000';
+	    //FormsEngine.InstitutionId = 142;
+	    //FormsEngine.InstitutionName = "Sacred Heart University";
+	    //FormsEngine.ThankYouPage = "http://deploy.elearners.local/form/thank-you/";
+
+
+	            //FormsEngine.TrackId = "F225C16D-5469-4877-BA17-6D79F9944EDB";
+        //GS
+	    //FormsEngine.TrackId = "351C687F-E7A2-42F8-A3AA-31B4D4C792F2";
+
+	    /* Optional */
+	    //FormsEngine.Theme = "default";
+	    //FormsEngine.TemplateName = 'Undergrad Template';
+	    //FormsEngine.TemplateId = 326;
+	   // FormsEngine.DebugMode = true;
+	    //FormsEngine.SessionId = '00000000-0000-0000-0000-0000-000000000000';
+	   // FormsEngine.MatchResponseGuid = '00000000-0000-0000-0000-0000-000000000000';
+	    //FormsEngine.CampusId = 68;
+	    //FormsEngine.ProgramProductId = 9390;
+	   // FormsEngine.ApplicationId = 1; //UAB
+	    //FormsEngine.ProgramId = 262711;
+	    
+
+        /*  Optimizely OPTIONAL */
+	    //FormsEngine.AlternativeTemplates = [ { TemplateId:2, AlternativeId:1}, { TemplateId:3, AlternativeId:1}, { TemplateId:4, AlternativeId:1}, { TemplateId:5, AlternativeId:1} ];
+	    //FormsEngine.AlternativeRenderingStrategy = 'STEPSSAMPLE';//ORIGINAL
+	    //FormsEngine.AlternativeExpressConsent = "Alternative I acknowledge that by submitting this form, I may be contacted by email, text message, and/or phone, at my mobile phone number {mobile-number}, by a representative of {school-name} the schools I select above, and by {/school-name}EducationDynamics.";
+	    //FormsEngine.ExpressConsentAsLabel = true;
+	    //FormsEngine.AlternativeUserAgreement = "Alternative I acknowledge that by submitting this form, I may be contacted by email, text message, and/or phone, at the number provided above, including my wireless number if provided, by a representative of {school-name}, any other school I select and by EducationDynamics. You may still choose to enroll in the school if you do not provide consent. Message and data rates may apply. I understand these calls may be generated using an automated technology.";
+	    //FormsEngine.UserAgreementAsLabel = true;
+	    //FormsEngine.AdditionalFields = [];
+	    //FormsEngine.AdditionalFields.push(["OptimizelyExperiment", "AlphaA"]);
+
+
+
+	    /* Optional Events */
+
+	    //Program changed event with Program information
+	    /*FormsEngine.ProgramChangedEvent = function(e){ 
+			var out = "";
+			out+="ProgramName=" + e.ProgramDetails.ProgramName + "\n";
+			out+="ProgramDescription=" + e.ProgramDetails.ProgramDescription + "\n";
+			out+="ProgramDisclaimer=" + e.ProgramDetails.ProgramDisclaimer + "\n";
+			out+="AccreditationDescription=" + e.ProgramDetails.AccreditationDescription + "\n";
+			out+="AdditionalFinancialAidInfo=" + e.ProgramDetails.AdditionalFinancialAidInfo + "\n";
+			out+="ProgramLevelName=" + e.ProgramDetails.ProgramLevelName + "\n";			
+			alert('Implement Function to display product info in your site:\n'+ out);
+		}*/
+
+	    //Country validation failure event
+	    //FormsEngine.CountryValidationFailureEvent = function(e){ alert('Manage country validation failure event, display popup.');}
+
+	    //External LeadId validations
+	    //FormsEngine.LoadExternalLeadScript = true;
+	    //FormsEngine.ExternalLeadScript = function() { alert('inject hidden input field with code= "externalleadid" and 3rd party javascript');}
+
+    </script>
+    <script type="text/javascript" src="/Static/GetGlobal"></script>
+	<script type="text/javascript" src="/Static/GetClient"></script>
+
+</head>
+<body class="responsive">
+    <div>
+        <div id="eddy-form-container">
+        </div>
+        <div id="eddycrosssell" class="cross-sell cross-sell-popup hide"></div>
+    </div>
+</body>
+</html>

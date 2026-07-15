@@ -1,0 +1,227 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.FormEngineModel>
+@using EDDY.IS.FormsEngine.Services.Controllers.Common
+
+<script src="@(Url.Action("GetJs", "Static", new { BasePath = "Common", FileName = "ProgramTemplateShared", CompressJs = false }, Url.RequestContext.HttpContext.Request.Url.Scheme))" type="text/javascript"></script>
+<script src="@Model.LeadPingURL" type="text/javascript"></script>
+<script src="@(Url.Action("GetJs", "Static", new { BasePath = "Common", FileName = "jqueryjson24min", CompressJs = false }, Url.RequestContext.HttpContext.Request.Url.Scheme))" type="text/javascript"></script>
+@Html.InlineScriptBlock("~/Templates/Common/js/jquery.inputmask.min.js")
+
+<div id="ErrorBoxX">
+    @foreach (var controlType in this.Model.ControlTypes)
+    {
+        foreach (var error in controlType.ErrorMessages)
+        {
+        <input type="hidden" code="ERR_@(error.ErrorCode.Code)_{@controlType.StandardControlTypeName}" value="@error.Message" />
+        }
+    }
+</div>
+
+<form name="eddynexusform" id="eddynexusform" templateid="@Model.Template.TemplateId" data-tf-element-role="offer">
+    @{
+        var inlineDropDown = Model.Template.InlineDropDowns;
+    }
+    @foreach (var step in this.Model.Template.TemplateSteps.OrderBy(t => t.Sequence))
+    {
+        var StepId = "Step" + step.TemplateStepId;
+        var SectionCount = 0;
+        @*<div class="Step" id="@StepId" name="@step.Name">*@
+        foreach (var sect in step.TemplateSections.OrderBy(s => s.Sequence))
+        {
+            var SectionId = "Section" + sect.TemplateSectionId;
+            SectionCount++;
+            <h4>@sect.Name</h4>
+            <ul id="ErrorBox@(SectionId)" class="error-summary"></ul>
+            <ul id="@SectionId" name="@sect.Name" class="Section@(SectionCount)">
+
+                @foreach (var control in sect.TemplateControls.OrderBy(c => c.RowSequence))
+                {
+                    var ControlLabel = string.IsNullOrWhiteSpace(control.InstanceLabel) ? control.StandardControl.DefaultLabel : control.InstanceLabel;
+                    var ControlTypeName = control.StandardControl.StandardControlType.StandardControlTypeName;
+                    var ControlCode = control.StandardControl.StandardControlCode.Code;
+                    var CustomValidation = control.StandardControl.StandardControlValidations.Count > 0 ? control.StandardControl.StandardControlValidations.First().ValidationLibrary : null;
+                    var ValidationLibrary = CustomValidation != null ? "customRegex=" + CustomValidation.Expression + " customErrorCode=" + CustomValidation.ErrorCode.Code : "";
+                    bool IsPredefinedValueList = control.StandardControl.PreDefinedValueList != null && control.StandardControl.PreDefinedValueList.ValueListItems != null;
+                    bool IsMatchingEngineAdditionalField = IsPredefinedValueList && control.StandardControl.PreDefinedValueList.IsMatchingEngineAdditionalField;
+                    bool IsCampusPreference = control.StandardControl.StandardControlCode.Code == "CampusPreference";
+                    bool IsGreenCard = control.StandardControl.StandardControlCode.Code == "GCH";
+
+                    switch (control.StandardControl.StandardControlType.StandardControlTypeName)
+                    {
+                        case "Hidden":
+                            <li>
+                                <input type="hidden" controltypename="@ControlTypeName" step="@StepId" section="@SectionId" id="@control.TemplateControlId" id-sort="@control.RowSequence" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" value="@control.StandardControl.DefaultValue" name="@control.StandardControl.FieldName" />
+                            </li>
+                            break;
+                        case "Text Box":
+
+                            <li class="field-holder @control.StandardControl.StandardControlCode.Code">
+
+                                <label data-hidelabelonmobile="@control.HideLabelOnMobile" for="@control.TemplateControlId">
+                                    @(ControlLabel)
+                                </label>
+
+                                @if (ControlCode == "Email")
+                                {
+                                    <input type="email" controltypename="@ControlTypeName" step="@StepId" section="@SectionId" value="@control.StandardControl.DefaultValue" datatype="@((@ControlCode == "Phone" || @ControlCode == "Alternate_Phone") ? "" : control.StandardControl.StandardControlDataType.Name)" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="text-field" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") minlength="@control.StandardControl.MinLength" maxlength="@control.StandardControl.MaxLength" placeholder="@control.InstanceWaterMark" data-placeholder-notmobile="@control.InstanceWaterMark" data-placeholder-mobile="@control.InstanceMobileWaterMark" @(ValidationLibrary) />
+                                }
+                                else if (ControlCode == "Age" || ControlCode == "Phone" || ControlCode == "Alternate_Phone")
+                                {
+                                    <input type="tel" controltypename="@ControlTypeName" step="@StepId" section="@SectionId" value="@control.StandardControl.DefaultValue" datatype="@((@ControlCode == "Phone" || @ControlCode == "Alternate_Phone") ? "" : control.StandardControl.StandardControlDataType.Name)" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="text-field" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") minlength="@control.StandardControl.MinLength" maxlength="@control.StandardControl.MaxLength" placeholder="@control.InstanceWaterMark" data-placeholder-notmobile="@control.InstanceWaterMark" data-placeholder-mobile="@control.InstanceMobileWaterMark" @(ValidationLibrary) mask="@control.StandardControl.Mask" />
+                                }
+                                else if (ControlCode == "Postal_Code" || ControlCode == "Postal_Code_Duplicate")
+                                {
+                                    <input type="tel" pattern="[0-9]*" controltypename="@ControlTypeName" step="@StepId" section="@SectionId" value="@control.StandardControl.DefaultValue" datatype="@((@ControlCode == "Phone" || @ControlCode == "Alternate_Phone") ? "" : control.StandardControl.StandardControlDataType.Name)" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="text-field" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") minlength="@control.StandardControl.MinLength" maxlength="@control.StandardControl.MaxLength" placeholder="@control.InstanceWaterMark" data-placeholder-notmobile="@control.InstanceWaterMark" data-placeholder-mobile="@control.InstanceMobileWaterMark" @(ValidationLibrary) />
+                                }
+                                else
+                                {
+                                    <input type="text" controltypename="@ControlTypeName" step="@StepId" section="@SectionId" value="@control.StandardControl.DefaultValue" datatype="@((@ControlCode == "Phone" || @ControlCode == "Alternate_Phone") ? "" : control.StandardControl.StandardControlDataType.Name)" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="text-field" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") minlength="@control.StandardControl.MinLength" maxlength="@control.StandardControl.MaxLength" placeholder="@control.InstanceWaterMark" data-placeholder-notmobile="@control.InstanceWaterMark" data-placeholder-mobile="@control.InstanceMobileWaterMark" @(ValidationLibrary) />
+                                }
+                            </li>
+                            break;
+                        case "Drop-Down":
+                            <li class="field-holder @control.StandardControl.StandardControlCode.Code">
+
+                                <label for="@control.TemplateControlId" class="@(inlineDropDown? "inline-hidden-label": "")">
+                                    @(ControlLabel)
+                                </label>
+
+                                @if (inlineDropDown)
+                                {
+                                    @:<div class="inlineDropDown-wrapper">
+                                    }
+                                <select step="@StepId" controltypename="@ControlTypeName" section="@SectionId" value="@control.StandardControl.DefaultValue" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="select-field @(inlineDropDown? "inlineDropDown" : "")" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "")>
+                                    @if (IsPredefinedValueList)
+                                    {
+                                        <option value="" class="@(inlineDropDown? "inline-hidden-option":"")" @(inlineDropDown ? "disabled=true selected=selected" : "")>@(inlineDropDown ? ControlLabel : "- Select -")</option>
+                                        foreach (var item in control.StandardControl.PreDefinedValueList.ValueListItems)
+                                        {
+                                            <option value="@item.Value" key="@item.Key" @(item.IsDefault == true ? "selected" : "")>@item.Text</option>
+                                        }
+                                    }
+                                </select>
+                                @if (inlineDropDown)
+                                {
+                                @:</div>
+                            }
+                            </li>
+                            break;
+                        case "Text Area":
+                            <li class="field-holder @control.StandardControl.StandardControlCode.Code">
+
+                                <label data-hidelabelonmobile="@control.HideLabelOnMobile" for="@control.TemplateControlId">
+                                    @(ControlLabel)
+                                </label>
+
+                                <input type="textarea" controltypename="@ControlTypeName" step="@StepId" section="@SectionId" value="@control.StandardControl.DefaultValue" datatype="@control.StandardControl.StandardControlDataType.Name" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="textarea-field" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") minlength="@control.StandardControl.MinLength" maxlength="@control.StandardControl.MaxLength" placeholder="@control.InstanceWaterMark" data-placeholder-notmobile="@control.InstanceWaterMark" data-placeholder-mobile="@control.InstanceMobileWaterMark" @(ValidationLibrary) />
+                            </li>
+                            break;
+                        case "Check Box":
+                            <div class="field-holder @control.StandardControl.StandardControlCode.Code checkbox">
+                                <fieldset>
+                                    <input type="checkbox" controltypename="@ControlTypeName" step="@StepId" section="@SectionId" value="@(ControlLabel)" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="checkbox-field" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "") />
+                                    <label for="@control.TemplateControlId">
+                                        @(control.IsRequired == true ? "*" : "") @(ControlLabel)
+                                    </label>
+                                </fieldset>
+                            </div>
+                            break;
+                        case "Radio Buttons":
+                            <li class="field-holder radio @control.StandardControl.StandardControlCode.Code" style="@(IsCampusPreference || IsGreenCard ? " display:none" : "")">
+
+                                <label for="@control.TemplateControlId" class="question">
+                                    @(ControlLabel)
+                                </label>
+
+                                @if (IsPredefinedValueList)
+                                {
+                                    foreach (var item in control.StandardControl.PreDefinedValueList.ValueListItems)
+                                    {
+                                        <label for="@(control.TemplateControlId + "_" + item.Value)">
+                                            @item.Text
+                                        </label>
+                                        <input type="radio" controltypename="@ControlTypeName" step="@StepId" section="@SectionId" value="@item.Value" key="@item.Key" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@(control.TemplateControlId + "_" + item.Value)" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="radio-field" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") @(item.IsDefault == true ? "checked" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "") />
+                                    }
+                                }
+                            </li>
+                            break;
+                        case "Multi Check Box List":
+                            <li class="field-holder @control.StandardControl.StandardControlCode.Code">
+
+                                <label for="@control.TemplateControlId" class="question">
+                                    @(ControlLabel)
+                                </label>
+
+                                <fieldset>
+                                    @if (IsPredefinedValueList)
+                                    {
+                                        foreach (var item in control.StandardControl.PreDefinedValueList.ValueListItems)
+                                        {
+
+                                            <input type="checkbox" controltypename="@ControlTypeName" step="@StepId" section="@SectionId" value="@item.Value" key="@item.Key" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@(control.TemplateControlId + "_" + item.Value)" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="checkbox-field" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") @(item.IsDefault == true ? "checked" : "") @(IsMatchingEngineAdditionalField == true ? "me-filter=true" : "") />
+                                            <label for="@(control.TemplateControlId + "_" + item.Value)">
+                                                @item.Text
+                                            </label>
+                                        }
+                                    }
+                                </fieldset>
+                            </li>
+                            break;
+                        case "Label":
+                            <li class="field-holder @control.StandardControl.StandardControlCode.Code">
+                                <input type="hidden" datatype="@control.StandardControl.StandardControlDataType.Name" code="@ControlCode" id="@control.TemplateControlId" name="@control.StandardControl.FieldName" />
+                                <label for="@control.TemplateControlId">
+                                    @(ControlLabel)
+                                </label>
+                            </li>
+                            break;
+                        case "Date":
+                            <li class="field-holder">
+
+                                <label for="@control.TemplateControlId" class="question">
+                                    @(ControlLabel)
+                                </label>
+
+                                <input type="text" step="@StepId" controltypename="@ControlTypeName" section="@SectionId" value="@control.StandardControl.DefaultValue" datatype="@control.StandardControl.StandardControlDataType.Name" code="@ControlCode" alias="@control.StandardControl.StandardControlCode.CSVCodeAlias" id="@control.TemplateControlId" id-sort="@control.RowSequence" name="@control.StandardControl.FieldName" class="date-field date" label-name="@(ControlLabel)" @(control.IsRequired == true ? "required=required" : "") minlength="@control.StandardControl.MinLength" maxlength="@control.StandardControl.MaxLength" />
+                            </li>
+                            break;
+
+                        default:
+                            <text>Control Type "@control.StandardControl.StandardControlType.StandardControlTypeName" is not supported by template "@Model.Template.TemplateName" </text>
+                            break;
+
+                    }
+                }
+            </ul>
+        }
+
+    }
+    <input type="button" value="Request Info >>" id="eddynexusformSubmit" name="Request Info" />
+    <div class="required-mark">*Required</div>
+    <div class="required-mark">
+        @{System.Web.Mvc.Html.ChildActionExtensions.RenderAction(this.Html, "CCPAMessage", "CCPA");}
+    </div>
+</form>
+
+<div id="eddycrosssell" class="cross-sell cross-sell-popup hide"></div>
+<div id="FEmodalOverlayBG" class="hide FEoverlay"></div>
+<div id="FEloader" class="hide">
+    <div class="loading">Loading &hellip;</div>
+    <p class="loadingParagraph">Please wait one moment</p>
+</div>
+
+<div id="eddyuab" class="uab-popup uab-1 hide ">
+	<a class="close-button" id="uab-popup-close"></a>
+	<div class="uab-text">
+		This school does not accept selected country, but you can visit our partner site,
+		<span class="uline">Universities Abroad</span>, to find a larger selection of International
+		programs that may better match your needs.
+	</div>
+	<div class="hrule">
+	</div>
+	<div class="uab-logo">
+	</div>
+	<a class="button blue medium" href="https://www.universitiesabroad.com/">Search our directory
+		of international programs &gt;&gt;</a>
+	<p>
+		<a class="close-overlay" href="#" id="uab-popup-nothankyou">No Thanks</a></p>
+</div>

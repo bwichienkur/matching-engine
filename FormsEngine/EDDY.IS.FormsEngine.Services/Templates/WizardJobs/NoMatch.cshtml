@@ -1,0 +1,25 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.NoMatchModel>
+
+@if (Model.GenericNoMatch)
+{
+
+<script type="text/javascript">
+    jQuery('[data-dyn="name"]').html(FormsEngine.LastFirstName);
+</script>
+<div id="no-match" class="eddy-form-wizard-container">
+		<div class="eddy-form-wizard-body">
+                 <div class="close close-overlay">X</div>
+                 <div class="form-page-step-message">
+                     <p class="thank-you-msg">Thank you <span data-dyn="name"></span></p>
+                     <p>
+                         Deciding to go Back to School is a Big Decision, We're happy to help walk through your options. One of our Education Advisors will be contacting you soon!
+                     </p>
+		</div>
+</div>
+</div><!-- end of ##eddy-form-wizard-body -->
+    <script type="text/javascript">
+        if (FormsEngine.JobsSetCookie) {
+            FormsEngine.JobsSetCookie(30);
+        }
+    </script>
+}

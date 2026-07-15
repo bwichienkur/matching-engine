@@ -1,0 +1,78 @@
+﻿/**/
+.eddy-form-wizard-container .steps[data-title=DynamicQuestions] .field-holder label[data-question=true]{
+    display:block;
+}
+.eddy-form-wizard-container .radio-inline,
+#eddy-form-container .cross-sell .radio-inline{
+    display:inline-block;
+    padding-left:20px;
+    vertical-align:middle;
+}
+    .eddy-form-wizard-container .radio-inline input[type=radio],
+    #eddy-form-container .cross-sell #crossSellForm .radio-inline input[type=radio]{
+        float:left;
+        margin-left:-20px;
+        width:auto;
+        border:0;
+        padding:0;
+        margin-top:2px;
+        margin-right:0;
+        margin-bottom:0;
+    }
+     .eddy-form-wizard-container .steps[data-title="DynamicQuestions"] .field-holder fieldset .radio-inline label,
+     #eddy-form-container .cross-sell div[name="cs-additional-questions"] .field-holder fieldset .radio-inline label{
+         margin-bottom:0;
+         margin-top:1px;
+     }
+
+.eddy-form-wizard-container #mc-SM-additional-questions{    
+    font-size:inherit;
+    font-family:inherit;
+
+}
+.eddy-form-wizard-container #mc-SM-additional-questions fieldset{
+    border-width: 0;
+    padding: 0;
+}
+.eddy-form-wizard-container #mc-SM-additional-questions .field-holder{
+   
+    clear: both;
+    margin:0 auto .1em;
+    padding: 4px;
+    position: relative;
+    text-align: left;
+    vertical-align: top;
+
+}
+
+.eddy-form-wizard-container #mc-SM-additional-questions .aq-label{
+    display:none;
+}
+
+    .eddy-form-wizard-container #mc-SM-additional-questions fieldset label,
+    .eddy-form-wizard-container #mc-SM-additional-questions fieldset legend{
+        font-weight:normal;
+    }
+    .eddy-form-wizard-container #mc-SM-additional-questions fieldset label:first-child,
+    .eddy-form-wizard-container #mc-SM-additional-questions fieldset legend:first-child{
+        font-style:italic;
+        margin:.5em auto;
+        width:95%;
+    }
+
+     .eddy-form-wizard-container #mc-SM-additional-questions fieldset select{
+         width:auto;
+         margin-left:0;
+     }
+.eddy-form-wizard-container #mc-SM-additional-questions label.error {
+    color: #B9121B;
+    font-size: 12px;
+    font-weight:normal;
+}
+
+@media all and (max-width:480px){
+    .eddy-form-wizard-container #mc-SM-additional-questions .field-holder.radio label[for$="Yes"],
+    .eddy-form-wizard-container #mc-SM-additional-questions .field-holder.radio label[for$="No"]{
+        width:40%;
+    }
+}

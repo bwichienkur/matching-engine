@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html>
+<head>
+    <title>IS-Form Engine WizardTemplate</title>
+    <meta charset="UTF-8" />
+    <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" media="all" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    
+    <!--<script src="//cdn.optimizely.com/js/5309656004034560.js"></script>-->
+    <script type="text/javascript" src="/Static/GetBundledWizardJs?minifyJavascript=false"></script>
+    <!--https://www.educationconnection.com/landingpages/drtv-dating?trackid=1DB1CD60-FFB3-4940-BEEF-7F0C280ADE71#_ThankYou-->
+    <script type="text/javascript" src="http://localhost:3735/scripts/bundles/eddyadaggregator"></script>
+    <!--<script type="text/javascript" src="https://agrservice.educationdynamics.com/scripts/bundles/eddyadaggregator"></script>-->
+    <!--<script type="text/javascript" src="http://agrservice.cycle.educationdynamics.local/scripts/bundles/eddyadaggregator"></script>-->
+    <script type='text/javascript'>
+        function createCookie(name, value, days) { if (days) { var date = new Date(); date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); var expires = '; expires=' + date.toGMTString(); } else var expires = ''; document.cookie = name + '=' + value + expires + '; path=/'; };
+
+        //Emulate TrackID
+        createCookie("_CampaignTrackID", "8E43C61A-7B96-481F-B6E3-6A71A7ABBF95");
+        //Emulate Tracking Session
+        createCookie("_Session", "d4d42aa7-7088-49bf-aa9f-bb7d19a23afa");
+        var _eaq = _eaq || [];
+        var a = {
+            'RenderingDiv': 'div-landers-no-match', //Id of the element which you want the Ads to render (Required)
+            'AdServer': 'EDDY', //The Ad Server (Optional: defaults to DFP)
+            'IsWizard': true, //if IsWizard is true, you can add below line
+            'PlacementGuid': 'db88f4fb-6447-40f5-b27f-78fd1fe6a038', //Placement GUID (required if EDDY)
+            'TestMode': false, //(Optional: defaults to false) if vendor supports a test environment
+            'UseIframe': false, //(Optional: defaults to false)
+            'WorkFlowStep': 'THANKYOU',  //The Workflow Step which you want the add to appear. Options are NOMATCH, MANAGEDCHOICE, THANKYOU
+            'AddiTargetingParam': {
+            },//Customized additional targeting parameters
+        };
+        _eaq.push(a);
+    </script>
+
+
+    <script language="javascript" type="text/javascript">
+
+        var FormsEngine = FormsEngine || {};
+
+        FormsEngine.OptimizelyDelayedLeadId = true;
+
+        /* REQUIRED */
+        //FormsEngine.RenderingExperience = "Prospect";
+        FormsEngine.RenderingStrategy = 'WIZARDPROFESSIONAL';
+        FormsEngine.RenderingDiv = 'eddy-form-container';
+        FormsEngine.SelfContained = true; //false: must contain page to redirect and divs will be ignored
+        FormsEngine.IsBeta = false;
+        FormsEngine.TrackId = 'DD73F1EE-AAA3-4AEC-9430-49A172E9A684';
+
+        /* Optional */
+        //FormsEngine.Theme = "alternative";
+        //FormsEngine.AdditionalFields = [];
+        //FormsEngine.AdditionalFields.push(["AlexN", "WasHere"]);
+        //FormsEngine.AdditionalFields.push(["AndThisIs", "WhateverYouWant"]);
+        FormsEngine.DebugMode = true;
+        FormsEngine.SessionId = '00000000-0000-0000-0000-0000-000000000000';
+        FormsEngine.MatchResponseGuid = '00000000-0000-0000-0000-0000-000000000000';
+        FormsEngine.CompressJs = false;
+        //FormsEngine.ExpressConsentOn = true;
+        //FormsEngine.WorkflowChanged = function (data) { alert('This is the workflow step you should load related content ' + data); }
+        //FormsEngine.ShowTCPAOnLastRequiredQuestionOnly = true;
+        //FormsEngine.WizardAlternativeExpressConsent = "YEES I acknowledge that, by CLICKING the checkbox as my official signature, I consent to representatives of {thirdpartyschool}{/thirdpartyschool}{school}{/school} EducationDynamics, LLC contacting me about educational {thirdpartytype}and/or loan consolidation{/thirdpartytype} opportunities via email, text, or phone, including my mobile phone number(s){mobile-number}, using an automatic dialer, or pre-recorded message.  Message and data rates may apply. I understand that my consent is not a requirement for enrollment, and I may withdraw my consent at any time.";
+
+
+        var templateId = 53;
+        FormsEngine.TemplateId = templateId;
+        FormsEngine.ApplicationId = 16;
+        FormsEngine.Theme = "plain";
+        FormsEngine.ShowSelectAllMobile = false;
+        FormsEngine.SessionId = "00000000-0000-0000-0000-0000-000000000000";
+        FormsEngine.MatchResponseGuid = "00000000-0000-0000-0000-0000-000000000000";
+
+        FormsEngine.AdditionalFields = FormsEngine.AdditionalFields || [];
+        FormsEngine.AdditionalFields.push(['DrupalTheme', 'stacked']);
+        FormsEngine.AdditionalFields.push(['DrupalContentType', 'stacked']);
+        FormsEngine.AdditionalFields.push(['FERenderingStrategy', 'WIZARDPROFESSIONAL']);
+        FormsEngine.AdditionalFields.push(['FETheme', 'default']);
+        FormsEngine.AdditionalFields.push(['FETemplate', templateId]);
+
+        //FormsEngine.JornayaAlternativeCampaignId = "9AD30C48-0EA6-3C31-5D5C-740AAF90E844";
+
+
+
+
+        FormsEngine.LoadForm();
+
+
+
+
+    </script>
+
+</head>
+<body>
+    <a href="http://prod.gradschools.local/find-your-degree/argosy-degrees-in-psychology">http://prod.gradschools.local/find-your-degree/argosy-degrees-in-psychology#_Step8</a>
+    <div name="eddy-form-container" class="eddy-form-container" style="border:solid;border-color:green;">
+    </div>
+    <br /> <br />
+
+    <div id="div-landers-no-match">&nbsp;</div>
+    <div style="text-align:center">
+        <a href="javascript:FormsEngine.LoadWorkflowStep('START','');"> [Start]</a> -
+        <a href="javascript:FormsEngine.LoadWorkflowStep('MANAGEDCHOICE','');"> [School Selection]</a> -
+        <a href="javascript:FormsEngine.LoadWorkflowStep('THANKYOU','');"> [Thank You]</a> -
+        <a href="javascript:FormsEngine.LoadWorkflowStep('NOMATCH','');"> [No Match]</a>
+    </div>
+    <div style='height:800px;'> &nbsp; </div>
+</body>
+</html>

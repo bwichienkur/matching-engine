@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html>
+<head>
+    <meta charset="UTF-8" />
+	<title>IS-Form Engine ProgramTemplate</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script language="javascript" type="text/javascript">
+		//var Lead ="Postal_Code=33414&CampusPreference=online&Program_Of_Interest=176271&Highest_Level_of_Education_Completed=5&Year_of_Highest_Education_Completed=2009&Desired_Start_Date=1-3+Months&Age=36&Country=us&us_citizen=Yes&Email=thisisatestalex%40test.com&Military_Affiliation=126&Prefix=Mr.&First_Name=alexn&Last_Name=test&Address=3020&Address_2=a&City=Wellington&State=FL&Phone=5612043290&Alternate_Phone=5612043290&Preferred_Methods_of_Contact=Phone&UserAgreement=I+acknowledge+that+by+providing+my+telephone+number+and+submitting+this+form%2C+I+may+be+contacted+by+telephone+or+email+by+matching+schools+and+the+schools+I+have+selected%2C+along+with+EducationDynamics+and+preferred+third-party+partners%2C+for+additional+education+products+and+services.";
+		//var Lead ="Postal_Code=33414&Program_Of_Interest=176271&Highest_Level_of_Education_Completed=5&Year_of_Highest_Education_Completed=2009&Desired_Start_Date=1-3+Months&Age=36&Country=us&us_citizen=Yes&Email=thisisatestalex%40test.com&Military_Affiliation=126&Prefix=Mr.&First_Name=alexn&Last_Name=test&Address=3020&Address_2=a&City=Wellington&State=FL&Phone=5612043290&Alternate_Phone=5612043290&Preferred_Methods_of_Contact=Phone";
+        //var Lead = "Categories=21&Highest_Level_of_Education_Completed=9&Year_of_Highest_Education_Completed=1996&Desired_Start_Date=7-12 Months&Age=36&Postal_Code=33414&Country=US&us_citizen=Yes&Email=devona_sprussill@yahoo.com&Military_Affiliation=126&First_Name=DEVONA&Last_Name=ROCK&Address=3115 Dunkirk AVE&Address_2=&City=Wellington&State=FL&Phone=7572851899&Alternate_Phone=&Undergraduate_Degree_Grad=Yes&GPA=3.0-3.4&Years_of_Work_Experience=10+ Years&RN_license=&Undergraduate_Degree_Nursing=&IsBeta=false";
+        //var Lead = "postal_code=08817&highest_level_of_education_completed=9&year_of_highest_education_completed=2000&Desired_Start_Date=immediately&age=25&country=US&us_citizen=yes&email=jykjhsf@gmail.com&military_affiliation=126&first_name=jyo&last_name=bolli&address=111%20river%20st&city=hoboken&state=nj&phone=723424886&alternate_phone=7324245787";
+	    var Lead = "Age=62&Phone=3039944095&GPA=&Preferred_Methods_of_Contact=&TrackID=62ED5806-45CC-4A84-B16C-0F0609029442&Military_Affiliation=126&RN_license=&registered_Radiology=&Years_of_Teaching_Experience=&Program_Of_Interest=232915&us_citizen=Yes&Address_2=&leadid_token=4A7582F0-8A4C-7F9D-D6E5-8DD8A09D516E&Undergraduate_Degree_Education=&Highest_Level_of_Education_Completed=2&Alternate_Phone=3037349648&Undergraduate_Degree_Grad=&completed_1600_hours_of_clinical_experience=&Year_of_Highest_Education_Completed=1970&Desired_Start_Date=Immediately&registered_and_licensure=&Last_Name=Traynor&Postal_Code=80121&Prefix=&Country=AF&Teaching_certificate=&City=LITTLETON&Years_of_Work_Experience=&State=&Email=Susietdsaraynor@hotmail.com&Address=6460 south south wood drive&First_Name=Mary Sue&Undergraduate_Degree_Nursing=&employed_radiology_or_graduated_past_5_years=";
+		
+		var args = "?ApplicationId=1";
+		args += "&ProgramProductId=182323";
+		args += "&IsBeta=false";
+        //args += "&TrackId=F225C16D-5469-4877-BA17-6D79F9944EDB";
+		args += "&TrackId=75D41BA3-9C5B-49B3-9E73-727548660273";
+		args += "&LeadData=" + encodeURIComponent(Lead);
+		
+		
+		var StartMilliseconds = new Date().getTime();
+		  $.ajax({
+            async: true,
+            type: 'GET',
+            dataType: 'jsonp',
+            cache: false,
+            //url: "http://localhost:59955/TemplateManager/ValidateForm" + args,
+		    url: "http://localhost:59955/TemplateManager/ProcessHostAndPostLead" + args,
+            //url: "http://localhost:59955/TemplateManager/GetProgramMatches" + args,
+            success: function (data) {
+					var result = 'Time Elapsed Validation = ' + (new Date().getTime() - StartMilliseconds) + ' ms</br>';
+                        if (data.IsTestLead)
+                            result += 'IsTestLead = ' + data.IsTestLead + '</br>';
+                        if (data.Valid)
+						    result += 'Valid = ' + data.Valid + '</br></br>';
+						$.each(data.ValidationMessages, function(key,value){
+							result+= 'ValidationMessage[' + value.Key + '] = ' + value.Value + '</br>';
+						});
+						if (data.SchoolSelectionList) {
+						    $.each(data.SchoolSelectionList, function (key, value) {
+						        result += '</br></br>SchoolSelectionList[ ' + value.InstitutionName + ' ] = </br>';
+						        $.each(value.ProgramList, function (k, v) {
+						            result += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Program[ Template.' + v.TemplateId + ' ProgramProductId.' + v.ProgramProductId + ' ] = ' + v.ProgramName + ' </br>';
+						        });
+						    });
+						}
+					    result= '<div>' + result + '</div>';
+						document.body.innerHTML=result;
+            },
+            error: function (request, error) {
+                if (console&&console.log) {
+                    console.log(arguments);
+                    console.log(" Error: " + request.responseText);
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+	<div id="eddy-form-container">
+	</div>
+</body>
+</html>

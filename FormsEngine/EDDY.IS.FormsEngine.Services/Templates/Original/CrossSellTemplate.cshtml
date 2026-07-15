@@ -1,0 +1,252 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.CrossSellModel>
+
+<script src="@(Url.Action("GetJs", "Static", new { BasePath = "Common",  FileName="CrossSell", CompressJs= false }, Url.RequestContext.HttpContext.Request.Url.Scheme))" type="text/javascript"></script>
+<link href="@(Url.Action("GetCss", "Static", new { BasePath = "Original", Theme = (Model.CrossSellProgramResponse.IsCrossSellALternateList.Value ? "CrossSellAlternateLIST" : Model.Theme), FileName = "CrossSell" }, Url.RequestContext.HttpContext.Request.Url.Scheme))" rel="stylesheet" type="text/css" />
+
+@{  
+#region data logic
+    
+    #region set data values specific to this rendering strategy (UI)
+
+        int RSMaxProgramsToDisplayWithoutScrolling = 4;
+        int RSMaxProgramNameLength = 40;
+        int RSMaxProgramDescriptionLength = 170;
+        // messages
+        string DISCLAIMER_REFERENCE = Model.GetResourceMetaDataText("VIEW.DISCLAIMER_REFERENCE");
+        string DISCLAIMER_REFERENCE_LINK = Model.GetResourceMetaDataText("VIEW.DISCLAIMER_REFERENCE_LINK");
+        string EXPRESS_CONSENT_MESSAGE = Model.GetResourceMetaDataText("VIEW.EXPRESS_CONSENT_MESSAGE");
+    
+        
+    #endregion
+        
+    #region set other data points
+
+        int crossSellProgramCount = Model.CrossSellProgramResponse.ProgramList.Count();
+        int maxUserSelections = Model.MaxCrossSellUserSelections;
+        string maxUserSelectionsAlpha = Model.MaxCrossSellUserSelectionsAlpha.TrimEnd(new char[] { ' ' });
+        string[] UserNameSplit = Model.UserFullName.Split(' ');
+        string UserFirstName = UserNameSplit[0]; 
+        string disclaimerReference;
+        string disclaimer;
+        string mobilePhonesText;
+    
+    #endregion
+    
+    #region determine data for this rendering strategy
+    
+        // express consent message with phone numbers
+        mobilePhonesText = "";
+        if (@Model.MobilePhones != null && @Model.MobilePhones.Count > 0)
+        {
+            if (@Model.MobilePhones.Count == 1)
+            {
+                mobilePhonesText = String.Format("{0:###-###-####}", Convert.ToInt64(@Model.MobilePhones[0])).Replace("-", ".");
+            }
+            else if (@Model.MobilePhones.Count == 2)
+            {
+                mobilePhonesText = String.Format("{0:###-###-####}", Convert.ToInt64(@Model.MobilePhones[0])).Replace("-", ".") + " and " + String.Format("{0:###-###-####}", Convert.ToInt64(@Model.MobilePhones[1])).Replace("-", ".");
+            }
+        }
+
+
+    #endregion
+
+#endregion
+
+}
+
+<a close-cross-sell-button="1" name="close-cross-sell-button" class="close-button close-overlay close-crosssell-popup"></a>
+<h4 id="CrossSellTopMessage">@Model.CrossSellHeaderMessage</h4>
+<h5 id ="CrossSellTopSubMessage">@Html.Raw(@Model.CrossSellSubHeaderMessage)</h5>
+<div id="dvCrossSellSchools" class="cs-schools">
+    <form id="crossSellForm">
+        <ul>
+        @{
+            System.Text.StringBuilder disclaimers = new System.Text.StringBuilder();
+            int disclaimerCounter = 1;
+            int rownum = 0;
+            List<int?> programTemplateIds = new List<int?>(); 
+        }
+        @foreach (var school in this.Model.CrossSellProgramResponse.ProgramList.Take((Model.CrossSellProgramResponse.IsPreCheckEnabled.Value ? Math.Min(Model.MaxCrossSellUserSelections, 3) : Model.MaxProgramsToDisplayTotal)))
+        {
+
+            //prepare data before using in UI - START
+            // program name
+            // copied from EddyForms CrossSell - if the prog name is longer than the rendering strategy’s program name area can support, use breadcrumbs for the name
+            string programNameShort = school.ProgramName;
+            programNameShort = HttpUtility.HtmlDecode(programNameShort);
+            if (programNameShort.Length > RSMaxProgramNameLength)
+            {
+                if (programNameShort.Substring(RSMaxProgramNameLength, 1) == " ") // if at the max length it ends with a space, just append ...
+                {
+                    programNameShort = programNameShort.Substring(0, RSMaxProgramNameLength) + "...";
+                }
+                else
+                {
+                    int endPosition = programNameShort.LastIndexOf(' ', RSMaxProgramNameLength);
+                    programNameShort = programNameShort.Substring(0, endPosition + 1) + "...";
+                }
+            }
+
+            if (school.TemplateId != null && !programTemplateIds.Contains(school.TemplateId))
+            {
+                if (Model.TemplateId != Convert.ToInt32(school.TemplateId))
+                {
+                    programTemplateIds.Add(school.TemplateId);
+                }
+            }
+
+
+            // program description
+            // copied from EddyForms CrossSell
+            string programDescriptionShort = (school.ProgramDescription != null) ? System.Text.RegularExpressions.Regex.Replace(school.ProgramDescription, @"<(.|\n)*?>", string.Empty) : "";
+            programDescriptionShort = HttpUtility.HtmlDecode(programDescriptionShort);
+            if (programDescriptionShort.Length > RSMaxProgramDescriptionLength)
+            {
+                if (programDescriptionShort.Substring(RSMaxProgramDescriptionLength, 1) == " ")
+                {
+                    programDescriptionShort = programDescriptionShort.Substring(0, RSMaxProgramDescriptionLength) + "...";
+                }
+                else
+                {
+                    int endPosition = programDescriptionShort.IndexOf(' ', RSMaxProgramDescriptionLength);
+                    programDescriptionShort = programDescriptionShort.Substring(0, endPosition + 1) + "...";
+                }
+            }
+
+            // logo
+                string logoFullURL = !string.IsNullOrEmpty(school.CampusLogoURL) ?
+                                         Model.EddyLogos.EddyLogoImagePathDomain + school.CampusLogoURL.Replace("{FILENAME}", string.Format(Model.EddyLogos.EddyLogoImageFileName, Model.EddyLogos.EddyLogoImageSizeSmall)) :
+                                         Model.EddyLogos.EddyLogoImagePathDomain + school.InstitutionLogoURL.Replace("{FILENAME}", string.Format(Model.EddyLogos.EddyLogoImageFileName, Model.EddyLogos.EddyLogoImageSizeSmall));
+
+               string logoFullURLSizeSmall = !string.IsNullOrEmpty(school.CampusLogoURL) ?
+                                    Model.EddyLogos.EddyLogoImagePathDomain + school.CampusLogoURL.Replace("{FILENAME}", string.Format(Model.EddyLogos.EddyLogoImageFileName, Model.EddyLogos.EddyLogoImageSizeSmall)) :
+                                    Model.EddyLogos.EddyLogoImagePathDomain + school.InstitutionLogoURL.Replace("{FILENAME}", string.Format(Model.EddyLogos.EddyLogoImageFileName, Model.EddyLogos.EddyLogoImageSizeSmall));
+
+        
+            string logoFullURLSizeMedium = !string.IsNullOrEmpty(school.CampusLogoURL) ?
+                                   Model.EddyLogos.EddyLogoImagePathDomain + school.CampusLogoURL.Replace("{FILENAME}", string.Format(Model.EddyLogos.EddyLogoImageFileName, Model.EddyLogos.EddyLogoImageSizeMedium)) :
+                                   Model.EddyLogos.EddyLogoImagePathDomain + school.InstitutionLogoURL.Replace("{FILENAME}", string.Format(Model.EddyLogos.EddyLogoImageFileName, Model.EddyLogos.EddyLogoImageSizeMedium));
+
+       
+            string logoFullURLSizeLarge = !string.IsNullOrEmpty(school.CampusLogoURL) ?
+                                 Model.EddyLogos.EddyLogoImagePathDomain + school.CampusLogoURL.Replace("{FILENAME}", string.Format(Model.EddyLogos.EddyLogoImageFileName, Model.EddyLogos.EddyLogoImageSizeLarge)) :
+                                 Model.EddyLogos.EddyLogoImagePathDomain + school.InstitutionLogoURL.Replace("{FILENAME}", string.Format(Model.EddyLogos.EddyLogoImageFileName, Model.EddyLogos.EddyLogoImageSizeLarge));
+
+            // input ID
+            string inputID = "crossSellProgram" + school.ProgramProductId.ToString();
+
+            // ground campus flag
+            bool isGroundCampus = (@school.CampusType.ToString().ToLower() == "ground") ? true : false;
+            string campusTypeFlagCssClass = (@school.CampusType.ToString().ToLower() == "ground") ? "groundcampusflag" : "onlinecampusflag";
+            campusTypeFlagCssClass += rownum % 2 == 0 ? " odd" : " even";
+            // disclosures
+            disclaimerReference = "";
+            disclaimer = "";
+            if (school.ProgramDisclaimer != null && school.ProgramDisclaimer.Length > 0 && school.ProgramDisclaimerType != null)
+            {
+                disclaimerReference = string.Format(DISCLAIMER_REFERENCE, disclaimerCounter.ToString(), "");
+                disclaimer = (school.ProgramDisclaimerType == EDDY.IS.FormsEngine.MatchingEngine.DisclaimerType.Link) ? "<p>" + string.Format(DISCLAIMER_REFERENCE, disclaimerCounter.ToString(), string.Format(DISCLAIMER_REFERENCE_LINK, school.InstitutionName, school.ProgramDisclaimer)) + "</p>" : "<p>" + string.Format(DISCLAIMER_REFERENCE, disclaimerCounter.ToString(), school.ProgramDisclaimer) + "</p>";
+                disclaimers.Append(disclaimer);
+                disclaimerCounter++;
+            }
+            else if (school.InstitutionDisclaimer != null && school.InstitutionDisclaimer.Length > 0 && school.InstitutionDisclaimerType != null)
+            {
+                disclaimerReference = string.Format(DISCLAIMER_REFERENCE, disclaimerCounter.ToString(), "");
+                disclaimer = (school.InstitutionDisclaimerType == EDDY.IS.FormsEngine.MatchingEngine.DisclaimerType.Link) ? "<p>" + string.Format(DISCLAIMER_REFERENCE, disclaimerCounter.ToString(), string.Format(DISCLAIMER_REFERENCE_LINK, school.InstitutionName, school.InstitutionDisclaimer)) + "</p>" : "<p>" + string.Format(DISCLAIMER_REFERENCE, disclaimerCounter.ToString(), school.InstitutionDisclaimer) + "</p>";
+                disclaimers.Append(disclaimer);
+                disclaimerCounter++;
+            }
+
+
+            //prepare data before using in UI - END
+            <li class="@campusTypeFlagCssClass" data-campusid="@school.CampusId" data-templateid="@school.TemplateId">
+                <img @(Model.CrossSellProgramResponse.IsCrossSellALternateList.Value ? "src=" + logoFullURLSizeLarge + "" : "src=" + logoFullURL + "") title="@school.InstitutionName" srcsizesmall="@logoFullURLSizeSmall" srcsizemedium="@logoFullURLSizeMedium" srcsizelarge="@logoFullURLSizeLarge" />
+                @{
+            if (isGroundCampus)
+            {
+                <span class="groundCampusFlagIcon" title="This is an On Campus Program"></span>
+            }
+            else
+            {
+                <span class="onlineCampusFlagIcon" title="This is an Online Program"></span>
+            }
+                }
+                <p class="bold clearfix" title="@school.ProgramName">
+                    @programNameShort
+                    @Html.Raw(disclaimerReference)
+                </p>
+
+                <p>
+                    @programDescriptionShort
+                </p>
+                <span class="cross-sell-option">
+                    <input @(Model.CrossSellProgramResponse.IsPreCheckEnabled.Value ? "checked='checked'" : "") id="@inputID" name="crossSellProgramCheckBox" type="checkbox" value="1" data-programproductid="@school.ProgramProductId" data-templateid="@school.TemplateId" data-programid="@school.ProgramId" data-campusid="@school.CampusId" data-institutionname="@school.InstitutionName" data-hideschoolfromtcpa="@school.Is2USchool.ToString().ToLower()" data-programtype="@school.ProgramType" data-showtwoucheckbox="@school.ShowTwoULeadShareControl" /><label for="@inputID">Select</label>
+                </span>
+                <div name="cs-additional-questions"></div>
+            </li>
+            rownum++;
+        }
+        
+        </ul>
+        <div id="cs-additional-questions-templates-used" data-program-templates-used="@string.Join(",", programTemplateIds.ToArray())"></div>
+    </form>
+    @if (@Model.MobilePhones != null && @Model.MobilePhones.Count > 0)
+    {
+    <div id="dvCrossSellExpressConsent" class="cross-sell-express-consent">
+        <input id="ckbExpressConsent" name="leadid_tcpa_disclosure_2" type="checkbox" value="" /><label for="ckbExpressConsent" class="express-consent-black">@Html.Raw(string.Format(@EXPRESS_CONSENT_MESSAGE, (@Model.MobilePhones.Count > 1) ? "s" : "", mobilePhonesText))</label>
+    </div>
+    }
+    <!--to fix #63056, move dvCrossSellError div from top to above submit button-->
+    <div id="dvCrossSellError" class="error-summary hide"></div>
+    <div name="cross-sell-submit" class="cross-sell-request-info button orange request">
+        <a href="#">Request Info >></a>
+    </div>
+</div>
+<p class="no-thanks">
+    <a close-cross-sell-button="1" name="close-cross-sell-NoThanks" class="close-overlay close-crosssell-popup cursor-pointer">No, Thanks</a>
+</p>
+<div id="dvCrossSellSchoolDisclosures" class="CSdisclosure">
+    @Html.Raw(@disclaimers.ToString())
+</div>
+<script type="text/javascript">
+    // pass thru of any data specific to this rendering strategy which will be needed on consuming js
+    FormsEngine.RSMaxProgramsToDisplayWithoutScrolling = '@RSMaxProgramsToDisplayWithoutScrolling';
+    FormsEngine.RSMaxProgramsToDisplayTotal = '@Model.MaxProgramsToDisplayTotal';
+    // used to prevent submit/save/redirect on fake optimizely cross sell load
+    FormsEngine.IsForOptimizelyCrossSell = '@Model.IsForOptimizelyCrossSell';
+    // update value based on new ME call
+    FormsEngine.MatchResponseGuid = '@Model.CrossSellProgramResponse.MatchResponseGuid';
+
+    //x-sell InstitutionName
+    FormsEngine.CrossSellInstitutionName = '@Model.UserSelectedInstitutionName';
+    //x-sell ProgramName
+    FormsEngine.CrossSellProgramName = '@Model.UserSelectedProgramName';
+    //x-sell max schools
+    FormsEngine.CrossSellMaxSchoolsText = '@maxUserSelectionsAlpha';
+    //x-sell UserName
+    FormsEngine.CrossSellUserName = '@UserFirstName';
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.NoMatchModel>
+
+@if(!Model.GenericNoMatch)
+{
+<div class="eddy-form-wizard-container no-match">
+		
+		<div class="eddy-form-wizard-body">
+			<div class="form-page-step-message">
+                <div class="thank-you-msg">Thank you for your request</div>
+				<p>
+					Sorry, but our system was unable to find a school that matches your request. Not to worry, one of our agents will call you soon to discuss your options.
+				</p>
+                <div id="contactAdvisor"></div>
+                <p>To try the college matching service again, simply change the interest and/or subject area and go through the process with your new selections.</p>
+                <div class="matchAgain">
+                    <div class="form-submit-button clearfix">
+                        <a href="javascript:FormsEngine.LoadWorkflowStep('START','');">
+                        </a>
+					</div>
+                </div>
+			</div>				
+		</div>
+		<div class="eddy-form-wizard-footer clearfix">
+				
+		</div><!-- end of #eddy-form-wizard-footer -->
+	</div><!-- end of ##eddy-form-wizard-body -->
+}

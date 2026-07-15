@@ -1,0 +1,515 @@
+﻿div[data-controlcode='K12'] { display: none; }
+.eddy-form-wizard-container .field-holder.Phone label,
+.eddy-form-wizard-container .field-holder.Alternate_Phone label{
+    display:inline-block;
+}
+/* get rid of the up/down arrow on number textfield -- for firefox*/
+.eddy-form-wizard-container .field-holder.Phone .form-control,
+.eddy-form-wizard-container .field-holder.Alternate_Phone .form-control,
+.eddy-form-wizard-container .field-holder.Age .form-control,
+.eddy-form-wizard-container .field-holder.Postal_Code .form-control{
+     -moz-appearance:textfield;
+}
+/* get rid of the up/down arrow on number textfield -- for Webkit browsers like Safari and Chrome*/
+.eddy-form-wizard-container .field-holder.Phone .form-control::-webkit-inner-spin-button,  
+.eddy-form-wizard-container .field-holder.Phone .form-control::-webkit-outer-spin-button,
+.eddy-form-wizard-container .field-holder.Alternate_Phone .form-control::-webkit-inner-spin-button,
+.eddy-form-wizard-container .field-holder.Alternate_Phone .form-control::-webkit-outer-spin-button,
+.eddy-form-wizard-container .field-holder.Age .form-control::-webkit-inner-spin-button,
+.eddy-form-wizard-container .field-holder.Age .form-control::-webkit-outer-spin-button,
+.eddy-form-wizard-container .field-holder.Postal_Code .form-control::-webkit-inner-spin-button,
+.eddy-form-wizard-container .field-holder.Postal_Code .form-control::-webkit-outer-spin-button{
+      -webkit-appearance: none;
+}
+.eddy-form-wizard-container .field-holder.Year_of_Highest_Education_Completed .form-control:not(select.inlineDropDown),
+.eddy-form-wizard-container .field-holder.Prefix .form-control,
+.eddy-form-wizard-container .field-holder.Military_Affiliation .form-control:not(select.inlineDropDown) {
+    width:auto;
+}
+.eddy-form-wizard-container .field-holder.Year_of_Highest_Education_Completed .inlineDropDown-wrapper {
+    width: 100% !important;
+}
+.eddy-form-wizard-container .field-holder.Year_of_Highest_Education_Completed select.inlineDropDown {
+    width: 100%;
+}
+.eddy-form-wizard-container .field-holder.Military_Affiliation .inlineDropDown-wrapper {
+    width: 100% !important;
+}
+.eddy-form-wizard-container .field-holder.Military_Affiliation select.inlineDropDown {
+    width: 100%;
+}
+
+.eddy-form-wizard-container .field-holder .field-holder-group,
+.eddy-form-wizard-container .field-holder .featured-categories,
+.eddy-form-wizard-container .field-holder .featured-subcategories,
+.eddy-form-wizard-container .field-holder .featured-specialties{
+	padding-left:0;
+}
+
+.eddy-form-wizard-container .field-holder.has-scrollbar .featured-subcategories.field-holder-group {
+        height: auto;
+    }
+
+.eddy-form-wizard-container .field-holder.has-scrollbar .field-holder-group{
+	overflow-y:auto;
+    height:210px;
+}
+.eddy-form-wizard-container .field-holder.has-scrollbar.no-scroll .field-holder-group{
+    height:auto;
+}
+.eddy-form-wizard-container .field-holder.Categories li,
+.eddy-form-wizard-container .field-holder.SubCategories li,
+.eddy-form-wizard-container .field-holder.Specialties li{
+	width:49%;
+	margin:0 0.5% 2%;
+	display:inline-block;
+	vertical-align:top;
+    line-height:1.1;
+}
+
+.eddy-form-wizard-container .field-holder .field-holder-group label{
+	font-size:13px;
+	width:85%;
+    display:inline-block;
+}
+.eddy-form-wizard-container .field-holder .featured-categories label,
+.eddy-form-wizard-container .field-holder .featured-subcategories label,
+.eddy-form-wizard-container .field-holder .featured-specialties label{
+    font-weight:bold;
+    font-size:13px;
+    width:85%;
+    display:inline-block;
+}
+.eddy-form-wizard-container .field-holder .field-holder-group input{
+    margin-left:0;
+    margin-right:5px;
+}
+.eddy-form-wizard-container .field-holder .field-holder-group.checkbox input{
+    margin-top:1px;
+}
+
+.eddy-form-wizard-container .UseDayTimePhone,
+.eddy-form-wizard-container .multi-select-button {
+    cursor: pointer;
+    display: inline-block;
+    margin: 1.3em 0 1em 0.5em;
+    background: rgb(206,215,224); /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NlZDdlMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjYyJSIgc3RvcC1jb2xvcj0iI2NlZDdlMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjkzJSIgc3RvcC1jb2xvcj0iI2E0YWFhZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjZWQ3ZTAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  rgba(206,215,224,1) 0%, rgba(206,215,224,1) 62%, rgba(164,170,175,1) 93%, rgba(206,215,224,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(206,215,224,1)), color-stop(62%,rgba(206,215,224,1)), color-stop(93%,rgba(164,170,175,1)), color-stop(100%,rgba(206,215,224,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(206,215,224,1) 0%,rgba(206,215,224,1) 62%,rgba(164,170,175,1) 93%,rgba(206,215,224,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(206,215,224,1) 0%,rgba(206,215,224,1) 62%,rgba(164,170,175,1) 93%,rgba(206,215,224,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(206,215,224,1) 0%,rgba(206,215,224,1) 62%,rgba(164,170,175,1) 93%,rgba(206,215,224,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(206,215,224,1) 0%,rgba(206,215,224,1) 62%,rgba(164,170,175,1) 93%,rgba(206,215,224,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ced7e0', endColorstr='#ced7e0',GradientType=0 ); /* IE6-8 */
+    padding:3px 6px;
+    border-radius:6px;
+    -moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius: 6px;
+    border:1px solid #99A5AF;
+    text-transform: uppercase;
+}
+.eddy-form-wizard-container .UseDayTimePhone{
+    margin-left:42%;
+}
+
+.eddy-form-wizard-container .multi-select-button:before{
+    font: normal normal normal 12px/1 FontAwesome;
+    text-rendering: auto;
+    padding-right:5px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+}
+    .eddy-form-wizard-container .select-all-categories:before,
+    .eddy-form-wizard-container .select-all-subcategories:before,
+    .eddy-form-wizard-container .select-all-specialties:before {
+        content: "\f00c";
+        color:#2B812D;  
+        font-size:15px;      
+    }
+    .eddy-form-wizard-container .de-select-all-categories,
+    .eddy-form-wizard-container .de-select-all-subcategories,
+    .eddy-form-wizard-container .de-select-all-specialties{
+        padding-right:10px;
+    }
+    .eddy-form-wizard-container .de-select-all-categories:before,
+    .eddy-form-wizard-container .de-select-all-subcategories:before,
+    .eddy-form-wizard-container .de-select-all-specialties:before {
+        content: "\f00d";
+        font-size:14px;
+        color:#B75C5C;
+    }
+
+@media (min-width:769px){
+
+    .eddy-form-wizard-container .field-holder.Highest_Level_of_Education_Completed .form-control{
+        width:100%;
+    }
+    .eddy-form-wizard-container .field-holder.Age .form-control,
+    .eddy-form-wizard-container .field-holder.Postal_Code .form-control{
+        width:22%;
+    }
+    .eddy-form-wizard-container .field-holder.zipcode .form-control{
+	    width:15%;
+    }
+    .eddy-form-wizard-container .field-holder.Phone label:not(.error),
+    .eddy-form-wizard-container .field-holder.Alternate_Phone label:not(.error){
+        width:41%;
+    }
+    .eddy-form-wizard-container .field-holder.Phone .form-control,
+    .eddy-form-wizard-container .field-holder.Alternate_Phone .form-control{
+	    display:inline-block;
+        width:42%;
+    }
+    
+    .eddy-form-wizard-container .field-holder.Desired_Start_Date .form-control:not(select.inlineDropDown) {
+        width:85%;
+    }
+    .eddy-form-wizard-container .field-holder.Desired_Start_Date .inlineDropDown-wrapper {
+        width:100% !important;
+    }
+
+    .eddy-form-wizard-container .field-holder.City,
+    .eddy-form-wizard-container .field-holder.Postal_Code_Duplicate{
+        display:inline-block;
+        width:35%;
+    }
+    .eddy-form-wizard-container .field-holder.State,    
+    .eddy-form-wizard-container .field-holder.Country{
+            display:inline-block;
+            width:63%;
+    }
+    .eddy-form-wizard-container .field-holder.First_Name,
+    .eddy-form-wizard-container .field-holder.Last_Name{
+	    display:inline-block;
+        width:49%;
+        
+    }
+    
+    .eddy-form-wizard-container .field-holder.input-group-field.Phone .input-group,
+    .eddy-form-wizard-container .field-holder.input-group-field.Alternate_Phone .input-group{
+        display:inline-block;
+        width:49%;
+    }
+    .eddy-form-wizard-container .field-holder.input-group-field.Phone .input-group .form-control,
+    .eddy-form-wizard-container .field-holder.input-group-field.Alternate_Phone .input-group .form-control{
+        width:90%;
+    }    
+        /*************************** TRANSFORM ************************************/
+    .eddy-form-wizard-container .field-holder.TransformOnDesktop.has-scrollbar .field-holder-group{
+        height:auto;
+        overflow:hidden;
+    }
+    .eddy-form-wizard-container .field-holder.TransformOnDesktop .field-holder-group li{
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-khtml-border-radius: 5px;
+        margin: 0 0 3px;
+        overflow: hidden;
+        width: 99%;
+        border: 1px solid #DDD;
+        position:relative;
+    }
+
+    .eddy-form-wizard-container .field-holder.TransformOnDesktop .field-holder-group .loading{
+        background:none;
+        border:0;
+    }
+
+    .eddy-form-wizard-container .field-holder.TransformOnDesktop .field-holder-group.checkbox input[type="checkbox"] + label:before,
+    .eddy-form-wizard-container .field-holder.TransformOnDesktop .field-holder-group.checkbox input[type="checkbox"]:checked + label:before{
+        content: "";
+    }
+    .eddy-form-wizard-container .field-holder.TransformOnDesktop .field-holder .field-holder-group label{
+        line-height:.9;
+    }
+    .eddy-form-wizard-container .field-holder.TransformOnDesktop .field-holder-group input[type="checkbox"] + label{
+        width:95%;
+        padding: 13px 6% 13px 2%;
+        font-size:120%;
+        cursor:pointer;
+        background: #fcfcfc; /* Old browsers */
+        background: -moz-linear-gradient(top,  #fcfcfc 0%, #ededed 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #fcfcfc 0%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #fcfcfc 0%,#ededed 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #fcfcfc 0%,#ededed 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  #fcfcfc 0%,#ededed 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+        width:100%;            
+    }
+
+    .eddy-form-wizard-container .field-holder.TransformOnDesktop .field-holder-group input[type="checkbox"] + label:hover,
+    .eddy-form-wizard-container .field-holder.TransformOnDesktop .field-holder-group input[type="checkbox"]:checked + label{
+        background: #269fcc; /* Old browsers */
+        background: -moz-linear-gradient(top,  #269fcc 0%, #256ec6 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#269fcc), color-stop(100%,#256ec6)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #269fcc 0%,#256ec6 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #269fcc 0%,#256ec6 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #269fcc 0%,#256ec6 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  #269fcc 0%,#256ec6 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#269fcc', endColorstr='#256ec6',GradientType=0 ); /* IE6-9 */
+        color:#FFF;
+    }
+    .eddy-form-wizard-container .field-holder.TransformOnDesktop .field-holder-group input[type="checkbox"] + label:after{
+        content: "\f055";
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size:25px;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color:#2688C9;
+        position:absolute;
+        right:3%;
+        top:23%;
+    }
+    .eddy-form-wizard-container .field-holder.TransformOnDesktop .field-holder-group input[type="checkbox"] + label:hover:after{
+        color:white;
+    }
+        
+    .eddy-form-wizard-container .field-holder.TransformOnDesktop .field-holder-group input[type="checkbox"]:checked + label:after{
+        content: "\f00c";
+        color:white;
+    }
+    /*************************** TRANSFORM END ********************************/
+}
+@media (max-width:960px) and (min-width:769px){
+    .eddy-form-wizard-container .UseDayTimePhone{
+        width:45%;
+        font-size:11px; 
+    }
+}
+@media (max-width:768px) {
+    .eddy-form-wizard-container .field-holder .field-holder-group label {
+        font-size: 15px;
+    }
+    .eddy-form-wizard-container .field-holder.input-group-field.First_Name .input-group,
+    .eddy-form-wizard-container .field-holder.input-group-field.Last_Name .input-group,
+    .eddy-form-wizard-container .field-holder.input-group-field.Email .input-group,
+    .eddy-form-wizard-container .field-holder.input-group-field.Phone .input-group,
+    .eddy-form-wizard-container .field-holder.input-group-field.Alternate_Phone .input-group{
+        display:table;
+        width:100%;
+    }
+    .eddy-form-wizard-container .field-holder.input-group-field.First_Name .input-group .form-control,
+    .eddy-form-wizard-container .field-holder.input-group-field.Last_Name .input-group .form-control,
+    .eddy-form-wizard-container .field-holder.input-group-field.Email .input-group .form-control,
+    .eddy-form-wizard-container .field-holder.input-group-field.Phone .input-group .form-control,
+    .eddy-form-wizard-container .field-holder.input-group-field.Alternate_Phone .input-group .form-control{
+        border-radius:0 4px 4px 0;
+        -moz-border-radius: 0 4px 4px 0;
+	    -webkit-border-radius: 0 4px 4px 0;
+	    -khtml-border-radius: 0 4px 4px 0;
+        display:table-cell;
+    }
+    .eddy-form-wizard-container .field-holder.input-group-field.First_Name .input-group-addon,
+    .eddy-form-wizard-container .field-holder.input-group-field.Last_Name .input-group-addon,
+    .eddy-form-wizard-container .field-holder.input-group-field.Email .input-group-addon,
+    .eddy-form-wizard-container .field-holder.input-group-field.Phone .input-group-addon,
+    .eddy-form-wizard-container .field-holder.input-group-field.Alternate_Phone .input-group-addon{
+        border-right:0;
+        padding:0;
+        width:40px;
+        display:table-cell;
+    }
+    .eddy-form-wizard-container .field-holder.input-group-field.First_Name label,
+    .eddy-form-wizard-container .field-holder.input-group-field.Last_Name label,
+    .eddy-form-wizard-container .field-holder.input-group-field.Phone label,
+    .eddy-form-wizard-container .field-holder.input-group-field.Alternate_Phone label{
+        display:none;
+    }
+    .eddy-form-wizard-container .UseDayTimePhone{
+        margin-left:0;
+    }
+    .eddy-form-wizard-container .field-holder.TransformOnMobile select{
+        display:none;
+    }    
+    .eddy-form-wizard-container .field-holder.input-group-field .input-group-addon:before,
+    .eddy-form-wizard-container .field-holder.input-group-field .input-group-addon:after{          
+        font: normal normal normal 14px/1 FontAwesome;
+        text-rendering: auto;
+        font-size:13px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transform: translate(0, 0);
+    }
+    .eddy-form-wizard-container .field-holder.Email .input-group-addon:after {
+        content: "\f003";
+        font-size:20px;
+    }
+    .eddy-form-wizard-container .field-holder.First_Name .input-group-addon:before,
+    .eddy-form-wizard-container .field-holder.Last_Name .input-group-addon:after {
+        content: "\f007";
+    }
+    .eddy-form-wizard-container .field-holder.First_Name .input-group-addon:after,
+    .eddy-form-wizard-container .field-holder.Last_Name .input-group-addon:before {
+        content: "\f0c9";
+    }
+
+    .eddy-form-wizard-container .field-holder.Phone .input-group-addon:before,
+    .eddy-form-wizard-container .field-holder.Alternate_Phone .input-group-addon:before {
+        content: "\f095";
+        font-size:16px;
+    }
+
+    .eddy-form-wizard-container .field-holder.DynamicCampusSoftPreference::after,
+    .eddy-form-wizard-container .field-holder.DynamicCampusSoftPreference::before {
+        display:table;
+        content:" ";
+        clear:both;
+    }
+    .eddy-form-wizard-container .field-holder .radio-inline.dropdown-button[name="DynamicCampusSoftPreferenceDiv"]{
+        width:33.33%;
+        float:left;
+        padding-left:5px;
+        padding-right:5px;
+    }
+    .eddy-form-wizard-container .field-holder.DynamicCampusSoftPreference .fa{
+        font-size:15px;
+        display:block;
+        height:50px;
+    }
+    .eddy-form-wizard-container .field-holder.DynamicCampusSoftPreference .radio-inline label{
+        border-radius: 6px;
+        -moz-border-radius: 6px;
+		-webkit-border-radius: 6px;
+		-khtml-border-radius: 6px;
+        box-shadow: 1px 1px 5px 0px #888;
+	    -moz-box-shadow: 1px 1px 5px 0px #888;
+	    -webkit-box-shadow: 1px 1px 5px 0px #888;
+        transition:box-shadow .5s linear; /* add prefixed verison (-moz-, -webkit-, ...*/
+    }
+    .eddy-form-wizard-container .fa-Online:before{
+        content:"\f109";
+        font-size:50px;
+    }
+    .eddy-form-wizard-container .fa-Campus:before{
+        content:"\f19c";
+        font-size:45px;
+    }
+    .eddy-form-wizard-container .fa-Both:before{
+        content:"\f19c";
+        font-size:43px;
+        position:relative;
+        left:7px;
+    }
+    .eddy-form-wizard-container .fa-Both:after{
+        content:"\f109";
+        font-size:47px;
+        position:relative;
+        top:10px;
+        left:-12px;
+    }
+}
+@media (max-width:670px) {
+    .eddy-form-wizard-container .multi-select-button{
+        display:none;
+    }
+
+    /*************************** TRANSFORM ************************************/
+    .eddy-form-wizard-container .field-holder.TransformOnMobile.has-scrollbar .field-holder-group{
+        height:auto;
+        overflow:hidden;
+    }
+    .eddy-form-wizard-container .field-holder.TransformOnMobile .field-holder-group li{
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-khtml-border-radius: 5px;
+        margin: 0 0 3px;
+        overflow: hidden;
+        width: 99%;
+        border: 1px solid #DDD;
+        position:relative;
+    }
+
+    .eddy-form-wizard-container .field-holder.TransformOnMobile .field-holder-group .loading{
+        background:none;
+        border:0;
+    }
+
+    .eddy-form-wizard-container .field-holder.TransformOnMobile .field-holder-group.checkbox input[type="checkbox"] + label:before,
+    .eddy-form-wizard-container .field-holder.TransformOnMobile .field-holder-group.checkbox input[type="checkbox"]:checked + label:before{
+        content: "";
+    }
+    .eddy-form-wizard-container .field-holder.TransformOnMobile .field-holder .field-holder-group label{
+        line-height:.9;
+    }
+    .eddy-form-wizard-container .field-holder.TransformOnMobile .field-holder-group input[type="checkbox"] + label{
+        width:95%;
+        padding: 13px 6% 13px 2%;
+        font-size:120%;
+        cursor:pointer;
+        background: #fcfcfc; /* Old browsers */
+        background: -moz-linear-gradient(top,  #fcfcfc 0%, #ededed 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #fcfcfc 0%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #fcfcfc 0%,#ededed 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #fcfcfc 0%,#ededed 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  #fcfcfc 0%,#ededed 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+        width:100%;            
+    }
+
+    .eddy-form-wizard-container .field-holder.TransformOnMobile .field-holder-group input[type="checkbox"] + label:hover,
+    .eddy-form-wizard-container .field-holder.TransformOnMobile .field-holder-group input[type="checkbox"]:checked + label{
+        background: #269fcc; /* Old browsers */
+        background: -moz-linear-gradient(top,  #269fcc 0%, #256ec6 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#269fcc), color-stop(100%,#256ec6)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #269fcc 0%,#256ec6 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #269fcc 0%,#256ec6 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #269fcc 0%,#256ec6 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  #269fcc 0%,#256ec6 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#269fcc', endColorstr='#256ec6',GradientType=0 ); /* IE6-9 */
+        color:#FFF;
+    }
+    .eddy-form-wizard-container .field-holder.TransformOnMobile .field-holder-group input[type="checkbox"] + label:after{
+        content: "\f055";
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size:25px;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color:#2688C9;
+        position:absolute;
+        right:3%;
+        top:23%;
+    }
+    .eddy-form-wizard-container .field-holder.TransformOnMobile .field-holder-group input[type="checkbox"] + label:hover:after{
+        color:white;
+    }
+        
+    .eddy-form-wizard-container .field-holder.TransformOnMobile .field-holder-group input[type="checkbox"]:checked + label:after{
+        content: "\f00c";
+        color:white;
+    }
+    /*************************** TRANSFORM END ********************************/
+}
+@media (max-width:480px) {
+
+    .eddy-form-wizard-container .field-holder .field-holder-group input[type="checkbox"] + label:after{
+        font-size:23px;
+    }
+    .eddy-form-wizard-container .field-holder.DynamicCampusSoftPreference .fa{
+        height:42px;
+    }
+    .eddy-form-wizard-container .fa-Online:before{
+        font-size:45px;
+    }
+    .eddy-form-wizard-container .fa-Campus:before{
+        font-size:40px;
+    }
+    .eddy-form-wizard-container .fa-Both:before{
+        font-size:32px;
+        left:5px;
+    }
+    .eddy-form-wizard-container .fa-Both:after{
+        font-size:35px;
+        left:-10px;
+    }
+
+}

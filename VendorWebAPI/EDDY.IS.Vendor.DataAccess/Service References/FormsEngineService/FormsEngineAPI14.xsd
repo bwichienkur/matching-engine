@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+  <xs:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" />
+  <xs:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfHTMLRenderingStrategyDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HTMLRenderingStrategyDTO" nillable="true" type="tns:HTMLRenderingStrategyDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHTMLRenderingStrategyDTO" nillable="true" type="tns:ArrayOfHTMLRenderingStrategyDTO" />
+  <xs:complexType name="HTMLRenderingStrategyDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CSSPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CrossSellMaxProgramsToDisplay" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CrossSellTemplateView" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FormTemplateView" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HTMLRenderingStrategyId" type="xs:int" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ManagedChoiceTemplateView" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoMatchTemplateView" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoThankYouTemplateView" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ThankYouTemplateView" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HTMLRenderingStrategyDTO" nillable="true" type="tns:HTMLRenderingStrategyDTO" />
+  <xs:complexType name="TemplateDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BusinessDivisionId" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InlineDropDowns" type="xs:boolean" />
+      <xs:element minOccurs="0" name="InstitutionId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsDefaultTemplate" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSystemTemplate" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ShowAllQuestionsOnFirstStep" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SystemAllowedDoBTemplate" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TemplateAssignments" nillable="true" type="tns:ArrayOfTemplateAssignmentDTO" />
+      <xs:element minOccurs="0" name="TemplateDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TemplateId" type="xs:int" />
+      <xs:element minOccurs="0" name="TemplateName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TemplateSteps" nillable="true" type="tns:ArrayOfTemplateStepDTO" />
+      <xs:element minOccurs="0" name="TemplateType" nillable="true" type="tns:TemplateTypeDTO" />
+      <xs:element minOccurs="0" name="TemplateTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TemplateDTO" nillable="true" type="tns:TemplateDTO" />
+  <xs:complexType name="ArrayOfTemplateAssignmentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TemplateAssignmentDTO" nillable="true" type="tns:TemplateAssignmentDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTemplateAssignmentDTO" nillable="true" type="tns:ArrayOfTemplateAssignmentDTO" />
+  <xs:complexType name="TemplateAssignmentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProductId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProgramId" type="xs:int" />
+      <xs:element minOccurs="0" name="Template" nillable="true" type="tns:TemplateDTO" />
+      <xs:element minOccurs="0" name="TemplateAssignmentId" type="xs:int" />
+      <xs:element minOccurs="0" name="TemplateId" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TemplateAssignmentDTO" nillable="true" type="tns:TemplateAssignmentDTO" />
+  <xs:complexType name="ArrayOfTemplateStepDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TemplateStepDTO" nillable="true" type="tns:TemplateStepDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTemplateStepDTO" nillable="true" type="tns:ArrayOfTemplateStepDTO" />
+  <xs:complexType name="TemplateStepDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sequence" type="xs:int" />
+      <xs:element minOccurs="0" name="TemplateId" type="xs:int" />
+      <xs:element minOccurs="0" name="TemplateName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TemplateSections" nillable="true" type="tns:ArrayOfTemplateSectionDTO" />
+      <xs:element minOccurs="0" name="TemplateStepId" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TemplateStepDTO" nillable="true" type="tns:TemplateStepDTO" />
+  <xs:complexType name="ArrayOfTemplateSectionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TemplateSectionDTO" nillable="true" type="tns:TemplateSectionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTemplateSectionDTO" nillable="true" type="tns:ArrayOfTemplateSectionDTO" />
+  <xs:complexType name="TemplateSectionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sequence" type="xs:int" />
+      <xs:element minOccurs="0" name="StandardControlGroup" nillable="true" type="tns:StandardControlGroupDTO" />
+      <xs:element minOccurs="0" name="StandardControlGroupId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TemplateControls" nillable="true" type="tns:ArrayOfTemplateControlDTO" />
+      <xs:element minOccurs="0" name="TemplateName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TemplateSectionId" type="xs:int" />
+      <xs:element minOccurs="0" name="TemplateStepId" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TemplateSectionDTO" nillable="true" type="tns:TemplateSectionDTO" />
+  <xs:complexType name="StandardControlGroupDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LockControlsInGroup" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SortOrder" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StandardControlGroupId" type="xs:int" />
+      <xs:element minOccurs="0" name="StandardControlGroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StandardControlGroupDTO" nillable="true" type="tns:StandardControlGroupDTO" />
+  <xs:complexType name="ArrayOfTemplateControlDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TemplateControlDTO" nillable="true" type="tns:TemplateControlDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTemplateControlDTO" nillable="true" type="tns:ArrayOfTemplateControlDTO" />
+  <xs:complexType name="TemplateControlDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ExtendedProperties" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HideLabelOnMobile" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="InstanceLabel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstanceMobileWaterMark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstanceTemplateLabel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstanceToolTip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstanceWaterMark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsRequired" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsTypeAhead" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RowSequence" type="xs:int" />
+      <xs:element minOccurs="0" name="ShowInEddyApi" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StandardControl" nillable="true" type="tns:StandardControlDTO" />
+      <xs:element minOccurs="0" name="StandardControlId" type="xs:int" />
+      <xs:element minOccurs="0" name="TemplateControlDefaults" nillable="true" type="tns:ArrayOfTemplateControlDefaultDTO" />
+      <xs:element minOccurs="0" name="TemplateControlId" type="xs:int" />
+      <xs:element minOccurs="0" name="TemplateId" type="xs:int" />
+      <xs:element minOccurs="0" name="TemplateSectionId" type="xs:int" />
+      <xs:element minOccurs="0" name="TransformOnDesktopType" type="xs:int" />
+      <xs:element minOccurs="0" name="TransformOnMobileType" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TemplateControlDTO" nillable="true" type="tns:TemplateControlDTO" />
+  <xs:complexType name="StandardControlDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutoCompleteName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ControlFriendlyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DefaultLabel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefaultValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FieldName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsLabelHidden" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="JavaScriptDataBind" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mask" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxLength" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MinLength" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PreDefinedValueList" nillable="true" type="tns:PreDefinedValueListDTO" />
+      <xs:element minOccurs="0" name="PreDefinedValueListId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchablePredefinedValueList" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StandardControlCode" nillable="true" type="tns:StandardControlCodeDTO" />
+      <xs:element minOccurs="0" name="StandardControlCodeId" type="xs:int" />
+      <xs:element minOccurs="0" name="StandardControlDataType" nillable="true" type="tns:StandardControlDataTypeDTO" />
+      <xs:element minOccurs="0" name="StandardControlDataTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="StandardControlId" type="xs:int" />
+      <xs:element minOccurs="0" name="StandardControlType" nillable="true" type="tns:StandardControlTypeDTO" />
+      <xs:element minOccurs="0" name="StandardControlTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="StandardControlValidations" nillable="true" type="tns:ArrayOfStandardControlValidationDTO" />
+      <xs:element minOccurs="0" name="TransformOnMobile" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StandardControlDTO" nillable="true" type="tns:StandardControlDTO" />
+  <xs:complexType name="PreDefinedValueListDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMatchingEngineAdditionalField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PreDefinedValueListId" type="xs:int" />
+      <xs:element minOccurs="0" name="PreDefinedValueListName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StoredProcedureName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ValueListItems" nillable="true" type="tns:ArrayOfValueListDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PreDefinedValueListDTO" nillable="true" type="tns:PreDefinedValueListDTO" />
+  <xs:complexType name="ArrayOfValueListDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ValueListDTO" nillable="true" type="tns:ValueListDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfValueListDTO" nillable="true" type="tns:ArrayOfValueListDTO" />
+  <xs:complexType name="ValueListDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsDefault" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreDefinedValueListId" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValueListId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValueListDTO" nillable="true" type="tns:ValueListDTO" />
+  <xs:complexType name="StandardControlCodeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CSVCodeAlias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsReportControl" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSystemControl" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OpenMailRules" nillable="true" type="tns:ArrayOfOpenMailRuleDTO" />
+      <xs:element minOccurs="0" name="StandardControlCodeFilters" nillable="true" type="tns:ArrayOfStandardControlCodeFilterDTO" />
+      <xs:element minOccurs="0" name="StandardControlCodeId" type="xs:int" />
+      <xs:element minOccurs="0" name="SubmissionDetails" nillable="true" type="tns:ArrayOfSubmissionDetailDTO" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StandardControlCodeDTO" nillable="true" type="tns:StandardControlCodeDTO" />
+  <xs:complexType name="ArrayOfOpenMailRuleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OpenMailRuleDTO" nillable="true" type="tns:OpenMailRuleDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOpenMailRuleDTO" nillable="true" type="tns:ArrayOfOpenMailRuleDTO" />
+  <xs:complexType name="OpenMailRuleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GroupId" type="xs:int" />
+      <xs:element minOccurs="0" name="OpenMailProfile" nillable="true" type="tns:OpenMailProfileDTO" />
+      <xs:element minOccurs="0" name="OpenMailProfileId" type="xs:int" />
+      <xs:element minOccurs="0" name="OpenMailRuleId" type="xs:int" />
+      <xs:element minOccurs="0" name="RuleType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StandardControlCode" nillable="true" type="tns:StandardControlCodeDTO" />
+      <xs:element minOccurs="0" name="StandardControlCodeId" type="xs:int" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OpenMailRuleDTO" nillable="true" type="tns:OpenMailRuleDTO" />
+  <xs:complexType name="OpenMailProfileDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Campaigns" nillable="true" type="tns:ArrayOfCampaignDTO" />
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpenMailProfileId" type="xs:int" />
+      <xs:element minOccurs="0" name="OpenMailRules" nillable="true" type="tns:ArrayOfOpenMailRuleDTO" />
+      <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OpenMailProfileDTO" nillable="true" type="tns:OpenMailProfileDTO" />
+  <xs:complexType name="ArrayOfCampaignDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CampaignDTO" nillable="true" type="tns:CampaignDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCampaignDTO" nillable="true" type="tns:ArrayOfCampaignDTO" />
+  <xs:complexType name="CampaignDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APIRateExceeded" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdditionalQuestionsFlowTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="AllowRevShareRPL" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ApplicationId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AutoRenewal" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BPOTransfer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BaseLandingPageURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillByProspect" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BusinessModelId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="BusinessUnitId" type="xs:int" />
+      <xs:element minOccurs="0" name="CECEligible" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CECLeadScore" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CalculateRevShareByERPL" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CampaignAPIMatchBehaviorId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CampaignCoordinatorId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CampaignId" type="xs:long" />
+      <xs:element minOccurs="0" name="CampaignName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CampaignTCPAMessageName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CampaignTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="CampusAddAdditionalSmartMatch" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ChannelId" type="xs:int" />
+      <xs:element minOccurs="0" name="CostingModelId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HasExitPop" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HasLeaveBehind" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HasPreCheck" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HasXVerify" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCrossSellALternateList" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDefault" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:int" />
+      <xs:element minOccurs="0" name="IsInternalTransfer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsOverrideDefaultValues" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsStep1" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="JobSite" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LeadScoringAddAdditionalSmartMatch" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LeadScoringProductSelectionEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LeadScoringProductUpsellEnabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LeadScoringTierLevel" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LegacyCampaignID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ListingResultCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MarketingUnitId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MasterProfileID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxNonFullDegreeCrossSell" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfOnlineBackfillOnGeoPages" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="OfferId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="OpenMailProfile" nillable="true" type="tns:OpenMailProfileDTO" />
+      <xs:element minOccurs="0" name="OpenMailProfileId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="OverrideManualRating" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PrimaryBuyerId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProgramWizardAdditionalQuestionsFlowTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="RevenueSharePercentage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RowGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="ScrubRate" type="xs:int" />
+      <xs:element minOccurs="0" name="SubChannelId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SubDeal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubmissionCount" type="xs:int" />
+      <xs:element minOccurs="0" name="TrackId" type="ser:guid" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UseDefaultProfiles" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ValidateTCPA" type="xs:boolean" />
+      <xs:element minOccurs="0" name="VendorFee" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="VendorId" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CampaignDTO" nillable="true" type="tns:CampaignDTO" />
+  <xs:complexType name="ArrayOfStandardControlCodeFilterDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StandardControlCodeFilterDTO" nillable="true" type="tns:StandardControlCodeFilterDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStandardControlCodeFilterDTO" nillable="true" type="tns:ArrayOfStandardControlCodeFilterDTO" />
+  <xs:complexType name="StandardControlCodeFilterDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StandardControlCodeFilterEntity" nillable="true" type="tns:StandardControlCodeDTO" />
+      <xs:element minOccurs="0" name="StandardControlCodeFilterId" type="xs:int" />
+      <xs:element minOccurs="0" name="StandardControlCodeId" type="xs:int" />
+      <xs:element minOccurs="0" name="StandardControlCodeIdFilter" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StandardControlCodeFilterDTO" nillable="true" type="tns:StandardControlCodeFilterDTO" />
+  <xs:complexType name="ArrayOfSubmissionDetailDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubmissionDetailDTO" nillable="true" type="tns:SubmissionDetailDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubmissionDetailDTO" nillable="true" type="tns:ArrayOfSubmissionDetailDTO" />
+  <xs:complexType name="SubmissionDetailDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StandardControlCodeId" type="xs:int" />
+      <xs:element minOccurs="0" name="Submission" nillable="true" type="tns:SubmissionDTO" />
+      <xs:element minOccurs="0" name="SubmissionDetailId" type="xs:int" />
+      <xs:element minOccurs="0" name="SubmissionDetailValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubmissionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubmissionDetailDTO" nillable="true" type="tns:SubmissionDetailDTO" />
+  <xs:complexType name="SubmissionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CallCenterURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CampaignTrackId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ConsumingApplicationId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FormLeadUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InitiatingURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsBeta" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LandingURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LeadInitiatingUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LeadSourceUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LimboAlternativeCampaignTrackid" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="LimboAlternativeCampaignTrackidUtilized" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LimboReasonId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProspectFlowId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProspectId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ServerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubmissionDetailAdditionals" nillable="true" type="tns:ArrayOfSubmissionDetailAdditionalDTO" />
+      <xs:element minOccurs="0" name="SubmissionDetails" nillable="true" type="tns:ArrayOfSubmissionDetailDTO" />
+      <xs:element minOccurs="0" name="SubmissionId" type="xs:int" />
+      <xs:element minOccurs="0" name="SubmissionLeadScoringResponses" nillable="true" type="tns:ArrayOfSubmissionLeadScoringResponseDTO" />
+      <xs:element minOccurs="0" name="SubmissionMatchResponses" nillable="true" type="tns:ArrayOfSubmissionMatchResponseDTO" />
+      <xs:element minOccurs="0" name="SubmissionTypeId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SubmissionValidationErrors" nillable="true" type="tns:ArrayOfSubmissionValidationErrorDTO" />
+      <xs:element minOccurs="0" name="TemplateId" type="xs:int" />
+      <xs:element minOccurs="0" name="TrackingSessionGuid" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="VideoUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WidgetName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WidgetRequestGuid" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubmissionDTO" nillable="true" type="tns:SubmissionDTO" />
+  <xs:complexType name="ArrayOfSubmissionDetailAdditionalDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubmissionDetailAdditionalDTO" nillable="true" type="tns:SubmissionDetailAdditionalDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubmissionDetailAdditionalDTO" nillable="true" type="tns:ArrayOfSubmissionDetailAdditionalDTO" />
+  <xs:complexType name="SubmissionDetailAdditionalDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Submission" nillable="true" type="tns:SubmissionDTO" />
+      <xs:element minOccurs="0" name="SubmissionDetailAdditionalId" type="xs:int" />
+      <xs:element minOccurs="0" name="SubmissionDetailAdditionalKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubmissionDetailAdditionalValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubmissionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubmissionDetailAdditionalDTO" nillable="true" type="tns:SubmissionDetailAdditionalDTO" />
+  <xs:complexType name="ArrayOfSubmissionLeadScoringResponseDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubmissionLeadScoringResponseDTO" nillable="true" type="tns:SubmissionLeadScoringResponseDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubmissionLeadScoringResponseDTO" nillable="true" type="tns:ArrayOfSubmissionLeadScoringResponseDTO" />
+  <xs:complexType name="SubmissionLeadScoringResponseDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LeadScoringGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="Submission" nillable="true" type="tns:SubmissionDTO" />
+      <xs:element minOccurs="0" name="SubmissionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubmissionLeadScoringResponseDTO" nillable="true" type="tns:SubmissionLeadScoringResponseDTO" />
+  <xs:complexType name="ArrayOfSubmissionMatchResponseDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubmissionMatchResponseDTO" nillable="true" type="tns:SubmissionMatchResponseDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubmissionMatchResponseDTO" nillable="true" type="tns:ArrayOfSubmissionMatchResponseDTO" />
+  <xs:complexType name="SubmissionMatchResponseDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MatchResponseGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="MatchResponseTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="Submission" nillable="true" type="tns:SubmissionDTO" />
+      <xs:element minOccurs="0" name="SubmissionId" type="xs:int" />
+      <xs:element minOccurs="0" name="SubmissionMatchResponseId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubmissionMatchResponseDTO" nillable="true" type="tns:SubmissionMatchResponseDTO" />
+  <xs:complexType name="ArrayOfSubmissionValidationErrorDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubmissionValidationErrorDTO" nillable="true" type="tns:SubmissionValidationErrorDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubmissionValidationErrorDTO" nillable="true" type="tns:ArrayOfSubmissionValidationErrorDTO" />
+  <xs:complexType name="SubmissionValidationErrorDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Submission" nillable="true" type="tns:SubmissionDTO" />
+      <xs:element minOccurs="0" name="SubmissionId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SubmissionValidationErrorId" type="xs:int" />
+      <xs:element minOccurs="0" name="ValidationRule" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubmissionValidationErrorDTO" nillable="true" type="tns:SubmissionValidationErrorDTO" />
+  <xs:complexType name="StandardControlDataTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StandardControlDataTypeId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StandardControlDataTypeDTO" nillable="true" type="tns:StandardControlDataTypeDTO" />
+  <xs:complexType name="StandardControlTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ErrorMessages" nillable="true" type="tns:ArrayOfErrorMessageDTO" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StandardControlTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="StandardControlTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StandardControlTypeDTO" nillable="true" type="tns:StandardControlTypeDTO" />
+  <xs:complexType name="ArrayOfErrorMessageDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ErrorMessageDTO" nillable="true" type="tns:ErrorMessageDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfErrorMessageDTO" nillable="true" type="tns:ArrayOfErrorMessageDTO" />
+  <xs:complexType name="ErrorMessageDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="tns:ErrorCodeDTO" />
+      <xs:element minOccurs="0" name="ErrorCodeId" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorMessageId" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StandardControlTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="TemplateType" nillable="true" type="tns:TemplateTypeDTO" />
+      <xs:element minOccurs="0" name="TemplateTypeId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorMessageDTO" nillable="true" type="tns:ErrorMessageDTO" />
+  <xs:complexType name="ErrorCodeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ErrorCodeId" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorCodeDTO" nillable="true" type="tns:ErrorCodeDTO" />
+  <xs:complexType name="TemplateTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HTMLRenderingStrategyAssignments" nillable="true" type="tns:ArrayOfHTMLRenderingStrategyAssignmentDTO" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TemplateTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TemplateTypeDTO" nillable="true" type="tns:TemplateTypeDTO" />
+  <xs:complexType name="ArrayOfHTMLRenderingStrategyAssignmentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HTMLRenderingStrategyAssignmentDTO" nillable="true" type="tns:HTMLRenderingStrategyAssignmentDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHTMLRenderingStrategyAssignmentDTO" nillable="true" type="tns:ArrayOfHTMLRenderingStrategyAssignmentDTO" />
+  <xs:complexType name="HTMLRenderingStrategyAssignmentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HTMLRenderingStrategy" nillable="true" type="tns:HTMLRenderingStrategyDTO" />
+      <xs:element minOccurs="0" name="HTMRenderingStrategyId" type="xs:int" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TemplateType" nillable="true" type="tns:TemplateTypeDTO" />
+      <xs:element minOccurs="0" name="TemplateTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HTMLRenderingStrategyAssignmentDTO" nillable="true" type="tns:HTMLRenderingStrategyAssignmentDTO" />
+  <xs:complexType name="ArrayOfStandardControlValidationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StandardControlValidationDTO" nillable="true" type="tns:StandardControlValidationDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStandardControlValidationDTO" nillable="true" type="tns:ArrayOfStandardControlValidationDTO" />
+  <xs:complexType name="StandardControlValidationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StandardControlId" type="xs:int" />
+      <xs:element minOccurs="0" name="StandardControlValidationId" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ValidationLibrary" nillable="true" type="tns:ValidationLibraryDTO" />
+      <xs:element minOccurs="0" name="ValidationLibraryId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StandardControlValidationDTO" nillable="true" type="tns:StandardControlValidationDTO" />
+  <xs:complexType name="ValidationLibraryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="tns:ErrorCodeDTO" />
+      <xs:element minOccurs="0" name="ErrorCodeId" type="xs:int" />
+      <xs:element minOccurs="0" name="Expression" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ValidationLibraryId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidationLibraryDTO" nillable="true" type="tns:ValidationLibraryDTO" />
+  <xs:complexType name="ArrayOfTemplateControlDefaultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TemplateControlDefaultDTO" nillable="true" type="tns:TemplateControlDefaultDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTemplateControlDefaultDTO" nillable="true" type="tns:ArrayOfTemplateControlDefaultDTO" />
+  <xs:complexType name="TemplateControlDefaultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPopular" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TemplateControlDefaultId" type="xs:int" />
+      <xs:element minOccurs="0" name="TemplateControlId" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TemplateControlDefaultDTO" nillable="true" type="tns:TemplateControlDefaultDTO" />
+  <xs:complexType name="APIValidationResultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsTestLead" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Valid" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="ValidationMessages" nillable="true" type="q1:ArrayOfKeyValuePairOfstringstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="APIValidationResultDTO" nillable="true" type="tns:APIValidationResultDTO" />
+  <xs:complexType name="APISubmissionResultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsTestLead" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LeadId" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LeadPingScoreCPL" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valid" type="xs:boolean" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="ValidationMessages" nillable="true" type="q2:ArrayOfKeyValuePairOfstringstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="APISubmissionResultDTO" nillable="true" type="tns:APISubmissionResultDTO" />
+  <xs:complexType name="APIProgramMatchesDTO">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="AdditionalQuestionList" nillable="true" type="q3:ArrayOfKeyValuePairOfintArrayOfTemplateControlDTOVTWd94hm" />
+      <xs:element minOccurs="0" name="MaxUserSelectionsField" nillable="true" type="xs:int" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="SchoolSelectionList" nillable="true" type="q4:ArrayOfCampusWithInstitution" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TemplateIdList" nillable="true" type="q5:ArrayOfint" />
+      <xs:element minOccurs="0" name="Valid" type="xs:boolean" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="ValidationMessages" nillable="true" type="q6:ArrayOfKeyValuePairOfstringstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="APIProgramMatchesDTO" nillable="true" type="tns:APIProgramMatchesDTO" />
+  <xs:complexType name="APIMultiValidationResultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllValid" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ValidationResults" nillable="true" type="tns:ArrayOfAPIProgramValidationResultDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="APIMultiValidationResultDTO" nillable="true" type="tns:APIMultiValidationResultDTO" />
+  <xs:complexType name="ArrayOfAPIProgramValidationResultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APIProgramValidationResultDTO" nillable="true" type="tns:APIProgramValidationResultDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAPIProgramValidationResultDTO" nillable="true" type="tns:ArrayOfAPIProgramValidationResultDTO" />
+  <xs:complexType name="APIProgramValidationResultDTO">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMessages" nillable="true" type="q7:ArrayOfstring" />
+      <xs:element minOccurs="0" name="IsValid" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProgramProductId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="APIProgramValidationResultDTO" nillable="true" type="tns:APIProgramValidationResultDTO" />
+  <xs:complexType name="APIMultiSubmissionResultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllValid" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SubmissionResults" nillable="true" type="tns:ArrayOfAPISubmissionResultDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="APIMultiSubmissionResultDTO" nillable="true" type="tns:APIMultiSubmissionResultDTO" />
+  <xs:complexType name="ArrayOfAPISubmissionResultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APISubmissionResultDTO" nillable="true" type="tns:APISubmissionResultDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAPISubmissionResultDTO" nillable="true" type="tns:ArrayOfAPISubmissionResultDTO" />
+  <xs:complexType name="ArrayOfAPITemplateControlResultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APITemplateControlResultDTO" nillable="true" type="tns:APITemplateControlResultDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAPITemplateControlResultDTO" nillable="true" type="tns:ArrayOfAPITemplateControlResultDTO" />
+  <xs:complexType name="APITemplateControlResultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TemplateControls" nillable="true" type="tns:ArrayOfTemplateControlDTO" />
+      <xs:element minOccurs="0" name="TemplateId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="APITemplateControlResultDTO" nillable="true" type="tns:APITemplateControlResultDTO" />
+</xs:schema>

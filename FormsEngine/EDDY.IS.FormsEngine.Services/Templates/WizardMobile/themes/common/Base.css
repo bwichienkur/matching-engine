@@ -1,0 +1,747 @@
+﻿/*********************************************** Basic CSS for Professional Blue *************************/
+/*******************Will move into a seperate css file, and imported by specific css file ********************/
+
+.eddy-form-container{
+	font-size:14px;
+    color:#333;
+    line-height: 1.1;
+    font-family: Arial,Helvetica,sans-serif;
+}
+.eddy-form-container .clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+	visibility:hidden;
+}
+.eddy-form-container h1, 
+.eddy-form-container h2, 
+.eddy-form-container h3, 
+.eddy-form-container h4, 
+.eddy-form-container h5{
+    font-weight: bold;
+}
+.eddy-form-container h2, 
+.eddy-form-container h3, 
+.eddy-form-container h4, 
+.eddy-form-container h5,
+.eddy-form-container p{
+	margin:.5em 0;
+}
+.eddy-form-container h2 {
+    font-size: 150%;
+}
+.eddy-form-container h3 {
+    font-size:130%;
+}
+.eddy-form-container h4 {
+    font-size:110%;
+}
+.eddy-form-container h5 {
+    font-size:90%;
+}
+.eddy-form-container a,
+.eddy-form-container img {
+    outline:none;
+    color:#333;
+}
+    .eddy-form-container a,
+    .eddy-form-container a:hover,
+    .eddy-form-container a:link,
+    .eddy-form-container a:visited {
+        text-decoration:underline;
+    }
+
+/* overwrite the color of watermark*/
+.eddy-form-container ::-webkit-input-placeholder	{ color:#777; }
+.eddy-form-container ::-moz-placeholder { color:#777; } /* firefox 19+ */
+.eddy-form-container input:-moz-placeholder { color:#777; }
+		
+.eddy-form-container input:-ms-placeholder { color:#8F8F8F; }
+.eddy-form-container ::-ms-input-placeholder	{ color:#8F8F8F; }
+.eddy-form-container :-ms-input-placeholder	{ color:#8F8F8F; }
+/*************** reset ****************/
+.eddy-form-wizard-container ol, .eddy-form-wizard-container ul {
+    list-style: none outside none;
+	margin:8px auto;
+    padding: 0;
+}
+.eddy-form-wizard-container fieldset {
+    border-width: 0;
+	padding: 0;
+    margin:0 2px;
+    position: static;
+}
+.eddy-form-wizard-container fieldset legend{
+    font-weight:bold;
+	margin:0 8px 14px 0;
+    border:0;
+    border-bottom: 2px solid #E3E3E3;
+    width:100%;
+    line-height:150%;
+    font-size:15px;
+    background:none;
+    position:relative;
+    top:0;
+    left:0;
+    height:auto;
+    font-family:inherit;
+    border-radius:0;
+    text-indent:0;
+    text-shadow:none;
+}
+
+.eddy-form-wizard-container .field-holder fieldset label{
+	font-weight:normal;
+	display:inline-block;
+    border:none;
+}
+.eddy-form-wizard-container .field-holder fieldset input{
+    display:inline-block;
+	margin:3px 5px 3px 0;
+	width:40%;
+}
+.hide, .hidden {
+    display: none;
+}
+
+.eddy-form-wizard-container *:focus {
+    outline: 0 none;
+}
+
+
+/****** .eddy-form-wizard-container ******/
+
+.eddy-form-wizard-container{
+	width:500px;
+	font-family: Arial,Helvetica,sans-serif;
+    margin-left:5px;
+}
+
+.eddy-form-wizard-container h1 {
+    color: #111111;
+    font-size: 22px;
+    font-style: italic;
+    margin: 1em 0 0.5em 1em;
+}
+.eddy-form-wizard-container h2{
+
+}
+.eddy-form-wizard-container .form-page-step-message *{
+
+	margin:15px 10px 15px 0;
+}
+
+.steps {
+    min-height:380px;
+    float:left;
+    width:390px;
+    margin: 0 0 0 7px;
+
+}
+.eddy-form-wizard-container .text-field, .select-field, .label-holder {
+    margin: 0;
+}
+.eddy-form-wizard-container .field-holder {
+    clear: both;
+    margin: 0 auto 6px;
+    /*min-height: 30px;*/
+    padding: 4px;
+    position: relative;
+    text-align: left;
+    vertical-align: top;
+}
+
+
+	.eddy-form-wizard-container .field-holder label{
+        border-bottom: 2px solid #E3E3E3;
+		color: #333333;
+        display: block;
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 110%;
+		margin: 0 8px 14px 0;
+        vertical-align:middle;
+	}
+
+    .eddy-form-wizard-container .field-holder fieldset legend { /* ":not " not working in < IE8 */
+        border-bottom: 2px solid #E3E3E3;
+		color: #333333;
+        display: block;
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 110%;
+		margin: 0 8px 14px 0;
+        vertical-align:middle;
+    }
+
+	.eddy-form-wizard-container .field-holder select,
+	.eddy-form-wizard-container .field-holder input{		
+        background:none\0;
+		background: -webkit-gradient(linear, left top, left 45, from(#FFFFFF), color-stop(40%, #FFFFFF), to(#BBBBBB));
+		background: -moz-linear-gradient(top, #FFFFFF, #FFFFFF 1px, #BBBBBB 45px);
+		border: 1px solid #BBBBBB;
+		font-size: 14px;
+		margin-bottom: 4px;
+		padding: 6px 8px 6px;
+        padding-bottom: 8px \0/;
+		width: auto;
+        height:auto;
+		vertical-align: middle;	
+		padding-top:10px\9;		
+        float:none;
+        top:0;
+        font-family: Arial,Helvetica,sans-serif;
+        display:block;
+        background-color: #FFF; 
+	}
+	.eddy-form-wizard-container .field-holder input{
+		background:white;
+	}
+    .eddy-form-wizard-container .field-holder select{
+		width:66%;
+        height:auto;
+        min-width:0;
+	}
+	.eddy-form-wizard-container .field-holder input[type='checkbox']{
+		border:none;
+        margin:0 5px 0 0;
+		padding:0;
+		width:auto;
+		vertical-align:top;
+		background:transparent;
+	}
+	.eddy-form-wizard-container .field-holder .sub-field-holder input[type='checkbox']{
+		vertical-align:middle;
+	}
+	
+	
+	.eddy-form-wizard-container .field-holder select.actived,
+	.eddy-form-wizard-container .field-holder input.actived,
+	.eddy-form-wizard-container .field-holder select:focus,
+	.eddy-form-wizard-container .field-holder input:focus{
+		/*color:#333;*/
+	}
+
+	.eddy-form-wizard-container .field-holder .sub-field-holder{
+		display:inline;
+		margin: .3em;
+	}
+		.eddy-form-wizard-container .field-holder .sub-field-holder input[type='checkbox']{
+			margin:0 2px 0 0;
+			width:auto;
+			padding:0;
+		}
+		.eddy-form-wizard-container .field-holder .sub-field-holder label,
+		.eddy-form-wizard-container .field-holder .field-holder-group label{
+			display:inline-block;
+			font-weight:normal;
+			vertical-align:middle;
+			color:#555;
+			margin-bottom:0;
+		}
+
+	.eddy-form-wizard-container .field-holder .field-holder-group{
+		
+	}
+
+	
+	.eddy-form-wizard-container .field-holder .field-holder-group li{
+		width:48%;
+		margin:0 0 5px;
+		display:inline-block;
+		vertical-align:top;
+		width:49%\9;
+		margin:3px 0\9;
+		/*line-height: 10%\9;*/
+		*display:inline;
+		*float:left;		
+		*width:47%;
+	}
+	.eddy-form-wizard-container .field-holder .field-holder-group label{
+		font-size:13px;
+		margin:0px;
+		width:80%;
+		*margin-top:2px;
+        line-height: 100%;
+        vertical-align:top;
+        border:none;
+	}
+	
+.eddy-form-wizard-container div.checkbox input {
+    width: auto;
+}
+.eddy-form-wizard-container div.checkbox label {
+    font-size: 11px;
+    line-height: 15px;
+    width: 90%;
+	margin: 0;
+	display: inline-block;
+	font-weight: normal;
+}
+
+.eddy-form-wizard-container input.error, .eddy-form-wizard-container select.error {
+    border: 1px solid #B9121B;
+}
+.eddy-form-wizard-container label.error {
+    color: #B9121B;
+    font-size: 12px;
+    font-weight:normal;
+    border:none;
+}
+.eddy-form-wizard-container .error-summary, .eddy-form-wizard-container .UserAgreement ul {
+    color: #B9121B;
+    font-size: 14px;
+    margin: 10px 0 10px 90px;
+    padding: 0;
+    width: auto;
+}
+.eddy-form-wizard-container .UserAgreement ul {
+    margin-left: 65px;
+}
+.eddy-form-wizard-container .error-summary li, .UserAgreement fieldset ul li {
+    background: none repeat scroll 0 0 transparent;
+    clear: both;
+    color: #B9121B;
+    font-size: 15px;
+    list-style-type: disc !important;
+    margin: 5px 0;
+    padding: 0;
+    position: relative;
+    width: auto !important;
+}
+.eddy-form-wizard-container .error-summary label.error, .eddy-form-wizard-container .UserAgreement label.error {
+    background: none repeat scroll 0 0 transparent;
+    clear: both;
+    color: #B9121B;
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    list-style-type: disc !important;
+    margin: 0 0 8px;
+    padding: 0;
+    position: relative;
+    text-align: left;
+    width: auto;
+}
+.eddy-form-wizard-container .field-holder.radio label {
+    margin: 2px 10px 2px 0;
+    vertical-align: middle;
+    width: auto;
+}
+.eddy-form-wizard-container .field-holder.radio label.question {
+    /*vertical-align: bottom;
+    width: 20%;*/
+}
+.eddy-form-wizard-container .field-holder.radio input {
+    margin: 1px 3px 0;
+	border:none;
+	padding:0;
+	width:auto;
+}
+.eddy-form-wizard-container .hide, .eddy-form-wizard-container .hidden {
+    display: none;
+}
+
+
+/******************* Wizard Drip *********************/
+
+/* wizard drip body */
+.eddy-form-wizard-container .eddy-form-wizard-body {
+    padding:15px;
+    position:relative;
+    background: url("[SERVER]/images/dripForm-bg.png") no-repeat center top;
+    clear: both;
+    padding: 20px 0 15px 40px;
+    width: 90%;
+    margin-top:-5px;
+}
+.eddy-form-wizard-container .eddy-form-wizard-body ul.steps{
+	margin:10px 0 20px;
+}
+
+/* Button */
+.eddy-form-wizard-container .btnNext,
+.eddy-form-wizard-container .btnPrev {
+    background: none;
+    border: 0 none;
+    bottom: 45%;
+    display: inline;
+    position: absolute;
+    z-index: 10;
+}
+.eddy-form-wizard-container .btnNext {
+    float: right;
+    right:-30px;
+    width: 90px;
+    background: url("[SERVER]/images/call_to_action_sprite.png") no-repeat 0 -55px;
+    cursor: pointer;
+    display: block;
+    height: 53px;
+    line-height: normal !important;
+    margin: 0 auto;
+    padding: 0 !important;
+    
+}
+    .eddy-form-wizard-container .btnNext.buttonLastStep {
+        background: url("[SERVER]/images/call_to_action_sprite_laststep.png") no-repeat 0 -55px;
+    }
+.eddy-form-wizard-container .btnPrev { 
+    margin-top: 8px auto; 
+    left:-5px;
+    width: 50px; 
+    float:left; 
+    display:block; 
+    height:42px; 
+    background:url("[SERVER]/images/call_to_action_sprite_prev.png") no-repeat 0 -40px; 
+    line-height:normal !important; 
+    padding:0 !important; 
+    cursor:pointer;
+    bottom:46%;
+}
+
+    .eddy-form-wizard-container .btnNext a {
+        background: url("[SERVER]/images/call_to_action_sprite.png") no-repeat 0 0;
+        display: block;
+        height: 100%;
+        text-indent: -9999px;
+        width: 100%;
+    }
+    .eddy-form-wizard-container .btnNext.buttonLastStep a {
+        background: url("[SERVER]/images/call_to_action_sprite_laststep.png") no-repeat 0 0;
+    }
+    .eddy-form-wizard-container .btnNext a:hover { 
+        background-position: 0 56px; 
+        outline:none; 
+    }
+    
+    .eddy-form-wizard-container .btnPrev a { 
+        display:block; 
+        width:100%; 
+        height:100%; 
+        background:url("[SERVER]/images/call_to_action_sprite_prev.png") no-repeat 0 0 transparent; 
+        text-indent:-9999px; 
+
+    }
+    .eddy-form-wizard-container .btnPrev a:hover { 
+        background-position: 0 41px; 
+        outline:none; 
+
+    }
+
+
+/* wizard drip header */
+.eddy-form-wizard-container .eddy-form-wizard-header{
+	position:relative;
+	height:40px;
+	padding:5px 5px 0px;
+    z-index:10;
+}
+	.eddy-form-wizard-header .matching-progress{
+		background: url("[SERVER]/images/hdrMatchingProgress.png") no-repeat;
+		width:173px;
+		height:26px;
+	}
+	
+	.eddy-form-wizard-header .progress{		
+        height:16px;
+        width:425px;
+		margin:4px 0px;
+        -moz-border-radius: 4px;
+	    -webkit-border-radius: 4px;
+	    -khtml-border-radius: 4px;
+	    border-radius: 4px;
+        border: 1px solid #ACACAC;
+        background:#EBEBEB;
+	}
+
+			
+        .eddy-form-wizard-header .progress .progress-bar-inside{
+			top:0;
+			left:0;
+			height:88%;
+            margin:0 -1px -1px 0;
+            -moz-border-radius: 4px 0 0 4px;
+	        -webkit-border-radius: 4px 0 0 4px;
+	        -khtml-border-radius: 4px 0 0 4px;
+	        border-radius: 4px 0 0 4px;
+            background:url("[SERVER]/images/pbar-ani.gif");
+            border:1px solid #E78F08;
+		}
+		
+
+		.eddy-form-wizard-header .programMatches{
+            background: url("[SERVER]/images/programMatch.png") no-repeat left top;
+            float: right;
+            height: 80px;
+            position: absolute;
+            left: 400px;
+            top: 0;
+            width: 100px;
+		}
+        .eddy-form-wizard-header .programMatches span {
+            bottom: 14px;
+            color: #5D5D5D;
+            font-size: 19px;
+            font-weight: bold;
+            height: 25px;
+            left: 12px;
+            margin-right: auto;
+            margin-top: 0;
+            position: absolute;
+            text-align: center;
+            text-shadow: 1px 1px 1px #FFFFFF;
+            width: 73px;
+        }
+		
+
+/* wizard drip footer */		
+.eddy-form-wizard-container .eddy-form-wizard-footer{
+	background: url("[SERVER]/images/dripForm-bottom.png") no-repeat center top;
+    height: 50px;
+    padding: 10px 10px 20px 30px;
+    width: 450px;
+}
+
+
+    .eddy-form-wizard-container.no-match .form-page-step-message *{	   
+        font-size:13px;
+    }
+
+    .eddy-form-wizard-container #contactAdvisor {
+        background:url("[SERVER]/images/noMatchImg.jpg") no-repeat;
+        width:280px;
+        height:190px;
+        margin:auto;
+    }
+.eddy-form-wizard-container.no-match .form-submit-button {
+    background:url("[SERVER]/images/btnMatchMeAgain.gif") no-repeat;
+    width:185px;
+    height:30px;
+    float:right;
+}
+    .eddy-form-wizard-container.no-match .form-submit-button a {
+        padding:15px 90px;
+    }
+
+
+
+
+
+/* loader  */
+
+.eddy-form-container .FEoverlay {
+	background: none repeat scroll 0 0 #FFF;
+    height: 93%;
+    left: 30px;
+    opacity: 0.85;
+	filter: alpha(opacity = 95);
+	zoom:1;
+    position: absolute;
+    top: 35px;
+    width: 88%;
+    z-index: 10;
+}
+
+
+.eddy-form-container #FEloader {
+	width: 248px;
+	height: 200px;
+	margin: 0 15px;
+	background: url("[SERVER]/images/ajax-loader.gif") no-repeat 100px 60px;
+	background-size: 48px 48px;
+	font-family: Arial, Helvetica, sans-serif Aharoni !important;
+	color: #262626;
+	text-align: center;
+    z-index: 11;
+}
+.eddy-form-container #FEloader .loading {
+	font-weight: bold !important;
+	font-size: 16px !important;
+	text-transform: uppercase !important;
+	margin: 120px 0 5px 0 !important;
+}
+.eddy-form-container #FEloader .loadingParagraph {
+	font-weight: normal;
+	font-size: 14px;
+	font-style: italic;
+	color: #262626;
+	margin: 0;
+}
+.eddy-form-container #FEloader.loaderOn {
+    top: 20%;
+    left: 20%;
+    position: absolute;
+}
+
+/******** More School Area **************/
+.eddy-form-wizard-footer .more-school-area .more-schools{
+
+}	
+.eddy-form-wizard-footer .more-school-area .more-schools ul{
+	width:340px;
+}	
+.eddy-form-wizard-footer .more-school-area .more-schools li{
+	border:1px solid #d8d8d8;
+	-webkit-border-radius: 60px;
+	-moz-border-radius: 60px;
+	border-radius: 60px;
+	margin-bottom:15px;
+	box-shadow: 2px 2px 10px 0px #888;
+	-moz-box-shadow: 2px 2px 10px 0px #888;
+	-webkit-box-shadow: 2px 2px 10px 0px #888;
+	padding:10px 20px;
+	text-align:center;
+}
+    .eddy-form-wizard-footer .more-school-area .more-schools li .school-icon {
+        width:278px;
+        height:50px;
+        margin:0 auto 5px;
+    }
+    .eddy-form-wizard-footer .more-school-area .more-schools li #CollegeCredit {
+        background: url("[SERVER]/images/collegecredit.png") no-repeat;
+    }
+    .eddy-form-wizard-footer .more-school-area .more-schools li #TestDriveCollege {
+        background: url("[SERVER]/images/testdrivecollege.png") no-repeat;
+    }
+    .eddy-form-wizard-footer .more-school-area .more-schools li #eLearners {
+        background: url("[SERVER]/images/elearners.png") no-repeat;
+    }
+.eddy-form-wizard-footer .more-school-area .more-schools li p{
+	margin:0;
+	text-align:center;
+}
+
+
+/******* Thank you page/no match page ***************/
+.eddy-form-wizard-container.thank-you-page,
+.eddy-form-wizard-container.no-match {
+    background:none;
+}
+.eddy-form-wizard-container.thank-you-page .eddy-form-wizard-body,
+.eddy-form-wizard-container.no-match .eddy-form-wizard-body{
+     background:none;
+     padding:0;
+     font-size:12px;
+     width:auto;
+}
+.eddy-form-wizard-container .thank-you-msg {
+    color: #FE9504;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1em !important;
+    margin: 0 0 5px;
+
+}
+
+.eddy-form-wizard-container.thank-you-page .image-text-group {
+    margin-left:30px;
+}
+.eddy-form-wizard-container.thank-you-page .image-text-group .image-text li{
+	display:block;
+	width:100%;
+    padding:5px 0 25px;
+    margin-bottom:1em;
+    background:url("[SERVER]/images/dividerShadowSchoolList.png") no-repeat center bottom;
+}
+.eddy-form-wizard-container.thank-you-page .image-text-group .image-text .school-logo{
+	display:inline-block;
+	height:auto;
+	box-shadow:none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	-khtml-border-radius: 0;
+	border-radius: 0;
+	border:1px solid #848284;
+    padding:1px;
+}
+.eddy-form-wizard-container.thank-you-page .image-text-group .image-text .school-info{
+	display:inline-block;
+	text-align:left;
+	vertical-align:top;
+	font-size:14px;
+	line-height:120%;
+	margin:0 5px;
+    width:300px;
+}
+    .eddy-form-wizard-container.thank-you-page .image-text-group .image-text .school-info p {
+        padding:0;
+        margin:0;
+    }
+.eddy-form-wizard-container.thank-you-page .image-text-group .image-text .school-info p.program-name{
+	font-size:11px;
+    margin:0;
+    line-height:100%;
+}
+.eddy-form-wizard-container.thank-you-page .submitted-school-msg {
+    padding:4px 0 8px 30px;
+	margin-top:20px;
+}
+    .eddy-form-wizard-container.thank-you-page .submitted-school-msg {
+        width:461px;
+        height:28px;
+    }
+    .eddy-form-wizard-container.thank-you-page .submitted-school-msg.online-msg {
+        
+        background: url("[SERVER]/images/hdrChosenSchoolsOnline.gif") no-repeat 0 0;
+    }
+    .eddy-form-wizard-container.thank-you-page .submitted-school-msg.campus-msg {
+        background: url("[SERVER]/images/hdrChosenSchoolsCampus.gif") no-repeat 0 0;
+    }
+
+    .eddy-form-wizard-container.thank-you-page .eddy-form-wizard-footer,
+    .eddy-form-wizard-container.no-match .eddy-form-wizard-footer {
+        background:none;
+        padding:0;
+    }
+
+        .eddy-form-wizard-container.thank-you-page .eddy-form-wizard-footer .form-submit-button {
+            background: url("[SERVER]/images/btnBack.gif") no-repeat;
+            height: 36px;
+            width: 111px;
+        }
+/* popup */
+.eddy-form-wizard-container .popup-info
+{
+    position:absolute;
+    z-index:10;
+    background:white;
+    padding:0;
+    overflow-y:auto;
+    top:0;
+    -moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	-khtml-border-radius: 12px;
+	border-radius: 12px;
+    font-size:12px;
+}
+
+
+    .eddy-form-wizard-container .popup-info .popup-close {
+        text-decoration:none;
+        background:url("[SERVER]/images/close.gif") no-repeat center;
+        height:15px;
+        width:16px;
+        position:absolute;
+        right:10px;
+        top:10px;
+    }
+
+    .eddy-form-wizard-container .popup-info h4 {
+        margin-top:0;
+    }
+
+/*********************************************** End of Basic CSS for Professional Blue *************************/
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+﻿.eddy-form-qdfplugin-container .form-page-step-message * {
+	font-family: Helvetica,Arial,sans-serif;
+	font-style: normal !important;
+}
+
+.eddy-form-qdfplugin-container fieldset {
+	border: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.eddy-form-qdfplugin-container label {
+	font-family: Helvetica,Arial,sans-serif;
+}
+
+.eddy-form-qdfplugin-container .form-control {
+	width: 100%;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #555;
+	padding: 6px 12px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,boccx-shadow ease-in-out .15s;
+	border: 1px solid #ccc;
+	color: #555;
+	vertical-align: middle;
+	line-height: 1.428571429;
+	margin-top: 5px;
+}
+
+.eddy-form-qdfplugin-container .form-group {
+	margin-bottom: 15px;
+}
+
+.eddy-form-qdfplugin-container .form-submit-button-label {
+	font-family: Helvetica,Arial,sans-serif
+}
+
+.eddy-form-qdfplugin-container .form-submit-button-inner {
+	padding-top: 11px;
+}

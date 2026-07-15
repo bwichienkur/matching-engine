@@ -1,0 +1,158 @@
+﻿div[data-controlcode='K12'] { display: none; }
+
+
+
+/*********** Wizard Start Form ***********************/
+	.eddy-form-wizard-container .field-holder.full select{
+		width: 93.5%;
+	}
+	.eddy-form-wizard-container .field-holder.medium  select{
+		width: 63.5%;
+	}
+	.eddy-form-wizard-container .field-holder.full input{
+		width: 91.5%;
+	}
+	.eddy-form-wizard-container .field-holder.medium input{
+		width: 58.5%;
+	}
+	.eddy-form-wizard-container .field-holder input{
+		width:15%;
+	}
+	
+    .eddy-form-wizard-container .field-holder.has-scrollbar .featured-subcategories.field-holder-group {
+        height: auto;
+    }
+
+	.eddy-form-wizard-container .field-holder.has-scrollbar .field-holder-group{
+		overflow-y:auto;
+		/*background: #EDEDED;*/
+		padding:8px 0 8px 8px;
+        height:210px;
+        margin:0;
+	}
+
+    .eddy-form-wizard-container .field-holder.has-scrollbar.no-scroll .field-holder-group{
+        height:auto;
+	}
+
+.eddy-form-wizard-container .image-checkbox-group li div {
+    border: medium none !important;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+    vertical-align: bottom;
+    width: 117px;
+    height: 76px;
+}	
+.eddy-form-wizard-container .campus-preference-online{
+    background: url("[SERVER]/images/online.png") no-repeat scroll 0 0;
+
+}
+.eddy-form-wizard-container .campus-preference-campus{
+    background: url("[SERVER]/images/campus.png") no-repeat scroll 0 0;
+}
+.eddy-form-wizard-container .campus-preference-both{
+    background: url("[SERVER]/images/both.png") no-repeat scroll 0 0;
+}
+
+
+
+.eddy-form-wizard-container .image-checkbox-group .image-checkbox li{
+	display:inline-block;
+	padding:5px;
+	width:30%;
+	*float:left;
+	*width:30%;
+}
+	.eddy-form-wizard-container .image-checkbox-group .image-checkbox li.selected{
+		background:#DDD;
+		box-shadow: inset 2px 2px 15px 0px #888;
+		-moz-box-shadow: inset 2px 2px 15px 0px #888;
+		-webkit-box-shadow: inset 2px 2px 15px 0px #888;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		-khtml-border-radius: 10px;
+		border-radius: 10px;
+	}
+	
+.eddy-form-wizard-container .image-checkbox-group .image-checkbox input{
+	display:block;
+	margin:5px auto;
+    background:transparent;
+}
+.eddy-form-wizard-container .image-checkbox-group .image-checkbox a{
+	outline:none;
+}
+
+
+/********************** CSS for specific fields **********************/
+
+.eddy-form-wizard-container .field-holder.Highest_Level_of_Education_Completed select,
+.eddy-form-wizard-container .field-holder.Military_Affiliation select,
+.eddy-form-wizard-container .field-holder.Address input,
+.eddy-form-wizard-container .field-holder.Address_2 input,
+.eddy-form-wizard-container .field-holder.City input,
+.eddy-form-wizard-container .field-holder.First_Name input,
+.eddy-form-wizard-container .field-holder.Last_Name input,
+.eddy-form-wizard-container .field-holder.State select,
+.eddy-form-wizard-container .field-holder.Country select,
+.eddy-form-wizard-container .field-holder.Desired_Start_Date select {
+       width:93.5%;
+}
+.eddy-form-wizard-container .field-holder.Email input {
+       width:58.5%;
+}
+.eddy-form-wizard-container .field-holder.zipcode fieldset > input{
+	width:15%;
+}
+/*
+.eddy-form-wizard-container .field-holder.phone-number fieldset > input{
+	width:8%;
+	margin:0 5px 8px;
+}*/
+.eddy-form-wizard-container .field-holder.Phone input,
+.eddy-form-wizard-container .field-holder.Alternate_Phone input{
+	width:42%;
+}
+
+#Step6 #Section2 .field-holder {
+    margin-bottom:0;
+}
+.eddy-form-wizard-container .field-holder.Address,
+.eddy-form-wizard-container .field-holder.Address_2,
+.eddy-form-wizard-container .field-holder.City,
+.eddy-form-wizard-container .field-holder.First_Name,
+.eddy-form-wizard-container .field-holder.Last_Name{
+	display:inline-block;
+    width:44%;
+}
+.eddy-form-wizard-container .field-holder.school-choice .field-holder-group li{
+	display:block;
+	width:auto;
+	margin:10px 20px 20px;
+}
+.eddy-form-wizard-container .field-holder.school-choice .field-holder-group label{
+	font-weight:bold;
+}
+.eddy-form-wizard-container .field-holder.school-choice .field-holder-group select{
+	margin-left:20px;
+	width:85%;
+}
+.eddy-form-wizard-container .nomatch-steps .form-submit-button{
+	margin-left:0;
+
+}
+
+.eddy-form-wizard-container .required-legend
+{
+    font-size: 12px;
+    font-style: italic;
+}
+
+.eddy-form-wizard-container .required-legend
+{
+    font-size: 12px;
+    font-style: italic;
+}
+

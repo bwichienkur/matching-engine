@@ -1,0 +1,72 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.ManagedChoiceModel>
+
+@if (Model.HasSmartMatchPrograms)
+{
+    <script type="text/javascript">
+
+        //DEV-940 to pass hashed phone email to setup GTM on DL event 
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message.trim().toLowerCase());
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(function (b) {
+                return b.toString(16).padStart(2, '0');
+            }).join('');
+        }
+         // to get requied lead data for dl event 
+        function getLeadDataValue(code) {
+            var data = decodeURIComponent(FormsEngine.LeadDataEncoded || "");
+            var match = new RegExp("(^|&)" + code + "=([^&]*)", "i").exec(data);
+            return match ? decodeURIComponent(match[2].replace(/\+/g, " ")) : "";
+        }
+         // define
+        function fireInitialLeadDataLayerEvent() {
+            try {
+                if (window.__initialLeadEventFired) {
+                    return;
+                }
+
+                window.__initialLeadEventFired = true;
+
+                var userEmail = getLeadDataValue("Email");
+                var userPhone = getLeadDataValue("Phone") || getLeadDataValue("Alternate_Phone");
+
+                Promise.all([
+                    userEmail ? sha256(userEmail) : null,
+                    userPhone ? sha256(userPhone.replace(/\D/g, '')) : null
+                ]).then(function (results) {
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        event: "initial_lead",
+                        user_data: {
+                            email_sha256: results[0],
+                            phone_sha256: results[1]
+                        }                        
+                    });
+                }).catch(function (e) {
+                    if (typeof fe_consolelog === "function") {
+                        fe_consolelog(e);
+                    }
+                });
+
+            } catch (e) {
+                if (typeof fe_consolelog === "function") {
+                    fe_consolelog(e);
+                }
+            }
+        }
+        // trigger
+        fireInitialLeadDataLayerEvent();
+
+        var unique = 1;
+
+        @foreach (var school in Model.SmartMatchList)
+        {
+            <text>
+                fe_googleTagEvent('gaEvent' + unique.toString(), 'client', 'lead-smartmatch', @school.ProgramId);
+                unique++;
+            </text>
+        }
+
+    </script>
+}

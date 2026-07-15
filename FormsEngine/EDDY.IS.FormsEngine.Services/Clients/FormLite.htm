@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>IS-Form Engine ProgramTemplate</title>
+    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+
+    <!-- Google Tag Manager -->
+    <script type="text/javascript">
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0];
+            var j = d.createElement(s);
+            var dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+            j.type = 'text/javascript';
+            j.async = true;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-55XQ37');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!--    <script src="//cdn.optimizely.com/js/5309656004034560.js"></script>-->
+    <!--<script src="http://cdn.optimizely.com/js/101930973.js"></script>-->
+    <script language="javascript" type="text/javascript">
+
+        var FormsEngine = FormsEngine || {};
+        /* REQUIRED */
+        FormsEngine.RenderingStrategy = 'ORIGINAL';
+        FormsEngine.RenderingDiv = 'eddy-form-container';
+        FormsEngine.ThankYouPage = "/Clients/ThankYou.htm";
+        FormsEngine.IsBeta = true;
+        FormsEngine.InstitutionId = 119;
+        FormsEngine.InstitutionName = "Grand Canyon University";
+        FormsEngine.InstitutionName = 'Colorado Technical University';
+        FormsEngine.TrackId = '7e939f31-8b30-4392-b2cd-95315b866fc7';
+	    FormsEngine.ApplicationId = 2;
+        FormsEngine.ProgramId = 0;
+
+
+
+               /* Optional */
+        FormsEngine.Theme = "premier";
+        //FormsEngine.TemplateName = 'Undergrad Template';
+        //FormsEngine.DefaultTemplateId = 1;
+        //FormsEngine.TemplateId = 490;
+        FormsEngine.DebugMode = true;
+
+
+            //FormsEngine.TrackId = "351C687F-E7A2-42F8-A3AA-31B4D4C792F2";
+
+            //FormsEngine.JornayaAlternativeCampaignId = "9AD30C48-0EA6-3C31-5D5C-740AAF90E844";
+
+        /*  Optimizely OPTIONAL */
+            //FormsEngine.AlternativeTemplates = [ { TemplateId:2, AlternativeId:1}, { TemplateId:3, AlternativeId:1}, { TemplateId:4, AlternativeId:1}, { TemplateId:5, AlternativeId:1} ];
+            //FormsEngine.AlternativeTemplates = [{ TemplateId: 229, AlternativeId: 3 }, {TemplateId: 230, AlternativeId: 5}];
+            //FormsEngine.AlternativeRenderingStrategy = 'STEPSSAMPLE';//ORIGINAL
+            //FormsEngine.AlternativeExpressConsent = "Alternative I acknowledge that by submitting this form, I may be contacted by email, text message, and/or phone, at my mobile phone number {mobile-number}, by a representative of {school-name} the schools I select above, and by {/school-name}EducationDynamics.";
+            //FormsEngine.ExpressConsentAsLabel = true;
+            //FormsEngine.AlternativeUserAgreement = "Alternative I acknowledge that by submitting this form, I may be contacted by email, text message, and/or phone, at the number provided above, including my wireless number if provided, by a representative of {school-name}, any other school I select and by EducationDynamics. You may still choose to enroll in the school if you do not provide consent. Message and data rates may apply. I understand these calls may be generated using an automated technology.";
+            //FormsEngine.UserAgreementAsLabel = true;
+            //FormsEngine.AdditionalFields = [];
+            //FormsEngine.AdditionalFields.push(["Form Type", "Program Template"]);
+
+
+
+        /* Optional Events */
+
+            //Program changed event with Program information
+        /*FormsEngine.ProgramChangedEvent = function(e){
+            var out = "";
+            out+="ProgramName=" + e.ProgramDetails.ProgramName + "\n";
+            out+="ProgramDescription=" + e.ProgramDetails.ProgramDescription + "\n";
+            out+="ProgramDisclaimer=" + e.ProgramDetails.ProgramDisclaimer + "\n";
+            out+="AccreditationDescription=" + e.ProgramDetails.AccreditationDescription + "\n";
+            out+="AdditionalFinancialAidInfo=" + e.ProgramDetails.AdditionalFinancialAidInfo + "\n";
+            out+="ProgramLevelName=" + e.ProgramDetails.ProgramLevelName + "\n";
+            alert('Implement Function to display product info in your site:\n'+ out);
+        }*/
+
+            //Country validation failure event
+            //FormsEngine.CountryValidationFailureEvent = function(e){ alert('Manage country validation failure event, display popup.');}
+
+            //External LeadId validations
+            //FormsEngine.LoadExternalLeadScript = true;
+            //FormsEngine.ExternalLeadScript = function() { alert('inject hidden input field with code= "externalleadid" and 3rd party javascript');}
+
+    </script>
+    <!--<script type="text/javascript" src="/Templates/Common/js/jquery.inputmask.min.js"></script>-->
+    <script type="text/javascript" src="/Static/GetGlobal"></script>
+    <script type="text/javascript" src="/Static/GetClient"></script>
+    <style>
+        #eddy-form-container {
+            width: 710px !important;
+            position: absolute !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="eddy-form-container">
+    </div>
+</body>
+</html>

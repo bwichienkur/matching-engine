@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ValidationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+      <xsd:import schemaLocation="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.Validation.DTO.Extended" />
+      <xsd:import schemaLocation="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.Validation.IPUtils" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IValidationService_GetCityStateCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCityStateCountry" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetCityStateCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCityStateCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_ZipCodeStateCountryCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:ZipCodeStateCountryCheck" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_ZipCodeStateCountryCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ZipCodeStateCountryCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_ProfanityCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProfanityCheck" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_ProfanityCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProfanityCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_PhoneCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:PhoneCheck" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_PhoneCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PhoneCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_EmailCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmailCheck" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_EmailCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmailCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetStatesByCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatesByCountry" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetStatesByCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatesByCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetISMapping_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetISMapping" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetISMapping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetISMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCity" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetCountriesResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesResult" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetCountriesResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetStatesResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatesResult" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetStatesResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatesResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetCountryIdStateId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryIdStateId" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetCountryIdStateId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryIdStateIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetCountryCodeByIP_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryCodeByIP" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetCountryCodeByIP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryCodeByIPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetLocationByIP_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationByIP" />
+  </wsdl:message>
+  <wsdl:message name="IValidationService_GetLocationByIP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationByIPResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IValidationService">
+    <wsdl:operation name="GetCityStateCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IValidationService/GetCityStateCountry" message="tns:IValidationService_GetCityStateCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IValidationService/GetCityStateCountryResponse" message="tns:IValidationService_GetCityStateCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ZipCodeStateCountryCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IValidationService/ZipCodeStateCountryCheck" message="tns:IValidationService_ZipCodeStateCountryCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IValidationService/ZipCodeStateCountryCheckResponse" message="tns:IValidationService_ZipCodeStateCountryCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProfanityCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IValidationService/ProfanityCheck" message="tns:IValidationService_ProfanityCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IValidationService/ProfanityCheckResponse" message="tns:IValidationService_ProfanityCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PhoneCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IValidationService/PhoneCheck" message="tns:IValidationService_PhoneCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IValidationService/PhoneCheckResponse" message="tns:IValidationService_PhoneCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IValidationService/EmailCheck" message="tns:IValidationService_EmailCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IValidationService/EmailCheckResponse" message="tns:IValidationService_EmailCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatesByCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IValidationService/GetStatesByCountry" message="tns:IValidationService_GetStatesByCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IValidationService/GetStatesByCountryResponse" message="tns:IValidationService_GetStatesByCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetISMapping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IValidationService/GetISMapping" message="tns:IValidationService_GetISMapping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IValidationService/GetISMappingResponse" message="tns:IValidationService_GetISMapping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IValidationService/GetCity" message="tns:IValidationService_GetCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IValidationService/GetCityResponse" message="tns:IValidationService_GetCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountriesResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IValidationService/GetCountriesResult" message="tns:IValidationService_GetCountriesResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IValidationService/GetCountriesResultResponse" message="tns:IValidationService_GetCountriesResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatesResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IValidationService/GetStatesResult" message="tns:IValidationService_GetStatesResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IValidationService/GetStatesResultResponse" message="tns:IValidationService_GetStatesResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryIdStateId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IValidationService/GetCountryIdStateId" message="tns:IValidationService_GetCountryIdStateId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IValidationService/GetCountryIdStateIdResponse" message="tns:IValidationService_GetCountryIdStateId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryCodeByIP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IValidationService/GetCountryCodeByIP" message="tns:IValidationService_GetCountryCodeByIP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IValidationService/GetCountryCodeByIPResponse" message="tns:IValidationService_GetCountryCodeByIP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationByIP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IValidationService/GetLocationByIP" message="tns:IValidationService_GetLocationByIP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IValidationService/GetLocationByIPResponse" message="tns:IValidationService_GetLocationByIP_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IValidationService" type="tns:IValidationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCityStateCountry">
+      <soap:operation soapAction="http://tempuri.org/IValidationService/GetCityStateCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZipCodeStateCountryCheck">
+      <soap:operation soapAction="http://tempuri.org/IValidationService/ZipCodeStateCountryCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProfanityCheck">
+      <soap:operation soapAction="http://tempuri.org/IValidationService/ProfanityCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhoneCheck">
+      <soap:operation soapAction="http://tempuri.org/IValidationService/PhoneCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailCheck">
+      <soap:operation soapAction="http://tempuri.org/IValidationService/EmailCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatesByCountry">
+      <soap:operation soapAction="http://tempuri.org/IValidationService/GetStatesByCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetISMapping">
+      <soap:operation soapAction="http://tempuri.org/IValidationService/GetISMapping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCity">
+      <soap:operation soapAction="http://tempuri.org/IValidationService/GetCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountriesResult">
+      <soap:operation soapAction="http://tempuri.org/IValidationService/GetCountriesResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatesResult">
+      <soap:operation soapAction="http://tempuri.org/IValidationService/GetStatesResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryIdStateId">
+      <soap:operation soapAction="http://tempuri.org/IValidationService/GetCountryIdStateId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryCodeByIP">
+      <soap:operation soapAction="http://tempuri.org/IValidationService/GetCountryCodeByIP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationByIP">
+      <soap:operation soapAction="http://tempuri.org/IValidationService/GetLocationByIP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ValidationService">
+    <wsdl:port name="BasicHttpBinding_IValidationService" binding="tns:BasicHttpBinding_IValidationService">
+      <soap:address location="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

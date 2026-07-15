@@ -1,0 +1,81 @@
+﻿@inherits System.Web.Mvc.WebViewPage<int>
+
+@{
+    int StepNumber = this.Model;
+
+    switch(StepNumber)
+    { 
+        case 1:
+            <div id="HeaderStep1" class="headerstep">
+                <p>
+                    <span id="HeaderStep1_prefix1" class="headerPrefix">We've found </span>
+                    <span data-dyn="jobscounter"></span>
+                    <span id="HeaderStep1_prefix2" class="headerPrefix"> Jobs Matching</span>
+                </p>
+                <p>
+                    <span data-dyn="keywords"></span>
+                    <span id="HeaderStep1_prefix3" class="headerPrefix"> near</span>
+                    <span data-dyn="location">your location</span>
+                </p>
+            </div>
+            break;
+        case 2:
+        <div class="close close-overlay">X</div>
+        <div id="HeaderStep2" class="headerstep">
+            <p>
+                <span data-dyn="name"></span>
+                <span id="HeaderStep2_prefix1" class="headerPrefix">, Do you want to Further your</span>
+            </p>
+            <p>
+                <span id="HeaderStep2_prefix2" class="headerPrefix">Education to Boost your Career?</span>
+            </p>
+        </div>
+            break;
+        case 3:
+        <div class="close close-overlay">X</div>
+        <div id="HeaderStep3" class="headerstep">
+            <p>
+                <span id="HeaderStep3_prefix1" class="headerPrefix">Excellent Choice </span>
+                <span data-dyn="name"></span>
+                <span id="HeaderStep3_prefix2" class="headerPrefix">! There are </span>
+                <span data-dyn="programcount">multiple</span>
+                <span id="HeaderStep3_prefix3" class="headerPrefix"> programs</span>
+            </p>
+            <p>
+                <span id="HeaderStep3_prefix4" class="headerPrefix">Let's Narrow that Down</span>
+            </p>
+        </div>
+            break;
+        case 4:
+        <div class="close close-overlay">X</div>
+        <div id="HeaderStep4" class="headerstep">
+            <p>
+                <span id="HeaderStep4_prefix1" class="headerPrefix">Excellent Choice </span>
+                <span data-dyn="name"></span>
+                <span id="HeaderStep4_prefix2" class="headerPrefix">! There are </span>
+                <span data-dyn="programcount">multiple</span>
+                <span id="HeaderStep4_prefix3" class="headerPrefix"> programs</span>
+            </p>
+            <p>
+                <span id="HeaderStep4_prefix4" class="headerPrefix">Let's Narrow that Down</span>
+            </p>
+        </div>
+            break;
+
+       case 5: default:
+       <div class="close close-overlay">X</div>
+        <div id="HeaderStep5" class="headerstep">
+            <p>
+                <span id="HeaderStep5_prefix1" class="headerPrefix">Excellent Choice </span>
+                <span data-dyn="name"></span>
+                <span id="HeaderStep5_prefix2" class="headerPrefix">! There are </span>
+                <span data-dyn="programcount">multiple</span>
+                <span id="HeaderStep5_prefix3" class="headerPrefix"> programs</span>
+            </p>
+            <p>
+                <span id="HeaderStep5_prefix4" class="headerPrefix">Let's Narrow that Down</span>
+            </p>
+        </div>
+            break;
+    }
+}

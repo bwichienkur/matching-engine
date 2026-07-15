@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadPing.Service.V3.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadPing.Service.V3.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://leadping.educationdynamics.com/v3/Service.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ValidationRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InsitutionConfigs" nillable="true" type="tns:ArrayOfInstitutionConfig" />
+      <xs:element minOccurs="0" name="ProspectInfo" nillable="true" type="tns:ProspectInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidationRequest" nillable="true" type="tns:ValidationRequest" />
+  <xs:complexType name="ArrayOfInstitutionConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InstitutionConfig" nillable="true" type="tns:InstitutionConfig" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInstitutionConfig" nillable="true" type="tns:ArrayOfInstitutionConfig" />
+  <xs:complexType name="InstitutionConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CampusConfigs" nillable="true" type="tns:ArrayOfCampusConfig" />
+      <xs:element minOccurs="0" name="InstitutionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InstitutionConfig" nillable="true" type="tns:InstitutionConfig" />
+  <xs:complexType name="ArrayOfCampusConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CampusConfig" nillable="true" type="tns:CampusConfig" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCampusConfig" nillable="true" type="tns:ArrayOfCampusConfig" />
+  <xs:complexType name="CampusConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CampusID" type="xs:int" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsOnline" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MilesFromUser" type="xs:decimal" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CampusConfig" nillable="true" type="tns:CampusConfig" />
+  <xs:complexType name="ProspectInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationLevelID" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HighSchoolGradyear" type="xs:int" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MilitaryAffiliation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MilitaryStatusId" type="xs:int" />
+      <xs:element minOccurs="0" name="Phone1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StateID" type="xs:int" />
+      <xs:element minOccurs="0" name="StreetAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProspectInfo" nillable="true" type="tns:ProspectInfo" />
+  <xs:complexType name="ValidationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ImmediateResponses" nillable="true" type="tns:ArrayOfFailedInstitutionResponse" />
+      <xs:element minOccurs="0" name="RelatedResponses" nillable="true" type="tns:ArrayOfFailedInstitutionResponse" />
+      <xs:element minOccurs="0" name="ServerMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="tns:ServiceCallStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidationResponse" nillable="true" type="tns:ValidationResponse" />
+  <xs:complexType name="ArrayOfFailedInstitutionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FailedInstitutionResponse" nillable="true" type="tns:FailedInstitutionResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFailedInstitutionResponse" nillable="true" type="tns:ArrayOfFailedInstitutionResponse" />
+  <xs:complexType name="FailedInstitutionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CampusID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="InstitutionID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsInternal" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsOnline" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProductIDs" nillable="true" type="q1:ArrayOfint" />
+      <xs:element minOccurs="0" name="Type" type="tns:Type" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FailedInstitutionResponse" nillable="true" type="tns:FailedInstitutionResponse" />
+  <xs:simpleType name="Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ScoreCheck" />
+      <xs:enumeration value="Duplicate" />
+      <xs:enumeration value="ValidationCheck" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Type" nillable="true" type="tns:Type" />
+  <xs:simpleType name="ServiceCallStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Sucess" />
+      <xs:enumeration value="Failure" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServiceCallStatus" nillable="true" type="tns:ServiceCallStatus" />
+</xs:schema>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="e28f2dcd-241e-445d-8e02-0fe6776ccf35" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://tag-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MatchingService8.xsd" MetadataType="Schema" ID="7176fe2a-1dcc-4f6b-9b64-c59892f975bd" SourceId="1" SourceUrl="http://tag-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd3" />
+    <MetadataFile FileName="MatchingService1.wsdl" MetadataType="Wsdl" ID="c63ec97a-06a4-4aff-a22d-0e771893f193" SourceId="1" SourceUrl="http://tag-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?wsdl" />
+    <MetadataFile FileName="MatchingService9.xsd" MetadataType="Schema" ID="0e871553-9502-4953-bf57-d3e33f0496d1" SourceId="1" SourceUrl="http://tag-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MatchingService10.xsd" MetadataType="Schema" ID="5f62d2bb-18d2-4a81-a0c5-98b70ed93708" SourceId="1" SourceUrl="http://tag-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MatchingService2.disco" MetadataType="Disco" ID="31f0584c-5c21-4656-91ec-67dc1444a0b8" SourceId="1" SourceUrl="http://tag-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?disco" />
+    <MetadataFile FileName="MatchingService11.xsd" MetadataType="Schema" ID="7121d8f2-18f6-4298-abb4-f4ff86331298" SourceId="1" SourceUrl="http://tag-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd6" />
+    <MetadataFile FileName="MatchingService12.xsd" MetadataType="Schema" ID="41b40b09-9be0-4ac7-b901-c82623d6f53c" SourceId="1" SourceUrl="http://tag-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd5" />
+    <MetadataFile FileName="MatchingService13.xsd" MetadataType="Schema" ID="cd0c74be-2c13-4cd5-8bb2-65a6465ae184" SourceId="1" SourceUrl="http://tag-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd4" />
+    <MetadataFile FileName="MatchingService14.xsd" MetadataType="Schema" ID="d64b8d77-7157-4fb2-b7d6-96cdf749e93e" SourceId="1" SourceUrl="http://tag-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MatchingService15.xsd" MetadataType="Schema" ID="b4d1a11b-f610-4bc0-9bed-cf35887ddbb8" SourceId="1" SourceUrl="http://tag-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd7" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

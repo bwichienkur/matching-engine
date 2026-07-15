@@ -1,0 +1,67 @@
+trigger:
+  branches:
+    include:
+      - feature/*
+
+pr:
+  branches:
+    include:
+      - development
+      - qa
+      - uat
+      - main
+
+pool:
+  name: 'Back Office'
+  demands:
+    - Agent.OS -equals Windows_NT
+
+resources:
+  repositories:
+    - repository: PipelineTemplates
+      type: git
+      name: Technology Management/AzurePipelines
+      ref: refs/heads/V1.0
+
+stages:
+- stage: CI_MatchingEngine
+  displayName: "CI - MatchingEngine"
+  dependsOn: []
+  jobs:
+  - template: pipelines/templates/ci-build.yaml@PipelineTemplates
+    parameters:
+      app: MatchingEngine
+      solution: 'MatchingEngine\EDDY.IS.MatchingEngine.sln'
+      appPool: 'EDDY.IS.MatchingEngine.Service'
+      serverDestPath: 'F:\inetpub\wwwroot\EDDY.IS.MatchingEngine.Service'
+      NugetPackageConfig: 'nuget.config'
+      buildConfiguration: 'Release'
+      PublishProfile: 'NonProd'
+
+- stage: CI_FormsEngine
+  displayName: "CI - FormsEngine"
+  dependsOn: []
+  jobs:
+  - template: pipelines/templates/ci-build.yaml@PipelineTemplates
+    parameters:
+      app: FormsEngine
+      solution: 'FormsEngine\EDDY.IS.FormsEngine.sln'
+      appPool: 'EDDY.IS.FormsEngine.Service'
+      serverDestPath: 'F:\inetpub\wwwroot\EDDY.IS.FormsEngine.Service'
+      NugetPackageConfig: 'nuget.config'
+      buildConfiguration: 'Release'
+      PublishProfile: 'NonProd'
+
+- stage: CI_VendorWebAPI
+  displayName: "CI - VendorWebAPI"
+  dependsOn: []
+  jobs:
+  - template: pipelines/templates/ci-build.yaml@PipelineTemplates
+    parameters:
+      app: VendorWebAPI
+      solution: 'VendorWebAPI\EDDY.IS.Vendor.Web.API.sln'
+      appPool: 'CheetahPool'
+      serverDestPath: 'F:\inetpub\wwwroot\EDDY.IS.Vendor.Web.API'
+      NugetPackageConfig: 'VendorWebAPI\nuget.config'
+      buildConfiguration: 'Release'
+      PublishProfile: 'NonProd'

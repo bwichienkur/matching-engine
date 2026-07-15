@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html>
+<head>
+	<title>IS-Form Engine WizardTemplate</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <!--<script src="//cdn.optimizely.com/js/5309656004034560.js"></script>-->
+	<script language="javascript" type="text/javascript">
+
+	    var FormsEngine = FormsEngine || {};
+
+	    /* REQUIRED */
+	    FormsEngine.RenderingStrategy = 'WIZARDPLAIN';
+	    FormsEngine.RenderingDiv = 'eddy-form-container';
+	    FormsEngine.SelfContained = false; //true: Workflow must contain DIV, false: must contain page to redirect and divs will be ignored
+        FormsEngine.WorkflowStartPage = "/Clients/Wizard/PassThrough/SinglePage-Start.htm";
+        FormsEngine.WorkflowManagedChoicePage = "/Clients/Wizard/PassThrough/SinglePage-ManagedChoice.htm";
+        FormsEngine.WorkflowThankYouPage = "/Clients/Wizard/PassThrough/SinglePage-ThankYou.htm";
+        FormsEngine.WorkflowNoMatchPage = "/Clients/Wizard/PassThrough/SinglePage-NoMatch.htm";
+	    FormsEngine.IsBeta = false;
+	    FormsEngine.TrackId = '485820d9-8b78-4ff7-b210-f9a3ad36c1c9';
+	    FormsEngine.TemplateId = 53; //dynamic campus preference
+
+	    /* Optional */
+	    //FormsEngine.Theme = "alternative";
+	    //FormsEngine.AdditionalFields = [];
+	    //FormsEngine.AdditionalFields.push(["AlexN", "WasHere"]);
+	    //FormsEngine.AdditionalFields.push(["AndThisIs", "WhateverYouWant"]);
+	    FormsEngine.DebugMode = true;
+	    FormsEngine.SessionId = '00000000-0000-0000-0000-0000-000000000000';
+	    FormsEngine.MatchResponseGuid = '00000000-0000-0000-0000-0000-000000000000';
+	    FormsEngine.CompressJs = false;
+
+        //****Pass Through sample
+	    FormsEngine.PassThruItems = new Array();
+
+	    PassThruItem_CampusSoftPreference = new Object();
+	    PassThruItem_CampusSoftPreference.QuestionName = 'CampusSoftPreference';
+	    PassThruItem_CampusSoftPreference.Answers = 'Both';
+	    FormsEngine.PassThruItems.push(PassThruItem_CampusSoftPreference);
+
+	    PassThruItem_Highest_Level_of_Education_Completed = new Object();
+	    PassThruItem_Highest_Level_of_Education_Completed.QuestionName = 'Highest_Level_of_Education_Completed';
+	    PassThruItem_Highest_Level_of_Education_Completed.Answers = '3';
+	    FormsEngine.PassThruItems.push(PassThruItem_Highest_Level_of_Education_Completed);
+
+	    PassThruItem_Year_of_Highest_Education_Completed = new Object();
+	    PassThruItem_Year_of_Highest_Education_Completed.QuestionName = 'Year_of_Highest_Education_Completed';
+	    PassThruItem_Year_of_Highest_Education_Completed.Answers = '2009';
+	    FormsEngine.PassThruItems.push(PassThruItem_Year_of_Highest_Education_Completed);
+
+	    PassThruItem_Age = new Object();
+	    PassThruItem_Age.QuestionName = 'Age';
+	    PassThruItem_Age.Answers = '34';
+	    FormsEngine.PassThruItems.push(PassThruItem_Age);
+
+	    PassThruItem_Postal_Code = new Object();
+	    PassThruItem_Postal_Code.QuestionName = 'Postal_Code';
+	    PassThruItem_Postal_Code.Answers = '33141';
+	    FormsEngine.PassThruItems.push(PassThruItem_Postal_Code);
+
+	    Postal_Code_Duplicate = new Object();
+	    Postal_Code_Duplicate.QuestionName = 'Postal_Code_Duplicate';
+	    Postal_Code_Duplicate.Answers = '33141';
+	    FormsEngine.PassThruItems.push(Postal_Code_Duplicate);
+
+	    PassThruItem_Categories = new Object();
+	    PassThruItem_Categories.QuestionName = 'Categories';
+	    PassThruItem_Categories.Answers = '21';
+	    FormsEngine.PassThruItems.push(PassThruItem_Categories);
+
+	    PassThruItem_SubCategories = new Object();
+	    PassThruItem_SubCategories.QuestionName = 'SubCategories';
+	    PassThruItem_SubCategories.Answers = '610,640,641,613';
+	    FormsEngine.PassThruItems.push(PassThruItem_SubCategories);
+
+	    PassThruItem_Email = new Object();
+	    PassThruItem_Email.QuestionName = 'Email';
+	    PassThruItem_Email.Answers = 'PacoSantanaColon@gmail.com';
+	    FormsEngine.PassThruItems.push(PassThruItem_Email);
+
+	    PassThruItem_Military_Affiliation = new Object();
+	    PassThruItem_Military_Affiliation.QuestionName = 'Military_Affiliation';
+	    PassThruItem_Military_Affiliation.Answers = '126';
+	    FormsEngine.PassThruItems.push(PassThruItem_Military_Affiliation);
+
+	    PassThruItem_us_citizen = new Object();
+	    PassThruItem_us_citizen.QuestionName = 'us_citizen';
+	    PassThruItem_us_citizen.Answers = 'Yes';
+	    FormsEngine.PassThruItems.push(PassThruItem_us_citizen);
+
+	    PassThruItem_Desired_Degree_Level = new Object();
+	    PassThruItem_Desired_Degree_Level.QuestionName = 'Desired_Degree_Level';
+	    PassThruItem_Desired_Degree_Level.Answers = '2';
+	    FormsEngine.PassThruItems.push(PassThruItem_Desired_Degree_Level);
+
+	    PassThruItem_Prefix = new Object();
+	    PassThruItem_Prefix.QuestionName = 'Prefix';
+	    PassThruItem_Prefix.Answers = 'Mr.';
+	    FormsEngine.PassThruItems.push(PassThruItem_Prefix);
+
+	    PassThruItem_First_Name = new Object();
+	    PassThruItem_First_Name.QuestionName = 'First_Name';
+	    PassThruItem_First_Name.Answers = 'CapaColo';
+	    FormsEngine.PassThruItems.push(PassThruItem_First_Name);
+
+	    PassThruItem_Last_Name = new Object();
+	    PassThruItem_Last_Name.QuestionName = 'Last_Name';
+	    PassThruItem_Last_Name.Answers = 'Colon';
+	    FormsEngine.PassThruItems.push(PassThruItem_Last_Name);
+
+	    PassThruItem_Address = new Object();
+	    PassThruItem_Address.QuestionName = 'Address';
+	    PassThruItem_Address.Answers = '2130 test';
+	    FormsEngine.PassThruItems.push(PassThruItem_Address);
+
+	    PassThruItem_Address_2 = new Object();
+	    PassThruItem_Address_2.QuestionName = 'Address_2';
+	    PassThruItem_Address_2.Answers = '';
+	    FormsEngine.PassThruItems.push(PassThruItem_Address_2);
+
+	    PassThruItem_City = new Object();
+	    PassThruItem_City.QuestionName = 'City';
+	    PassThruItem_City.Answers = 'Miami Beach';
+	    FormsEngine.PassThruItems.push(PassThruItem_City);
+
+	    PassThruItem_State = new Object();
+	    PassThruItem_State.QuestionName = 'State';
+	    PassThruItem_State.Answers = 'FL';
+	    FormsEngine.PassThruItems.push(PassThruItem_State);
+
+	    PassThruItem_Country = new Object();
+	    PassThruItem_Country.QuestionName = 'Country';
+	    PassThruItem_Country.Answers = 'US';
+	    FormsEngine.PassThruItems.push(PassThruItem_Country);
+
+	    PassThruItem_Phone = new Object();
+	    PassThruItem_Phone.QuestionName = 'Phone';
+	    PassThruItem_Phone.Answers = '5614148033';
+	    FormsEngine.PassThruItems.push(PassThruItem_Phone);
+
+	    PassThruItem_Alternate_Phone = new Object();
+	    PassThruItem_Alternate_Phone.QuestionName = 'Alternate_Phone';
+	    PassThruItem_Alternate_Phone.Answers = '5614143002';
+	    FormsEngine.PassThruItems.push(PassThruItem_Alternate_Phone);
+
+	    PassThruItem_Desired_Start_Date = new Object();
+	    PassThruItem_Desired_Start_Date.QuestionName = 'Desired_Start_Date';
+	    PassThruItem_Desired_Start_Date.Answers = 'Immediately';
+	    FormsEngine.PassThruItems.push(PassThruItem_Desired_Start_Date);
+
+	    PassThruItem_Undergraduate_Degree_Education = new Object();
+	    PassThruItem_Undergraduate_Degree_Education.QuestionName = 'Undergraduate_Degree_Education';
+	    PassThruItem_Undergraduate_Degree_Education.Answers = 'Yes';
+	    FormsEngine.PassThruItems.push(PassThruItem_Undergraduate_Degree_Education);
+
+	    PassThruItem_GPA = new Object();
+	    PassThruItem_GPA.QuestionName = 'GPA';
+	    PassThruItem_GPA.Answers = '3.0 or Higher';
+	    FormsEngine.PassThruItems.push(PassThruItem_GPA);
+
+	    PassThruItem_Teaching_certificate = new Object();
+	    PassThruItem_Teaching_certificate.QuestionName = 'Teaching_certificate';
+	    PassThruItem_Teaching_certificate.Answers = 'Yes';
+	    FormsEngine.PassThruItems.push(PassThruItem_Teaching_certificate);
+
+	    PassThruItem_Years_of_Teaching_Experience = new Object();
+	    PassThruItem_Years_of_Teaching_Experience.QuestionName = 'Years_of_Teaching_Experience';
+	    PassThruItem_Years_of_Teaching_Experience.Answers = '10+ Years';
+	    FormsEngine.PassThruItems.push(PassThruItem_Years_of_Teaching_Experience);
+	    FormsEngine.NavigateToStep = 4;
+
+    </script>
+    <script type="text/javascript" src="/Static/GetGlobal"></script>
+    <script type="text/javascript" src="/Static/GetWizardClient"></script>
+</head>
+<body>
+    <br />
+    <div><b>Start Page</b></div>
+    <br />
+        <div name="eddy-form-container" style="border:solid;border-color:green;">
+	</div>
+
+    <br /> <br />
+
+    <div style="text-align:center">
+        <a href="javascript:FormsEngine.LoadWorkflowStep('START','');"> [Start]</a> - 
+        <a href="javascript:FormsEngine.LoadWorkflowStep('MANAGEDCHOICE','');"> [School Selection]</a> - 
+        <a href="javascript:FormsEngine.LoadWorkflowStep('THANKYOU','');"> [Thank You]</a> - 
+        <a href="javascript:FormsEngine.LoadWorkflowStep('NOMATCH','');"> [No Match]</a> 
+    </div>
+
+</body>
+</html>

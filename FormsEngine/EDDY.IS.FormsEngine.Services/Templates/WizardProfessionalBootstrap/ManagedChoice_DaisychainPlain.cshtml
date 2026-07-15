@@ -1,0 +1,216 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.ManagedChoiceModel>
+@using EDDY.IS.FormsEngine.Services.Controllers.Common
+@Html.InlineScriptBlock("~/Templates/Common/js/ManagedChoice.js")
+@Html.InlineScriptBlock("~/Templates/Common/js/jqueryjson24min.js")
+@Html.InlineScriptBlock("~/Templates/Common/js/ManagedChoice_DaisychainPlain.js")
+
+@{
+    #region data logic
+
+    #region set data values specific to this rendering strategy (UI)
+
+    int RSMaxProgramNameLength = 40;
+    int RSMaxProgramDescriptionLength = 170;
+    // messages
+    string SM_SMARTMATCH_HEADER_MESSAGE_1 = Model.GetResourceMetaDataText("VIEW.SM_SMARTMATCH_HEADER_MESSAGE_1");
+    string SM_SMARTMATCH_HEADER_MESSAGE_2 = Model.GetResourceMetaDataText("VIEW.SM_SMARTMATCH_HEADER_MESSAGE_2");
+    string DISCLAIMER_REFERENCE = Model.GetResourceMetaDataText("VIEW.DISCLAIMER_REFERENCE");
+    string DISCLAIMER_REFERENCE_LINK = Model.GetResourceMetaDataText("VIEW.DISCLAIMER_REFERENCE_LINK");
+    #endregion
+
+    #region set other data points
+
+    string[] UserNameSplit = Model.UserFullName.Split(' ');
+    string UserFirstName = UserNameSplit[0];
+    string smHeaderText1;
+    string smHeaderText2;
+    string disclaimerReference;
+    #endregion
+
+    #region determine data for this rendering strategy
+
+    // header text start
+    smHeaderText1 = string.Format(SM_SMARTMATCH_HEADER_MESSAGE_1, UserFirstName);
+    smHeaderText2 = SM_SMARTMATCH_HEADER_MESSAGE_2;
+    #endregion
+
+    #endregion
+
+}
+
+<script type="text/javascript">
+    FormsEngine.CurrentSmartMatches = @(Model.HasSmartMatchPrograms && Model.SmartMatchList != null ? Model.SmartMatchList.Count : 0);
+    FormsEngine.MobilePhones = [@(string.Join(",", Model.ExpressConsentCheck.MobilePhones))];
+    jQuery.each(FormsEngine.MobilePhones, function( index, value ) {
+        FormsEngine.MobilePhones[index] = FormsEngine.MobilePhones[index].toString();
+    });
+</script>
+
+<!-- START Image Check -->
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('.school-logo').checkImages();
+    });
+</script>
+<!-- END Image Check -->
+<!-- START ManagedChoice Google Tag Events-->
+@System.Web.Mvc.Html.PartialExtensions.Partial(this.Html, "~/Templates/Common/ManagedChoiceGoogleTag.cshtml", this.Model)
+<!-- END ManagedChoice Google Tag Events-->
+
+<div id="eddy-form-wizard-managedchoice-container" class="eddy-form-wizard-container pie">
+    <!-- Rendering Strategy : WIZARDPROFESSIONAL BS -->
+    <div id="eddy-form-wizard-managedchoice-header" class="eddy-form-wizard-header">
+        <div class="start-now" id="StartNow"><p>START NOW!</p></div>
+        <div class="wizard-header-content col-xs-10 col-xs-offset-1 col-sm-11 col-sm-offset-1">
+            <div class="progress-text col-xs-3 col-sm-3 text-right"><strong>PROGRESS</strong></div>
+            <div id="BSProgressBarContainer" class="progress col-xs-7 col-sm-7">
+                <div id="BSProgressBar" class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 2%;">
+                </div>
+            </div>
+            <div class="fill-out small text-center col-xs-12 col-xs-offset-0"><em>Fill out all questions to proceed.</em></div>
+        </div>
+    </div><!-- end of #eddy-form-wizard-managedchoice-header -->
+
+    <div id="eddy-form-container" class="eddy-form-wizard-body col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 clearfix">
+        @System.Web.Mvc.Html.PartialExtensions.Partial(this.Html, "~/Templates/Common/Components/SponsoredListingPopUp.cshtml", new EDDY.IS.FormsEngine.Services.Models.SponsoredListingModel(this.Model))
+        <form id="eddynexusform-wizard-managedchoice" class="eddynexusform" name="eddynexusform-wizard-managedchoice" data-tf-element-role="offer">
+            <!-- Begin SM Area -->
+            @{
+                if (Model.HasSmartMatchPrograms)
+                {
+                    <div id="mc-SM-Area" class="mc-SM-Area">
+                        <div id="mc-SM-Message" class="mc-SM-Message form-page-step-message">
+                            <h3 class="sm_smartmatch_header_message_1">@smHeaderText1</h3>
+                            <h3 class="sm_smartmatch_header_message_2">@smHeaderText2</h3>
+                        </div>
+                        <div id="mc-SM-Display" class="mc-SM-Display">
+
+                            <div class="sm-school clearfix">
+                                @{
+
+                                    foreach (var school in Model.SmartMatchList)
+                                    {
+
+                                        //prepare data before using in UI - START
+                                        // program name
+                                        // copied from EddyForms CrossSell - if the prog name is longer than the rendering strategy’s program name area can support, use breadcrumbs for the name
+                                        string programNameShort = school.ProgramName;
+                                        if (programNameShort.Length > RSMaxProgramNameLength)
+                                        {
+                                            if (programNameShort.Substring(RSMaxProgramNameLength, 1) == " ") // if at the max length it ends with a space, just append ...
+                                            {
+                                                programNameShort = programNameShort.Substring(0, RSMaxProgramNameLength) + "...";
+                                            }
+                                            else
+                                            {
+                                                int endPosition = programNameShort.LastIndexOf(' ', RSMaxProgramNameLength);
+                                                programNameShort = programNameShort.Substring(0, endPosition + 1) + "...";
+                                            }
+                                        }
+
+
+                                        // program description
+                                        // copied from EddyForms CrossSell
+                                        string programDescriptionShort = (school.ProgramDescription != null) ? System.Text.RegularExpressions.Regex.Replace(school.ProgramDescription, @"<(.|\n)*?>", string.Empty) : "";
+                                        if (programDescriptionShort.Length > RSMaxProgramDescriptionLength)
+                                        {
+                                            if (programDescriptionShort.Substring(RSMaxProgramDescriptionLength, 1) == " ")
+                                            {
+                                                programDescriptionShort = programDescriptionShort.Substring(0, RSMaxProgramDescriptionLength) + "...";
+                                            }
+                                            else
+                                            {
+                                                int endPosition = programDescriptionShort.IndexOf(' ', RSMaxProgramDescriptionLength);
+                                                programDescriptionShort = programDescriptionShort.Substring(0, endPosition + 1) + "...";
+                                            }
+                                        }
+
+                                        // logo
+
+                                        string logoFullURL = !string.IsNullOrEmpty(school.CampusLogoURL) ?
+                                            Model.EddyLogos.EddyLogoImagePathDomain + school.CampusLogoURL.Replace("{FILENAME}", string.Format(Model.EddyLogos.EddyLogoImageFileName, Model.EddyLogos.EddyLogoImageSizeSmall)) :
+                                            Model.EddyLogos.EddyLogoImagePathDomain + school.InstitutionLogoURL.Replace("{FILENAME}", string.Format(Model.EddyLogos.EddyLogoImageFileName, Model.EddyLogos.EddyLogoImageSizeSmall));
+
+
+
+                                        // input ID
+                                        string inputID = "crossSellProgram" + school.ProgramProductId.ToString();
+
+                                        // ground campus flag
+                                        bool isGroundCampus = (school.CampusType.ToString().ToLower() == "ground") ? true : false;
+                                        string campusTypeFlagCssClass = (school.CampusType.ToString().ToLower() == "ground") ? "groundcampusflag" : "onlinecampusflag";
+
+                                        // disclosures
+                                        disclaimerReference = "";
+                                        if (school.InstitutionDisclaimer != null && school.InstitutionDisclaimer.Length > 0 && school.InstitutionDisclaimerType != null)
+                                        {
+                                            disclaimerReference = string.Format(DISCLAIMER_REFERENCE, Model.DisclaimerCounter.ToString(), "");
+                                            Model.DisclaimerCounter++;
+                                        }
+
+                                        string institutionDescription = school.InstitutionDescription;
+
+
+                                        //prepare data before using in UI - END
+                                        <div name="mc-us-schoolcontainer" class="mc-sm-program col-sm-4 col-xs-4 text-center"
+                                             data-institution-name="@school.InstitutionName"
+                                             data-institution-description="@Server.UrlEncode(institutionDescription)"
+                                             data-institution-disclaimer="@Server.UrlEncode(school.InstitutionDisclaimer)"
+                                             data-institution-disclaimer-type="@school.InstitutionDisclaimerType"
+                                             data-isgroundcampus="@isGroundCampus"
+                                             data-campus-name="@school.CampusName"
+                                             data-campus-city="@school.CampusCity"
+                                             data-campus-state="@school.CampusState"
+                                             data-program-name="@school.ProgramName"
+                                             data-program-description="@Server.UrlEncode(school.ProgramDescription)"
+                                             data-program-disclaimer="@Server.UrlEncode(school.ProgramDisclaimer)"
+                                             data-program-disclaimer-type="@school.ProgramDisclaimerType"
+                                             data-programproductid="@school.ProgramProductId"
+                                             data-templateid="@school.TemplateId">
+                                            <div class="@campusTypeFlagCssClass">
+                                                <div class="cover-sm-school"></div>
+                                                <div class="school-logo" data-src="@logoFullURL" data-src-name="@school.CampusName">
+                                                    <a href="#" class="sm-institution-popup-link">
+                                                        <img class="img-responsive" src="" />
+                                                    </a>
+                                                </div>
+                                                @{
+                                                    if (isGroundCampus)
+                                                    {
+                                                        <i class="campusFlagIcon groundCampusFlagIcon fa fa-university" name="groundCampusFlagIcon" title="Ground Campus" campus-address="@(@school.CampusAddress1 + ", " + @school.CampusAddress2 + " \n" + @school.CampusCity + ", " + @school.CampusState)"></i>
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="campusFlagIcon onlineCampusFlagIcon fa fa-laptop" name="onlineCampusFlagIcon" title="Online Campus"></i>
+                                                    }
+                                                }
+                                                <div class="school-info">
+                                                    <div class="school-name"><a href="#" class="sm-institution-popup-link">@school.InstitutionName</a></div>
+                                                    <div class="program-name"><a href="#" class="sm-program-popup-link">@programNameShort @Html.Raw(disclaimerReference)</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                            <div id="sm-institution-popup" class="sm-institution-popup popup-info col-sm-12 col-xs-12 hide">sm-institution-popup GOES HERE!</div>
+                            <div id="sm-program-popup" class="sm-program-popup popup-info col-sm-12 col-xs-12 hide">sm-program-popup GOES HERE!</div>
+                        </div>
+                    </div>
+                }
+            }
+
+            <!-- End SM Area -->
+            <!-- Begin US Area -->
+            @System.Web.Mvc.Html.PartialExtensions.Partial(this.Html, "~/Templates/Common/ManagedChoiceSchoolsDaisyChainPlain.cshtml", this.Model)
+            <!-- End US Area -->
+        </form>
+
+
+        <div class="eddy-form-wizard-footer">
+            @*<div class="required-legend"><small><em>* Required Field</em></small></div>*@
+            @System.Web.Mvc.Html.PartialExtensions.Partial(this.Html, "~/Templates/Common/ManagedChoiceDaisyChainPlainSmartMatchDisclaimer.cshtml", this.Model)
+        </div><!-- end of .eddy-form-wizard-footer -->
+
+    </div><!-- end of #eddy-form-container -->
+</div><!-- end of #eddy-form-wizard-managedchoice-container -->

@@ -1,0 +1,39 @@
+﻿@charset "utf-8";
+@import url("[SERVER]/../../../../Static/GetCss?BasePath=Original&Theme=default&FileName=CrossSell");
+
+#eddy-form-container #crossSellForm {max-height: 505px !important;}
+#eddy-form-container .button{margin: 5px auto 0 !important;}
+#eddy-form-container .bold {font-weight: bold;font-style: italic;color: #111111;font-family: georgia,serif;}
+#eddy-form-container .cross-sell-option input {margin-top: 3px !important;}
+#eddy-form-container .cross-sell-option label {display: none;margin-top: 2px !important;}
+#eddy-form-container .cross-sell-express-consent {padding: 5px 0 5px 50px;width: 85%;}
+#eddy-form-container .cross-sell a.close-overlay{margin-top: 0px !important;}
+#eddy-form-container .cross-sell li span.cross-sell-option {background: none repeat scroll 0 0 rgba(0, 0, 0, 0) !important;padding: 0 !important;top: 0 !important;}
+#eddy-form-container .cross-sell h4{color:#2293c7;border-bottom:none;padding-bottom:0;}
+#eddy-form-container .cross-sell h5{padding-top: 0;color:#808080!important}
+#eddy-form-container .success img{margin: 0 10px 3px 30px !important;border:none}
+#eddy-form-container .success ul li p{margin: 0 10px 0 30px!important;color:#444444;}
+#eddy-form-container .success ul li p.bold{margin-left: 30px !important;color: #2293c7;font-style: italic;font-family: georgia,serif;}
+#eddy-form-container .success ul li{min-height: 205px !important;background: none repeat scroll 0 0 #f1f5f8;border:none;}
+#eddy-form-container .success li span.onlineCampusFlagIcon {float: left;margin: 1px 5px 10px 35px;position: relative !important;top: 0 !important;width: 30px;height: 20px;}
+#eddy-form-container .cross-sell > p a.close-overlay{margin-top: -27px !important;text-decoration: none;font-style: italic;font-weight:bold}
+#eddy-form-container .cross-sell > p a.close-overlay:after{content: " »";font-size:13px}
+#eddy-form-container .onlineCampusFlagIcon{background: url("[SERVER]/../default/images/icon-online-flag-blue.png") no-repeat !important;}
+#eddy-form-container .cross-sell a.close-button{background: url("[SERVER]/../default/images/close-button.gif") no-repeat !important;}
+#eddy-form-container .submit-button.request-info{background: url("[SERVER]/../default/images/button-request-info.gif") top left no-repeat !important;}
+#eddy-form-container .submit-button.search-again{background: url("[SERVER]/../default/images/button-search-again.gif") top left no-repeat !important;}
+#eddy-form-container .success li span.groundCampusFlagIcon {float: left;margin: 1px 5px 10px 35px;position: relative !important;top: 0 !important;width: 30px;height: 30px;}
+#eddy-form-container .groundCampusFlagIcon
+{
+    background: url("[SERVER]/../default/images/icon-campus-flag-blue.png") no-repeat !important;
+    width: 30px;height: 30px;
+}
+
+#eddy-form-container #eddycrosssell.cross-sell #dvCrossSellSchools.cs-schools .cross-sell-request-info a{font-style: italic;}
+#eddy-form-container .cross-sell {background: none repeat scroll 0 0 #ffffff;}
+#eddy-form-container #eddycrosssell.cross-sell h5#CrossSellTopSubMessage span{text-decoration: none!important;}
+#eddy-form-container .cross-sell-express-consent label.express-consent-black {color: #808080 !important;}
+
+#eddy-form-container .cursor-pointer {
+    cursor: pointer;
+}

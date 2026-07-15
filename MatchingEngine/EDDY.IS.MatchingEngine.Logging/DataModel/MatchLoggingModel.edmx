@@ -1,0 +1,984 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MatchLoggingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MatchResponse">
+          <Key>
+            <PropertyRef Name="MatchResponseId" />
+          </Key>
+          <Property Name="MatchResponseId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchResponseGUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsRollup" Type="bit" Nullable="false" />
+          <Property Name="BusinessModelWeightSubjectId" Type="int" Nullable="false" />
+          <Property Name="ProcessRequestMilliseconds" Type="int" Nullable="false" />
+          <Property Name="RequestType" Type="int" Nullable="false" />
+          <Property Name="RequestMethodName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="RequestInput" Type="varchar" MaxLength="4000" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ServerName" Type="varchar" MaxLength="30" />
+          <Property Name="TrackingDeviceGUID" Type="uniqueidentifier" />
+          <Property Name="TrackingSessionGUID" Type="uniqueidentifier" />
+          <Property Name="LeadScoringGuid" Type="uniqueidentifier" />
+          <Property Name="PremierUpsellEligible" Type="bit" />
+          <Property Name="ProspectZipAvailable" Type="bit" />
+          <Property Name="DistanceCliffValue" Type="int" />
+          <Property Name="DistanceCapMultiplier" Type="int" />
+          <Property Name="InstitutionGroupingType" Type="int" />
+        </EntityType>
+        <EntityType Name="MatchResponseAvailableProgram">
+          <Key>
+            <PropertyRef Name="MatchResponseAvailableProgramId" />
+          </Key>
+          <Property Name="MatchResponseAvailableProgramId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchResponseId" Type="bigint" Nullable="false" />
+          <Property Name="ProgramProductId" Type="int" Nullable="false" />
+          <Property Name="SRAScore" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="CollectionIndex" Type="int" Nullable="false" />
+          <Property Name="MatchResponseTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="MatchResponseAvailableProgramFactorScore">
+          <Key>
+            <PropertyRef Name="MatchResponseAvailableProgramFactorScoreId" />
+          </Key>
+          <Property Name="MatchResponseAvailableProgramFactorScoreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchResponseAvailableProgramId" Type="int" Nullable="false" />
+          <Property Name="BusinessModelFactorId" Type="int" Nullable="false" />
+          <Property Name="FactorScore" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="FactorValue" Type="decimal" Precision="9" Scale="5" />
+        </EntityType>
+        <EntityType Name="MatchResponseDisplayed">
+          <Key>
+            <PropertyRef Name="MatchResponseDisplayedId" />
+          </Key>
+          <Property Name="MatchResponseDisplayedId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchResponseId" Type="bigint" Nullable="false" />
+          <Property Name="EntityId" Type="int" Nullable="false" />
+          <Property Name="EntityMetaId" Type="int" Nullable="false" />
+          <Property Name="SRAScore" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="CollectionIndex" Type="int" Nullable="false" />
+          <Property Name="ParentMatchResponseDisplayedId" Type="int" />
+          <Property Name="MatchResponseTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="MatchResponseDisplayedFactorScore">
+          <Key>
+            <PropertyRef Name="MatchResponseDisplayedFactorScoreId" />
+          </Key>
+          <Property Name="MatchResponseDisplayedFactorScoreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchResponseDisplayedId" Type="int" Nullable="false" />
+          <Property Name="BusinessModelFactorId" Type="int" Nullable="false" />
+          <Property Name="FactorScore" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="FactorValue" Type="decimal" Precision="9" Scale="5" />
+        </EntityType>
+        <EntityType Name="MatchResponseFactorAggregate">
+          <Key>
+            <PropertyRef Name="MatchResponseFactorAggregateId" />
+          </Key>
+          <Property Name="MatchResponseFactorAggregateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchResponseId" Type="bigint" Nullable="false" />
+          <Property Name="BusinessModelFactorId" Type="int" Nullable="false" />
+          <Property Name="MatchResponseFactorAggregateTypeId" Type="int" Nullable="false" />
+          <Property Name="AggregateValue" Type="decimal" Precision="9" Scale="5" />
+          <Property Name="ProgramProductId" Type="int" />
+        </EntityType>
+        <EntityType Name="MatchResponseFactorAggregateValue">
+          <Key>
+            <PropertyRef Name="MatchResponseFactorAggregateValueId" />
+          </Key>
+          <Property Name="MatchResponseFactorAggregateValueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchResponseFactorAggregateId" Type="int" Nullable="false" />
+          <Property Name="BusinessModelFactorId" Type="int" Nullable="false" />
+          <Property Name="AggregateValue" Type="decimal" Precision="9" Scale="5" />
+        </EntityType>
+        <EntityType Name="MatchResponseRemovalReason">
+          <Key>
+            <PropertyRef Name="MatchResponseRemovalReasonId" />
+          </Key>
+          <Property Name="MatchResponseRemovalReasonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchResponseId" Type="bigint" Nullable="false" />
+          <Property Name="ProgramProductId" Type="int" Nullable="false" />
+          <Property Name="EntityMetaId" Type="int" Nullable="false" />
+          <Property Name="RuleEntityId" Type="int" />
+          <Property Name="RuleTypeId" Type="int" Nullable="false" />
+          <Property Name="RuleDetail" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MatchResponseRemovalReasonJson">
+          <Key>
+            <PropertyRef Name="MatchResponseRemovalReasonJsonId" />
+          </Key>
+          <Property Name="MatchResponseRemovalReasonJsonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchResponseId" Type="bigint" Nullable="false" />
+          <Property Name="JsonObject" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MatchResponseSearch">
+          <Key>
+            <PropertyRef Name="MatchResponseSearchId" />
+          </Key>
+          <Property Name="MatchResponseSearchId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchResponseId" Type="bigint" Nullable="false" />
+          <Property Name="TrackId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CallingApplication" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApplicationId" Type="int" />
+          <Property Name="DialerKey" Type="varchar" MaxLength="100" />
+          <Property Name="TSR" Type="varchar" MaxLength="100" />
+          <Property Name="LeadCreationTypeId" Type="int" />
+          <Property Name="CampusTypeId" Type="int" />
+          <Property Name="HasComputer" Type="bit" />
+          <Property Name="Age" Type="int" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="EducationLevelId" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="ExternalLeadId" Type="varchar" MaxLength="100" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="HSGraduationYear" Type="int" />
+          <Property Name="IsCitzen" Type="bit" />
+          <Property Name="IsMilitary" Type="bit" />
+          <Property Name="MilitaryStatusId" Type="int" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Phone1" Type="varchar" MaxLength="20" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="10" />
+          <Property Name="StateId" Type="int" />
+          <Property Name="StreetAddress" Type="varchar" MaxLength="100" />
+          <Property Name="CategoryList" Type="varchar" MaxLength="1000" />
+          <Property Name="SubjectList" Type="varchar" MaxLength="1000" />
+          <Property Name="SpecialtyList" Type="varchar" MaxLength="2000" />
+          <Property Name="SmartMatchedInstitutionList" Type="varchar" MaxLength="100" />
+          <Property Name="ReturnedSchools" Type="int" Nullable="false" />
+          <Property Name="AvailableSchools" Type="int" Nullable="false" />
+          <Property Name="RemovedSchools" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MatchResponseSearchKVData">
+          <Key>
+            <PropertyRef Name="MatchResponseSearchKVDataId" />
+          </Key>
+          <Property Name="MatchResponseSearchKVDataId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchResponseSearchId" Type="bigint" Nullable="false" />
+          <Property Name="Key" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="KVCodeDataId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MatchResponseSearchRemoval">
+          <Key>
+            <PropertyRef Name="MatchResponseSearchRemovalId" />
+          </Key>
+          <Property Name="MatchResponseSearchRemovalId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchResponseSearchId" Type="bigint" Nullable="false" />
+          <Property Name="InstitutionId" Type="int" Nullable="false" />
+          <Property Name="ClientRelationshipId" Type="int" />
+          <Property Name="ClientRelationProductMappingId" Type="int" />
+          <Property Name="ClientCampusProductMappingId" Type="int" />
+          <Property Name="PsiId" Type="int" />
+          <Property Name="ProgramId" Type="int" />
+          <Property Name="ProgramProductId" Type="int" />
+          <Property Name="RuleName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RuleId" Type="int" Nullable="false" />
+          <Property Name="BaseRuleType" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MatchResponseSearchResult">
+          <Key>
+            <PropertyRef Name="MatchResponseSearchResultId" />
+          </Key>
+          <Property Name="MatchResponseSearchResultId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchResponseSearchId" Type="bigint" Nullable="false" />
+          <Property Name="InstitutionId" Type="int" Nullable="false" />
+          <Property Name="CampusId" Type="int" Nullable="false" />
+          <Property Name="Position" Type="int" Nullable="false" />
+          <Property Name="IsLT" Type="bit" Nullable="false" />
+          <Property Name="Displayed" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_MatchResponseFactorAggregateValue_MatchResponseFactorAggregate">
+          <End Role="MatchResponseFactorAggregate" Type="Self.MatchResponseFactorAggregate" Multiplicity="1" />
+          <End Role="MatchResponseFactorAggregateValue" Type="Self.MatchResponseFactorAggregateValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponseFactorAggregate">
+              <PropertyRef Name="MatchResponseFactorAggregateId" />
+            </Principal>
+            <Dependent Role="MatchResponseFactorAggregateValue">
+              <PropertyRef Name="MatchResponseFactorAggregateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MRD_ParentMatchResponseDisplayed">
+          <End Role="MatchResponseDisplayed" Type="Self.MatchResponseDisplayed" Multiplicity="0..1" />
+          <End Role="MatchResponseDisplayed1" Type="Self.MatchResponseDisplayed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponseDisplayed">
+              <PropertyRef Name="MatchResponseDisplayedId" />
+            </Principal>
+            <Dependent Role="MatchResponseDisplayed1">
+              <PropertyRef Name="ParentMatchResponseDisplayedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MRDFS_MatchResponseAvailableProgram">
+          <End Role="MatchResponseAvailableProgram" Type="Self.MatchResponseAvailableProgram" Multiplicity="1" />
+          <End Role="MatchResponseAvailableProgramFactorScore" Type="Self.MatchResponseAvailableProgramFactorScore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponseAvailableProgram">
+              <PropertyRef Name="MatchResponseAvailableProgramId" />
+            </Principal>
+            <Dependent Role="MatchResponseAvailableProgramFactorScore">
+              <PropertyRef Name="MatchResponseAvailableProgramId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MRDFS_MatchResponseDisplayed">
+          <End Role="MatchResponseDisplayed" Type="Self.MatchResponseDisplayed" Multiplicity="1" />
+          <End Role="MatchResponseDisplayedFactorScore" Type="Self.MatchResponseDisplayedFactorScore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponseDisplayed">
+              <PropertyRef Name="MatchResponseDisplayedId" />
+            </Principal>
+            <Dependent Role="MatchResponseDisplayedFactorScore">
+              <PropertyRef Name="MatchResponseDisplayedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MRSKVD_MatchResponseSearch">
+          <End Role="MatchResponseSearch" Type="Self.MatchResponseSearch" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MatchResponseSearchKVData" Type="Self.MatchResponseSearchKVData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponseSearch">
+              <PropertyRef Name="MatchResponseSearchId" />
+            </Principal>
+            <Dependent Role="MatchResponseSearchKVData">
+              <PropertyRef Name="MatchResponseSearchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MRSR_MatchResponseSearch">
+          <End Role="MatchResponseSearch" Type="Self.MatchResponseSearch" Multiplicity="1" />
+          <End Role="MatchResponseSearchResult" Type="Self.MatchResponseSearchResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponseSearch">
+              <PropertyRef Name="MatchResponseSearchId" />
+            </Principal>
+            <Dependent Role="MatchResponseSearchResult">
+              <PropertyRef Name="MatchResponseSearchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MRSRE_MatchResponseSearch">
+          <End Role="MatchResponseSearch" Type="Self.MatchResponseSearch" Multiplicity="1" />
+          <End Role="MatchResponseSearchRemoval" Type="Self.MatchResponseSearchRemoval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponseSearch">
+              <PropertyRef Name="MatchResponseSearchId" />
+            </Principal>
+            <Dependent Role="MatchResponseSearchRemoval">
+              <PropertyRef Name="MatchResponseSearchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MatchLoggingModelStoreContainer">
+          <EntitySet Name="MatchResponse" EntityType="Self.MatchResponse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchResponseAvailableProgram" EntityType="Self.MatchResponseAvailableProgram" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchResponseAvailableProgramFactorScore" EntityType="Self.MatchResponseAvailableProgramFactorScore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchResponseDisplayed" EntityType="Self.MatchResponseDisplayed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchResponseDisplayedFactorScore" EntityType="Self.MatchResponseDisplayedFactorScore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchResponseFactorAggregate" EntityType="Self.MatchResponseFactorAggregate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchResponseFactorAggregateValue" EntityType="Self.MatchResponseFactorAggregateValue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchResponseRemovalReason" EntityType="Self.MatchResponseRemovalReason" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchResponseRemovalReasonJson" EntityType="Self.MatchResponseRemovalReasonJson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchResponseSearch" EntityType="Self.MatchResponseSearch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchResponseSearchKVData" EntityType="Self.MatchResponseSearchKVData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchResponseSearchRemoval" EntityType="Self.MatchResponseSearchRemoval" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchResponseSearchResult" EntityType="Self.MatchResponseSearchResult" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_MatchResponseFactorAggregateValue_MatchResponseFactorAggregate" Association="Self.FK_MatchResponseFactorAggregateValue_MatchResponseFactorAggregate">
+            <End Role="MatchResponseFactorAggregate" EntitySet="MatchResponseFactorAggregate" />
+            <End Role="MatchResponseFactorAggregateValue" EntitySet="MatchResponseFactorAggregateValue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MRD_ParentMatchResponseDisplayed" Association="Self.FK_MRD_ParentMatchResponseDisplayed">
+            <End Role="MatchResponseDisplayed" EntitySet="MatchResponseDisplayed" />
+            <End Role="MatchResponseDisplayed1" EntitySet="MatchResponseDisplayed" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MRDFS_MatchResponseAvailableProgram" Association="Self.FK_MRDFS_MatchResponseAvailableProgram">
+            <End Role="MatchResponseAvailableProgram" EntitySet="MatchResponseAvailableProgram" />
+            <End Role="MatchResponseAvailableProgramFactorScore" EntitySet="MatchResponseAvailableProgramFactorScore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MRDFS_MatchResponseDisplayed" Association="Self.FK_MRDFS_MatchResponseDisplayed">
+            <End Role="MatchResponseDisplayed" EntitySet="MatchResponseDisplayed" />
+            <End Role="MatchResponseDisplayedFactorScore" EntitySet="MatchResponseDisplayedFactorScore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MRSKVD_MatchResponseSearch" Association="Self.FK_MRSKVD_MatchResponseSearch">
+            <End Role="MatchResponseSearch" EntitySet="MatchResponseSearch" />
+            <End Role="MatchResponseSearchKVData" EntitySet="MatchResponseSearchKVData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MRSR_MatchResponseSearch" Association="Self.FK_MRSR_MatchResponseSearch">
+            <End Role="MatchResponseSearch" EntitySet="MatchResponseSearch" />
+            <End Role="MatchResponseSearchResult" EntitySet="MatchResponseSearchResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MRSRE_MatchResponseSearch" Association="Self.FK_MRSRE_MatchResponseSearch">
+            <End Role="MatchResponseSearch" EntitySet="MatchResponseSearch" />
+            <End Role="MatchResponseSearchRemoval" EntitySet="MatchResponseSearchRemoval" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MatchLoggingModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="MatchLoggingModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MatchResponseDisplayeds" EntityType="MatchLoggingModel.MatchResponseDisplayed" />
+          <AssociationSet Name="FK_MRD_ParentMatchResponseDisplayed" Association="MatchLoggingModel.FK_MRD_ParentMatchResponseDisplayed">
+            <End Role="MatchResponseDisplayed" EntitySet="MatchResponseDisplayeds" />
+            <End Role="MatchResponseDisplayed1" EntitySet="MatchResponseDisplayeds" />
+          </AssociationSet>
+          <EntitySet Name="MatchResponseDisplayedFactorScores" EntityType="MatchLoggingModel.MatchResponseDisplayedFactorScore" />
+          <EntitySet Name="MatchResponseFactorAggregates" EntityType="MatchLoggingModel.MatchResponseFactorAggregate" />
+          <AssociationSet Name="FK_MRDFS_MatchResponseDisplayed" Association="MatchLoggingModel.FK_MRDFS_MatchResponseDisplayed">
+            <End Role="MatchResponseDisplayed" EntitySet="MatchResponseDisplayeds" />
+            <End Role="MatchResponseDisplayedFactorScore" EntitySet="MatchResponseDisplayedFactorScores" />
+          </AssociationSet>
+          <EntitySet Name="MatchResponseAvailablePrograms" EntityType="MatchLoggingModel.MatchResponseAvailableProgram" />
+          <EntitySet Name="MatchResponseAvailableProgramFactorScores" EntityType="MatchLoggingModel.MatchResponseAvailableProgramFactorScore" />
+          <AssociationSet Name="FK_MRDFS_MatchResponseAvailableProgram" Association="MatchLoggingModel.FK_MRDFS_MatchResponseAvailableProgram">
+            <End Role="MatchResponseAvailableProgram" EntitySet="MatchResponseAvailablePrograms" />
+            <End Role="MatchResponseAvailableProgramFactorScore" EntitySet="MatchResponseAvailableProgramFactorScores" />
+          </AssociationSet>
+          <EntitySet Name="MatchResponseRemovalReasonJsons" EntityType="MatchLoggingModel.MatchResponseRemovalReasonJson" />
+          <EntitySet Name="MatchResponseRemovalReasons" EntityType="MatchLoggingModel.MatchResponseRemovalReason" />
+          <EntitySet Name="MatchResponseFactorAggregateValues" EntityType="MatchLoggingModel.MatchResponseFactorAggregateValue" />
+          <AssociationSet Name="FK_MatchResponseFactorAggregateValue_MatchResponseFactorAggregate" Association="MatchLoggingModel.FK_MatchResponseFactorAggregateValue_MatchResponseFactorAggregate">
+            <End Role="MatchResponseFactorAggregate" EntitySet="MatchResponseFactorAggregates" />
+            <End Role="MatchResponseFactorAggregateValue" EntitySet="MatchResponseFactorAggregateValues" />
+          </AssociationSet>
+          <EntitySet Name="MatchResponses" EntityType="MatchLoggingModel.MatchResponse" />
+          <AssociationSet Name="FK_MatchResponseFactorAggregate_MatchResponse" Association="MatchLoggingModel.FK_MatchResponseFactorAggregate_MatchResponse">
+            <End Role="MatchResponse" EntitySet="MatchResponses" />
+            <End Role="MatchResponseFactorAggregate" EntitySet="MatchResponseFactorAggregates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchResponseRemovalReason_MatchResponse" Association="MatchLoggingModel.FK_MatchResponseRemovalReason_MatchResponse">
+            <End Role="MatchResponse" EntitySet="MatchResponses" />
+            <End Role="MatchResponseRemovalReason" EntitySet="MatchResponseRemovalReasons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchResponseRemovalReasonJson_MatchResponse" Association="MatchLoggingModel.FK_MatchResponseRemovalReasonJson_MatchResponse">
+            <End Role="MatchResponse" EntitySet="MatchResponses" />
+            <End Role="MatchResponseRemovalReasonJson" EntitySet="MatchResponseRemovalReasonJsons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MRAP_MatchResponse" Association="MatchLoggingModel.FK_MRAP_MatchResponse">
+            <End Role="MatchResponse" EntitySet="MatchResponses" />
+            <End Role="MatchResponseAvailableProgram" EntitySet="MatchResponseAvailablePrograms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MRD_MatchResponse" Association="MatchLoggingModel.FK_MRD_MatchResponse">
+            <End Role="MatchResponse" EntitySet="MatchResponses" />
+            <End Role="MatchResponseDisplayed" EntitySet="MatchResponseDisplayeds" />
+          </AssociationSet>
+          <EntitySet Name="MatchResponseSearches" EntityType="MatchLoggingModel.MatchResponseSearch" />
+          <EntitySet Name="MatchResponseSearchRemovals" EntityType="MatchLoggingModel.MatchResponseSearchRemoval" />
+          <EntitySet Name="MatchResponseSearchResults" EntityType="MatchLoggingModel.MatchResponseSearchResult" />
+          <AssociationSet Name="FK_MRS_MatchResponse" Association="MatchLoggingModel.FK_MRS_MatchResponse">
+            <End Role="MatchResponse" EntitySet="MatchResponses" />
+            <End Role="MatchResponseSearch" EntitySet="MatchResponseSearches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MRSR_MatchResponseSearch" Association="MatchLoggingModel.FK_MRSR_MatchResponseSearch">
+            <End Role="MatchResponseSearch" EntitySet="MatchResponseSearches" />
+            <End Role="MatchResponseSearchResult" EntitySet="MatchResponseSearchResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MRSRE_MatchResponseSearch" Association="MatchLoggingModel.FK_MRSRE_MatchResponseSearch">
+            <End Role="MatchResponseSearch" EntitySet="MatchResponseSearches" />
+            <End Role="MatchResponseSearchRemoval" EntitySet="MatchResponseSearchRemovals" />
+          </AssociationSet>
+          <EntitySet Name="MatchResponseSearchKVDatas" EntityType="MatchLoggingModel.MatchResponseSearchKVData" />
+          <AssociationSet Name="FK_MRSKVD_MatchResponseSearch" Association="MatchLoggingModel.FK_MRSKVD_MatchResponseSearch">
+            <End Role="MatchResponseSearch" EntitySet="MatchResponseSearches" />
+            <End Role="MatchResponseSearchKVData" EntitySet="MatchResponseSearchKVDatas" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="MatchResponseDisplayed">
+          <Key>
+            <PropertyRef Name="MatchResponseDisplayedId" />
+          </Key>
+          <Property Name="MatchResponseDisplayedId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchResponseId" Type="Int64" Nullable="false" />
+          <Property Name="EntityId" Type="Int32" Nullable="false" />
+          <Property Name="EntityMetaId" Type="Int32" Nullable="false" />
+          <Property Name="SRAScore" Type="Decimal" Nullable="false" Precision="9" Scale="5" />
+          <Property Name="CollectionIndex" Type="Int32" Nullable="false" />
+          <Property Name="ParentMatchResponseDisplayedId" Type="Int32" />
+          <Property Name="MatchResponseTypeId" Type="Int32" />
+          <NavigationProperty Name="ChildMatchResponseDisplayed" Relationship="MatchLoggingModel.FK_MRD_ParentMatchResponseDisplayed" FromRole="MatchResponseDisplayed" ToRole="MatchResponseDisplayed1" />
+          <NavigationProperty Name="ParentMatchResponseDisplayed" Relationship="MatchLoggingModel.FK_MRD_ParentMatchResponseDisplayed" FromRole="MatchResponseDisplayed1" ToRole="MatchResponseDisplayed" />
+          <NavigationProperty Name="MatchResponseDisplayedFactorScores" Relationship="MatchLoggingModel.FK_MRDFS_MatchResponseDisplayed" FromRole="MatchResponseDisplayed" ToRole="MatchResponseDisplayedFactorScore" />
+          <NavigationProperty Name="MatchResponse" Relationship="MatchLoggingModel.FK_MRD_MatchResponse" FromRole="MatchResponseDisplayed" ToRole="MatchResponse" />
+        </EntityType>
+        <Association Name="FK_MRD_ParentMatchResponseDisplayed">
+          <End Type="MatchLoggingModel.MatchResponseDisplayed" Role="MatchResponseDisplayed" Multiplicity="0..1" />
+          <End Type="MatchLoggingModel.MatchResponseDisplayed" Role="MatchResponseDisplayed1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponseDisplayed">
+              <PropertyRef Name="MatchResponseDisplayedId" />
+            </Principal>
+            <Dependent Role="MatchResponseDisplayed1">
+              <PropertyRef Name="ParentMatchResponseDisplayedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MatchResponseDisplayedFactorScore">
+          <Key>
+            <PropertyRef Name="MatchResponseDisplayedFactorScoreId" />
+          </Key>
+          <Property Name="MatchResponseDisplayedFactorScoreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchResponseDisplayedId" Type="Int32" Nullable="false" />
+          <Property Name="BusinessModelFactorId" Type="Int32" Nullable="false" />
+          <Property Name="FactorScore" Type="Decimal" Nullable="false" Precision="9" Scale="5" />
+          <Property Name="FactorValue" Type="Decimal" Precision="9" Scale="5" />
+          <NavigationProperty Name="MatchResponseDisplayed" Relationship="MatchLoggingModel.FK_MRDFS_MatchResponseDisplayed" FromRole="MatchResponseDisplayedFactorScore" ToRole="MatchResponseDisplayed" />
+        </EntityType>
+        <EntityType Name="MatchResponseFactorAggregate">
+          <Key>
+            <PropertyRef Name="MatchResponseFactorAggregateId" />
+          </Key>
+          <Property Name="MatchResponseFactorAggregateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchResponseId" Type="Int64" Nullable="false" />
+          <Property Name="BusinessModelFactorId" Type="Int32" Nullable="false" />
+          <Property Name="MatchResponseFactorAggregateTypeId" Type="Int32" Nullable="false" />
+          <Property Name="AggregateValue" Type="Decimal" Precision="9" Scale="5" />
+          <Property Name="ProgramProductId" Type="Int32" />
+          <NavigationProperty Name="MatchResponseFactorAggregateValues" Relationship="MatchLoggingModel.FK_MatchResponseFactorAggregateValue_MatchResponseFactorAggregate" FromRole="MatchResponseFactorAggregate" ToRole="MatchResponseFactorAggregateValue" />
+          <NavigationProperty Name="MatchResponse" Relationship="MatchLoggingModel.FK_MatchResponseFactorAggregate_MatchResponse" FromRole="MatchResponseFactorAggregate" ToRole="MatchResponse" />
+        </EntityType>
+        <Association Name="FK_MRDFS_MatchResponseDisplayed">
+          <End Type="MatchLoggingModel.MatchResponseDisplayed" Role="MatchResponseDisplayed" Multiplicity="1" />
+          <End Type="MatchLoggingModel.MatchResponseDisplayedFactorScore" Role="MatchResponseDisplayedFactorScore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponseDisplayed">
+              <PropertyRef Name="MatchResponseDisplayedId" />
+            </Principal>
+            <Dependent Role="MatchResponseDisplayedFactorScore">
+              <PropertyRef Name="MatchResponseDisplayedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MatchResponseAvailableProgram">
+          <Key>
+            <PropertyRef Name="MatchResponseAvailableProgramId" />
+          </Key>
+          <Property Name="MatchResponseAvailableProgramId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchResponseId" Type="Int64" Nullable="false" />
+          <Property Name="ProgramProductId" Type="Int32" Nullable="false" />
+          <Property Name="SRAScore" Type="Decimal" Nullable="false" Precision="9" Scale="5" />
+          <Property Name="CollectionIndex" Type="Int32" Nullable="false" />
+          <Property Name="MatchResponseTypeId" Type="Int32" />
+          <NavigationProperty Name="MatchResponseAvailableProgramFactorScores" Relationship="MatchLoggingModel.FK_MRDFS_MatchResponseAvailableProgram" FromRole="MatchResponseAvailableProgram" ToRole="MatchResponseAvailableProgramFactorScore" />
+          <NavigationProperty Name="MatchResponse" Relationship="MatchLoggingModel.FK_MRAP_MatchResponse" FromRole="MatchResponseAvailableProgram" ToRole="MatchResponse" />
+        </EntityType>
+        <EntityType Name="MatchResponseAvailableProgramFactorScore">
+          <Key>
+            <PropertyRef Name="MatchResponseAvailableProgramFactorScoreId" />
+          </Key>
+          <Property Name="MatchResponseAvailableProgramFactorScoreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchResponseAvailableProgramId" Type="Int32" Nullable="false" />
+          <Property Name="BusinessModelFactorId" Type="Int32" Nullable="false" />
+          <Property Name="FactorScore" Type="Decimal" Nullable="false" Precision="9" Scale="5" />
+          <Property Name="FactorValue" Type="Decimal" Precision="9" Scale="5" />
+          <NavigationProperty Name="MatchResponseAvailableProgram" Relationship="MatchLoggingModel.FK_MRDFS_MatchResponseAvailableProgram" FromRole="MatchResponseAvailableProgramFactorScore" ToRole="MatchResponseAvailableProgram" />
+        </EntityType>
+        <Association Name="FK_MRDFS_MatchResponseAvailableProgram">
+          <End Type="MatchLoggingModel.MatchResponseAvailableProgram" Role="MatchResponseAvailableProgram" Multiplicity="1" />
+          <End Type="MatchLoggingModel.MatchResponseAvailableProgramFactorScore" Role="MatchResponseAvailableProgramFactorScore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponseAvailableProgram">
+              <PropertyRef Name="MatchResponseAvailableProgramId" />
+            </Principal>
+            <Dependent Role="MatchResponseAvailableProgramFactorScore">
+              <PropertyRef Name="MatchResponseAvailableProgramId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MatchResponseRemovalReasonJson">
+          <Key>
+            <PropertyRef Name="MatchResponseRemovalReasonJsonId" />
+          </Key>
+          <Property Name="MatchResponseRemovalReasonJsonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchResponseId" Type="Int64" Nullable="false" />
+          <Property Name="JsonObject" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MatchResponse" Relationship="MatchLoggingModel.FK_MatchResponseRemovalReasonJson_MatchResponse" FromRole="MatchResponseRemovalReasonJson" ToRole="MatchResponse" />
+        </EntityType>
+        <EntityType Name="MatchResponseRemovalReason">
+          <Key>
+            <PropertyRef Name="MatchResponseRemovalReasonId" />
+          </Key>
+          <Property Name="MatchResponseRemovalReasonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchResponseId" Type="Int64" Nullable="false" />
+          <Property Name="ProgramProductId" Type="Int32" Nullable="false" />
+          <Property Name="EntityMetaId" Type="Int32" Nullable="false" />
+          <Property Name="RuleEntityId" Type="Int32" />
+          <Property Name="RuleTypeId" Type="Int32" Nullable="false" />
+          <Property Name="RuleDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MatchResponse" Relationship="MatchLoggingModel.FK_MatchResponseRemovalReason_MatchResponse" FromRole="MatchResponseRemovalReason" ToRole="MatchResponse" />
+        </EntityType>
+        <EntityType Name="MatchResponseFactorAggregateValue">
+          <Key>
+            <PropertyRef Name="MatchResponseFactorAggregateValueId" />
+          </Key>
+          <Property Name="MatchResponseFactorAggregateValueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchResponseFactorAggregateId" Type="Int32" Nullable="false" />
+          <Property Name="BusinessModelFactorId" Type="Int32" Nullable="false" />
+          <Property Name="AggregateValue" Type="Decimal" Precision="9" Scale="5" />
+          <NavigationProperty Name="MatchResponseFactorAggregate" Relationship="MatchLoggingModel.FK_MatchResponseFactorAggregateValue_MatchResponseFactorAggregate" FromRole="MatchResponseFactorAggregateValue" ToRole="MatchResponseFactorAggregate" />
+        </EntityType>
+        <Association Name="FK_MatchResponseFactorAggregateValue_MatchResponseFactorAggregate">
+          <End Type="MatchLoggingModel.MatchResponseFactorAggregate" Role="MatchResponseFactorAggregate" Multiplicity="1" />
+          <End Type="MatchLoggingModel.MatchResponseFactorAggregateValue" Role="MatchResponseFactorAggregateValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponseFactorAggregate">
+              <PropertyRef Name="MatchResponseFactorAggregateId" />
+            </Principal>
+            <Dependent Role="MatchResponseFactorAggregateValue">
+              <PropertyRef Name="MatchResponseFactorAggregateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MatchResponse">
+          <Key>
+            <PropertyRef Name="MatchResponseId" />
+          </Key>
+          <Property Name="MatchResponseId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchResponseGUID" Type="Guid" Nullable="false" />
+          <Property Name="IsRollup" Type="Boolean" Nullable="false" />
+          <Property Name="BusinessModelWeightSubjectId" Type="Int32" Nullable="false" />
+          <Property Name="ProcessRequestMilliseconds" Type="Int32" Nullable="false" />
+          <Property Name="RequestType" Type="Int32" Nullable="false" />
+          <Property Name="RequestMethodName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RequestInput" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ServerName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TrackingDeviceGUID" Type="Guid" />
+          <Property Name="TrackingSessionGUID" Type="Guid" />
+          <Property Name="LeadScoringGuid" Type="Guid" />
+          <Property Name="PremierUpsellEligible" Type="Boolean" />
+          <Property Name="ProspectZipAvailable" Type="Boolean" />
+          <Property Name="DistanceCliffValue" Type="Int32" />
+          <Property Name="DistanceCapMultiplier" Type="Int32" />
+          <Property Name="InstitutionGroupingType" Type="Int32" />
+          <NavigationProperty Name="MatchResponseFactorAggregates" Relationship="MatchLoggingModel.FK_MatchResponseFactorAggregate_MatchResponse" FromRole="MatchResponse" ToRole="MatchResponseFactorAggregate" />
+          <NavigationProperty Name="MatchResponseRemovalReasons" Relationship="MatchLoggingModel.FK_MatchResponseRemovalReason_MatchResponse" FromRole="MatchResponse" ToRole="MatchResponseRemovalReason" />
+          <NavigationProperty Name="MatchResponseRemovalReasonJsons" Relationship="MatchLoggingModel.FK_MatchResponseRemovalReasonJson_MatchResponse" FromRole="MatchResponse" ToRole="MatchResponseRemovalReasonJson" />
+          <NavigationProperty Name="MatchResponseAvailablePrograms" Relationship="MatchLoggingModel.FK_MRAP_MatchResponse" FromRole="MatchResponse" ToRole="MatchResponseAvailableProgram" />
+          <NavigationProperty Name="MatchResponseDisplayeds" Relationship="MatchLoggingModel.FK_MRD_MatchResponse" FromRole="MatchResponse" ToRole="MatchResponseDisplayed" />
+          <NavigationProperty Name="MatchResponseSearches" Relationship="MatchLoggingModel.FK_MRS_MatchResponse" FromRole="MatchResponse" ToRole="MatchResponseSearch" />
+        </EntityType>
+        <Association Name="FK_MatchResponseFactorAggregate_MatchResponse">
+          <End Type="MatchLoggingModel.MatchResponse" Role="MatchResponse" Multiplicity="1" />
+          <End Type="MatchLoggingModel.MatchResponseFactorAggregate" Role="MatchResponseFactorAggregate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponse">
+              <PropertyRef Name="MatchResponseId" />
+            </Principal>
+            <Dependent Role="MatchResponseFactorAggregate">
+              <PropertyRef Name="MatchResponseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchResponseRemovalReason_MatchResponse">
+          <End Type="MatchLoggingModel.MatchResponse" Role="MatchResponse" Multiplicity="1" />
+          <End Type="MatchLoggingModel.MatchResponseRemovalReason" Role="MatchResponseRemovalReason" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponse">
+              <PropertyRef Name="MatchResponseId" />
+            </Principal>
+            <Dependent Role="MatchResponseRemovalReason">
+              <PropertyRef Name="MatchResponseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchResponseRemovalReasonJson_MatchResponse">
+          <End Type="MatchLoggingModel.MatchResponse" Role="MatchResponse" Multiplicity="1" />
+          <End Type="MatchLoggingModel.MatchResponseRemovalReasonJson" Role="MatchResponseRemovalReasonJson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponse">
+              <PropertyRef Name="MatchResponseId" />
+            </Principal>
+            <Dependent Role="MatchResponseRemovalReasonJson">
+              <PropertyRef Name="MatchResponseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MRAP_MatchResponse">
+          <End Type="MatchLoggingModel.MatchResponse" Role="MatchResponse" Multiplicity="1" />
+          <End Type="MatchLoggingModel.MatchResponseAvailableProgram" Role="MatchResponseAvailableProgram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponse">
+              <PropertyRef Name="MatchResponseId" />
+            </Principal>
+            <Dependent Role="MatchResponseAvailableProgram">
+              <PropertyRef Name="MatchResponseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MRD_MatchResponse">
+          <End Type="MatchLoggingModel.MatchResponse" Role="MatchResponse" Multiplicity="1" />
+          <End Type="MatchLoggingModel.MatchResponseDisplayed" Role="MatchResponseDisplayed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponse">
+              <PropertyRef Name="MatchResponseId" />
+            </Principal>
+            <Dependent Role="MatchResponseDisplayed">
+              <PropertyRef Name="MatchResponseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MatchResponseSearch">
+          <Key>
+            <PropertyRef Name="MatchResponseSearchId" />
+          </Key>
+          <Property Name="MatchResponseSearchId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchResponseId" Type="Int64" Nullable="false" />
+          <Property Name="TrackId" Type="Guid" Nullable="false" />
+          <Property Name="CallingApplication" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApplicationId" Type="Int32" />
+          <Property Name="DialerKey" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TSR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LeadCreationTypeId" Type="Int32" />
+          <Property Name="CampusTypeId" Type="Int32" />
+          <Property Name="HasComputer" Type="Boolean" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountryId" Type="Int32" />
+          <Property Name="EducationLevelId" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ExternalLeadId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HSGraduationYear" Type="Int32" />
+          <Property Name="IsCitzen" Type="Boolean" />
+          <Property Name="IsMilitary" Type="Boolean" />
+          <Property Name="MilitaryStatusId" Type="Int32" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="StateId" Type="Int32" />
+          <Property Name="StreetAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryList" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="SubjectList" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="SpecialtyList" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="SmartMatchedInstitutionList" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MatchResponse" Relationship="MatchLoggingModel.FK_MRS_MatchResponse" FromRole="MatchResponseSearch" ToRole="MatchResponse" />
+          <NavigationProperty Name="MatchResponseSearchResults" Relationship="MatchLoggingModel.FK_MRSR_MatchResponseSearch" FromRole="MatchResponseSearch" ToRole="MatchResponseSearchResult" />
+          <NavigationProperty Name="MatchResponseSearchRemovals" Relationship="MatchLoggingModel.FK_MRSRE_MatchResponseSearch" FromRole="MatchResponseSearch" ToRole="MatchResponseSearchRemoval" />
+          <Property Name="ReturnedSchools" Type="Int32" Nullable="false" />
+          <Property Name="AvailableSchools" Type="Int32" Nullable="false" />
+          <Property Name="RemovedSchools" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MatchResponseSearchKVDatas" Relationship="MatchLoggingModel.FK_MRSKVD_MatchResponseSearch" FromRole="MatchResponseSearch" ToRole="MatchResponseSearchKVData" />
+        </EntityType>
+        <EntityType Name="MatchResponseSearchRemoval">
+          <Key>
+            <PropertyRef Name="MatchResponseSearchRemovalId" />
+          </Key>
+          <Property Name="MatchResponseSearchRemovalId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchResponseSearchId" Type="Int64" Nullable="false" />
+          <Property Name="ClientRelationshipId" Type="Int32" />
+          <Property Name="ClientRelationProductMappingId" Type="Int32" />
+          <Property Name="PsiId" Type="Int32" />
+          <Property Name="ProgramProductId" Type="Int32" />
+          <Property Name="RuleName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RuleId" Type="Int32" Nullable="false" />
+          <Property Name="BaseRuleType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MatchResponseSearch" Relationship="MatchLoggingModel.FK_MRSRE_MatchResponseSearch" FromRole="MatchResponseSearchRemoval" ToRole="MatchResponseSearch" />
+          <Property Name="InstitutionId" Type="Int32" Nullable="false" />
+          <Property Name="ClientCampusProductMappingId" Type="Int32" />
+          <Property Name="ProgramId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MatchResponseSearchResult">
+          <Key>
+            <PropertyRef Name="MatchResponseSearchResultId" />
+          </Key>
+          <Property Name="MatchResponseSearchResultId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchResponseSearchId" Type="Int64" Nullable="false" />
+          <Property Name="CampusId" Type="Int32" Nullable="false" />
+          <Property Name="Position" Type="Int32" Nullable="false" />
+          <Property Name="IsLT" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MatchResponseSearch" Relationship="MatchLoggingModel.FK_MRSR_MatchResponseSearch" FromRole="MatchResponseSearchResult" ToRole="MatchResponseSearch" />
+          <Property Name="InstitutionId" Type="Int32" Nullable="false" />
+          <Property Name="Displayed" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_MRS_MatchResponse">
+          <End Type="MatchLoggingModel.MatchResponse" Role="MatchResponse" Multiplicity="1" />
+          <End Type="MatchLoggingModel.MatchResponseSearch" Role="MatchResponseSearch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponse">
+              <PropertyRef Name="MatchResponseId" />
+            </Principal>
+            <Dependent Role="MatchResponseSearch">
+              <PropertyRef Name="MatchResponseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MRSR_MatchResponseSearch">
+          <End Type="MatchLoggingModel.MatchResponseSearch" Role="MatchResponseSearch" Multiplicity="1" />
+          <End Type="MatchLoggingModel.MatchResponseSearchResult" Role="MatchResponseSearchResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponseSearch">
+              <PropertyRef Name="MatchResponseSearchId" />
+            </Principal>
+            <Dependent Role="MatchResponseSearchResult">
+              <PropertyRef Name="MatchResponseSearchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MRSRE_MatchResponseSearch">
+          <End Type="MatchLoggingModel.MatchResponseSearch" Role="MatchResponseSearch" Multiplicity="1" />
+          <End Type="MatchLoggingModel.MatchResponseSearchRemoval" Role="MatchResponseSearchRemoval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponseSearch">
+              <PropertyRef Name="MatchResponseSearchId" />
+            </Principal>
+            <Dependent Role="MatchResponseSearchRemoval">
+              <PropertyRef Name="MatchResponseSearchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MatchResponseSearchKVData">
+          <Key>
+            <PropertyRef Name="MatchResponseSearchKVDataId" />
+          </Key>
+          <Property Name="MatchResponseSearchKVDataId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchResponseSearchId" Type="Int64" Nullable="false" />
+          <Property Name="Key" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KVCodeDataId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MatchResponseSearch" Relationship="MatchLoggingModel.FK_MRSKVD_MatchResponseSearch" FromRole="MatchResponseSearchKVData" ToRole="MatchResponseSearch" />
+        </EntityType>
+        <Association Name="FK_MRSKVD_MatchResponseSearch">
+          <End Type="MatchLoggingModel.MatchResponseSearch" Role="MatchResponseSearch" Multiplicity="1" />
+          <End Type="MatchLoggingModel.MatchResponseSearchKVData" Role="MatchResponseSearchKVData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchResponseSearch">
+              <PropertyRef Name="MatchResponseSearchId" />
+            </Principal>
+            <Dependent Role="MatchResponseSearchKVData">
+              <PropertyRef Name="MatchResponseSearchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="MatchLoggingModel" />
+        <Alias Key="Target" Value="MatchLoggingModel.Store" />
+        <EntityContainerMapping CdmEntityContainer="MatchLoggingModelContainer" StorageEntityContainer="MatchLoggingModelStoreContainer">
+          <EntitySetMapping Name="MatchResponseDisplayeds">
+            <EntityTypeMapping TypeName="MatchLoggingModel.MatchResponseDisplayed">
+              <MappingFragment StoreEntitySet="MatchResponseDisplayed">
+                <ScalarProperty Name="MatchResponseTypeId" ColumnName="MatchResponseTypeId" />
+                <ScalarProperty Name="ParentMatchResponseDisplayedId" ColumnName="ParentMatchResponseDisplayedId" />
+                <ScalarProperty Name="CollectionIndex" ColumnName="CollectionIndex" />
+                <ScalarProperty Name="SRAScore" ColumnName="SRAScore" />
+                <ScalarProperty Name="EntityMetaId" ColumnName="EntityMetaId" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="MatchResponseId" ColumnName="MatchResponseId" />
+                <ScalarProperty Name="MatchResponseDisplayedId" ColumnName="MatchResponseDisplayedId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchResponseDisplayedFactorScores">
+            <EntityTypeMapping TypeName="MatchLoggingModel.MatchResponseDisplayedFactorScore">
+              <MappingFragment StoreEntitySet="MatchResponseDisplayedFactorScore">
+                <ScalarProperty Name="FactorValue" ColumnName="FactorValue" />
+                <ScalarProperty Name="FactorScore" ColumnName="FactorScore" />
+                <ScalarProperty Name="BusinessModelFactorId" ColumnName="BusinessModelFactorId" />
+                <ScalarProperty Name="MatchResponseDisplayedId" ColumnName="MatchResponseDisplayedId" />
+                <ScalarProperty Name="MatchResponseDisplayedFactorScoreId" ColumnName="MatchResponseDisplayedFactorScoreId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchResponseFactorAggregates">
+            <EntityTypeMapping TypeName="MatchLoggingModel.MatchResponseFactorAggregate">
+              <MappingFragment StoreEntitySet="MatchResponseFactorAggregate">
+                <ScalarProperty Name="ProgramProductId" ColumnName="ProgramProductId" />
+                <ScalarProperty Name="AggregateValue" ColumnName="AggregateValue" />
+                <ScalarProperty Name="MatchResponseFactorAggregateTypeId" ColumnName="MatchResponseFactorAggregateTypeId" />
+                <ScalarProperty Name="BusinessModelFactorId" ColumnName="BusinessModelFactorId" />
+                <ScalarProperty Name="MatchResponseId" ColumnName="MatchResponseId" />
+                <ScalarProperty Name="MatchResponseFactorAggregateId" ColumnName="MatchResponseFactorAggregateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchResponseAvailablePrograms">
+            <EntityTypeMapping TypeName="MatchLoggingModel.MatchResponseAvailableProgram">
+              <MappingFragment StoreEntitySet="MatchResponseAvailableProgram">
+                <ScalarProperty Name="MatchResponseTypeId" ColumnName="MatchResponseTypeId" />
+                <ScalarProperty Name="CollectionIndex" ColumnName="CollectionIndex" />
+                <ScalarProperty Name="SRAScore" ColumnName="SRAScore" />
+                <ScalarProperty Name="ProgramProductId" ColumnName="ProgramProductId" />
+                <ScalarProperty Name="MatchResponseId" ColumnName="MatchResponseId" />
+                <ScalarProperty Name="MatchResponseAvailableProgramId" ColumnName="MatchResponseAvailableProgramId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchResponseAvailableProgramFactorScores">
+            <EntityTypeMapping TypeName="MatchLoggingModel.MatchResponseAvailableProgramFactorScore">
+              <MappingFragment StoreEntitySet="MatchResponseAvailableProgramFactorScore">
+                <ScalarProperty Name="FactorValue" ColumnName="FactorValue" />
+                <ScalarProperty Name="FactorScore" ColumnName="FactorScore" />
+                <ScalarProperty Name="BusinessModelFactorId" ColumnName="BusinessModelFactorId" />
+                <ScalarProperty Name="MatchResponseAvailableProgramId" ColumnName="MatchResponseAvailableProgramId" />
+                <ScalarProperty Name="MatchResponseAvailableProgramFactorScoreId" ColumnName="MatchResponseAvailableProgramFactorScoreId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchResponseRemovalReasonJsons">
+            <EntityTypeMapping TypeName="MatchLoggingModel.MatchResponseRemovalReasonJson">
+              <MappingFragment StoreEntitySet="MatchResponseRemovalReasonJson">
+                <ScalarProperty Name="JsonObject" ColumnName="JsonObject" />
+                <ScalarProperty Name="MatchResponseId" ColumnName="MatchResponseId" />
+                <ScalarProperty Name="MatchResponseRemovalReasonJsonId" ColumnName="MatchResponseRemovalReasonJsonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchResponseRemovalReasons">
+            <EntityTypeMapping TypeName="MatchLoggingModel.MatchResponseRemovalReason">
+              <MappingFragment StoreEntitySet="MatchResponseRemovalReason">
+                <ScalarProperty Name="RuleDetail" ColumnName="RuleDetail" />
+                <ScalarProperty Name="RuleTypeId" ColumnName="RuleTypeId" />
+                <ScalarProperty Name="RuleEntityId" ColumnName="RuleEntityId" />
+                <ScalarProperty Name="EntityMetaId" ColumnName="EntityMetaId" />
+                <ScalarProperty Name="ProgramProductId" ColumnName="ProgramProductId" />
+                <ScalarProperty Name="MatchResponseId" ColumnName="MatchResponseId" />
+                <ScalarProperty Name="MatchResponseRemovalReasonId" ColumnName="MatchResponseRemovalReasonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchResponseFactorAggregateValues">
+            <EntityTypeMapping TypeName="MatchLoggingModel.MatchResponseFactorAggregateValue">
+              <MappingFragment StoreEntitySet="MatchResponseFactorAggregateValue">
+                <ScalarProperty Name="AggregateValue" ColumnName="AggregateValue" />
+                <ScalarProperty Name="BusinessModelFactorId" ColumnName="BusinessModelFactorId" />
+                <ScalarProperty Name="MatchResponseFactorAggregateId" ColumnName="MatchResponseFactorAggregateId" />
+                <ScalarProperty Name="MatchResponseFactorAggregateValueId" ColumnName="MatchResponseFactorAggregateValueId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchResponses">
+            <EntityTypeMapping TypeName="MatchLoggingModel.MatchResponse">
+              <MappingFragment StoreEntitySet="MatchResponse">
+                <ScalarProperty Name="InstitutionGroupingType" ColumnName="InstitutionGroupingType" />
+                <ScalarProperty Name="DistanceCapMultiplier" ColumnName="DistanceCapMultiplier" />
+                <ScalarProperty Name="DistanceCliffValue" ColumnName="DistanceCliffValue" />
+                <ScalarProperty Name="ProspectZipAvailable" ColumnName="ProspectZipAvailable" />
+                <ScalarProperty Name="PremierUpsellEligible" ColumnName="PremierUpsellEligible" />
+                <ScalarProperty Name="LeadScoringGuid" ColumnName="LeadScoringGuid" />
+                <ScalarProperty Name="TrackingSessionGUID" ColumnName="TrackingSessionGUID" />
+                <ScalarProperty Name="TrackingDeviceGUID" ColumnName="TrackingDeviceGUID" />
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="RequestInput" ColumnName="RequestInput" />
+                <ScalarProperty Name="RequestMethodName" ColumnName="RequestMethodName" />
+                <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+                <ScalarProperty Name="ProcessRequestMilliseconds" ColumnName="ProcessRequestMilliseconds" />
+                <ScalarProperty Name="BusinessModelWeightSubjectId" ColumnName="BusinessModelWeightSubjectId" />
+                <ScalarProperty Name="IsRollup" ColumnName="IsRollup" />
+                <ScalarProperty Name="MatchResponseGUID" ColumnName="MatchResponseGUID" />
+                <ScalarProperty Name="MatchResponseId" ColumnName="MatchResponseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchResponseSearches">
+            <EntityTypeMapping TypeName="MatchLoggingModel.MatchResponseSearch">
+              <MappingFragment StoreEntitySet="MatchResponseSearch">
+                <ScalarProperty Name="RemovedSchools" ColumnName="RemovedSchools" />
+                <ScalarProperty Name="AvailableSchools" ColumnName="AvailableSchools" />
+                <ScalarProperty Name="ReturnedSchools" ColumnName="ReturnedSchools" />
+                <ScalarProperty Name="SmartMatchedInstitutionList" ColumnName="SmartMatchedInstitutionList" />
+                <ScalarProperty Name="SpecialtyList" ColumnName="SpecialtyList" />
+                <ScalarProperty Name="SubjectList" ColumnName="SubjectList" />
+                <ScalarProperty Name="CategoryList" ColumnName="CategoryList" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MilitaryStatusId" ColumnName="MilitaryStatusId" />
+                <ScalarProperty Name="IsMilitary" ColumnName="IsMilitary" />
+                <ScalarProperty Name="IsCitzen" ColumnName="IsCitzen" />
+                <ScalarProperty Name="HSGraduationYear" ColumnName="HSGraduationYear" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="ExternalLeadId" ColumnName="ExternalLeadId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EducationLevelId" ColumnName="EducationLevelId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="HasComputer" ColumnName="HasComputer" />
+                <ScalarProperty Name="CampusTypeId" ColumnName="CampusTypeId" />
+                <ScalarProperty Name="LeadCreationTypeId" ColumnName="LeadCreationTypeId" />
+                <ScalarProperty Name="TSR" ColumnName="TSR" />
+                <ScalarProperty Name="DialerKey" ColumnName="DialerKey" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="CallingApplication" ColumnName="CallingApplication" />
+                <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+                <ScalarProperty Name="MatchResponseId" ColumnName="MatchResponseId" />
+                <ScalarProperty Name="MatchResponseSearchId" ColumnName="MatchResponseSearchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchResponseSearchRemovals">
+            <EntityTypeMapping TypeName="MatchLoggingModel.MatchResponseSearchRemoval">
+              <MappingFragment StoreEntitySet="MatchResponseSearchRemoval">
+                <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+                <ScalarProperty Name="ClientCampusProductMappingId" ColumnName="ClientCampusProductMappingId" />
+                <ScalarProperty Name="InstitutionId" ColumnName="InstitutionId" />
+                <ScalarProperty Name="BaseRuleType" ColumnName="BaseRuleType" />
+                <ScalarProperty Name="RuleId" ColumnName="RuleId" />
+                <ScalarProperty Name="RuleName" ColumnName="RuleName" />
+                <ScalarProperty Name="ProgramProductId" ColumnName="ProgramProductId" />
+                <ScalarProperty Name="PsiId" ColumnName="PsiId" />
+                <ScalarProperty Name="ClientRelationProductMappingId" ColumnName="ClientRelationProductMappingId" />
+                <ScalarProperty Name="ClientRelationshipId" ColumnName="ClientRelationshipId" />
+                <ScalarProperty Name="MatchResponseSearchId" ColumnName="MatchResponseSearchId" />
+                <ScalarProperty Name="MatchResponseSearchRemovalId" ColumnName="MatchResponseSearchRemovalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchResponseSearchResults">
+            <EntityTypeMapping TypeName="MatchLoggingModel.MatchResponseSearchResult">
+              <MappingFragment StoreEntitySet="MatchResponseSearchResult">
+                <ScalarProperty Name="Displayed" ColumnName="Displayed" />
+                <ScalarProperty Name="InstitutionId" ColumnName="InstitutionId" />
+                <ScalarProperty Name="IsLT" ColumnName="IsLT" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+                <ScalarProperty Name="MatchResponseSearchId" ColumnName="MatchResponseSearchId" />
+                <ScalarProperty Name="MatchResponseSearchResultId" ColumnName="MatchResponseSearchResultId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchResponseSearchKVDatas">
+            <EntityTypeMapping TypeName="MatchLoggingModel.MatchResponseSearchKVData">
+              <MappingFragment StoreEntitySet="MatchResponseSearchKVData">
+                <ScalarProperty Name="KVCodeDataId" ColumnName="KVCodeDataId" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="MatchResponseSearchId" ColumnName="MatchResponseSearchId" />
+                <ScalarProperty Name="MatchResponseSearchKVDataId" ColumnName="MatchResponseSearchKVDataId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

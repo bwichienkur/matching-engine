@@ -1,0 +1,15 @@
+﻿@charset "utf-8";
+@import url("[SERVER]/../../../../Static/GetCss?BasePath=Original&Theme=default&FileName=Base");
+
+#eddy-form-container .uab-popup a.close-button {
+    background: url("[SERVER]/../default/images/close-button.gif") no-repeat scroll 0 0 transparent !important;
+}
+#eddy-form-container .uab-logo {
+    background: url("[SERVER]/../default/images/uab-logo.gif") no-repeat scroll 0 0 transparent !important;
+}
+#eddy-form-container #FEloader {
+    background: #fff url("[SERVER]/../default/images/ajax-loader.gif") no-repeat 100px 60px !important;
+}
+#eddy-form-container .tooltip {
+    background: url("[SERVER]/../default/images/tooltip.gif") no-repeat scroll 0 0 transparent !important;
+}

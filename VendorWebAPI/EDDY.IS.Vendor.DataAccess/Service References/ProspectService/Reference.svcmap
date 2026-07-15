@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3447e1b7-db32-4553-b8e0-1638e15f3cc7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50631/ProspectService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ProspectService66.xsd" MetadataType="Schema" ID="e03fde35-a0b9-479c-a23f-3fb93c444525" SourceId="1" SourceUrl="http://localhost:50631/ProspectService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ProspectService22.wsdl" MetadataType="Wsdl" ID="5e276571-a456-4292-ba40-52a1d3f34823" SourceId="1" SourceUrl="http://localhost:50631/ProspectService.svc?wsdl" />
+    <MetadataFile FileName="ProspectService67.xsd" MetadataType="Schema" ID="bdc95198-9d44-438b-9458-bf756c4a64c8" SourceId="1" SourceUrl="http://localhost:50631/ProspectService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ProspectService23.wsdl" MetadataType="Wsdl" ID="8f876759-2bed-4db7-a5ce-d20c73cc3f79" SourceId="1" SourceUrl="http://localhost:50631/ProspectService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ProspectService68.xsd" MetadataType="Schema" ID="e52ce97d-e424-4b57-9499-05beb341dd8c" SourceId="1" SourceUrl="http://localhost:50631/ProspectService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ProspectService69.xsd" MetadataType="Schema" ID="52eaff94-6db0-485c-81c7-5c32de9244a2" SourceId="1" SourceUrl="http://localhost:50631/ProspectService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ProspectService610.xsd" MetadataType="Schema" ID="b7bcea5c-1fbb-4096-836c-ebbfc11d6775" SourceId="1" SourceUrl="http://localhost:50631/ProspectService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ProspectService611.xsd" MetadataType="Schema" ID="17ea9597-9441-48d8-81cd-870e376b9cca" SourceId="1" SourceUrl="http://localhost:50631/ProspectService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

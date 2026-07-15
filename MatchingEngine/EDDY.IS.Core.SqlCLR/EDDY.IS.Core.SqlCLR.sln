@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "EDDY.IS.Core.SqlCLR.Compression", "EDDY.IS.Core.SqlCLR.Compression\EDDY.IS.Core.SqlCLR.Compression.sqlproj", "{0C90CEEC-8796-46BE-85DF-73F3CA0577E0}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://eddytfs01:8080/tfs/eddyprojectcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = EDDY.IS.Core.SqlCLR.Compression\\EDDY.IS.Core.SqlCLR.Compression.sqlproj
+		SccProjectName1 = EDDY.IS.Core.SqlCLR.Compression
+		SccLocalPath1 = EDDY.IS.Core.SqlCLR.Compression
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C90CEEC-8796-46BE-85DF-73F3CA0577E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C90CEEC-8796-46BE-85DF-73F3CA0577E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C90CEEC-8796-46BE-85DF-73F3CA0577E0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0C90CEEC-8796-46BE-85DF-73F3CA0577E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C90CEEC-8796-46BE-85DF-73F3CA0577E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C90CEEC-8796-46BE-85DF-73F3CA0577E0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

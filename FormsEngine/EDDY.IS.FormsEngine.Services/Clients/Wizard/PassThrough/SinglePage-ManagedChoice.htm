@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html>
+<head>
+	<title>IS-Form Engine WizardTemplate</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <!--<script src="//cdn.optimizely.com/js/5309656004034560.js"></script>-->
+	<script language="javascript" type="text/javascript">
+
+	    var FormsEngine = FormsEngine || {};
+
+	    /* REQUIRED */
+	    FormsEngine.RenderingStrategy = 'WIZARDPLAIN';
+	    FormsEngine.RenderingDiv = 'eddy-form-container';
+	    FormsEngine.SelfContained = false; //true: Workflow must contain DIVS, false: must contain page to redirect and divs will be ignored
+	    FormsEngine.WorkflowStartPage = "/Clients/Wizard/PassThrough/SinglePage-Start.htm";
+	    FormsEngine.WorkflowManagedChoicePage = "/Clients/Wizard/PassThrough/SinglePage-ManagedChoice.htm";
+	    FormsEngine.WorkflowThankYouPage = "/Clients/Wizard/PassThrough/SinglePage-ThankYou.htm";
+	    FormsEngine.WorkflowNoMatchPage = "/Clients/Wizard/PassThrough/SinglePage-NoMatch.htm";
+	    FormsEngine.IsBeta = false;
+	    FormsEngine.TrackId = '485820d9-8b78-4ff7-b210-f9a3ad36c1c9';
+	    FormsEngine.TemplateId = 53; //dynamic campus preference
+
+	    /* Optional */
+	    //FormsEngine.Theme = "alternative";
+	    //FormsEngine.AdditionalFields = [];
+	    //FormsEngine.AdditionalFields.push(["AlexN", "WasHere"]);
+	    //FormsEngine.AdditionalFields.push(["AndThisIs", "WhateverYouWant"]);
+	    FormsEngine.DebugMode = true;
+	    FormsEngine.SessionId = '00000000-0000-0000-0000-0000-000000000000';
+	    FormsEngine.MatchResponseGuid = '00000000-0000-0000-0000-0000-000000000000';
+	    FormsEngine.CompressJs = false;
+
+    </script>
+    <script type="text/javascript" src="/Static/GetGlobal"></script>
+	<script type="text/javascript" src="/Static/GetWizardClient"></script>
+</head>
+<body>
+    <br />
+    <div><b>Managaed Choice - School Selection Page</b></div>
+    <br />
+        <div name="eddy-form-container" style="border:solid;border-color:green;">
+	</div>
+
+    <br /> <br />
+
+    <div style="text-align:center">
+        <a href="javascript:FormsEngine.LoadWorkflowStep('START','');"> [Start]</a> - 
+        <a href="javascript:FormsEngine.LoadWorkflowStep('MANAGEDCHOICE','');"> [School Selection]</a> - 
+        <a href="javascript:FormsEngine.LoadWorkflowStep('THANKYOU','');"> [Thank You]</a> - 
+        <a href="javascript:FormsEngine.LoadWorkflowStep('NOMATCH','');"> [No Match]</a> 
+    </div>
+</body>
+</html>

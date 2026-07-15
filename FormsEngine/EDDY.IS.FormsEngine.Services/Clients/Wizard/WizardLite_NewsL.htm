@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>IS-Form Engine WizardTemplate</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/Static/GetBundledWizardJs?minifyJavascript=false"></script>
+    <!--<script src="//cdn.optimizely.com/js/5309656004034560.js"></script>-->
+    <script language="javascript" type="text/javascript">
+
+        var FormsEngine = FormsEngine || {};
+
+        /* REQUIRED */
+        FormsEngine.RenderingStrategy = 'WIZARDPROFESSIONAL';
+        FormsEngine.RenderingDiv = 'eddy-form-container';
+        FormsEngine.SelfContained = true; //false: must contain page to redirect and divs will be ignored
+        FormsEngine.IsBeta = false;
+        FormsEngine.TrackId = "848C75DC-E18D-48B4-96F8-C647CB7C32F7";
+
+        /* Optional */
+        //FormsEngine.Theme = "alternative";
+        //FormsEngine.AdditionalFields = [];
+        //FormsEngine.AdditionalFields.push(["AlexN", "WasHere"]);
+        //FormsEngine.AdditionalFields.push(["AndThisIs", "WhateverYouWant"]);
+        FormsEngine.DebugMode = true;
+        FormsEngine.SessionId = '00000000-0000-0000-0000-0000-000000000000';
+        FormsEngine.MatchResponseGuid = '00000000-0000-0000-0000-0000-000000000000';
+        FormsEngine.CompressJs = false;
+        //FormsEngine.ExpressConsentOn = true;
+        //FormsEngine.WorkflowChanged = function (data) { alert('This is the workflow step you should load related content ' + data); }
+        FormsEngine.TemplateId = 112;
+        FormsEngine.LoadForm();
+    </script>
+
+</head>
+<body>
+    <div name="eddy-form-container" class="eddy-form-container" style="border:solid;border-color:green;">
+	</div>
+    <br /> <br />
+
+    <div style="text-align:center">
+        <a href="javascript:FormsEngine.LoadWorkflowStep('START','');"> [Start]</a> - 
+        <a href="javascript:FormsEngine.LoadWorkflowStep('MANAGEDCHOICE','');"> [School Selection]</a> - 
+        <a href="javascript:FormsEngine.LoadWorkflowStep('THANKYOU','');"> [Thank You]</a> - 
+        <a href="javascript:FormsEngine.LoadWorkflowStep('NOMATCH','');"> [No Match]</a> 
+    </div>
+</body>
+</html>

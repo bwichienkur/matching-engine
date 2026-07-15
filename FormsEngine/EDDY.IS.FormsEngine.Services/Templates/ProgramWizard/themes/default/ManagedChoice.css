@@ -1,0 +1,353 @@
+﻿#eddy-form-wizard-managedchoice-container .field-holder.checkbox{
+    margin-top:0;
+}
+#eddy-form-wizard-managedchoice-container .mc-SM-Display {
+    position:relative;
+}
+#eddy-form-wizard-managedchoice-container .school-name{
+	font-weight:bold;
+}
+	
+#eddy-form-wizard-managedchoice-container .school-info{
+	font-size:12px;
+    margin-bottom:10px;
+}
+
+    #eddy-form-wizard-managedchoice-container .mc-US-Display .school-name{
+        font-size:13px;
+        margin-left:8px;
+        margin-top:2px;
+    }
+#eddy-form-wizard-managedchoice-container .mc-US-Display .school-start-date {
+    font-size: 13px;
+    margin-left: 8px;
+    margin-top: 2px;
+}
+	/*.eddy-form-wizard-container .mc-SM-Display .sm-school .change-program-link{
+		margin-top:8px;
+		display:block;
+		font-size:11px;
+		text-decoration:none;
+        color:#3d77cb;
+        text-align:center;
+	}*/
+
+    #eddy-form-wizard-managedchoice-container .mc-sm-program{
+        padding-left:1%;
+        padding-right:1%;
+          display: inline-block;
+          float: none;
+          width: 31%;
+          vertical-align: top;
+    }
+    /*.eddy-form-wizard-container .mc-SM-Display .mc-sm-program.sm-removed .cover-sm-school{
+        height:100%;
+        width:100%;
+        padding-right:2px;
+        background:#BBB;
+        position:absolute;
+        z-index:2;
+        opacity:0.8;
+        filter:alpha(opacity=80); 
+    }*/
+
+#eddy-form-wizard-managedchoice-container .campusFlagIcon {
+    font-size:20px;
+    margin-top:5px;
+    color:#2467D1;
+    cursor:pointer;
+}
+
+
+
+#eddy-form-wizard-managedchoice-container .mc-SM-Area{
+    margin-bottom:25px;
+    position:relative;
+}
+#eddy-form-wizard-managedchoice-container .mc-us-school .campusFlagIcon{
+    background: white;
+    border: 1px solid #ccc;
+    float: left;
+    padding: 6px 1.5%;
+    margin-top:0;
+}
+#eddy-form-wizard-managedchoice-container .mc-US-Area {
+    position:relative;
+}
+
+#eddy-form-wizard-managedchoice-container .mc-us-school{
+    margin-bottom:20px;
+    background:#F8F8F8;
+    border:1px solid #D5D5D5;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+    padding:0 10px 5px;
+}
+
+#eddy-form-wizard-managedchoice-container .mc-us-school select{
+    width:90%;
+    background:white;
+    border-radius: 0;
+    -moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	-khtml-border-radius: 0;
+    position:relative;
+    left:-2px;
+}
+
+#eddy-form-wizard-managedchoice-container .mc-us-school .more-info{
+    font-size:12px;
+    margin:3px 0 2px 8px;
+}
+#eddy-form-wizard-managedchoice-container .mc-us-school .school-info-container{
+    padding-top:5px;
+    padding-right:0;
+}
+#eddy-form-wizard-managedchoice-container .mc-us-school .school-logo-container{
+    padding:0;
+    margin-bottom:5px;
+}
+#eddy-form-wizard-managedchoice-container .mc-us-school .school-logo-container img{
+    border:1px solid #D5D5D5;
+    border-top:0;
+    border-radius: 0 0 8px 8px;
+    -moz-border-radius: 0 0 8px 8px;
+	-webkit-border-radius: 0 0 8px 8px;
+	-khtml-border-radius: 0 0 8px 8px;
+    padding:5px;
+    background:white;
+}
+
+#eddy-form-wizard-managedchoice-container .checkbox-icon{
+    cursor:pointer;
+    float:left;
+    margin-right:5px;
+    margin-left:-20px;
+}
+#eddy-form-wizard-managedchoice-container .checkbox-icon:before{
+    font-size:19px;
+}
+#eddy-form-wizard-managedchoice-container .checkbox-icon.fa-square-o{
+	margin-right:6px;
+}
+#eddy-form-wizard-managedchoice-container .checkbox-icon.fa-check-square-o{
+    margin-right:8px;
+}
+
+/*#workflow-managedchoice-container .CSdisclosure
+{
+    margin: 10px 0 0 0;
+}*/
+/*#workflow-managedchoice-container .CSdisclaimerReferenceNumber, #eddy-form-container .CSdisclosure p {
+    font-size: 10px;
+    line-height: 13px;
+    margin: 0 5px 0 0;
+    z-index: 9999;
+}
+#workflow-managedchoice-container .CSdisclaimerReferenceNumber
+{
+    vertical-align: super;
+    font-weight:normal;
+    margin-top:-1px ;
+    background: #EFF6F9;
+    border-radius: 0;
+    bottom: auto;
+    color:	#3B3B3B;
+    display: inline;
+    padding: 0;
+    width: auto;
+}*/
+
+/*#workflow-managedchoice-container .cross-sell-express-consent
+{
+    padding: 20px 0 20px 50px;
+    width: 85%;
+}
+
+#workflow-managedchoice-container .cross-sell-express-consent label 
+{
+    font-size: 10px;
+    line-height: 13px;
+    margin: 0 5px 0 0;
+    text-align: left;
+    display:inline-block;
+    width:85%;
+}
+
+#workflow-managedchoice-container .cross-sell-express-consent label.express-consent-black
+{
+    color: #000;
+}
+#workflow-managedchoice-container .cross-sell-express-consent label.express-consent-error
+{
+    color: #B9121B;
+}*/
+
+.eddy-form-container .success-h2 {
+    font-weight: 500 !important;
+    line-height: 1.1 !important;
+    font-size: 30px !important;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.eddy-form-wizard-container .MCdisclosure {
+    /*margin: 10px 0 0 0 !important;*/
+}
+
+.eddy-form-wizard-container .MCdisclaimerReferenceNumber, .eddy-form-wizard-container .MCdisclosure p {
+    /*font-size: 10px;*/
+    /*line-height: 13px !important;
+    margin: 0 5px 10px 0 !important;
+    z-index: 9999 !important;*/
+}
+.eddy-form-wizard-container .CSdisclaimerReferenceNumber
+{
+    /*vertical-align: super;*/
+    /*font-weight:normal !important;
+    margin-top:-1px !important;*/
+    /*background: #EFF6F9;
+    font-size:10px;*/
+    /*border-radius: 0 !important;
+    bottom: auto !important;
+    color:	#3B3B3B !important;
+    display: inline !important;
+    padding: 0 !important;
+    width: auto !important;*/
+}
+
+#eddy-form-wizard-managedchoice-container .managedchoice-express-consent label.express-consent-error{
+    color: #B9121B;
+}
+
+#eddy-form-wizard-managedchoice-container #dvManagedChoiceError.error-summary,
+#eddy-form-wizard-managedchoice-container #dvManagedChoiceError.error-summary *{
+    color:#B9121B;
+}
+
+
+#eddy-form-wizard-managedchoice-container .mc-US-Display li.disable select {
+    color:#BBB;
+}
+#eddy-form-wizard-managedchoice-container .form-nothanks-button{
+    text-decoration:underline;
+    cursor:pointer;
+    margin-top:5px;
+}
+/*.eddy-form-wizard-container .form-submit-button .form-nothanks-button-r{
+	color: #226cc7;
+    font-family: sans-serif;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: normal;
+    text-align: center;
+    padding-top: 60px;
+}*/
+
+#eddy-form-wizard-managedchoice-container .select-singleitem {
+    background: none!important;
+    background-color:transparent;
+    background-image:none; 
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    border:none; 
+    box-shadow:none; 
+    overflow: hidden!important;
+    width: 90% !important; /*150%!important;*/
+    padding:0.3em 0.5em; 
+}
+
+#eddy-form-wizard-managedchoice-container .schoolExpressConsentError {
+    display: none;
+}
+
+@media (max-width:1080px) {
+    #eddy-form-wizard-managedchoice-container .mc-us-school select {
+        width: 85%;
+    }
+}
+@media (max-width:768px) {
+    #eddy-form-wizard-managedchoice-container .checkbox-icon:before{
+        font-size:22px;
+    }
+    #eddy-form-wizard-managedchoice-container .checkbox-icon.fa-check-square-o{
+        margin-right:1px;
+    }
+	#eddy-form-wizard-managedchoice-container .mc-us-school .campusFlagIcon{
+        padding:9px 5px;
+
+	}
+}
+@media (max-width:670px) {
+    #eddy-form-wizard-managedchoice-container .campusFlagIcon {
+        font-size: 19px;
+    }
+    #eddy-form-wizard-managedchoice-container .mc-us-school .campusFlagIcon{
+        padding:10px 5px 9px;
+    }
+
+    /* Continue Mobile Button */
+    #screen-button div.table-cell {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    #screen-button span.title, #screen-button span.subtitle {
+        display: block;
+        margin-top: 0;
+        margin-bottom: 5px !important;
+        padding: 0 !important;
+        font-weight: 700;
+    }
+
+    #screen-button span.subtitle{
+        font-size: 14px;
+        margin-bottom: 0 !important;
+    }
+
+    #screen-button span.title {
+        font-size: 22px !important;
+    }
+
+    #screen-button .table-cell table {
+        display: inline-block;
+        margin-bottom: auto !important;
+        width: auto !important;
+    }
+
+    #screen-button .table-cell table tbody {
+        border-top: none;   
+    }
+     #screen-button table tr td {
+        border: none;
+        padding: 4px 4px;
+        text-align: center !important;
+        line-height: 100% !important;
+    }
+    /* End Continue Mobile Button */
+}
+@media (max-width:480px) {
+    #eddy-form-wizard-managedchoice-container .checkbox-icon:before{
+        font-size:25px;
+    }
+    #eddy-form-wizard-managedchoice-container .mc-US-Display .school-name{
+        margin-left:10px;
+    }
+    #eddy-form-wizard-managedchoice-container .mc-US-Display .school-start-date {
+        margin-left: 10px;
+    }
+    #eddy-form-wizard-managedchoice-container .mc-us-school .more-info {
+        margin-left: 10px;
+    }
+    #eddy-form-wizard-managedchoice-container .mc-us-school select {
+        padding-left:5px;
+        padding-right:5px;
+    }
+    #eddy-form-wizard-managedchoice-container .campusFlagIcon {
+        font-size: 16px;
+    }
+    #eddy-form-wizard-managedchoice-container .mc-us-school .campusFlagIcon{
+        padding:11px 5px;
+    }
+}

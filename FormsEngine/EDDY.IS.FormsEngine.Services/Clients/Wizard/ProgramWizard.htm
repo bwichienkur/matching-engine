@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>IS-Form Engine WizardTemplate</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" media="all" />
+    <script type="text/javascript" src="/Static/GetBundledWizardJs?minifyJavascript=false"></script>
+    <script language="javascript" type="text/javascript">
+
+        var FormsEngine = FormsEngine || {};
+
+        /* REQUIRED */
+        //FormsEngine.RenderingExperience = "Prospect";
+        FormsEngine.RenderingStrategy = 'PROGRAMWIZARD';
+        FormsEngine.RenderingDiv = 'eddy-form-container';
+        FormsEngine.Theme = "default";
+        FormsEngine.IsBeta = false;
+        FormsEngine.TrackId = "D634C39F-7AAB-4DBD-8721-F8051FEB48FA";
+        FormsEngine.ApplicationId = 9;
+        FormsEngine.SelfContained = true; //false: must contain page to redirect and divs will be ignored
+        FormsEngine.InstitutionId = 8905;
+        FormsEngine.InstitutionName = "Paid_Category";
+        FormsEngine.WorkflowStartPage = "https://www.gradschools.com/form/2583/203195";
+        FormsEngine.WorkflowManagedChoicePage = "/form/matched";
+        FormsEngine.WorkflowThankYouPage = "/form/thank-you";
+        FormsEngine.WorkflowNoMatchPage = "/form/no-match";
+        FormsEngine.ConsumerSideWorkflowStep = "START";
+        FormsEngine.TemplateId = 277;
+
+        FormsEngine.DebugMode = true;
+        FormsEngine.SessionId = '00000000-0000-0000-0000-0000-000000000000';
+        FormsEngine.MatchResponseGuid = '00000000-0000-0000-0000-0000-000000000000';
+        FormsEngine.CompressJs = true;
+
+        /*
+        var campusOptGroup = false;
+
+        if (campusOptGroup) {
+            //FormsEngine.ProgramId = 3378;
+            FormsEngine.TrackId = "FC34E227-1B97-47ED-9D4D-013539E29707";
+            FormsEngine.ApplicationId = 27;
+
+            //FormsEngine.TemplateId = 581;
+            FormsEngine.TemplateId = 598;
+
+            //FormsEngine.TemplateId = 477;
+            //FormsEngine.ShowAllQuestionsOnFirstStep = true;
+
+
+            FormsEngine.InstitutionId = 1739;
+            FormsEngine.InstitutionName = "Geneva College";
+            //FormsEngine.FeatureId = 143;
+        } else {
+
+            //FormsEngine.ProgramId = 3378;
+            FormsEngine.TrackId = "346B77E0-A622-4C93-9950-D42570A2F5F5";
+            FormsEngine.ApplicationId = 2;
+
+            //FormsEngine.TemplateId = 581;
+            FormsEngine.TemplateId = 589;
+
+            //FormsEngine.TemplateId = 477;
+            //FormsEngine.ShowAllQuestionsOnFirstStep = true;
+
+
+            FormsEngine.InstitutionId = 4713;
+            FormsEngine.InstitutionName = "University of the Cumberlands";
+            //FormsEngine.FeatureId = 143;
+        }*/
+
+
+        //FormsEngine.TemplateId = 477;
+
+
+        ////FormsEngine.SubmitButtonLabelTextNormal = "Next";
+        //FormsEngine.SubmitButtonLabelTextLast = "Submit";
+
+        //FormsEngine.ValidationMessages = {
+        //    "Program_Of_Interest": "Please select a program.",
+        //    "First_Name": "Please enter your first name.",
+        //    "Last_Name": "Please enter your last name.",
+        //    "Email": "Please enter a valid email.",
+        //    "Phone": "Please enter a valid phone number.",
+        //    "Postal_Code": "Please enter a valid postal code.",
+        //    "BirthDate": "Please enter a valid birth date.",
+        //    "State": "State message",
+        //    "Country": "Country message"
+        //};
+
+        //FormsEngine.CategoryIds = [];
+        //// Criminal Justice Category
+        //FormsEngine.CategoryIds.push(29);
+        //// Tech Category
+        //FormsEngine.CategoryIds.push(22);
+
+
+        //FormsEngine.SubjectIds = [];
+        //// Criminal Justice Subject
+        //FormsEngine.SubjectIds.push(673);
+        //// IT Subject
+        //FormsEngine.SubjectIds.push(633);
+
+
+        //FormsEngine.SpecialtyIds = [];
+        // Criminal Justice Specialty
+        //FormsEngine.SpecialtyIds = FormsEngine.SpecialtyIds.concat([489, 1019, 1020, 1021, 1206]);
+        // IT Specialty
+        //FormsEngine.SpecialtyIds.push(1074);
+
+        //FormsEngine.CategoryIds = [1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 2, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 3, 4, 5, 6, 7, 8, 9];
+        //FormsEngine.CategoryIds = [4, 24];
+        //FormsEngine.SubjectIds = [643, 644, 645, 646 ];
+        //FormsEngine.SubjectIds = [110, 116, 126, 17, 176, 204, 229, 329, 38, 394, 395, 396, 469, 481, 482, 483, 570, 577, 580, 585, 586, 587, 588, 631, 640, 641, 642, 643, 644, 645, 646, 647, 648, 649, 7, 745, 753, 763, 78, 86, 87];
+        //FormsEngine.SpecialtyIds = [1140, 1278, 172, 1286, 216, 206, 190, 197, 1293, 1214, 245, 378, 1290, 204, 183, 236, 214, 221, 1295, 240, 1289, 234, 242, 3, 200, 180, 247, 171, 210, 186, 6, 239, 1029, 244, 226, 377, 185, 243, 267, 1035, 1294, 230, 176, 203, 1065, 249, 181, 228, 175, 193, 213, 991, 1025, 253, 1212, 182, 233, 1164, 7, 188, 184, 189, 220, 196, 1291, 207, 1281, 222, 195, 218, 178, 208, 217, 179, 177, 4, 1331 ];
+        //FormsEngine.SpecialtyIds = [1140, 1278, 172, 1286, 216, 206, 190, 197, 1293, 1214, 245, 378, 1290, 204, 183, 236, 214, 221, 1295, 240, 1289, 234, 242, 3, 200, 180, 247, 171, 210, 186, 6, 239, 1029, 244, 226, 377, 185, 243, 267, 1035, 1294, 230, 176, 203, 1065, 249, 181, 228, 175, 193, 213, 991, 1025, 253, 1212, 182, 233, 1164, 7, 188, 184, 189, 220, 196, 1291, 207, 1281, 222, 195, 218, 178, 208, 217, 179, 177, 4, 1331, 225, 237, 174, 2, 209, 1292, 219, 238, 1042, 1218, 347, 192, 229, 235, 187, 202, 1213, 248, 5, 241, 1054, 212, 198, 1216, 1272, 194, 252, 211, 199, 201, 232, 1079, 251, 1032, 215, 205, 1127, 227, 191, 224, 246, 1215, 223, 231, 1133, 1241, 173];
+
+
+        /* Optional */
+        //FormsEngine.ResetWorkflow = true;
+        //FormsEngine.Theme = "alternative";
+        //FormsEngine.AdditionalFields = [];
+        //FormsEngine.AdditionalFields.push(["AlexN", "WasHere"]);
+        //FormsEngine.AdditionalFields.push(["AndThisIs", "WhateverYouWant"]);
+
+        //FormsEngine.ExpressConsentOn = true;
+        //FormsEngine.WorkflowChanged = function (data) { alert('This is the workflow step you should load related content ' + data); }
+
+        FormsEngine.AdditionalFields = [];
+        FormsEngine.AdditionalFields.push(['Form Type', 'Wizard']);
+        FormsEngine.AdditionalFields.push(['Source', 'SEO Site']);
+        //FormsEngine.AdditionalFields.push(['LeadSourceUrl', 'http://www.abc.com']);
+        //FormsEngine.AdditionalFields.push(['SubSource2', 'testData']);
+        //FormsEngine.ResetWorkflow = true;
+
+        //FormsEngine.WizardAlternativeExpressConsent = "Alternative message here,…  at my mobile phone number {mobile-number}, by a representative of {school} the schools I select above, and by {/school} EducationDynamics.";
+
+        //FormsEngine.WizardAlternativeExpressConsent = "YEES I acknowledge that, by CLICKING the checkbox as my official signature, I consent to representatives of {thirdpartyschool}{/thirdpartyschool}{school}{/school} EducationDynamics, LLC contacting me about educational {thirdpartytype}and/or loan consolidation{/thirdpartytype} opportunities via email, text, or phone, including my mobile phone number(s){mobile-number}, using an automatic dialer, or pre-recorded message.  Message and data rates may apply. I understand that my consent is not a requirement for enrollment, and I may withdraw my consent at any time.";
+
+
+        ////Program changed event with Program information
+        //FormsEngine.ProgramChangedEvent = function(e){
+        //	var out = "";
+        //	out+="ProgramName=" + e.ProgramDetails.ProgramName + "\n";
+        //	out+="ProgramDescription=" + e.ProgramDetails.ProgramDescription + "\n";
+        //	out+="ProgramDisclaimer=" + e.ProgramDetails.ProgramDisclaimer + "\n";
+        //	out+="AccreditationDescription=" + e.ProgramDetails.AccreditationDescription + "\n";
+        //	out+="AdditionalFinancialAidInfo=" + e.ProgramDetails.AdditionalFinancialAidInfo + "\n";
+        //	out+="ProgramLevelName=" + e.ProgramDetails.ProgramLevelName + "\n";
+        //	alert('Implement Function to display product info in your site:\n'+ out);
+        //}
+        //FormsEngine.LoadForm();
+
+        //FormsEngine.Theme = "default";
+        //FormsEngine.IsBeta = false;
+        //FormsEngine.MatchResponseGuid = '00000000-0000-0000-0000-0000-000000000000';
+        //FormsEngine.SelfContained = true;
+        ////FormsEngine.WorkflowStartPage = "http://prod.universitiesabroad.local/form/475";
+        ////FormsEngine.WorkflowManagedChoicePage = "http://prod.universitiesabroad.local/form/matched?form=3&form_start_page=form/475";
+        ////FormsEngine.WorkflowThankYouPage = "http://prod.universitiesabroad.local/form/thank-you?form=3&form_start_page=form/475";
+        ////FormsEngine.WorkflowNoMatchPage = "http://prod.universitiesabroad.local/form/no-match?form=3&form_start_page=form/475";
+        //FormsEngine.ConsumerSideWorkflowStep = "START";
+        //FormsEngine.SessionId = '00000000-0000-0000-0000-0000-000000000000';
+        //FormsEngine.AdditionalFields = [];
+        //FormsEngine.AdditionalFields.push(['Form Type', 'Wizard']);
+        //FormsEngine.AdditionalFields.push(['Source', 'SEO Site']);
+
+
+
+
+        //FormsEngine.IncludeProgramLevelGroups = false;
+
+
+
+        (function ($) { $(document).ready(function () { FormsEngine.LoadForm(); }); })(jQuery);
+
+                    //jQuery(FormsEngine).on("OnDaisyChainInstitutionLoaded", function (event, institutionId) {
+                    //    alert("Institution Loaded:" + institutionId);
+                    //});
+    </script>
+
+</head>
+<body>
+    <div name="eddy-form-container" class="eddy-form-container responsive" style="border:solid;border-color:green;">
+    </div>
+    <br /> <br />
+    <div id="ad-div">&nbsp;</div>
+
+    <div style="text-align:center">
+        <a href="javascript:FormsEngine.LoadWorkflowStep('START','');"> [Start]</a> -
+        <a href="javascript:FormsEngine.LoadWorkflowStep('MANAGEDCHOICE','');"> [School Selection]</a> -
+        <a href="javascript:FormsEngine.LoadWorkflowStep('THANKYOU','');"> [Thank You]</a> -
+        <a href="javascript:FormsEngine.LoadWorkflowStep('NOMATCH','');"> [No Match]</a>
+    </div>
+    <div style='height:800px;'> &nbsp; </div>
+</body>
+</html>

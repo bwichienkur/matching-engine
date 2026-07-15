@@ -1,0 +1,89 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.NoMatchModel>
+
+@if(!Model.GenericNoMatch)
+{
+<div class="eddy-form-wizard-container">
+@*		<div class="eddy-form-wizard-header">
+			<div class="start-now"></div>
+			<div class="wizard-header-content">
+				<div class="progress">
+					<span>PROGRESS</span>
+					<div class="progress-bar clearfix pie">
+						<div class="progress-bar-inside"></div>
+						<div class="progress-bar-number">100%</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- end of #eddy-form-wizard-header -->*@
+		<div class="eddy-form-wizard-body">
+				<div class="form-page-step-message">
+					<h2>
+						Unfortunately, we didn't find any schools that match your needs at this time.<br/>
+						We suggest you take the following steps:
+					</h2>
+					
+				</div>
+				<div class="steps" id="Step6">
+					<ul class="nomatch-steps">
+						<li >
+							<h4>Start your search again:</h4>
+							<p>You selected <span>Business: Accounting Marketing</span></p>
+							<div class="form-submit-button small clearfix">
+								<div class="form-submit-small-button-l">
+                                    <a href="javascript:FormsEngine.LoadWorkflowStep('START','');">
+									    <div class="form-submit-small-button-r">SEARCH AGAIN</div>
+                                    </a>
+								</div>
+							</div>
+						</li>
+					
+						<li >
+							<h4>Give us a call at (877)824-7954</h4>
+							<p>Our agents are specially trained to help with your education needs. Simply call us toll-free Monday through Friday, 9 am to 8 pm EST. We'll be happy to guide you ghrough your options.</p>
+						</li>
+												
+					</ul>
+				</div>
+		</div>
+		<div class="eddy-form-wizard-footer clearfix">
+				<div class="more-school-area">
+					<div class="form-page-step-message">
+						<h2>And more...</h2>
+					</div>
+					<div class="more-schools">
+						<ul>
+							<li>
+								<a href="https://collegecredit123.com" target="_blank"><div id="CollegeCredit" class="school-icon"></div></a>
+								<p>Test out and earn college credit at home!</p>
+							</li>
+							<li>
+								<a href="https://www.testdrivecollege.com" target="_blank"><div id="TestDriveCollege" class="school-icon"></div></a>
+								<p>Try a real online college course for free!</p>
+							</li>
+							<li>
+								<a href="https://www.elearners.com" target="_blank"><div id="eLearners" class="school-icon"></div></a>
+								<p>Financial Aid Guide</p>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+		</div><!-- end of #eddy-form-wizard-footer -->
+	</div><!-- end of ##eddy-form-wizard-body -->
+}
+else
+{
+    <div class="eddy-form-wizard-container">
+        <div class="eddy-form-wizard-body">
+            
+            <div class="steps" id="nomatch_clicksnet_listing">
+            </div>
+        </div>
+        <div class="eddy-form-wizard-footer-nomatch clearfix">
+            <div class="more-school-area">
+
+            </div>
+        </div><!-- end of #eddy-form-wizard-footer -->
+    </div><!-- end of ##eddy-form-wizard-body -->
+
+}

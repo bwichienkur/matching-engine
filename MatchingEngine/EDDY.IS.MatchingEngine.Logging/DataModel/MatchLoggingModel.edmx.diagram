@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ef2535deca5446d4b36d8eb792ffadef" Name="Diagram1" >
+        <EntityTypeShape EntityType="MatchLoggingModel.MatchResponseDisplayed" Width="3.5" PointX="4.375" PointY="1.25" />
+        <AssociationConnector Association="MatchLoggingModel.FK_MRD_ParentMatchResponseDisplayed" />
+        <EntityTypeShape EntityType="MatchLoggingModel.MatchResponseDisplayedFactorScore" Width="2.875" PointX="8.75" PointY="1.25" />
+        <EntityTypeShape EntityType="MatchLoggingModel.MatchResponseFactorAggregate" Width="3" PointX="5.125" PointY="5.375" />
+        <AssociationConnector Association="MatchLoggingModel.FK_MRDFS_MatchResponseDisplayed" />
+        <EntityTypeShape EntityType="MatchLoggingModel.MatchResponseAvailableProgram" Width="2.625" PointX="4.375" PointY="9.375" />
+        <EntityTypeShape EntityType="MatchLoggingModel.MatchResponseAvailableProgramFactorScore" Width="3.75" PointX="8.5" PointY="9.5" />
+        <AssociationConnector Association="MatchLoggingModel.FK_MRDFS_MatchResponseAvailableProgram" />
+        <EntityTypeShape EntityType="MatchLoggingModel.MatchResponseRemovalReasonJson" Width="2.875" PointX="4.375" PointY="12.875" />
+        <EntityTypeShape EntityType="MatchLoggingModel.MatchResponseRemovalReason" Width="3.125" PointX="9.625" PointY="6.75" />
+        <EntityTypeShape EntityType="MatchLoggingModel.MatchResponseFactorAggregateValue" Width="2.375" PointX="8.875" PointY="12.625" />
+        <AssociationConnector Association="MatchLoggingModel.FK_MatchResponseFactorAggregateValue_MatchResponseFactorAggregate" />
+        <EntityTypeShape EntityType="MatchLoggingModel.MatchResponse" Width="2.625" PointX="0.5" PointY="5" />
+        <AssociationConnector Association="MatchLoggingModel.FK_MatchResponseFactorAggregate_MatchResponse" />
+        <AssociationConnector Association="MatchLoggingModel.FK_MatchResponseRemovalReason_MatchResponse" />
+        <AssociationConnector Association="MatchLoggingModel.FK_MatchResponseRemovalReasonJson_MatchResponse" />
+        <AssociationConnector Association="MatchLoggingModel.FK_MRAP_MatchResponse" />
+        <AssociationConnector Association="MatchLoggingModel.FK_MRD_MatchResponse" />
+        <EntityTypeShape EntityType="MatchLoggingModel.MatchResponseSearch" Width="1.5" PointX="3.875" PointY="16.125" />
+        <EntityTypeShape EntityType="MatchLoggingModel.MatchResponseSearchRemoval" Width="2.625" PointX="6.125" PointY="19.75" />
+        <EntityTypeShape EntityType="MatchLoggingModel.MatchResponseSearchResult" Width="1.5" PointX="6.125" PointY="16.625" />
+        <AssociationConnector Association="MatchLoggingModel.FK_MRS_MatchResponse" />
+        <AssociationConnector Association="MatchLoggingModel.FK_MRSR_MatchResponseSearch" />
+        <AssociationConnector Association="MatchLoggingModel.FK_MRSRE_MatchResponseSearch" />
+        <EntityTypeShape EntityType="MatchLoggingModel.MatchResponseSearchKVData" Width="1.5" PointX="6.125" PointY="24.25" />
+        <AssociationConnector Association="MatchLoggingModel.FK_MRSKVD_MatchResponseSearch" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

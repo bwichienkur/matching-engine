@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E6C2295-406B-4CB7-9DA4-22E115E0D206}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EDDY.IS.MatchingEngine</RootNamespace>
+    <AssemblyName>EDDY.IS.MatchingEngine</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EDDY.IS.Base, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e20c67ad3894fe, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.Base.2.0.4\lib\net48\EDDY.IS.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a0e20c67ad3894fe, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.Core.2.0.4\lib\net48\EDDY.IS.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.Core.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0e20c67ad3894fe, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.Core.Logging.2.0.4\lib\net48\EDDY.IS.Core.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.ExternalMatch.Base, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.ExternalMatch.Base.1.0.0-ci.20260226.1547\lib\net45\EDDY.IS.ExternalMatch.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.LocalCache, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a0e20c67ad3894fe, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.LocalCache.2.0.0\lib\net45\EDDY.IS.LocalCache.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessModel.cs" />
+    <Compile Include="CampaignRestrictedTemplateProcessor.cs" />
+    <Compile Include="Campaign.cs" />
+    <Compile Include="DataModel\Entity\LeadPingLeadScore.cs" />
+    <Compile Include="DataModel\Entity\LeadPingLeadScoreCPL.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_CampaignCapHierarchy.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ClientCampusContact.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ClientRelationAgentDisallowedLiveTransfer.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_CampaignRestrictedTemplate.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_CampusOptionGroupContent.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_CapDistribution_NormalizationOverride.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ClientRelationContact.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ClientRelationshipChannelCaps.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ClientRelationshipEntitySchedule.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ClientRelationshipSchedule.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_EMSDuplicateInfo.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_Image.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_MatchResponseSearchVendorAllowedLogged.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramAddress.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramLogo.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramLongDescription.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramProductPriceByState.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramStartDate.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_InstitutionStartDate.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramShortDescription.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramTag.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_SABPSIeRPC.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_SchoolLogo.cs" />
+    <Compile Include="DataModel\LeadScoreReservationDataService.cs" />
+    <Compile Include="DataModel\DataHelper.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_Application.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ApplicationToProduct.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_BusinessModelCriteriaGroup.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_BusinessModelWeightSubject.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_Campaign.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_CampaignCRAdjustments.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_CampaignDetailedLists.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_CampusCallCenterHours.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_CampusContent.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_CampusZipCode.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_CapHierarchy.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_CategoryContent.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ChannelGroup.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ClickProgramProduct.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ClientCampusProductMappingCache.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ClientCampusRelationshipInfo.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ClientRelationProductMappingCache.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_CountryCache.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_CRCallCenterHours.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_CrossSellProgramLevelMapping.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_Feature.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_InstitutionContentDetail.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_InstitutionGroup.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_KVCodeDataCache.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_LeadScoreReservationConfiguration.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_LeadScoreReservationSupplyUnitDefinition.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_LeadScoreReservationTierLevel.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_Product.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramContent.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramContentDetail.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramDisplayGroup.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramLevelContent.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramLevelToEdLevelMapping.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramProductRPL.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramProductScrubRate.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramProductStrategic.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramProductTemplateAssignment.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramProductWithApplicationSubject.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramToEdLevelMapping.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ProgramValidationRuleCache.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_SpecialtyContent.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_StateCache.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_SubjectContent.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ThirdPartyMatches.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_WarmTransferInfo.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ZipCodeCache.cs" />
+    <Compile Include="DataModel\Entity\VW_Matching_ZipCodeCoordinate.cs" />
+    <Compile Include="DataModel\Static\StaticInternalObject.cs" />
+    <Compile Include="DTO\CapType.cs" />
+    <Compile Include="DTO\LeadCreationType.cs" />
+    <Compile Include="DTO\LeadType.cs" />
+    <Compile Include="DTO\PaidStatusType.cs" />
+    <Compile Include="DTO\Request\AdServerMatchRequest.cs" />
+    <Compile Include="DTO\Request\NeoDirectoryMatchRequest.cs" />
+    <Compile Include="DTO\Request\NeoMatchRequest.cs" />
+    <Compile Include="DTO\Request\ProgramProductValidateRequest.cs" />
+    <Compile Include="DTO\Response\Address.cs" />
+    <Compile Include="DTO\Response\AdServerClientRelationship.cs" />
+    <Compile Include="DTO\Response\AdServerClientRelationshipResponse.cs" />
+    <Compile Include="DTO\Response\ApiProgramResponse.cs" />
+    <Compile Include="DTO\Response\CampusSlim.cs" />
+    <Compile Include="DTO\Response\CampusState.cs" />
+    <Compile Include="DTO\Response\City.cs" />
+    <Compile Include="DTO\Response\Country.cs" />
+    <Compile Include="DTO\Response\Image.cs" />
+    <Compile Include="DTO\Response\NavigationResponse.cs" />
+    <Compile Include="DTO\Response\NeoCampus.cs" />
+    <Compile Include="DTO\Response\NeoResponse.cs" />
+    <Compile Include="DTO\Response\ProgramProductValidateResponse.cs" />
+    <Compile Include="DTO\Response\ProgramRuleDefinition.cs" />
+    <Compile Include="DTO\Response\ProgramTag.cs" />
+    <Compile Include="DTO\Response\SchoolAgent.cs" />
+    <Compile Include="DTO\Response\SiteMapResponse.cs" />
+    <Compile Include="DTO\Response\SubjectWithProduct.cs" />
+    <Compile Include="DTO\Response\ThirdPartyEntity.cs" />
+    <Compile Include="DTO\SFProduct.cs" />
+    <Compile Include="Enums\EducationLevel.cs" />
+    <Compile Include="Enums\InstitutionAgencyType.cs" />
+    <Compile Include="Enums\MediaPlanType.cs" />
+    <Compile Include="Enums\Product.cs" />
+    <Compile Include="CrossSellMatchResult.cs" />
+    <Compile Include="CrossSellProcessor.cs" />
+    <Compile Include="DataModel\CampaignDataService.cs" />
+    <Compile Include="DataModel\ContentDataService.cs" />
+    <Compile Include="DataModel\CrossSellDataService.cs" />
+    <Compile Include="DataModel\FeatureDataService.cs" />
+    <Compile Include="DataModel\GeoCodeDataService.cs" />
+    <Compile Include="DataModel\LeadScoringDataService.cs" />
+    <Compile Include="DataModel\MatchDatabaseDataService.cs" />
+    <Compile Include="DataModel\RuleDataService.cs" />
+    <Compile Include="DataModel\SchoolRankingDataService.cs" />
+    <Compile Include="DTO\BaseRuleType.cs" />
+    <Compile Include="DTO\CapLimitType.cs" />
+    <Compile Include="DTO\CapReasonCode.cs" />
+    <Compile Include="DTO\DisclaimerType.cs" />
+    <Compile Include="DTO\EntityMeta.cs" />
+    <Compile Include="DTO\EntitySortMethod.cs" />
+    <Compile Include="DTO\Request\ApolloCampusRequest.cs" />
+    <Compile Include="DTO\Request\BaseMatchRequest.cs" />
+    <Compile Include="DTO\Request\CampusPreference.cs" />
+    <Compile Include="DTO\Request\CountryValidateRequest.cs" />
+    <Compile Include="DTO\Request\CrossSellMatchRequest.cs" />
+    <Compile Include="DTO\Request\DirectoryMatchRequest.cs" />
+    <Compile Include="DTO\Request\GeoTarget.cs" />
+    <Compile Include="DTO\Request\LeadScoringProductAssignment.cs" />
+    <Compile Include="DTO\Request\ProgramValidateRequest.cs" />
+    <Compile Include="DTO\Request\ProspectInput.cs" />
+    <Compile Include="DTO\Request\WizardMatchRequest.cs" />
+    <Compile Include="DTO\Response\ApolloCampus.cs" />
+    <Compile Include="DTO\Response\ApolloCampusResponse.cs" />
+    <Compile Include="DTO\Response\BaseMatchEntity.cs" />
+    <Compile Include="DTO\Response\BaseMatchResponse.cs" />
+    <Compile Include="DTO\Response\CampaignDetailResponse.cs" />
+    <Compile Include="DTO\Response\Campus.cs" />
+    <Compile Include="DTO\Response\CampusResponse.cs" />
+    <Compile Include="DTO\CampusType.cs" />
+    <Compile Include="DTO\Response\CampusTypeMatchResponse.cs" />
+    <Compile Include="DTO\Response\CampusWithDetail.cs" />
+    <Compile Include="DTO\Response\CampusZipCodeRuleResponse.cs" />
+    <Compile Include="DTO\Response\Category.cs" />
+    <Compile Include="DTO\Response\CategoryResponse.cs" />
+    <Compile Include="DTO\Response\CategoryWithSubject.cs" />
+    <Compile Include="DTO\Response\CrossSellProgramResponse.cs" />
+    <Compile Include="DTO\Response\FormProgramResponse.cs" />
+    <Compile Include="DTO\Response\Institution.cs" />
+    <Compile Include="DTO\Response\InstitutionDetail.cs" />
+    <Compile Include="DTO\Response\InstitutionDetailResponse.cs" />
+    <Compile Include="DTO\Response\InstitutionResponse.cs" />
+    <Compile Include="DTO\Response\InstitutionWithCampus.cs" />
+    <Compile Include="DTO\Response\InstitutionWithProgram.cs" />
+    <Compile Include="DTO\Response\Program.cs" />
+    <Compile Include="DTO\Response\ProgramDetail.cs" />
+    <Compile Include="DTO\Response\ProgramDetailResponse.cs" />
+    <Compile Include="DTO\Response\ProgramLevel.cs" />
+    <Compile Include="DTO\Response\ProgramLevelResponse.cs" />
+    <Compile Include="DTO\Response\ProgramResponse.cs" />
+    <Compile Include="DTO\ProgramType.cs" />
+    <Compile Include="DTO\Response\ProgramValidateResponse.cs" />
+    <Compile Include="DTO\Response\ProgramWithInstitutionCampus.cs" />
+    <Compile Include="DTO\Response\Specialty.cs" />
+    <Compile Include="DTO\Response\SpecialtyResponse.cs" />
+    <Compile Include="DTO\Response\Subject.cs" />
+    <Compile Include="DTO\Response\SubjectResponse.cs" />
+    <Compile Include="DTO\Response\TemplateMatchResponse.cs" />
+    <Compile Include="DTO\Response\WizardMatchResponse.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="Enums\ProgramLevel.cs" />
+    <Compile Include="Enums\State.cs" />
+    <Compile Include="ExternalMatchServiceClient.cs" />
+    <Compile Include="FeatureProcessor.cs" />
+    <Compile Include="GeoCodeProcessor.cs" />
+    <Compile Include="LiveTransferNumberProcessor.cs" />
+    <Compile Include="MatchDatabaseFilter.cs" />
+    <Compile Include="MatchItemComparer.cs" />
+    <Compile Include="MatchItemMapper.cs" />
+    <Compile Include="Prospect.cs" />
+    <Compile Include="Rules\Entities\AgentDisallowedLiveTransfer.cs" />
+    <Compile Include="Rules\Entities\RuleProcessing\InstitutionCrCampusCollection.cs" />
+    <Compile Include="LeadScoreReservation.cs" />
+    <Compile Include="LeadScoringProcessor.cs" />
+    <Compile Include="MatchAggregator.cs" />
+    <Compile Include="MatchDatabase.cs" />
+    <Compile Include="MatchingContentData.cs" />
+    <Compile Include="MatchingEngine.cs" />
+    <Compile Include="MatchingEngineCache.cs" />
+    <Compile Include="MatchItem.cs" />
+    <Compile Include="MatchPersister.cs" />
+    <Compile Include="MatchResult.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RulesEngineFactory.cs" />
+    <Compile Include="Rules\Attributes\MatchingRulesAttributes.cs" />
+    <Compile Include="Rules\Entities\CountryGeoCacheItem.cs" />
+    <Compile Include="Rules\Entities\RuleProcessing\ClientRelationshipCampusProductRuleInput.cs" />
+    <Compile Include="Rules\Entities\RuleProcessing\ClickRuleInput.cs" />
+    <Compile Include="Rules\Entities\RuleProcessing\ClientRelationshipProductRuleInput.cs" />
+    <Compile Include="Rules\Entities\RuleProcessing\EntityRemovalReason.cs" />
+    <Compile Include="Rules\Entities\RuleProcessing\LeadPingRuleInput.cs" />
+    <Compile Include="Rules\Entities\RuleProcessing\LeadPingRuleResult.cs" />
+    <Compile Include="Rules\Entities\RuleProcessing\LeadPingScoreOutput.cs" />
+    <Compile Include="Rules\Entities\RuleProcessing\ProgramProductRuleInput.cs" />
+    <Compile Include="Rules\Entities\RuleProcessing\ProgramRuleInput.cs" />
+    <Compile Include="Rules\Entities\RuleCache.cs" />
+    <Compile Include="Rules\Entities\RuleProcessing\PSIRuleInput.cs" />
+    <Compile Include="Rules\Entities\TemplateCacheItem.cs" />
+    <Compile Include="Rules\Entities\ZipCodeGeoCacheItem.cs" />
+    <Compile Include="Rules\Interfaces\ICRCampusProductRule.cs" />
+    <Compile Include="Rules\Interfaces\ICRProductRule.cs" />
+    <Compile Include="Rules\Interfaces\ICRProgramProductRule.cs" />
+    <Compile Include="Rules\Interfaces\IProgramRule.cs" />
+    <Compile Include="Rules\Interfaces\IPsiRule.cs" />
+    <Compile Include="Rules\Interfaces\IClickRule.cs" />
+    <Compile Include="Rules\Rule.cs" />
+    <Compile Include="Rules\RuleCacheProcessor.cs" />
+    <Compile Include="Rules\StandardRules\Campaign.cs" />
+    <Compile Include="Rules\StandardRules\Country.cs" />
+    <Compile Include="Rules\Entities\Cap.cs" />
+    <Compile Include="Rules\Enums\EntityProcessing.cs" />
+    <Compile Include="Rules\Enums\InputRequired.cs" />
+    <Compile Include="Rules\Interfaces\IRule.cs" />
+    <Compile Include="Rules\StandardRules\CRChannelCap.cs" />
+    <Compile Include="Rules\StandardRules\CRSchedule.cs" />
+    <Compile Include="Rules\StandardRules\Custom_KVLookup.cs" />
+    <Compile Include="Rules\StandardRules\EducationLevel.cs" />
+    <Compile Include="Rules\StandardRules\EMSOnlyRules\EMSDefaultDuplicate.cs" />
+    <Compile Include="Rules\StandardRules\EMSOnlyRules\LenexaAgencyDuplicateByEmail.cs" />
+    <Compile Include="Rules\StandardRules\EMSOnlyRules\SourceCode.cs" />
+    <Compile Include="Rules\StandardRules\EMSOnlyRules\SpamCheck.cs" />
+    <Compile Include="Rules\StandardRules\GPA.cs" />
+    <Compile Include="Rules\StandardRules\HighSchoolGradYear.cs" />
+    <Compile Include="Rules\StandardRules\JournayaLeadId.cs" />
+    <Compile Include="Rules\StandardRules\MilitaryNonCivilian.cs" />
+    <Compile Include="Rules\StandardRules\SmartMatchOnlyRules\CampusDistanceForSM.cs" />
+    <Compile Include="Rules\StandardRules\SmartMatchOnlyRules\EducationLevelForSM.cs" />
+    <Compile Include="Rules\StandardRules\USCitizen.cs" />
+    <Compile Include="Rules\StandardRules\LeadCap.cs" />
+    <Compile Include="Rules\StandardRules\LeadPing.cs" />
+    <Compile Include="Rules\StandardRules\IsMilitary.cs" />
+    <Compile Include="Rules\StandardRules\Age.cs" />
+    <Compile Include="Rules\StandardRules\State.cs" />
+    <Compile Include="Rules\Entities\StateGeoCacheItem.cs" />
+    <Compile Include="Rules\StandardRules\TemplateAssigned.cs" />
+    <Compile Include="Rules\StandardRules\WarmTransferOnlyRules\AgentDisallowedList.cs" />
+    <Compile Include="Rules\StandardRules\WarmTransferOnlyRules\HoursOfOperation.cs" />
+    <Compile Include="Rules\StandardRules\WarmTransferOnlyRules\WarmTransferDelay.cs" />
+    <Compile Include="Rules\StandardRules\YearsWorkExperience.cs" />
+    <Compile Include="Rules\StandardRules\YearsTeachingExperience.cs" />
+    <Compile Include="Rules\StandardRules\ZipCode.cs" />
+    <Compile Include="SchoolRankingEngine.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RulesEngine.cs" />
+    <Compile Include="SchoolRankingFactors.cs" />
+    <Compile Include="Service References\LeadPingService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="StaticCacheProxyHost.cs" />
+    <Compile Include="ThirdPartyMatchProcessor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\LeadPingService\EDDY.IS.MatchingEngine.LeadPingService.CecoPingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LeadPingService\EDDY.IS.MatchingEngine.LeadPingService.ValidationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LeadPingService\Service.wsdl" />
+    <None Include="Service References\LeadPingService\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LeadPingService\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LeadPingService\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LeadPingService\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Rules\CustomRules\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EDDY.IS.MatchingEngine.Logging\EDDY.IS.MatchingEngine.Logging.csproj">
+      <Project>{12dab4d9-b20d-4bad-9f36-8d85c509c975}</Project>
+      <Name>EDDY.IS.MatchingEngine.Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\LeadPingService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LeadPingService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LeadPingService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LeadPingService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LeadPingService\Service.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

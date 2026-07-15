@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>IS-Form Engine WizardTemplate</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" media="all" />
+    <!--<script src="//cdn.optimizely.com/js/5309656004034560.js"></script>-->
+
+    <script type="text/javascript" src="/Static/GetBundledWizardJs?minifyJavascript=false"></script>
+
+    <script language="javascript" type="text/javascript">
+
+        var FormsEngine = FormsEngine || {};
+
+        /* REQUIRED */
+        //FormsEngine.RenderingStrategy = 'WIZARDDRIP';
+        FormsEngine.RenderingDiv = 'eddy-form-container';
+        FormsEngine.SelfContained = false; //false: must contain page to redirect and divs will be ignored
+        FormsEngine.WorkflowStartPage = "/Clients/Wizard/SinglePage-Start.htm";
+        FormsEngine.WorkflowManagedChoicePage = "/Clients/Wizard/SinglePage-ManagedChoice.htm";
+        FormsEngine.WorkflowThankYouPage = "/Clients/Wizard/SinglePage-ThankYou.htm";
+        FormsEngine.WorkflowNoMatchPage = "/Clients/Wizard/SinglePage-NoMatch.htm";
+
+
+        FormsEngine.IsBeta = false;
+        FormsEngine.TemplateId = 542;
+        FormsEngine.TrackId = "78B149B7-EE29-4039-93C2-6D621207A60E";
+        FormsEngine.RenderingStrategy = 'SCHOOLPICKERWIZARD';
+        FormsEngine.ApplicationId = 9;
+        FormsEngine.Theme = "Default";
+        FormsEngine.ShowSelectAllMobile = false;
+        //FormsEngine.InstitutionId = 188;
+        //FormsEngine.InstitutionName = "Grand Canyon University";
+
+        FormsEngine.ConsumerSideWorkflowStep = 'THANKYOU';
+        
+        /* Program Wizard  */
+        /*
+        FormsEngine.InstitutionId = 292;
+        FormsEngine.InstitutionName = 'Ohio University';
+        FormsEngine.ProgramId = 3868;
+        FormsEngine.TemplateId = 277;
+        FormsEngine.RenderingStrategy = 'PROGRAMWIZARD';*/
+
+        /* Optional */
+        //FormsEngine.Theme = "alternative";
+        //FormsEngine.AdditionalFields = [];
+        //FormsEngine.AdditionalFields.push(["AlexN", "WasHere"]);
+        //FormsEngine.AdditionalFields.push(["AndThisIs", "WhateverYouWant"]);
+        FormsEngine.DebugMode = true;
+        FormsEngine.SessionId = '00000000-0000-0000-0000-0000-000000000000';
+        FormsEngine.MatchResponseGuid = '00000000-0000-0000-0000-0000-000000000000';
+        FormsEngine.CompressJs = false;
+
+        FormsEngine.LoadForm();
+
+    </script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            fe_getProgramTemplateResult(function (data) {
+                FEResponse = $.evalJSON(data);
+                console.log(data);
+                var Message = "<br/><br/>InitialUID = " + FEResponse.InitialUID;
+                Message += "<br/>IsAnyLeadValid = " + FEResponse.IsAnyLeadValid;
+                Message += "<br/>IsCrossSell = " + FEResponse.IsCrossSell;
+                Message += "<br/>IsTestLead = " + FEResponse.IsTestLead;
+                Message += "<br/>UserFullName = " + FEResponse.UserFullName;
+                $("#eddy-form-result").html(Message);
+
+            });
+        }
+    </script>
+</head >
+                <body>
+                    <br />
+                    <div><b>Thank You Page</b></div>
+                    <br />
+                    <div name="eddy-form-container" class="eddy-form-container" style="border:solid;border-color:green;">
+                    </div>
+
+                    <br /> <br />
+
+                    <div style="text-align:center">
+                        <a href="javascript:FormsEngine.LoadWorkflowStep('START','');"> [Start]</a> -
+            <a href="javascript:FormsEngine.LoadWorkflowStep('MANAGEDCHOICE','');"> [School Selection]</a> -
+            <a href="javascript:FormsEngine.LoadWorkflowStep('THANKYOU','');"> [Thank You]</a> -
+            <a href="javascript:FormsEngine.LoadWorkflowStep('NOMATCH','');"> [No Match]</a>
+                    </div>
+                </body>
+</html ></script>
+</head>

@@ -1,0 +1,100 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.ThankYouModel>
+<script src="@(Url.Action("GetJs", "Static", new { BasePath = "Common", FileName="thankyou", CompressJs= false }, Url.RequestContext.HttpContext.Request.Url.Scheme))" type="text/javascript"></script>
+<script type="text/javascript">
+    // optional rendering strategy specific logic
+    fe_loadJs('/Templates/WizardDrip_RP/js/WizardDripRP_Start.js');
+</script>
+
+<!-- START ThankYou Google Tag Events-->
+@System.Web.Mvc.Html.PartialExtensions.Partial(this.Html, "~/Templates/Common/ThankYouGoogleTag.cshtml", this.Model.UserSelectionProgramIdList)
+<!-- END ThankYou Google Tag Events-->
+
+<!-- START Image Check -->
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('.school-logo').checkImages();
+    });
+</script>
+<!-- END Image Check -->
+
+<div class="eddy-form-wizard-container thank-you-page">
+	<div class="eddy-form-wizard-body">
+		<div id="thank-you-page">
+			<div class="thank-you-page-message">
+				<div class="thank-you-msg">@Model.UserFullName, Thank you!</div>
+                @if (Model.SubmissionsFailed)
+                {
+                <p>Unfortunately we are unable to match you to one or more of the programs you requested.<br /><br />Your information has been sent to:</p>
+                }
+			</div>
+            @if(Model.OnlineCampuses.Count>0)
+            {
+			    <div class="online-school-submitted">
+				<div class="submitted-school-msg online-msg"><span></span></div>
+				<div class="image-text-group">								
+					<ul class="image-text">
+                        @foreach(var Campus in Model.OnlineCampuses)
+                        {
+						    <li >
+							    
+                                @if (Campus.ShowLogo)
+                                {
+                                    <div class="school-logo" data-src="@Campus.Logo" data-src-name="@Campus.CampusName">
+                                        <img src="" />
+                                    </div>
+                                }
+							    <div class="school-info">
+								    <p class="school-name"><a href="#">@Campus.CampusName</a></p>
+                                    <div class="online-school school-description hide">@Html.Raw(Campus.CampusDescription)</div>
+								    <p class="program-name">@Campus.ProgramName</p>
+                                    <div class="online-program program-description hide">@Html.Raw(Campus.ProgramDescription)</div>
+							    </div>
+						    </li>
+                        }
+						
+					</ul>				
+				</div>
+			</div>     
+            }
+
+            @if(Model.GroundCampuses.Count>0)
+            {    
+			    <div class="campus-school-submitted">
+				<div class="submitted-school-msg campus-msg"><span></span></div>
+				<div class="image-text-group">								
+					<ul class="image-text">
+                        @foreach(var Campus in Model.GroundCampuses)
+                        {
+						    <li >
+                                @if (Campus.ShowLogo)
+                                {
+                                    <div class="school-logo" data-src="@Campus.Logo" data-src-name="@Campus.CampusName">
+                                        <img src="" />
+                                    </div>
+                                }
+                                
+							    <div class="school-info">
+								    <p class="school-name"><a href="#">@Campus.CampusName</a></p>
+                                    <div class="campus-school school-description hide">@Html.Raw(Campus.CampusDescription)</div>
+								    <p class="program-name">@Campus.ProgramName</p>
+                                    <div class="campus-program program-description hide">@Html.Raw(Campus.ProgramDescription)</div>
+							    </div>
+						    </li>
+                        }
+					</ul>
+				</div>
+			</div>
+            }
+            <div id="info-popup" class="popup-info hide">Description GOES HERE!</div>
+		</div>
+	
+	</div><!-- end of ##eddy-form-wizard-body -->
+	
+    <div class="eddy-form-wizard-footer clearfix">
+        <a href="javascript:FormsEngine.LoadWorkflowStep('START','');">
+            <div class="form-submit-button previous clearfix" id="form-navback-button" >
+            </div>
+        </a>
+    </div><!-- end of #eddy-form-footer -->
+</div><!-- end of #eddy-form-wizard-container -->
+<!-- LeadList: @(Model.LeadList) -->

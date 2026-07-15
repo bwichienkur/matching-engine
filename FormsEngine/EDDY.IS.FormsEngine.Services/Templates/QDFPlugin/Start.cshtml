@@ -1,0 +1,46 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.FormEngineModel>
+@using EDDY.IS.FormsEngine.Services.Controllers.Common
+
+@Html.InlineScriptBlock("~/Templates/QDFPlugin/js/QDFPlugin_Start.js")
+
+@{
+    this.Model.DefaultDDLSelectOption = "Select one of the following...";
+}
+
+<div data-id="ErrorBoxX">
+    @foreach (var controlType in this.Model.ControlTypes)
+    {
+        foreach (var error in controlType.ErrorMessages)
+        {
+            <input type="hidden" code="ERR_@(error.ErrorCode.Code)_{@controlType.StandardControlTypeName}" value="@error.Message" />
+        }
+    }
+</div>
+<div class="eddy-form-qdfplugin-container" data-id="qdfpluginStepContainer">
+    <div class="eddy-form-qdfplugin-header">
+        <div class="qdfplugin-header-content col-xs-7 col-xs-offset-0 col-sm-7 col-sm-offset-0">
+            
+        </div>
+    </div><!-- end of #eddy-form-qdfplugin-header -->
+    <div class="eddy-form-qdfplugin-body col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 clearfix">
+       
+        <!-- qdfplugin Questions-->
+        @System.Web.Mvc.Html.PartialExtensions.Partial(this.Html, "~/Templates/Common/QDFPluginQuestions.cshtml", this.Model)
+        <!-- END OF qdfplugin Questions-->
+
+
+        <div class="eddy-form-qdfplugin-footer">
+            <div class="buttons-container">
+
+                <div data-id="qdfplugin-form-submit-button" class="form-submit-button clearfix">
+                    <div class="form-submit-button-inner">
+                        <span data-id="form-submit-button-label" class="form-submit-button-label">CONTINUE</span>
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- end of #eddy-form-footer -->
+
+    </div><!-- end of #eddy-form-container -->
+
+</div><!-- end of #eddy-form-qdfplugin-container -->

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html>
+<head>
+	<title>DoubleClick Ads Example</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>	
+    <script type='text/javascript'>
+
+        //DoubleClick JavaSCript
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        (function () {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+            '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        })();
+
+    </script>
+</head>
+<body>
+    <script type="text/javascript" src="http://localhost:59955/Static/GetGlobal"></script>
+    <script type="text/javascript" src="http://localhost:59955/Templates/Common/js/External/GoogleDFP.js"></script>
+    <div id='div-gpt-ad-1427844270250-0'>
+        <p>Loading...</p>
+    </div>
+    <script type="text/javascript">
+        var _eaq = _eaq || [];
+        var a = {
+            'RenderingDiv': 'div-gpt-ad-1427844270250-0', //Id of the element which you want the Ads to render (Required)
+            'AdServer': 'DFP', //The Ad Server (Optional: defaults to DFP)
+            'AdUnitPath': '/59026966/Thank_You', //The Ad unit Value which is normally added in the head (Required for Double Click Ads)
+            'Sizes': [700, 1050], //The Ad Sizes which are normally added in the head (Required for Double Click Ads)
+            'Vendor': 'VANTAGE', //The Vendor Name (Optional: VANTAGE default)
+            'IsWizard': false,
+            'AddiTargetingParam': {
+                'property': 'seo_gradschools',
+                'category': 22,
+            },//The target which seo site you are displaying the ads
+        };
+        _eaq.push(a);
+    </script>   
+
+    <div id='div-gpt-ad-1414419222770-2'>
+        <p>Loading...</p>
+    </div>
+    <script type="text/javascript">
+        var _eaq = _eaq || [];
+        var a = {
+            'RenderingDiv': 'div-gpt-ad-1414419222770-2',
+            'AdServer': 'DFP',
+            'Sizes': [468, 60],
+            'AdUnitPath': '/59026966/EL_Directories_TY_468x60',
+            'Vendor': 'VANTAGE',
+        };
+        _eaq.push(a);
+    </script>
+
+
+
+    <div id='div-gpt-ad-1434039332786-0'>
+        <p>Loading MediaAlpha...</p>
+    </div>
+    <!-- MEDIA ALPHA -->
+    <script type="text/javascript">
+        var _eaq = _eaq || [];
+        var a = {
+            'RenderingDiv': 'div-gpt-ad-1434039332786-0',
+            'AdServer': 'DFP',
+            'Sizes': [[400, 700], [350, 700], [300, 700], [160, 600], [260, 700], [468, 60], [420, 700], [728, 90], [1600, 1600]],
+            'AdUnitPath': '/59026966/Testing',
+            'Vendor': 'MEDIAALPHA',
+        };
+        _eaq.push(a);
+    </script>
+
+
+</body>
+</html>

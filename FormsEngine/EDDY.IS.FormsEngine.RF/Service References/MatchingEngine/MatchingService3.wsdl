@@ -1,0 +1,1050 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="MatchingService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="CustomBinding_IMatchingService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.Base" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+      <xsd:import schemaLocation="http://tcpa-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMatchingService_GetFormPrograms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFormPrograms" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetFormPrograms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFormProgramsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetInstitutions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstitutions" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetInstitutions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstitutionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetCampuses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampuses" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetCampuses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetApolloCampuses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApolloCampuses" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetApolloCampuses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApolloCampusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetNeoResponse_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNeoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetNeoResponse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNeoResponseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetPrograms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrograms" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetPrograms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetFacetedNavigation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacetedNavigation" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetFacetedNavigation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacetedNavigationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetSiteMapGeoInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSiteMapGeoInfo" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetSiteMapGeoInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSiteMapGeoInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetSubjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubjects" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetSubjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetSpecialties_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpecialties" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetSpecialties_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpecialtiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetProgramLevels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramLevels" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetProgramLevels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramLevelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetProgramsForCrossSell_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramsForCrossSell" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetProgramsForCrossSell_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramsForCrossSellResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetInstitutionDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstitutionDetails" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetInstitutionDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstitutionDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetProgramDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramDetails" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetProgramDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetProgramDisplayGroupDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramDisplayGroupDetails" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetProgramDisplayGroupDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramDisplayGroupDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetCategoriesAllIfNone_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesAllIfNone" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetCategoriesAllIfNone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesAllIfNoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetSubjectsAllIfNone_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubjectsAllIfNone" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetSubjectsAllIfNone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubjectsAllIfNoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetSpecialtiesAllIfNone_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpecialtiesAllIfNone" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetSpecialtiesAllIfNone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpecialtiesAllIfNoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetProgramLevelsAllIfNone_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramLevelsAllIfNone" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetProgramLevelsAllIfNone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramLevelsAllIfNoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetCampusTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampusTypes" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetCampusTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampusTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetWizardMatches_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWizardMatches" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetWizardMatches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWizardMatchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetTemplatesForMatches_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplatesForMatches" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetTemplatesForMatches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplatesForMatchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetCampusZipCodeRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampusZipCodeRules" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetCampusZipCodeRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampusZipCodeRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetRulesForProgramProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRulesForProgramProduct" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetRulesForProgramProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRulesForProgramProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_ValidateProgram_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateProgram" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_ValidateProgram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateProgramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_ValidateProgramProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateProgramProducts" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_ValidateProgramProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateProgramProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_ValidateCountryAndProgram_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateCountryAndProgram" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_ValidateCountryAndProgram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateCountryAndProgramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_ValidateAPIProgram_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateAPIProgram" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_ValidateAPIProgram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateAPIProgramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetApiProgram_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApiProgram" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetApiProgram_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApiProgramResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetProgramDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramDescription" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetProgramDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_RefreshCacheItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshCacheItem" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_RefreshCacheItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshCacheItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_RemoveCacheItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCacheItem" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_RemoveCacheItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCacheItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetCampaignDetailByTrackID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignDetailByTrackID" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetCampaignDetailByTrackID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignDetailByTrackIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetCategoriesWithSubjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesWithSubjects" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetCategoriesWithSubjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesWithSubjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetAdServerClientRelationships_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdServerClientRelationships" />
+  </wsdl:message>
+  <wsdl:message name="IMatchingService_GetAdServerClientRelationships_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdServerClientRelationshipsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMatchingService">
+    <wsdl:operation name="GetFormPrograms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetFormPrograms" message="tns:IMatchingService_GetFormPrograms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetFormProgramsResponse" message="tns:IMatchingService_GetFormPrograms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstitutions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetInstitutions" message="tns:IMatchingService_GetInstitutions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetInstitutionsResponse" message="tns:IMatchingService_GetInstitutions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampuses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetCampuses" message="tns:IMatchingService_GetCampuses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetCampusesResponse" message="tns:IMatchingService_GetCampuses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApolloCampuses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetApolloCampuses" message="tns:IMatchingService_GetApolloCampuses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetApolloCampusesResponse" message="tns:IMatchingService_GetApolloCampuses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNeoResponse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetNeoResponse" message="tns:IMatchingService_GetNeoResponse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetNeoResponseResponse" message="tns:IMatchingService_GetNeoResponse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrograms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetPrograms" message="tns:IMatchingService_GetPrograms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetProgramsResponse" message="tns:IMatchingService_GetPrograms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacetedNavigation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetFacetedNavigation" message="tns:IMatchingService_GetFacetedNavigation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetFacetedNavigationResponse" message="tns:IMatchingService_GetFacetedNavigation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteMapGeoInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetSiteMapGeoInfo" message="tns:IMatchingService_GetSiteMapGeoInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetSiteMapGeoInfoResponse" message="tns:IMatchingService_GetSiteMapGeoInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetCategories" message="tns:IMatchingService_GetCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetCategoriesResponse" message="tns:IMatchingService_GetCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetSubjects" message="tns:IMatchingService_GetSubjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetSubjectsResponse" message="tns:IMatchingService_GetSubjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecialties">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetSpecialties" message="tns:IMatchingService_GetSpecialties_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetSpecialtiesResponse" message="tns:IMatchingService_GetSpecialties_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramLevels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetProgramLevels" message="tns:IMatchingService_GetProgramLevels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetProgramLevelsResponse" message="tns:IMatchingService_GetProgramLevels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramsForCrossSell">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetProgramsForCrossSell" message="tns:IMatchingService_GetProgramsForCrossSell_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetProgramsForCrossSellResponse" message="tns:IMatchingService_GetProgramsForCrossSell_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstitutionDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetInstitutionDetails" message="tns:IMatchingService_GetInstitutionDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetInstitutionDetailsResponse" message="tns:IMatchingService_GetInstitutionDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetProgramDetails" message="tns:IMatchingService_GetProgramDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetProgramDetailsResponse" message="tns:IMatchingService_GetProgramDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramDisplayGroupDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetProgramDisplayGroupDetails" message="tns:IMatchingService_GetProgramDisplayGroupDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetProgramDisplayGroupDetailsResponse" message="tns:IMatchingService_GetProgramDisplayGroupDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoriesAllIfNone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetCategoriesAllIfNone" message="tns:IMatchingService_GetCategoriesAllIfNone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetCategoriesAllIfNoneResponse" message="tns:IMatchingService_GetCategoriesAllIfNone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubjectsAllIfNone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetSubjectsAllIfNone" message="tns:IMatchingService_GetSubjectsAllIfNone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetSubjectsAllIfNoneResponse" message="tns:IMatchingService_GetSubjectsAllIfNone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecialtiesAllIfNone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetSpecialtiesAllIfNone" message="tns:IMatchingService_GetSpecialtiesAllIfNone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetSpecialtiesAllIfNoneResponse" message="tns:IMatchingService_GetSpecialtiesAllIfNone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramLevelsAllIfNone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetProgramLevelsAllIfNone" message="tns:IMatchingService_GetProgramLevelsAllIfNone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetProgramLevelsAllIfNoneResponse" message="tns:IMatchingService_GetProgramLevelsAllIfNone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampusTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetCampusTypes" message="tns:IMatchingService_GetCampusTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetCampusTypesResponse" message="tns:IMatchingService_GetCampusTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWizardMatches">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetWizardMatches" message="tns:IMatchingService_GetWizardMatches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetWizardMatchesResponse" message="tns:IMatchingService_GetWizardMatches_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplatesForMatches">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetTemplatesForMatches" message="tns:IMatchingService_GetTemplatesForMatches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetTemplatesForMatchesResponse" message="tns:IMatchingService_GetTemplatesForMatches_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampusZipCodeRules">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetCampusZipCodeRules" message="tns:IMatchingService_GetCampusZipCodeRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetCampusZipCodeRulesResponse" message="tns:IMatchingService_GetCampusZipCodeRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRulesForProgramProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetRulesForProgramProduct" message="tns:IMatchingService_GetRulesForProgramProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetRulesForProgramProductResponse" message="tns:IMatchingService_GetRulesForProgramProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateProgram">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/ValidateProgram" message="tns:IMatchingService_ValidateProgram_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/ValidateProgramResponse" message="tns:IMatchingService_ValidateProgram_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateProgramProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/ValidateProgramProducts" message="tns:IMatchingService_ValidateProgramProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/ValidateProgramProductsResponse" message="tns:IMatchingService_ValidateProgramProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCountryAndProgram">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/ValidateCountryAndProgram" message="tns:IMatchingService_ValidateCountryAndProgram_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/ValidateCountryAndProgramResponse" message="tns:IMatchingService_ValidateCountryAndProgram_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAPIProgram">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/ValidateAPIProgram" message="tns:IMatchingService_ValidateAPIProgram_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/ValidateAPIProgramResponse" message="tns:IMatchingService_ValidateAPIProgram_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApiProgram">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetApiProgram" message="tns:IMatchingService_GetApiProgram_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetApiProgramResponse" message="tns:IMatchingService_GetApiProgram_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramDescription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetProgramDescription" message="tns:IMatchingService_GetProgramDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetProgramDescriptionResponse" message="tns:IMatchingService_GetProgramDescription_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshCacheItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/RefreshCacheItem" message="tns:IMatchingService_RefreshCacheItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/RefreshCacheItemResponse" message="tns:IMatchingService_RefreshCacheItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCacheItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/RemoveCacheItem" message="tns:IMatchingService_RemoveCacheItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/RemoveCacheItemResponse" message="tns:IMatchingService_RemoveCacheItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignDetailByTrackID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetCampaignDetailByTrackID" message="tns:IMatchingService_GetCampaignDetailByTrackID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetCampaignDetailByTrackIDResponse" message="tns:IMatchingService_GetCampaignDetailByTrackID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoriesWithSubjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetCategoriesWithSubjects" message="tns:IMatchingService_GetCategoriesWithSubjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetCategoriesWithSubjectsResponse" message="tns:IMatchingService_GetCategoriesWithSubjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdServerClientRelationships">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchingService/GetAdServerClientRelationships" message="tns:IMatchingService_GetAdServerClientRelationships_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchingService/GetAdServerClientRelationshipsResponse" message="tns:IMatchingService_GetAdServerClientRelationships_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomBinding_IMatchingService" type="tns:IMatchingService">
+    <wsp:PolicyReference URI="#CustomBinding_IMatchingService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFormPrograms">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetFormPrograms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstitutions">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetInstitutions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampuses">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetCampuses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApolloCampuses">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetApolloCampuses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNeoResponse">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetNeoResponse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrograms">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetPrograms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacetedNavigation">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetFacetedNavigation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteMapGeoInfo">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetSiteMapGeoInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubjects">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetSubjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecialties">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetSpecialties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramLevels">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetProgramLevels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramsForCrossSell">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetProgramsForCrossSell" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstitutionDetails">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetInstitutionDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramDetails">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetProgramDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramDisplayGroupDetails">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetProgramDisplayGroupDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoriesAllIfNone">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetCategoriesAllIfNone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubjectsAllIfNone">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetSubjectsAllIfNone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecialtiesAllIfNone">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetSpecialtiesAllIfNone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramLevelsAllIfNone">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetProgramLevelsAllIfNone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampusTypes">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetCampusTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWizardMatches">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetWizardMatches" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplatesForMatches">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetTemplatesForMatches" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampusZipCodeRules">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetCampusZipCodeRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRulesForProgramProduct">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetRulesForProgramProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateProgram">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/ValidateProgram" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateProgramProducts">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/ValidateProgramProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCountryAndProgram">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/ValidateCountryAndProgram" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAPIProgram">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/ValidateAPIProgram" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApiProgram">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetApiProgram" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramDescription">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetProgramDescription" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshCacheItem">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/RefreshCacheItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCacheItem">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/RemoveCacheItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignDetailByTrackID">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetCampaignDetailByTrackID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoriesWithSubjects">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetCategoriesWithSubjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdServerClientRelationships">
+      <soap12:operation soapAction="http://tempuri.org/IMatchingService/GetAdServerClientRelationships" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IMatchingService" type="tns:IMatchingService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFormPrograms">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetFormPrograms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstitutions">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetInstitutions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampuses">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetCampuses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApolloCampuses">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetApolloCampuses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNeoResponse">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetNeoResponse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrograms">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetPrograms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacetedNavigation">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetFacetedNavigation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteMapGeoInfo">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetSiteMapGeoInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubjects">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetSubjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecialties">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetSpecialties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramLevels">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetProgramLevels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramsForCrossSell">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetProgramsForCrossSell" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstitutionDetails">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetInstitutionDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramDetails">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetProgramDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramDisplayGroupDetails">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetProgramDisplayGroupDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoriesAllIfNone">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetCategoriesAllIfNone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubjectsAllIfNone">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetSubjectsAllIfNone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecialtiesAllIfNone">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetSpecialtiesAllIfNone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramLevelsAllIfNone">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetProgramLevelsAllIfNone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampusTypes">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetCampusTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWizardMatches">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetWizardMatches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplatesForMatches">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetTemplatesForMatches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampusZipCodeRules">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetCampusZipCodeRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRulesForProgramProduct">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetRulesForProgramProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateProgram">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/ValidateProgram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateProgramProducts">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/ValidateProgramProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCountryAndProgram">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/ValidateCountryAndProgram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAPIProgram">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/ValidateAPIProgram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApiProgram">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetApiProgram" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramDescription">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetProgramDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshCacheItem">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/RefreshCacheItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCacheItem">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/RemoveCacheItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignDetailByTrackID">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetCampaignDetailByTrackID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoriesWithSubjects">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetCategoriesWithSubjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdServerClientRelationships">
+      <soap:operation soapAction="http://tempuri.org/IMatchingService/GetAdServerClientRelationships" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MatchingService">
+    <wsdl:port name="CustomBinding_IMatchingService" binding="tns:CustomBinding_IMatchingService">
+      <soap12:address location="http://tcpa-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://tcpa-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IMatchingService" binding="tns:BasicHttpBinding_IMatchingService">
+      <soap:address location="http://tcpa-issvc1/EDDY.IS.MatchingEngine.Service/MatchingService.svc/soap" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EddyLoggingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="APILog">
+          <Key>
+            <PropertyRef Name="APILogId" />
+          </Key>
+          <Property Name="APILogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrackID" Type="uniqueidentifier" />
+          <Property Name="MethodName" Type="nvarchar" MaxLength="200" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="32" />
+          <Property Name="BrowserInfo" Type="nvarchar" MaxLength="512" />
+          <Property Name="Referer" Type="nvarchar" MaxLength="512" />
+          <Property Name="RequestType" Type="varchar" MaxLength="5" />
+          <Property Name="PostData" Type="nvarchar(max)" />
+          <Property Name="Response" Type="xml" />
+          <Property Name="ResultCount" Type="int" Nullable="false" />
+          <Property Name="RequestTimeStamp" Type="datetime" />
+          <Property Name="ResponseTimeStamp" Type="datetime" />
+          <Property Name="TotalResponseTime" Type="int" />
+          <Property Name="ResponseGuid" Type="uniqueidentifier" />
+          <Property Name="IsSuccessful" Type="bit" />
+          <Property Name="OperationType" Type="varchar" MaxLength="20" />
+          <Property Name="ResponseBody" Type="nvarchar(max)" />
+          <Property Name="OperationValue" Type="varchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="EddyApiLog">
+          <Key>
+            <PropertyRef Name="EddyApiLogId" />
+          </Key>
+          <Property Name="EddyApiLogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrackID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="32" />
+          <Property Name="Request" Type="nvarchar(max)" />
+          <Property Name="Response" Type="nvarchar(max)" />
+          <Property Name="RequestTimeStamp" Type="datetime" />
+          <Property Name="ResponseTimeStamp" Type="datetime" />
+          <Property Name="TotalResponseTime" Type="int" />
+          <Property Name="ResponseGuid" Type="uniqueidentifier" />
+          <Property Name="IsSuccessful" Type="bit" Nullable="false" />
+          <Property Name="ApiEndpoint" Type="varchar" MaxLength="256" />
+          <Property Name="FormattedMessage" Type="varchar(max)" />
+          <Property Name="LeadId" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ProspectFlowId" Type="int" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="256" />
+          <Property Name="EstimatedRevShare" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="HostAndPostLog">
+          <Key>
+            <PropertyRef Name="HostAndPostLogId" />
+          </Key>
+          <Property Name="HostAndPostLogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="32" />
+          <Property Name="BrowserInfo" Type="nvarchar" MaxLength="512" />
+          <Property Name="Referer" Type="nvarchar" MaxLength="512" />
+          <Property Name="RequestType" Type="varchar" MaxLength="5" />
+          <Property Name="PostData" Type="nvarchar(max)" />
+          <Property Name="Response" Type="xml" />
+          <Property Name="IsSuccess" Type="bit" Nullable="false" />
+          <Property Name="IsBeta" Type="bit" Nullable="false" />
+          <Property Name="UID" Type="varchar" MaxLength="100" />
+          <Property Name="RequestTimeStamp" Type="datetime" />
+          <Property Name="ResponseTimeStamp" Type="datetime" />
+          <Property Name="TotalResponseTime" Type="int" />
+          <Property Name="ApplicationId" Type="int" />
+          <Property Name="TrackID" Type="uniqueidentifier" />
+          <Property Name="LogTypeId" Type="int" />
+          <Property Name="ExternalSystemId" Type="varchar" MaxLength="50" />
+          <Property Name="ServerName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="HostAndPostOptionFieldLog">
+          <Key>
+            <PropertyRef Name="HostAndPostOptionFieldLogId" />
+          </Key>
+          <Property Name="HostAndPostOptionFieldLogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HostAndPostLogId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_HostAndPostOptionFieldLog_HostAndPostLog">
+          <End Role="HostAndPostLog" Type="Self.HostAndPostLog" Multiplicity="1" />
+          <End Role="HostAndPostOptionFieldLog" Type="Self.HostAndPostOptionFieldLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HostAndPostLog">
+              <PropertyRef Name="HostAndPostLogId" />
+            </Principal>
+            <Dependent Role="HostAndPostOptionFieldLog">
+              <PropertyRef Name="HostAndPostLogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EddyLoggingModelStoreContainer">
+          <EntitySet Name="APILog" EntityType="Self.APILog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EddyApiLog" EntityType="Self.EddyApiLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HostAndPostLog" EntityType="Self.HostAndPostLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HostAndPostOptionFieldLog" EntityType="Self.HostAndPostOptionFieldLog" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_HostAndPostOptionFieldLog_HostAndPostLog" Association="Self.FK_HostAndPostOptionFieldLog_HostAndPostLog">
+            <End Role="HostAndPostLog" EntitySet="HostAndPostLog" />
+            <End Role="HostAndPostOptionFieldLog" EntitySet="HostAndPostOptionFieldLog" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EddyLoggingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="APILog">
+          <Key>
+            <PropertyRef Name="APILogId" />
+          </Key>
+          <Property Name="APILogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrackID" Type="Guid" />
+          <Property Name="MethodName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IPAddress" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="BrowserInfo" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Referer" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="RequestType" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="PostData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Response" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResultCount" Type="Int32" Nullable="false" />
+          <Property Name="RequestTimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="ResponseTimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="TotalResponseTime" Type="Int32" />
+          <Property Name="ResponseGuid" Type="Guid" />
+          <Property Name="IsSuccessful" Type="Boolean" />
+          <Property Name="OperationType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ResponseBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OperationValue" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HostAndPostLog">
+          <Key>
+            <PropertyRef Name="HostAndPostLogId" />
+          </Key>
+          <Property Name="HostAndPostLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IPAddress" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="BrowserInfo" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Referer" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="RequestType" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="PostData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Response" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsSuccess" Type="Boolean" Nullable="false" />
+          <Property Name="IsBeta" Type="Boolean" Nullable="false" />
+          <Property Name="UID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RequestTimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="ResponseTimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="TotalResponseTime" Type="Int32" />
+          <Property Name="ApplicationId" Type="Int32" />
+          <Property Name="TrackID" Type="Guid" />
+          <Property Name="LogTypeId" Type="Int32" />
+          <Property Name="ExternalSystemId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ServerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="HostAndPostOptionFieldLogs" Relationship="Self.FK_HostAndPostOptionFieldLog_HostAndPostLog" FromRole="HostAndPostLog" ToRole="HostAndPostOptionFieldLog" />
+        </EntityType>
+        <EntityType Name="HostAndPostOptionFieldLog">
+          <Key>
+            <PropertyRef Name="HostAndPostOptionFieldLogId" />
+          </Key>
+          <Property Name="HostAndPostOptionFieldLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HostAndPostLogId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="HostAndPostLog" Relationship="Self.FK_HostAndPostOptionFieldLog_HostAndPostLog" FromRole="HostAndPostOptionFieldLog" ToRole="HostAndPostLog" />
+        </EntityType>
+        <Association Name="FK_HostAndPostOptionFieldLog_HostAndPostLog">
+          <End Role="HostAndPostLog" Type="Self.HostAndPostLog" Multiplicity="1" />
+          <End Role="HostAndPostOptionFieldLog" Type="Self.HostAndPostOptionFieldLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HostAndPostLog">
+              <PropertyRef Name="HostAndPostLogId" />
+            </Principal>
+            <Dependent Role="HostAndPostOptionFieldLog">
+              <PropertyRef Name="HostAndPostLogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EddyLoggingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="APILogs" EntityType="Self.APILog" />
+          <EntitySet Name="HostAndPostLogs" EntityType="Self.HostAndPostLog" />
+          <EntitySet Name="HostAndPostOptionFieldLogs" EntityType="Self.HostAndPostOptionFieldLog" />
+          <AssociationSet Name="FK_HostAndPostOptionFieldLog_HostAndPostLog" Association="Self.FK_HostAndPostOptionFieldLog_HostAndPostLog">
+            <End Role="HostAndPostLog" EntitySet="HostAndPostLogs" />
+            <End Role="HostAndPostOptionFieldLog" EntitySet="HostAndPostOptionFieldLogs" />
+          </AssociationSet>
+          <EntitySet Name="EddyApiLogs" EntityType="EddyLoggingModel.EddyApiLog" />
+        </EntityContainer>
+        <EntityType Name="EddyApiLog">
+          <Key>
+            <PropertyRef Name="EddyApiLogId" />
+          </Key>
+          <Property Name="EddyApiLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrackID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Request" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Response" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RequestTimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="ResponseTimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="TotalResponseTime" Type="Int32" />
+          <Property Name="ResponseGuid" Type="Guid" />
+          <Property Name="IsSuccessful" Type="Boolean" Nullable="false" />
+          <Property Name="ApiEndpoint" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="FormattedMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LeadId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ProspectFlowId" Type="Int32" />
+          <Property Name="EmailAddress" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="EstimatedRevShare" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EddyLoggingModelStoreContainer" CdmEntityContainer="EddyLoggingEntities">
+          <EntitySetMapping Name="APILogs">
+            <EntityTypeMapping TypeName="EddyLoggingModel.APILog">
+              <MappingFragment StoreEntitySet="APILog">
+                <ScalarProperty Name="OperationValue" ColumnName="OperationValue" />
+                <ScalarProperty Name="ResponseBody" ColumnName="ResponseBody" />
+                <ScalarProperty Name="OperationType" ColumnName="OperationType" />
+                <ScalarProperty Name="IsSuccessful" ColumnName="IsSuccessful" />
+                <ScalarProperty Name="ResponseGuid" ColumnName="ResponseGuid" />
+                <ScalarProperty Name="APILogId" ColumnName="APILogId" />
+                <ScalarProperty Name="TrackID" ColumnName="TrackID" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="BrowserInfo" ColumnName="BrowserInfo" />
+                <ScalarProperty Name="Referer" ColumnName="Referer" />
+                <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+                <ScalarProperty Name="PostData" ColumnName="PostData" />
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="ResultCount" ColumnName="ResultCount" />
+                <ScalarProperty Name="RequestTimeStamp" ColumnName="RequestTimeStamp" />
+                <ScalarProperty Name="ResponseTimeStamp" ColumnName="ResponseTimeStamp" />
+                <ScalarProperty Name="TotalResponseTime" ColumnName="TotalResponseTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HostAndPostLogs">
+            <EntityTypeMapping TypeName="EddyLoggingModel.HostAndPostLog">
+              <MappingFragment StoreEntitySet="HostAndPostLog">
+                <ScalarProperty Name="HostAndPostLogId" ColumnName="HostAndPostLogId" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="BrowserInfo" ColumnName="BrowserInfo" />
+                <ScalarProperty Name="Referer" ColumnName="Referer" />
+                <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+                <ScalarProperty Name="PostData" ColumnName="PostData" />
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="IsSuccess" ColumnName="IsSuccess" />
+                <ScalarProperty Name="IsBeta" ColumnName="IsBeta" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="RequestTimeStamp" ColumnName="RequestTimeStamp" />
+                <ScalarProperty Name="ResponseTimeStamp" ColumnName="ResponseTimeStamp" />
+                <ScalarProperty Name="TotalResponseTime" ColumnName="TotalResponseTime" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="TrackID" ColumnName="TrackID" />
+                <ScalarProperty Name="LogTypeId" ColumnName="LogTypeId" />
+                <ScalarProperty Name="ExternalSystemId" ColumnName="ExternalSystemId" />
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HostAndPostOptionFieldLogs">
+            <EntityTypeMapping TypeName="EddyLoggingModel.HostAndPostOptionFieldLog">
+              <MappingFragment StoreEntitySet="HostAndPostOptionFieldLog">
+                <ScalarProperty Name="HostAndPostOptionFieldLogId" ColumnName="HostAndPostOptionFieldLogId" />
+                <ScalarProperty Name="HostAndPostLogId" ColumnName="HostAndPostLogId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EddyApiLogs">
+            <EntityTypeMapping TypeName="EddyLoggingModel.EddyApiLog">
+              <MappingFragment StoreEntitySet="EddyApiLog">
+                <ScalarProperty Name="EstimatedRevShare" ColumnName="EstimatedRevShare" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="ProspectFlowId" ColumnName="ProspectFlowId" />
+                <ScalarProperty Name="LeadId" ColumnName="LeadId" />
+                <ScalarProperty Name="FormattedMessage" ColumnName="FormattedMessage" />
+                <ScalarProperty Name="ApiEndpoint" ColumnName="ApiEndpoint" />
+                <ScalarProperty Name="IsSuccessful" ColumnName="IsSuccessful" />
+                <ScalarProperty Name="ResponseGuid" ColumnName="ResponseGuid" />
+                <ScalarProperty Name="TotalResponseTime" ColumnName="TotalResponseTime" />
+                <ScalarProperty Name="ResponseTimeStamp" ColumnName="ResponseTimeStamp" />
+                <ScalarProperty Name="RequestTimeStamp" ColumnName="RequestTimeStamp" />
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="Request" ColumnName="Request" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="TrackID" ColumnName="TrackID" />
+                <ScalarProperty Name="EddyApiLogId" ColumnName="EddyApiLogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

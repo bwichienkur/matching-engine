@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://nexuatws01/EDDY.ProspectService.Service/ProspectService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://nexuatws01/EDDY.ProspectService.Service/ProspectService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://nexuatws01/EDDY.ProspectService.Service/ProspectService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.Core.Base" />
+  <xs:import schemaLocation="http://nexuatws01/EDDY.ProspectService.Service/ProspectService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:complexType name="AssignAdvisorToProspectFlowsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AssignToAdvisorId" type="xs:int" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProspectFlowIds" nillable="true" type="q1:ArrayOfint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AssignAdvisorToProspectFlowsRequest" nillable="true" type="tns:AssignAdvisorToProspectFlowsRequest" />
+  <xs:complexType name="BaseProspectRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseProspectRequest" nillable="true" type="tns:BaseProspectRequest" />
+  <xs:complexType name="DeleteProspectDetailsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowStatusHistoryID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteProspectDetailsRequest" nillable="true" type="tns:DeleteProspectDetailsRequest" />
+  <xs:complexType name="GetProspectFlowDetailsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ChatIntegrationSessionID" type="xs:int" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Locks" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ProspectFlowID" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowTypeID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetProspectFlowDetailsRequest" nillable="true" type="tns:GetProspectFlowDetailsRequest" />
+  <xs:complexType name="GetProspectFlowDetailsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AlreadyLockedByAdvisorId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CampaignId" type="xs:int" />
+          <xs:element minOccurs="0" name="Leads" nillable="true" type="tns:ArrayOfLeadDetailsDTO" />
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Options" nillable="true" type="q2:ArrayOfKeyValueOfstringstring" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProspectAdditionalFields" nillable="true" type="q3:ArrayOfKeyValueOfstringstring" />
+          <xs:element minOccurs="0" name="ProspectDTO" nillable="true" type="tns:ProspectDTO" />
+          <xs:element minOccurs="0" name="ProspectFlowDTO" nillable="true" type="tns:ProspectFlowDTO" />
+          <xs:element minOccurs="0" name="ProspectTimeStampDTO" nillable="true" type="tns:ProspectTimeStampDTO" />
+          <xs:element minOccurs="0" name="TrackId" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetProspectFlowDetailsResponse" nillable="true" type="tns:GetProspectFlowDetailsResponse" />
+  <xs:complexType name="BaseProspectResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfError" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseProspectResponse" nillable="true" type="tns:BaseProspectResponse" />
+  <xs:complexType name="ArrayOfError">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Error" nillable="true" type="tns:Error" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfError" nillable="true" type="tns:ArrayOfError" />
+  <xs:complexType name="Error">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Error" nillable="true" type="tns:Error" />
+  <xs:complexType name="ArrayOfLeadDetailsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LeadDetailsDTO" nillable="true" type="tns:LeadDetailsDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLeadDetailsDTO" nillable="true" type="tns:ArrayOfLeadDetailsDTO" />
+  <xs:complexType name="LeadDetailsDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Campus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Institution" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InstitutionId" type="xs:int" />
+          <xs:element minOccurs="0" name="IsInRefinement" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsOnWarmTransferTitaniumHold" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsScrub" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LeadId" type="xs:int" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Program" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProgramId" type="xs:int" />
+          <xs:element minOccurs="0" name="SchoolAdvisor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ScrubDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ScrubReason" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LeadDetailsDTO" nillable="true" type="tns:LeadDetailsDTO" />
+  <xs:complexType name="BaseDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/EDDY.IS.Core.Base" base="q4:BaseEntity">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BaseDTO" nillable="true" type="tns:BaseDTO" />
+  <xs:complexType name="ProspectDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Age" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="AltPhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AltPhoneTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DesiredStartDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EducationLevelID" nillable="true" type="xs:int" />
+          <xs:element name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Employer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmploymentStatusID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="EnrollmentLikeliHoodId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ExternalScore" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ExternalScoreType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GraduationYear" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="HasCreditsFromOutsideUS" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="INTernalScore" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsUsCitizen" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MilitaryStatusID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="NeedsFinancialAid" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OtherPhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OtherPhoneTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhoneTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PreferEmail" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PreferPhone" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PreferText" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PreferredContactTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrefixID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="StateID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProspectDTO" nillable="true" type="tns:ProspectDTO" />
+  <xs:complexType name="ProspectFlowDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CallCenterProspectFlows" nillable="true" type="tns:ArrayOfCallCenterProspectFlowDTO" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DialerUpdateQueues" nillable="true" type="tns:ArrayOfDialerUpdateQueueDTO" />
+          <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastCampaignId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ProspectFlowAdvisorHistories" nillable="true" type="tns:ArrayOfProspectFlowAdvisorHistoryDTO" />
+          <xs:element minOccurs="0" name="ProspectFlowAdvisorTimeLogs" nillable="true" type="tns:ArrayOfProspectFlowAdvisorTimeLogDTO" />
+          <xs:element minOccurs="0" name="ProspectFlowCampaignHistories" nillable="true" type="tns:ArrayOfProspectFlowCampaignHistoryDTO" />
+          <xs:element minOccurs="0" name="ProspectFlowCategories" nillable="true" type="tns:ArrayOfProspectFlowCategoryDTO" />
+          <xs:element minOccurs="0" name="ProspectFlowEmailLogs" nillable="true" type="tns:ArrayOfProspectFlowEmailLogDTO" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowNotes" nillable="true" type="tns:ArrayOfProspectFlowNoteDTO" />
+          <xs:element minOccurs="0" name="ProspectFlowStatusHistories" nillable="true" type="tns:ArrayOfProspectFlowStatusHistoryDTO" />
+          <xs:element minOccurs="0" name="ProspectFlowSubjects" nillable="true" type="tns:ArrayOfProspectFlowSubjectDTO" />
+          <xs:element minOccurs="0" name="ProspectFlowTypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectReasonId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectStatusId" type="xs:int" />
+          <xs:element minOccurs="0" name="TrackId" type="ser:guid" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProspectFlowDTO" nillable="true" type="tns:ProspectFlowDTO" />
+  <xs:complexType name="ArrayOfCallCenterProspectFlowDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CallCenterProspectFlowDTO" nillable="true" type="tns:CallCenterProspectFlowDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCallCenterProspectFlowDTO" nillable="true" type="tns:ArrayOfCallCenterProspectFlowDTO" />
+  <xs:complexType name="CallCenterProspectFlowDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdvisorId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CallCenterProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DialerListName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastActivityDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LockDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="TempAdvisorId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CallCenterProspectFlowDTO" nillable="true" type="tns:CallCenterProspectFlowDTO" />
+  <xs:complexType name="ArrayOfDialerUpdateQueueDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DialerUpdateQueueDTO" nillable="true" type="tns:DialerUpdateQueueDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDialerUpdateQueueDTO" nillable="true" type="tns:ArrayOfDialerUpdateQueueDTO" />
+  <xs:complexType name="DialerUpdateQueueDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DialerUpdateQueueId" type="xs:int" />
+          <xs:element minOccurs="0" name="IsProcessed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsRemove" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastProcessedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ProcessTries" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectStatusId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DialerUpdateQueueDTO" nillable="true" type="tns:DialerUpdateQueueDTO" />
+  <xs:complexType name="ArrayOfProspectFlowAdvisorHistoryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProspectFlowAdvisorHistoryDTO" nillable="true" type="tns:ProspectFlowAdvisorHistoryDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProspectFlowAdvisorHistoryDTO" nillable="true" type="tns:ArrayOfProspectFlowAdvisorHistoryDTO" />
+  <xs:complexType name="ProspectFlowAdvisorHistoryDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AssignedAdvisorId" type="xs:int" />
+          <xs:element minOccurs="0" name="AssignedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PreviousAdvisorId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowAdvisorHistoryId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProspectFlowAdvisorHistoryDTO" nillable="true" type="tns:ProspectFlowAdvisorHistoryDTO" />
+  <xs:complexType name="ArrayOfProspectFlowAdvisorTimeLogDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProspectFlowAdvisorTimeLogDTO" nillable="true" type="tns:ProspectFlowAdvisorTimeLogDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProspectFlowAdvisorTimeLogDTO" nillable="true" type="tns:ArrayOfProspectFlowAdvisorTimeLogDTO" />
+  <xs:complexType name="ProspectFlowAdvisorTimeLogDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdvisorId" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ProspectFlowAdvisorTimeLogId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectStatusId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TimeSpan" nillable="true" type="ser:duration" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProspectFlowAdvisorTimeLogDTO" nillable="true" type="tns:ProspectFlowAdvisorTimeLogDTO" />
+  <xs:complexType name="ArrayOfProspectFlowCampaignHistoryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProspectFlowCampaignHistoryDTO" nillable="true" type="tns:ProspectFlowCampaignHistoryDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProspectFlowCampaignHistoryDTO" nillable="true" type="tns:ArrayOfProspectFlowCampaignHistoryDTO" />
+  <xs:complexType name="ProspectFlowCampaignHistoryDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CampaignId" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExternalSystemId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HostAndPostLogId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowCampaignHistoryId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="SessionGuid" nillable="true" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProspectFlowCampaignHistoryDTO" nillable="true" type="tns:ProspectFlowCampaignHistoryDTO" />
+  <xs:complexType name="ArrayOfProspectFlowCategoryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProspectFlowCategoryDTO" nillable="true" type="tns:ProspectFlowCategoryDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProspectFlowCategoryDTO" nillable="true" type="tns:ArrayOfProspectFlowCategoryDTO" />
+  <xs:complexType name="ProspectFlowCategoryDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CategoryId" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ProspectFlowCategoryId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProspectFlowCategoryDTO" nillable="true" type="tns:ProspectFlowCategoryDTO" />
+  <xs:complexType name="ArrayOfProspectFlowEmailLogDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProspectFlowEmailLogDTO" nillable="true" type="tns:ProspectFlowEmailLogDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProspectFlowEmailLogDTO" nillable="true" type="tns:ArrayOfProspectFlowEmailLogDTO" />
+  <xs:complexType name="ProspectFlowEmailLogDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DeliveryMessage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmailBCCAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmailBody" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmailCCAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmailFromAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmailSubject" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmailTo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsHtml" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsSent" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ProspectEmailConfigId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowEmailLogId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProspectFlowEmailLogDTO" nillable="true" type="tns:ProspectFlowEmailLogDTO" />
+  <xs:complexType name="ArrayOfProspectFlowNoteDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProspectFlowNoteDTO" nillable="true" type="tns:ProspectFlowNoteDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProspectFlowNoteDTO" nillable="true" type="tns:ArrayOfProspectFlowNoteDTO" />
+  <xs:complexType name="ProspectFlowNoteDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowNotesId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProspectFlowNoteDTO" nillable="true" type="tns:ProspectFlowNoteDTO" />
+  <xs:complexType name="ArrayOfProspectFlowStatusHistoryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProspectFlowStatusHistoryDTO" nillable="true" type="tns:ProspectFlowStatusHistoryDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProspectFlowStatusHistoryDTO" nillable="true" type="tns:ArrayOfProspectFlowStatusHistoryDTO" />
+  <xs:complexType name="ProspectFlowStatusHistoryDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CampaignId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EnrollmentLikelihoodId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Inbound" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastProspectReasonId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LastProspectStatusId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PostbackStatusId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowStatusHistoryId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectReasonId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectStatusId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProspectFlowStatusHistoryDTO" nillable="true" type="tns:ProspectFlowStatusHistoryDTO" />
+  <xs:complexType name="ArrayOfProspectFlowSubjectDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProspectFlowSubjectDTO" nillable="true" type="tns:ProspectFlowSubjectDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProspectFlowSubjectDTO" nillable="true" type="tns:ArrayOfProspectFlowSubjectDTO" />
+  <xs:complexType name="ProspectFlowSubjectDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowSubjectId" type="xs:int" />
+          <xs:element minOccurs="0" name="SubjectId" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProspectFlowSubjectDTO" nillable="true" type="tns:ProspectFlowSubjectDTO" />
+  <xs:complexType name="ProspectTimeStampDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address1Timestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Address2Timestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="AgeTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="AltPhoneTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="AltPhoneTypeIDTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CityTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CountryIDTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateOfBirthTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DesiredStartDateTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EducationLevelIDTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EmailTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EmployerTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EmploymentStatusIDTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EnrollmentLikeliHoodIdTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExternalScoreTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExternalScoreTypeTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FirstNameTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="GraduationYearTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="HasCreditsFromOutsideUSTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="INTernalScoreTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastNameTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MilitaryStatusIDTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="NeedsFinancialAidTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OtherPhoneTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OtherPhoneTypeIDTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PhoneTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PhoneTypeIDTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PostalCodeTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PreferEmailTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PreferPhoneTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PreferTextTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PreferredContactTimeTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PrefixIDTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StateIDTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProspectTimeStampDTO" nillable="true" type="tns:ProspectTimeStampDTO" />
+  <xs:complexType name="GetProspectCountByStatusRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DayOffset" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetProspectCountByStatusRequest" nillable="true" type="tns:GetProspectCountByStatusRequest" />
+  <xs:complexType name="GetProspectCountByStatusResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProspectCounts" nillable="true" type="tns:ArrayOfProspectCountByStatusDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetProspectCountByStatusResponse" nillable="true" type="tns:GetProspectCountByStatusResponse" />
+  <xs:complexType name="ArrayOfProspectCountByStatusDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProspectCountByStatusDTO" nillable="true" type="tns:ProspectCountByStatusDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProspectCountByStatusDTO" nillable="true" type="tns:ArrayOfProspectCountByStatusDTO" />
+  <xs:complexType name="ProspectCountByStatusDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Count" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectStatusId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProspectCountByStatusDTO" nillable="true" type="tns:ProspectCountByStatusDTO" />
+  <xs:complexType name="ArrayOfProspectFlowTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProspectFlowTypeDTO" nillable="true" type="tns:ProspectFlowTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProspectFlowTypeDTO" nillable="true" type="tns:ArrayOfProspectFlowTypeDTO" />
+  <xs:complexType name="ProspectFlowTypeDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsAvailableInCampaign" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProspectFlowTypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProspectFlowTypeDTO" nillable="true" type="tns:ProspectFlowTypeDTO" />
+  <xs:complexType name="LockCallCenterProspectFlowRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CallCenterProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LockCallCenterProspectFlowRequest" nillable="true" type="tns:LockCallCenterProspectFlowRequest" />
+  <xs:complexType name="ResendProspectFlowEmailRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProspectEmailLogId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResendProspectFlowEmailRequest" nillable="true" type="tns:ResendProspectFlowEmailRequest" />
+  <xs:complexType name="SaveProspectRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Prospect" nillable="true" type="tns:ProspectDTO" />
+          <xs:element minOccurs="0" name="ProspectFlowDetails" nillable="true" type="tns:ProspectFlowDetailsDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveProspectRequest" nillable="true" type="tns:SaveProspectRequest" />
+  <xs:complexType name="ProspectFlowDetailsDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AreaofInterest" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalSystemId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HostAndPostLogId" type="xs:int" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Options" nillable="true" type="q5:ArrayOfKeyValueOfstringstring" />
+          <xs:element name="ProspectFlowTypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectReasonId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectStatusId" type="xs:int" />
+          <xs:element minOccurs="0" name="SessionGuid" nillable="true" type="ser:guid" />
+          <xs:element name="TrackId" nillable="true" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProspectFlowDetailsDTO" nillable="true" type="tns:ProspectFlowDetailsDTO" />
+  <xs:complexType name="SaveProspectResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveProspectResponse" nillable="true" type="tns:SaveProspectResponse" />
+  <xs:complexType name="SaveHomeSecurityProspectRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClientRelationshipId" type="xs:int" />
+          <xs:element minOccurs="0" name="Prospect" nillable="true" type="tns:ProspectDTO" />
+          <xs:element minOccurs="0" name="ProspectFlowDetails" nillable="true" type="tns:ProspectFlowDetailsDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveHomeSecurityProspectRequest" nillable="true" type="tns:SaveHomeSecurityProspectRequest" />
+  <xs:complexType name="SaveHomeSecurityProspectResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveHomeSecurityProspectResponse" nillable="true" type="tns:SaveHomeSecurityProspectResponse" />
+  <xs:complexType name="SaveProspectDetailsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdvisorTimeLog" type="ser:duration" />
+          <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CategoryList" nillable="true" type="q6:ArrayOfint" />
+          <xs:element minOccurs="0" name="ChatIntegrationSessionId" type="xs:int" />
+          <xs:element minOccurs="0" name="IsInboundCall" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Prospect" nillable="true" type="tns:ProspectDTO" />
+          <xs:element minOccurs="0" name="ProspectAdditionalFields" nillable="true" type="tns:ArrayOfProspectAdditionalFields" />
+          <xs:element minOccurs="0" name="ProspectFlowDetails" nillable="true" type="tns:ProspectFlowDetailsDTO" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+          <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProspectFlowNotes" nillable="true" type="q7:ArrayOfstring" />
+          <xs:element minOccurs="0" name="ProspectFlowStatusList" nillable="true" type="tns:ArrayOfProspectFlowStatusHistorySaveDTO" />
+          <xs:element minOccurs="0" name="RemoveFromDialer" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ResyncInDialer" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SessionGuid" nillable="true" type="ser:guid" />
+          <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SubjectList" nillable="true" type="q8:ArrayOfint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveProspectDetailsRequest" nillable="true" type="tns:SaveProspectDetailsRequest" />
+  <xs:complexType name="ArrayOfProspectAdditionalFields">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProspectAdditionalFields" nillable="true" type="tns:ProspectAdditionalFields" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProspectAdditionalFields" nillable="true" type="tns:ArrayOfProspectAdditionalFields" />
+  <xs:complexType name="ProspectAdditionalFields">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProspectAdditionalFields" nillable="true" type="tns:ProspectAdditionalFields" />
+  <xs:complexType name="ArrayOfProspectFlowStatusHistorySaveDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProspectFlowStatusHistorySaveDTO" nillable="true" type="tns:ProspectFlowStatusHistorySaveDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProspectFlowStatusHistorySaveDTO" nillable="true" type="tns:ArrayOfProspectFlowStatusHistorySaveDTO" />
+  <xs:complexType name="ProspectFlowStatusHistorySaveDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdvisorUserId" type="xs:int" />
+          <xs:element minOccurs="0" name="Inbound" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProspectFlowStatusHistoryId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectReasonId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectStatusId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProspectFlowStatusHistorySaveDTO" nillable="true" type="tns:ProspectFlowStatusHistorySaveDTO" />
+  <xs:complexType name="SaveProspectDetailsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowStatusHistoryId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveProspectDetailsResponse" nillable="true" type="tns:SaveProspectDetailsResponse" />
+  <xs:complexType name="SaveProspectStatusRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element name="ProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectReasonId" nillable="true" type="xs:int" />
+          <xs:element name="ProspectStatusId" type="xs:int" />
+          <xs:element minOccurs="0" name="SessionGuid" nillable="true" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveProspectStatusRequest" nillable="true" type="tns:SaveProspectStatusRequest" />
+  <xs:complexType name="SaveProspectStatusResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveProspectStatusResponse" nillable="true" type="tns:SaveProspectStatusResponse" />
+  <xs:complexType name="SaveProspectNotesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveProspectNotesRequest" nillable="true" type="tns:SaveProspectNotesRequest" />
+  <xs:complexType name="SaveProspectNotesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProspectFlowNotesId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveProspectNotesResponse" nillable="true" type="tns:SaveProspectNotesResponse" />
+  <xs:complexType name="StatusHistory">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectId" type="xs:int" />
+          <xs:element minOccurs="0" name="StatusId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StatusHistory" nillable="true" type="tns:StatusHistory" />
+  <xs:complexType name="SearchProspectsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdvisorId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ByCreatedDate" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FromDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="InstitutionId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProspectFlowId" nillable="true" type="xs:int" />
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ProspectFlowTypeIds" nillable="true" type="q9:ArrayOfNullableOfint" />
+          <xs:element minOccurs="0" name="ProspectId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectStatusId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ToDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SearchProspectsRequest" nillable="true" type="tns:SearchProspectsRequest" />
+  <xs:complexType name="SearchProspectsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SearchProspectResults" nillable="true" type="tns:ArrayOfSearchProspectResultDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SearchProspectsResponse" nillable="true" type="tns:SearchProspectsResponse" />
+  <xs:complexType name="ArrayOfSearchProspectResultDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchProspectResultDTO" nillable="true" type="tns:SearchProspectResultDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSearchProspectResultDTO" nillable="true" type="tns:ArrayOfSearchProspectResultDTO" />
+  <xs:complexType name="SearchProspectResultDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdvisorId" type="xs:int" />
+          <xs:element minOccurs="0" name="AdvisorName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DaytimePhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EveningPhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HoursInProspectStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InstitutionId" type="xs:int" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProspectCreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowTypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectFlowTypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProspectID" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectModifiedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ProspectStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProspectStatusId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProspectStatusIdTimeStamp" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StateName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SearchProspectResultDTO" nillable="true" type="tns:SearchProspectResultDTO" />
+  <xs:complexType name="SendLeadEmailRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LeadId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SendLeadEmailRequest" nillable="true" type="tns:SendLeadEmailRequest" />
+  <xs:complexType name="SendLeadEmailResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SendLeadEmailResponse" nillable="true" type="tns:SendLeadEmailResponse" />
+  <xs:complexType name="UnlockCallCenterProspectRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseProspectRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UnlockCallCenterProspectRequest" nillable="true" type="tns:UnlockCallCenterProspectRequest" />
+  <xs:complexType name="LeadData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LeadDataPairs" nillable="true" type="tns:ArrayOfLeadIdField" />
+          <xs:element minOccurs="0" name="LeadIdToken" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LeadData" nillable="true" type="tns:LeadData" />
+  <xs:complexType name="ArrayOfLeadIdField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LeadIdField" nillable="true" type="tns:LeadIdField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLeadIdField" nillable="true" type="tns:ArrayOfLeadIdField" />
+  <xs:complexType name="LeadIdField">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LeadIdField" nillable="true" type="tns:LeadIdField" />
+</xs:schema>

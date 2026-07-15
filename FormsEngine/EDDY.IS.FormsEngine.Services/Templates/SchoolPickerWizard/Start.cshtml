@@ -1,0 +1,71 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.FormEngineModel>
+@using EDDY.IS.FormsEngine.Services.Controllers.Common
+
+@Html.InlineScriptBlock("~/Templates/Common/js/External/LeadPingv3.js")
+<script type="text/javascript" src="@(Url.Action("GetWizardTemplateJS", "TemplateManager", new { TemplateId = Model.DynamicControlsJavascriptURLArguments.TemplateId, RenderingStrategy = Model.DynamicControlsJavascriptURLArguments.RenderingStrategy, IsBeta = Model.DynamicControlsJavascriptURLArguments.IsBeta, IgnoreTemplateCache = Model.DynamicControlsJavascriptURLArguments.IgnoreTemplateCache, SeedToken = Guid.NewGuid().ToString() }, Url.RequestContext.HttpContext.Request.Url.Scheme))"></script>
+@Html.InlineScriptBlock("~/Templates/SchoolPickerWizard/js/SchoolPickerWizard_Start.js")
+@Html.InlineScriptBlock("~/Templates/Common/js/select2.full.min.js")
+
+@{
+    this.Model.DefaultDDLSelectOption = "Select one of the following...";
+}
+
+<div id="ErrorBoxX">
+    @foreach (var controlType in this.Model.ControlTypes)
+    {
+        foreach (var error in controlType.ErrorMessages)
+        {
+        <input type="hidden" code="ERR_@(error.ErrorCode.Code)_{@controlType.StandardControlTypeName}" value="@error.Message" />
+        }
+    }
+</div>
+<div class="eddy-form-wizard-container" id="WizardStepContainer">
+		<div class="eddy-form-wizard-header">
+            <div class="wizard-header-content col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0">
+                <div id="institution-wizard-step-indicator-container" class="step-indicator-container col-xs-11"></div>
+            </div>
+		</div><!-- end of #eddy-form-wizard-header -->
+        <div class="eddy-form-wizard-body col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 clearfix">
+            @System.Web.Mvc.Html.PartialExtensions.Partial(this.Html, "~/Templates/Common/Components/SponsoredListingPopUp.cshtml", new EDDY.IS.FormsEngine.Services.Models.SponsoredListingModel(this.Model))
+            <!-- WIZARD Questions-->
+            @System.Web.Mvc.Html.PartialExtensions.Partial(this.Html, "~/Templates/Common/WizardQuestions.cshtml", this.Model)
+            <!-- END OF WIZARD Questions-->
+
+
+            <div class="eddy-form-wizard-footer">
+                <div class="buttons-container row">
+                    <div class="form-submit-button previous clearfix" id="form-navback-button">
+                        <div class="form-submit-button-inner">
+                            <span class="fa fa-arrow-left form-previous-button-icon"></span>
+                            <span class="form-previous-button-label">BACK</span>
+                        </div>
+                    </div>
+
+                    <div class="form-submit-button startover clearfix" id="form-startover-button">
+                        <div class="form-submit-button-inner">
+                            <span class="fa fa-repeat form-startover-button-icon"></span>
+                            <span class="form-startover-button-label">RESTART</span>
+                        </div>
+                    </div>
+
+                    <div id="wizard-form-submit-button" class="form-submit-button clearfix">
+                        <div class="form-submit-button-inner">
+                            <span id="form-submit-button-label" class="form-submit-button-label">CONTINUE</span>
+                            <span class="fa fa-arrow-circle-right form-submit-button-icon"></span>
+                        </div>
+                    </div>
+
+                    <div id="screen-button" class="enabled-button hide-button">
+                        <span>CONTINUE <i class="fa fa-arrow-circle-right form-submit-button-icon"></i></span>
+                    </div>
+
+                </div>
+                <div class="required-legend"><small><em>* Required Field</em></small></div>
+                <div>
+                    @{System.Web.Mvc.Html.ChildActionExtensions.RenderAction(this.Html, "CCPAMessage", "CCPA");}
+                </div>
+            </div><!-- end of #eddy-form-footer -->
+
+        </div><!-- end of #eddy-form-container -->
+
+</div><!-- end of #eddy-form-wizard-container -->

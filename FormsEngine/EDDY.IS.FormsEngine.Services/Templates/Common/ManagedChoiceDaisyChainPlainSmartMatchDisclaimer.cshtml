@@ -1,0 +1,27 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.ManagedChoiceModel>
+
+@{
+    string DISCLAIMER_REFERENCE = Model.GetResourceMetaDataText("VIEW.DISCLAIMER_REFERENCE");
+    string DISCLAIMER_REFERENCE_LINK = Model.GetResourceMetaDataText("VIEW.DISCLAIMER_REFERENCE_LINK");
+    string disclaimerReference;
+    string disclaimer;
+    int DisclaimerCounter = 1;
+
+    if (Model.HasSmartMatchPrograms)
+    {
+        foreach (var school in Model.SmartMatchList)
+        {
+            if (school.InstitutionDisclaimer != null && school.InstitutionDisclaimer.Length > 0 && school.InstitutionDisclaimerType != null)
+            {
+                disclaimerReference = string.Format(DISCLAIMER_REFERENCE, DisclaimerCounter.ToString(), "");
+                disclaimer = (school.InstitutionDisclaimerType == EDDY.IS.FormsEngine.MatchingEngine.DisclaimerType.Link) ? "<p>" + string.Format(DISCLAIMER_REFERENCE, DisclaimerCounter.ToString(), string.Format(DISCLAIMER_REFERENCE_LINK, school.InstitutionName, school.InstitutionDisclaimer)) + "</p>" : "<p>" + string.Format(DISCLAIMER_REFERENCE, DisclaimerCounter.ToString(), school.InstitutionDisclaimer) + "</p>";
+
+                <div id="ManagedChoiceAllDisclosures" class="MCdisclosure">
+                    @Html.Raw(disclaimer)
+                </div>
+                
+                DisclaimerCounter++;
+            }
+        }
+    }
+}

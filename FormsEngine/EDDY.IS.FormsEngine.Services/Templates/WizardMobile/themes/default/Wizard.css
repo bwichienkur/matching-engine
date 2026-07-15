@@ -1,0 +1,22 @@
+﻿div[data-controlcode='K12'] { display: none; }
+
+body {
+}
+form#eddynexusform-wizard div.steps fieldset.sections div.field-holder label.error {
+    background: url("[SERVER]/images/invalidCheck.png") no-repeat scroll left top rgba(0, 0, 0, 0);
+    color: #FF0000;
+    float: left;
+    height: 35px;
+    margin-top: 5px;
+    padding-left: 25px;
+    padding-top: 4px;
+    position: relative;
+    width: 98%;
+}
+div.eddy-form-wizard-body div#mobile_success_kit div {
+	padding-top: 6px;
+	padding-bottom: 8px;
+}
+.eddy-form-wizard-container .eddy-form-wizard-body #mobile_success_kit {
+	padding-top: 0;
+}

@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BetaLead">
+          <Key>
+            <PropertyRef Name="LeadId" />
+          </Key>
+          <Property Name="LeadId" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RawPostDataId" Type="bigint" Nullable="false" />
+          <Property Name="SessionInternalId" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="VisitorInternalId" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FormUniqueId" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ChannelID" Type="int" />
+          <Property Name="VendorId" Type="int" />
+          <Property Name="BusinessModelId" Type="int" />
+          <Property Name="ClientRelationshipId" Type="int" />
+          <Property Name="PSIId" Type="int" />
+          <Property Name="ProgramProductId" Type="int" />
+          <Property Name="ProgramId" Type="int" />
+          <Property Name="ProgramTypeID" Type="int" />
+          <Property Name="ProgramLevelID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ApplicationID" Type="int" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="FirstName" Type="varchar" MaxLength="64" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="64" />
+          <Property Name="Address1" Type="varchar" MaxLength="100" />
+          <Property Name="Address2" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="64" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="25" />
+          <Property Name="StateProvince" Type="varchar" MaxLength="50" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="256" />
+          <Property Name="Phone1" Type="varchar" MaxLength="50" />
+          <Property Name="Phone2" Type="varchar" MaxLength="50" />
+          <Property Name="TimeToStartInWeeks" Type="int" />
+          <Property Name="AdditionalFields" Type="xml" />
+          <Property Name="DeliveryDefinitionId" Type="int" />
+          <Property Name="RealtimeDeliveryStatusId" Type="int" Nullable="false" />
+          <Property Name="DeliveryEngineMachineKey" Type="uniqueidentifier" />
+          <Property Name="IsEnabled" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="Prefix" Type="varchar" MaxLength="20" />
+          <Property Name="Age" Type="int" />
+          <Property Name="YearHighestEduCompleted" Type="int" />
+          <Property Name="HighestLevelOfEdu" Type="varchar" MaxLength="50" />
+          <Property Name="Military" Type="varchar" MaxLength="50" />
+          <Property Name="MethodOfContact" Type="varchar" MaxLength="50" />
+          <Property Name="StartDate" Type="varchar" MaxLength="50" />
+          <Property Name="LegacyLeadId" Type="nvarchar" MaxLength="255" />
+          <Property Name="RowGuid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TrackId" Type="uniqueidentifier" />
+          <Property Name="InitialLeadId" Type="varchar" MaxLength="200" />
+          <Property Name="CMID" Type="varchar" MaxLength="255" />
+          <Property Name="AffiliateId" Type="varchar" MaxLength="255" />
+          <Property Name="UID" Type="varchar" MaxLength="100" StoreGeneratedPattern="Computed" />
+          <Property Name="ExternalLeadId" Type="varchar" MaxLength="255" />
+          <Property Name="Tsource" Type="varchar" MaxLength="255" />
+          <Property Name="TrackingSessionGUID" Type="uniqueidentifier" />
+          <Property Name="DeliveryEngineMachineName" Type="varchar" MaxLength="65" />
+          <Property Name="CampusApplicationId" Type="int" />
+          <Property Name="CampusProgramId" Type="int" />
+          <Property Name="ClientCampusRelationshipId" Type="int" />
+          <Property Name="InstitutionApplicationId" Type="int" />
+          <Property Name="ProgramApplicationId" Type="int" />
+          <Property Name="CampusId" Type="int" />
+          <Property Name="MatchResponseGuid" Type="uniqueidentifier" />
+          <Property Name="SubmissionId" Type="int" />
+          <Property Name="LeadCreationTypeId" Type="int" />
+          <Property Name="ProspectId" Type="int" />
+          <Property Name="ClientRelationContactId" Type="int" />
+          <Property Name="ProspectFlowStatusHistoryId" Type="int" />
+          <Property Name="ChatIntegrationSessionId" Type="int" />
+          <Property Name="PaidStatusTypeId" Type="int" />
+          <Property Name="RejectionReasonId" Type="int" />
+          <Property Name="LeadEditNoteId" Type="int" />
+          <Property Name="BillingDate" Type="datetime" />
+          <Property Name="CreatedDate_EST" Type="datetime" StoreGeneratedPattern="Computed" />
+          <Property Name="ProgramInstanceID" Type="int" />
+          <Property Name="ExternalMatchItemGuid" Type="uniqueidentifier" />
+          <Property Name="EstimatedRevShare" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="EstimatedLeadRev" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="LeadPingScoreId" Type="int" />
+        </EntityType>
+        <EntityType Name="Lead">
+          <Key>
+            <PropertyRef Name="LeadId" />
+          </Key>
+          <Property Name="LeadId" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RawPostDataId" Type="bigint" Nullable="false" />
+          <Property Name="SessionInternalId" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="VisitorInternalId" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FormUniqueId" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ChannelID" Type="int" />
+          <Property Name="VendorId" Type="int" />
+          <Property Name="BusinessModelId" Type="int" />
+          <Property Name="ClientRelationshipId" Type="int" />
+          <Property Name="PSIId" Type="int" />
+          <Property Name="ProgramInstanceID" Type="int" />
+          <Property Name="ProgramId" Type="int" />
+          <Property Name="ProgramTypeID" Type="int" />
+          <Property Name="ProgramLevelID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ApplicationID" Type="int" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="FirstName" Type="varchar" MaxLength="64" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="64" />
+          <Property Name="Address1" Type="varchar" MaxLength="100" />
+          <Property Name="Address2" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="64" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="25" />
+          <Property Name="StateProvince" Type="varchar" MaxLength="50" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="256" />
+          <Property Name="Phone1" Type="varchar" MaxLength="50" />
+          <Property Name="Phone2" Type="varchar" MaxLength="50" />
+          <Property Name="TimeToStartInWeeks" Type="int" />
+          <Property Name="AdditionalFields" Type="xml" />
+          <Property Name="DeliveryDefinitionId" Type="int" />
+          <Property Name="RealtimeDeliveryStatusId" Type="int" Nullable="false" />
+          <Property Name="DeliveryEngineMachineKey" Type="uniqueidentifier" />
+          <Property Name="IsEnabled" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="RowGuid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Prefix" Type="varchar" MaxLength="20" />
+          <Property Name="Age" Type="int" />
+          <Property Name="YearHighestEduCompleted" Type="int" />
+          <Property Name="HighestLevelOfEdu" Type="varchar" MaxLength="50" />
+          <Property Name="Military" Type="varchar" MaxLength="50" />
+          <Property Name="MethodOfContact" Type="varchar" MaxLength="50" />
+          <Property Name="StartDate" Type="varchar" MaxLength="50" />
+          <Property Name="LegacyLeadId" Type="nvarchar" MaxLength="255" />
+          <Property Name="TrackId" Type="uniqueidentifier" />
+          <Property Name="InitialLeadId" Type="varchar" MaxLength="200" />
+          <Property Name="CMID" Type="varchar" MaxLength="255" />
+          <Property Name="AffiliateId" Type="varchar" MaxLength="255" />
+          <Property Name="UID" Type="varchar" MaxLength="100" StoreGeneratedPattern="Computed" />
+          <Property Name="ExternalLeadId" Type="varchar" MaxLength="255" />
+          <Property Name="Tsource" Type="varchar" MaxLength="255" />
+          <Property Name="TrackingSessionGUID" Type="uniqueidentifier" />
+          <Property Name="DeliveryEngineMachineName" Type="varchar" MaxLength="65" />
+          <Property Name="CampusId" Type="int" />
+          <Property Name="CampusApplicationId" Type="int" />
+          <Property Name="CampusProgramId" Type="int" />
+          <Property Name="ClientCampusRelationshipId" Type="int" />
+          <Property Name="InstitutionApplicationId" Type="int" />
+          <Property Name="ProgramApplicationId" Type="int" />
+          <Property Name="ProgramProductId" Type="int" />
+          <Property Name="IsCapProcessed" Type="bit" Nullable="false" />
+          <Property Name="CapProcessDate" Type="datetime" />
+          <Property Name="IsCallCenter" Type="bit" />
+          <Property Name="MatchResponseGuid" Type="uniqueidentifier" />
+          <Property Name="SubmissionId" Type="int" />
+          <Property Name="LeadCreationTypeId" Type="int" />
+          <Property Name="ProspectId" Type="int" />
+          <Property Name="ClientRelationContactId" Type="int" />
+          <Property Name="ProspectFlowStatusHistoryId" Type="int" />
+          <Property Name="ChatIntegrationSessionId" Type="int" />
+          <Property Name="PaidStatusTypeId" Type="int" />
+          <Property Name="PsiCapDistributionId" Type="int" />
+          <Property Name="CreatedDate_EST" Type="datetime" StoreGeneratedPattern="Computed" />
+          <Property Name="BillingDate" Type="datetime" />
+          <Property Name="RejectionReasonId" Type="int" />
+          <Property Name="LeadEditNoteId" Type="int" />
+          <Property Name="AllowedViaLeadScoringUpsell" Type="bit" />
+          <Property Name="ExternalMatchItemGuid" Type="uniqueidentifier" />
+          <Property Name="UnaudittedRevenue" Type="money" />
+          <Property Name="EstimatedRevShare" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PlacementViewGuid" Type="uniqueidentifier" />
+          <Property Name="EstimatedLeadRev" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="LeadPingScoreId" Type="int" />
+        </EntityType>
+        <EntityType Name="RawPostData">
+          <Key>
+            <PropertyRef Name="RawPostDataID" />
+          </Key>
+          <Property Name="RawPostDataID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RemoteIp" Type="varchar" MaxLength="36" />
+          <Property Name="BrowserInfo" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Referer" Type="nvarchar(max)" />
+          <Property Name="PostData" Type="nvarchar(max)" />
+          <Property Name="TransactionId" Type="uniqueidentifier" StoreGeneratedPattern="Computed" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="RowGuid" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="BetaLead" EntityType="Self.BetaLead" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lead" EntityType="Self.Lead" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RawPostData" EntityType="Self.RawPostData" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BetaLead">
+          <Key>
+            <PropertyRef Name="LeadId" />
+          </Key>
+          <Property Name="LeadId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RawPostDataId" Type="Int64" Nullable="false" />
+          <Property Name="SessionInternalId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="VisitorInternalId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FormUniqueId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ChannelID" Type="Int32" />
+          <Property Name="VendorId" Type="Int32" />
+          <Property Name="BusinessModelId" Type="Int32" />
+          <Property Name="ClientRelationshipId" Type="Int32" />
+          <Property Name="PSIId" Type="Int32" />
+          <Property Name="ProgramProductId" Type="Int32" />
+          <Property Name="ProgramId" Type="Int32" />
+          <Property Name="ProgramTypeID" Type="Int32" />
+          <Property Name="ProgramLevelID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ApplicationID" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="StateProvince" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TimeToStartInWeeks" Type="Int32" />
+          <Property Name="AdditionalFields" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryDefinitionId" Type="Int32" />
+          <Property Name="RealtimeDeliveryStatusId" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryEngineMachineKey" Type="Guid" />
+          <Property Name="IsEnabled" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+          <Property Name="Prefix" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="YearHighestEduCompleted" Type="Int32" />
+          <Property Name="HighestLevelOfEdu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Military" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MethodOfContact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LegacyLeadId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RowGuid" Type="Guid" Nullable="false" />
+          <Property Name="TrackId" Type="Guid" />
+          <Property Name="InitialLeadId" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CMID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AffiliateId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ExternalLeadId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Tsource" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TrackingSessionGUID" Type="Guid" />
+          <Property Name="DeliveryEngineMachineName" Type="String" MaxLength="65" FixedLength="false" Unicode="false" />
+          <Property Name="CampusApplicationId" Type="Int32" />
+          <Property Name="CampusProgramId" Type="Int32" />
+          <Property Name="ClientCampusRelationshipId" Type="Int32" />
+          <Property Name="InstitutionApplicationId" Type="Int32" />
+          <Property Name="ProgramApplicationId" Type="Int32" />
+          <Property Name="CampusId" Type="Int32" />
+          <Property Name="MatchResponseGuid" Type="Guid" />
+          <Property Name="SubmissionId" Type="Int32" />
+          <Property Name="LeadCreationTypeId" Type="Int32" />
+          <Property Name="ProspectId" Type="Int32" />
+          <Property Name="ClientRelationContactId" Type="Int32" />
+          <Property Name="ProspectFlowStatusHistoryId" Type="Int32" />
+          <Property Name="ChatIntegrationSessionId" Type="Int32" />
+          <Property Name="PaidStatusTypeId" Type="Int32" />
+          <Property Name="RejectionReasonId" Type="Int32" />
+          <Property Name="LeadEditNoteId" Type="Int32" />
+          <Property Name="BillingDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedDate_EST" Type="DateTime" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ProgramInstanceID" Type="Int32" />
+          <Property Name="ExternalMatchItemGuid" Type="Guid" />
+          <Property Name="EstimatedRevShare" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="EstimatedLeadRev" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="LeadPingScoreId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Lead">
+          <Key>
+            <PropertyRef Name="LeadId" />
+          </Key>
+          <Property Name="LeadId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RawPostDataId" Type="Int64" Nullable="false" />
+          <Property Name="SessionInternalId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="VisitorInternalId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FormUniqueId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ChannelID" Type="Int32" />
+          <Property Name="VendorId" Type="Int32" />
+          <Property Name="BusinessModelId" Type="Int32" />
+          <Property Name="ClientRelationshipId" Type="Int32" />
+          <Property Name="PSIId" Type="Int32" />
+          <Property Name="ProgramInstanceID" Type="Int32" />
+          <Property Name="ProgramId" Type="Int32" />
+          <Property Name="ProgramTypeID" Type="Int32" />
+          <Property Name="ProgramLevelID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ApplicationID" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="StateProvince" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TimeToStartInWeeks" Type="Int32" />
+          <Property Name="AdditionalFields" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryDefinitionId" Type="Int32" />
+          <Property Name="RealtimeDeliveryStatusId" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryEngineMachineKey" Type="Guid" />
+          <Property Name="IsEnabled" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+          <Property Name="RowGuid" Type="Guid" Nullable="false" />
+          <Property Name="Prefix" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="YearHighestEduCompleted" Type="Int32" />
+          <Property Name="HighestLevelOfEdu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Military" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MethodOfContact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LegacyLeadId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TrackId" Type="Guid" />
+          <Property Name="InitialLeadId" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CMID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AffiliateId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ExternalLeadId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Tsource" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TrackingSessionGUID" Type="Guid" />
+          <Property Name="DeliveryEngineMachineName" Type="String" MaxLength="65" FixedLength="false" Unicode="false" />
+          <Property Name="CampusId" Type="Int32" />
+          <Property Name="CampusApplicationId" Type="Int32" />
+          <Property Name="CampusProgramId" Type="Int32" />
+          <Property Name="ClientCampusRelationshipId" Type="Int32" />
+          <Property Name="InstitutionApplicationId" Type="Int32" />
+          <Property Name="ProgramApplicationId" Type="Int32" />
+          <Property Name="ProgramProductId" Type="Int32" />
+          <Property Name="IsCapProcessed" Type="Boolean" Nullable="false" />
+          <Property Name="CapProcessDate" Type="DateTime" Precision="3" />
+          <Property Name="IsCallCenter" Type="Boolean" />
+          <Property Name="MatchResponseGuid" Type="Guid" />
+          <Property Name="SubmissionId" Type="Int32" />
+          <Property Name="LeadCreationTypeId" Type="Int32" />
+          <Property Name="ProspectId" Type="Int32" />
+          <Property Name="ClientRelationContactId" Type="Int32" />
+          <Property Name="ProspectFlowStatusHistoryId" Type="Int32" />
+          <Property Name="ChatIntegrationSessionId" Type="Int32" />
+          <Property Name="PaidStatusTypeId" Type="Int32" />
+          <Property Name="PsiCapDistributionId" Type="Int32" />
+          <Property Name="CreatedDate_EST" Type="DateTime" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="BillingDate" Type="DateTime" Precision="3" annotation:StoreGeneratedPattern="None" />
+          <Property Name="RejectionReasonId" Type="Int32" />
+          <Property Name="LeadEditNoteId" Type="Int32" />
+          <Property Name="AllowedViaLeadScoringUpsell" Type="Boolean" />
+          <Property Name="ExternalMatchItemGuid" Type="Guid" />
+          <Property Name="UnaudittedRevenue" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="EstimatedRevShare" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PlacementViewGuid" Type="Guid" />
+          <Property Name="EstimatedLeadRev" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="LeadPingScoreId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RawPostData">
+          <Key>
+            <PropertyRef Name="RawPostDataID" />
+          </Key>
+          <Property Name="RawPostDataID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RemoteIp" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="BrowserInfo" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Referer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PostData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionId" Type="Guid" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="UpdatedBy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="RowGuid" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityContainer Name="Nexus_Lead_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BetaLeads" EntityType="Self.BetaLead" />
+          <EntitySet Name="Leads" EntityType="Self.Lead" />
+          <EntitySet Name="RawPostDatas" EntityType="Self.RawPostData" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Nexus_Lead_Entities">
+          <EntitySetMapping Name="BetaLeads">
+            <EntityTypeMapping TypeName="Model.BetaLead">
+              <MappingFragment StoreEntitySet="BetaLead">
+                <ScalarProperty Name="LeadPingScoreId" ColumnName="LeadPingScoreId" />
+                <ScalarProperty Name="EstimatedLeadRev" ColumnName="EstimatedLeadRev" />
+                <ScalarProperty Name="EstimatedRevShare" ColumnName="EstimatedRevShare" />
+                <ScalarProperty Name="ExternalMatchItemGuid" ColumnName="ExternalMatchItemGuid" />
+                <ScalarProperty Name="ProgramInstanceID" ColumnName="ProgramInstanceID" />
+                <ScalarProperty Name="CreatedDate_EST" ColumnName="CreatedDate_EST" />
+                <ScalarProperty Name="BillingDate" ColumnName="BillingDate" />
+                <ScalarProperty Name="LeadEditNoteId" ColumnName="LeadEditNoteId" />
+                <ScalarProperty Name="RejectionReasonId" ColumnName="RejectionReasonId" />
+                <ScalarProperty Name="PaidStatusTypeId" ColumnName="PaidStatusTypeId" />
+                <ScalarProperty Name="LeadId" ColumnName="LeadId" />
+                <ScalarProperty Name="RawPostDataId" ColumnName="RawPostDataId" />
+                <ScalarProperty Name="SessionInternalId" ColumnName="SessionInternalId" />
+                <ScalarProperty Name="VisitorInternalId" ColumnName="VisitorInternalId" />
+                <ScalarProperty Name="FormUniqueId" ColumnName="FormUniqueId" />
+                <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+                <ScalarProperty Name="BusinessModelId" ColumnName="BusinessModelId" />
+                <ScalarProperty Name="ClientRelationshipId" ColumnName="ClientRelationshipId" />
+                <ScalarProperty Name="PSIId" ColumnName="PSIId" />
+                <ScalarProperty Name="ProgramProductId" ColumnName="ProgramProductId" />
+                <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+                <ScalarProperty Name="ProgramTypeID" ColumnName="ProgramTypeID" />
+                <ScalarProperty Name="ProgramLevelID" ColumnName="ProgramLevelID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="TimeToStartInWeeks" ColumnName="TimeToStartInWeeks" />
+                <ScalarProperty Name="AdditionalFields" ColumnName="AdditionalFields" />
+                <ScalarProperty Name="DeliveryDefinitionId" ColumnName="DeliveryDefinitionId" />
+                <ScalarProperty Name="RealtimeDeliveryStatusId" ColumnName="RealtimeDeliveryStatusId" />
+                <ScalarProperty Name="DeliveryEngineMachineKey" ColumnName="DeliveryEngineMachineKey" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="YearHighestEduCompleted" ColumnName="YearHighestEduCompleted" />
+                <ScalarProperty Name="HighestLevelOfEdu" ColumnName="HighestLevelOfEdu" />
+                <ScalarProperty Name="Military" ColumnName="Military" />
+                <ScalarProperty Name="MethodOfContact" ColumnName="MethodOfContact" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="LegacyLeadId" ColumnName="LegacyLeadId" />
+                <ScalarProperty Name="RowGuid" ColumnName="RowGuid" />
+                <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+                <ScalarProperty Name="InitialLeadId" ColumnName="InitialLeadId" />
+                <ScalarProperty Name="CMID" ColumnName="CMID" />
+                <ScalarProperty Name="AffiliateId" ColumnName="AffiliateId" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="ExternalLeadId" ColumnName="ExternalLeadId" />
+                <ScalarProperty Name="Tsource" ColumnName="Tsource" />
+                <ScalarProperty Name="TrackingSessionGUID" ColumnName="TrackingSessionGUID" />
+                <ScalarProperty Name="DeliveryEngineMachineName" ColumnName="DeliveryEngineMachineName" />
+                <ScalarProperty Name="CampusApplicationId" ColumnName="CampusApplicationId" />
+                <ScalarProperty Name="CampusProgramId" ColumnName="CampusProgramId" />
+                <ScalarProperty Name="ClientCampusRelationshipId" ColumnName="ClientCampusRelationshipId" />
+                <ScalarProperty Name="InstitutionApplicationId" ColumnName="InstitutionApplicationId" />
+                <ScalarProperty Name="ProgramApplicationId" ColumnName="ProgramApplicationId" />
+                <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+                <ScalarProperty Name="MatchResponseGuid" ColumnName="MatchResponseGuid" />
+                <ScalarProperty Name="SubmissionId" ColumnName="SubmissionId" />
+                <ScalarProperty Name="LeadCreationTypeId" ColumnName="LeadCreationTypeId" />
+                <ScalarProperty Name="ProspectId" ColumnName="ProspectId" />
+                <ScalarProperty Name="ClientRelationContactId" ColumnName="ClientRelationContactId" />
+                <ScalarProperty Name="ProspectFlowStatusHistoryId" ColumnName="ProspectFlowStatusHistoryId" />
+                <ScalarProperty Name="ChatIntegrationSessionId" ColumnName="ChatIntegrationSessionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leads">
+            <EntityTypeMapping TypeName="Model.Lead">
+              <MappingFragment StoreEntitySet="Lead">
+                <ScalarProperty Name="LeadPingScoreId" ColumnName="LeadPingScoreId" />
+                <ScalarProperty Name="EstimatedLeadRev" ColumnName="EstimatedLeadRev" />
+                <ScalarProperty Name="PlacementViewGuid" ColumnName="PlacementViewGuid" />
+                <ScalarProperty Name="EstimatedRevShare" ColumnName="EstimatedRevShare" />
+                <ScalarProperty Name="UnaudittedRevenue" ColumnName="UnaudittedRevenue" />
+                <ScalarProperty Name="ExternalMatchItemGuid" ColumnName="ExternalMatchItemGuid" />
+                <ScalarProperty Name="AllowedViaLeadScoringUpsell" ColumnName="AllowedViaLeadScoringUpsell" />
+                <ScalarProperty Name="LeadEditNoteId" ColumnName="LeadEditNoteId" />
+                <ScalarProperty Name="RejectionReasonId" ColumnName="RejectionReasonId" />
+                <ScalarProperty Name="BillingDate" ColumnName="BillingDate" />
+                <ScalarProperty Name="CreatedDate_EST" ColumnName="CreatedDate_EST" />
+                <ScalarProperty Name="PsiCapDistributionId" ColumnName="PsiCapDistributionId" />
+                <ScalarProperty Name="PaidStatusTypeId" ColumnName="PaidStatusTypeId" />
+                <ScalarProperty Name="LeadId" ColumnName="LeadId" />
+                <ScalarProperty Name="RawPostDataId" ColumnName="RawPostDataId" />
+                <ScalarProperty Name="SessionInternalId" ColumnName="SessionInternalId" />
+                <ScalarProperty Name="VisitorInternalId" ColumnName="VisitorInternalId" />
+                <ScalarProperty Name="FormUniqueId" ColumnName="FormUniqueId" />
+                <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+                <ScalarProperty Name="BusinessModelId" ColumnName="BusinessModelId" />
+                <ScalarProperty Name="ClientRelationshipId" ColumnName="ClientRelationshipId" />
+                <ScalarProperty Name="PSIId" ColumnName="PSIId" />
+                <ScalarProperty Name="ProgramInstanceID" ColumnName="ProgramInstanceID" />
+                <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+                <ScalarProperty Name="ProgramTypeID" ColumnName="ProgramTypeID" />
+                <ScalarProperty Name="ProgramLevelID" ColumnName="ProgramLevelID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="TimeToStartInWeeks" ColumnName="TimeToStartInWeeks" />
+                <ScalarProperty Name="AdditionalFields" ColumnName="AdditionalFields" />
+                <ScalarProperty Name="DeliveryDefinitionId" ColumnName="DeliveryDefinitionId" />
+                <ScalarProperty Name="RealtimeDeliveryStatusId" ColumnName="RealtimeDeliveryStatusId" />
+                <ScalarProperty Name="DeliveryEngineMachineKey" ColumnName="DeliveryEngineMachineKey" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="RowGuid" ColumnName="RowGuid" />
+                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="YearHighestEduCompleted" ColumnName="YearHighestEduCompleted" />
+                <ScalarProperty Name="HighestLevelOfEdu" ColumnName="HighestLevelOfEdu" />
+                <ScalarProperty Name="Military" ColumnName="Military" />
+                <ScalarProperty Name="MethodOfContact" ColumnName="MethodOfContact" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="LegacyLeadId" ColumnName="LegacyLeadId" />
+                <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+                <ScalarProperty Name="InitialLeadId" ColumnName="InitialLeadId" />
+                <ScalarProperty Name="CMID" ColumnName="CMID" />
+                <ScalarProperty Name="AffiliateId" ColumnName="AffiliateId" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="ExternalLeadId" ColumnName="ExternalLeadId" />
+                <ScalarProperty Name="Tsource" ColumnName="Tsource" />
+                <ScalarProperty Name="TrackingSessionGUID" ColumnName="TrackingSessionGUID" />
+                <ScalarProperty Name="DeliveryEngineMachineName" ColumnName="DeliveryEngineMachineName" />
+                <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+                <ScalarProperty Name="CampusApplicationId" ColumnName="CampusApplicationId" />
+                <ScalarProperty Name="CampusProgramId" ColumnName="CampusProgramId" />
+                <ScalarProperty Name="ClientCampusRelationshipId" ColumnName="ClientCampusRelationshipId" />
+                <ScalarProperty Name="InstitutionApplicationId" ColumnName="InstitutionApplicationId" />
+                <ScalarProperty Name="ProgramApplicationId" ColumnName="ProgramApplicationId" />
+                <ScalarProperty Name="ProgramProductId" ColumnName="ProgramProductId" />
+                <ScalarProperty Name="IsCapProcessed" ColumnName="IsCapProcessed" />
+                <ScalarProperty Name="CapProcessDate" ColumnName="CapProcessDate" />
+                <ScalarProperty Name="IsCallCenter" ColumnName="IsCallCenter" />
+                <ScalarProperty Name="MatchResponseGuid" ColumnName="MatchResponseGuid" />
+                <ScalarProperty Name="SubmissionId" ColumnName="SubmissionId" />
+                <ScalarProperty Name="LeadCreationTypeId" ColumnName="LeadCreationTypeId" />
+                <ScalarProperty Name="ProspectId" ColumnName="ProspectId" />
+                <ScalarProperty Name="ClientRelationContactId" ColumnName="ClientRelationContactId" />
+                <ScalarProperty Name="ProspectFlowStatusHistoryId" ColumnName="ProspectFlowStatusHistoryId" />
+                <ScalarProperty Name="ChatIntegrationSessionId" ColumnName="ChatIntegrationSessionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RawPostDatas">
+            <EntityTypeMapping TypeName="Model.RawPostData">
+              <MappingFragment StoreEntitySet="RawPostData">
+                <ScalarProperty Name="RawPostDataID" ColumnName="RawPostDataID" />
+                <ScalarProperty Name="RemoteIp" ColumnName="RemoteIp" />
+                <ScalarProperty Name="BrowserInfo" ColumnName="BrowserInfo" />
+                <ScalarProperty Name="Referer" ColumnName="Referer" />
+                <ScalarProperty Name="PostData" ColumnName="PostData" />
+                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="RowGuid" ColumnName="RowGuid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

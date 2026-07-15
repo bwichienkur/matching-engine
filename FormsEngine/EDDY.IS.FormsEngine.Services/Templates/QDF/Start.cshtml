@@ -1,0 +1,65 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.FormEngineModel>
+@using EDDY.IS.FormsEngine.Services.Controllers.Common
+
+<script type="text/javascript" src="@(Url.Action("GetWizardTemplateJS", "TemplateManager", new { TemplateId = Model.DynamicControlsJavascriptURLArguments.TemplateId, RenderingStrategy = Model.DynamicControlsJavascriptURLArguments.RenderingStrategy, IsBeta = Model.DynamicControlsJavascriptURLArguments.IsBeta, IgnoreTemplateCache = Model.DynamicControlsJavascriptURLArguments.IgnoreTemplateCache, SeedToken = Guid.NewGuid().ToString() }, Url.RequestContext.HttpContext.Request.Url.Scheme))"></script>
+@Html.InlineScriptBlock("~/Templates/QDF/js/QDF_Start.js")
+
+@{
+    this.Model.DefaultDDLSelectOption = "Select one of the following...";
+}
+
+<div id="ErrorBoxX">
+    @foreach (var controlType in this.Model.ControlTypes)
+    {
+        foreach (var error in controlType.ErrorMessages)
+        {
+            <input type="hidden" code="ERR_@(error.ErrorCode.Code)_{@controlType.StandardControlTypeName}" value="@error.Message" />
+        }
+    }
+</div>
+<div class="eddy-form-wizard-container" id="WizardStepContainer">
+    <div id="top-buttons" class="buttons-container col-xs-12 col-xs-offset-0">
+        <div id="prev-top">
+            <span id="prev-top-img" class="fa fa-arrow-circle-left form-submit-button-icon"></span>
+        </div>
+        <div id="next-top">
+            <span id="next-top-img" class="fa fa-arrow-circle-right form-submit-button-icon"></span>
+        </div>
+    </div>
+    <div class="eddy-form-wizard-header">
+        <div class="wizard-header-content col-xs-7 col-xs-offset-0 col-sm-7 col-sm-offset-0">
+            
+        </div>
+    </div><!-- end of #eddy-form-wizard-header -->
+    <div id="qdfContainer" class="eddy-form-wizard-body col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 clearfix">
+        @System.Web.Mvc.Html.PartialExtensions.Partial(this.Html, "~/Templates/Common/Components/SponsoredListingPopUp.cshtml", new EDDY.IS.FormsEngine.Services.Models.SponsoredListingModel(this.Model))
+        <!-- WIZARD Questions-->
+        @System.Web.Mvc.Html.PartialExtensions.Partial(this.Html, "~/Templates/Common/WizardQuestions.cshtml", this.Model)
+        <!-- END OF WIZARD Questions-->
+
+
+        <div class="eddy-form-wizard-footer">
+            <div class="buttons-container">
+                <div class="form-submit-button previous clearfix" id="form-navback-button">
+                    <div class="form-submit-button-inner">
+                        <span class="form-previous-button-label">BACK</span>
+                    </div>
+                </div>
+
+                <div id="wizard-form-submit-button" class="form-submit-button clearfix">
+                    <div class="form-submit-button-inner">
+                        <span id="form-submit-button-label" class="form-submit-button-label">CONTINUE</span>
+                    </div>
+                </div>
+
+                <div id="screen-button" class="enabled-button hide-button">
+                    <span>CONTINUE </span>
+                </div>
+
+            </div>
+            <div class="required-legend"><small><em>* Required Field</em></small></div>
+        </div><!-- end of #eddy-form-footer -->
+
+    </div><!-- end of #eddy-form-container -->
+
+</div><!-- end of #eddy-form-wizard-container -->

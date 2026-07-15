@@ -1,0 +1,619 @@
+﻿/** QDF **/
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7l.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold'), url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdu.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+#qdfContainer {
+    font-family: 'Source Sans Pro', sans-serif !important;
+}
+
+    #qdfContainer .form-page-step-message {
+        display: none;
+    }
+
+    #qdfContainer .sections legend {
+        display: none;
+    }
+
+    #qdfContainer fieldset {
+        border: none;
+        padding: 0px;
+    }
+
+    #qdfContainer .sections .field-holder.form-group legend {
+        display: block;
+    }
+
+
+.eddy-form-wizard-container #qdfContainer {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+#qdfContainer fieldset#Section1.sections {
+    padding: 5px;
+    border: none;
+}
+
+#qdfContainer .field-holder .input-group .form-control {
+    display: inherit;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border: #ccc 1px solid;
+    padding: 6px 12px;
+    font-size: 14px;
+    background: #fff;
+}
+
+.eddy-form-wizard-container #qdfContainer .form-page-step-message * {
+    font-family: 'Source Sans Pro', sans-serif !important;
+    font-style: normal !important;
+    margin: 10px 0;
+    font-weight: 600;
+    font-size: 14px;
+    width: 100%;
+    border-bottom: solid 1px #ccc;
+    padding-bottom: 5px;
+}
+
+.eddy-form-wizard-container #qdfContainer legend, #qdfContainer .question, #qdfContainer .Postal_Code label {
+    font-family: 'Source Sans Pro', sans-serif !important;
+    font-weight: 600 !important;
+    margin-bottom: 3px;
+    font-size: 12px !important;
+    border: 0;
+    text-transform: uppercase;
+}
+
+.eddy-form-wizard-container #qdfContainer .steps {
+    box-shadow: 1px 1px 10px #888;
+    -moz-box-shadow: 1px 1px 10px #888;
+    -webkit-box-shadow: 1px 1px 10px #888;
+    background: #fff;
+    padding: 5px 15px 0px 15px;
+    background-color: #fff !important;
+}
+
+#qdfContainer fieldset#Section1.sections {
+    display: inline-block;
+    width: 100%;
+}
+
+.eddy-form-wizard-container #qdfContainer .field-holder.form-group.SubCategories, .eddy-form-wizard-container #qdfContainer .field-holder.form-group.Categories, .eddy-form-wizard-container #qdfContainer .field-holder.form-group.Specialties {
+    width: 36% !important;
+    float: left;
+    padding-left: 5px;
+}
+
+#qdfContainer #ulSubCategories li, #qdfContainer #ulCategories li, #qdfContainer #ulSpecialties li {
+    margin-bottom: 5px;
+}
+
+#qdfContainer #ulSubCategories, #qdfContainer #ulSubCategories, #qdfContainer #ulSpecialties {
+    max-height: 200px;
+    overflow: hidden;
+    transition: max-height .5s ease-out;
+}
+
+#qdfContainer .select-all-categories, #qdfContainer .select-all-subcategories, #qdfContainer .select-all-specialties {
+    display: none !important;
+}
+
+#qdfContainer .de-select-all-categories, #qdfContainer .de-select-all-subcategories, #qdfContainer .de-select-all-specialties {
+    position: absolute;
+    top: 34px;
+    left: 100px;
+    color: #2298D3;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: 'Source Sans Pro', sans-serif !important;
+}
+
+#qdfContainer .viewSelect {
+    display: inline-block !important;
+}
+
+#qdfContainer .expand {
+    max-height: 9000px !important;
+    transition: max-height .5s ease-in;
+}
+
+.eddy-form-wizard-container #qdfContainer .field-holder.form-group {
+    width: 21.3% !important;
+    float: left;
+}
+
+#qdfContainer .form-group {
+    margin-bottom: 0px;
+}
+
+.eddy-form-wizard-container #qdfContainer .steps {
+    padding: 0px !important;
+}
+
+
+#qdfContainer .Postal_Code {
+    ;
+    padding-right: 10px;
+}
+
+#qdfContainer .field-holder-group {
+    width: 95%;
+    margin: auto;
+}
+
+.eddy-form-wizard-container #qdfContainer.eddy-form-wizard-body {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    width: 98%;
+}
+
+.eddy-form-wizard-container #qdfContainer .checkbox label {
+    padding-left: 5px !important;
+    font-size: 14px !important;
+    font-family: 'Source Sans Pro', sans-serif !important;
+    color: #767676;
+}
+
+.eddy-form-wizard-container #qdfContainer .checkbox input[type="checkbox"]:checked + label, .eddy-form-wizard-container #qdfContainer .Desired_Start_Date input[type="radio"]:checked + label, .eddy-form-wizard-container #qdfContainer .field-holder.TransformOnMobile .radio-inline input:checked + label {
+    color: #00a1fc;
+    font-weight: 600 !important;
+}
+
+
+
+
+#qdfContainer .CampusSoftPreference label, #qdfContainer .Desired_Start_Date label {
+    font-size: 14px !important;
+    font-family: 'Source Sans Pro', sans-serif !important;
+    color: #767676;
+    font-weight: 400 !important;
+}
+
+#qdfContainer .checkbox-inline + .checkbox-inline, #qdfContainer .radio-inline + .radio-inline {
+    margin-left: 0px !important;
+}
+
+#qdfContainer .Desired_Degree_Level .checkbox {
+    margin-bottom: 4px;
+}
+
+#qdfContainer .Desired_Degree_Level {
+    max-height: 300px;
+    transition: max-height .5s ease-out;
+    overflow: hidden;
+}
+
+#qdfContainer .Postal_Code {
+    padding-bottom: 15px;
+}
+
+#qdfContainer ul.image-checkbox {
+    list-style: none;
+    padding-left: 0px;
+    margin: 0px;
+}
+
+#qdfContainer .image-checkbox label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 1px;
+}
+
+.eddy-form-wizard-container #qdfContainer .field-holder:not(.checkbox):not(.radio):not(.Categories):not(.SubCategories):not(.Specialties) label {
+    vertical-align: middle !important;
+}
+
+#qdfContainer .checkbox, #qdfContainer .radio {
+    margin-top: 0px !important;
+}
+
+#qdfContainer #ulSubCategories, #qdfContainer #ulCategories, #qdfContainer #ulSpecialties {
+    overflow: hidden;
+    max-height: 200px;
+    margin-bottom: 10px;
+}
+
+    #qdfContainer.Desired_Degree_Level.expand, #qdfContainer #ulSubCategories.expand, #qdfContainer #ulCategories.expand, #qdfContainer .expand #ulSpecialties {
+        overflow: hidden;
+        max-height: 9000px;
+        margin-bottom: 10px;
+    }
+
+#qdfContainer #Desired_Degree_Level_SeeMoreBtn {
+    display: none;
+}
+
+#qdfContainer #Categories_SeeMoreBtn, #qdfContainer #SubCategories_SeeMoreBtn, #qdfContainer #Specialties_SeeMoreBtn {
+    color: #2298D3;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0px;
+}
+
+#qdfContainer .eddy-form-wizard-footer {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+}
+
+#qdfContainer .form-submit-button-label {
+    background: #42A2D2;
+    height: auto;
+    width: auto;
+    color: #fff;
+    font-weight: bold;
+    margin-left: 5px;
+    cursor: pointer;
+    margin-bottom: 0px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    padding: 9px 10px;
+    font-family: 'Source Sans Pro',sans-serif !important;
+}
+
+.eddy-form-wizard-container #qdfContainer .required-legend {
+    display: none;
+}
+
+#qdfContainer #ulSubCategories, #qdfContainer #ulCategories, #qdfContainer #ulSpecialties {
+    list-style: none;
+}
+
+#qdfContainer .checkbox {
+    padding-left: 0px !important;
+}
+
+
+#qdfContainer .image-checkbox-field-holder {
+    width: 100% !important;
+    float: left;
+    padding-left: 0px;
+    margin: 0px
+}
+
+#qdfContainer .mobileSeeMore {
+    display: none;
+}
+
+#qdfContainer .checkbox-inline, #qdfContainer .radio-inline {
+    display: block !important;
+}
+
+/** MEDIA SCREENS **/
+
+@media screen and (max-width: 640px) {
+
+    #qdfContainer .field-holder .input-group .form-control {
+        width: 100%;
+    }
+
+    .eddy-form-wizard-container #qdfContainer.eddy-form-wizard-body {
+        width: 100%
+    }
+
+
+    #qdfContainer .image-checkbox-field-holder {
+        width: 33% !important;
+        float: left;
+        padding-left: 10px;
+        margin: 10px 0px
+    }
+
+    #qdfContainer .form-submit-button-label {
+        background: #42a2d2;
+        height: auto;
+        width: 80%;
+        color: #fff;
+        font-weight: bold;
+        margin: auto;
+        cursor: pointer;
+        margin-bottom: 0;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        padding: 9px 10px;
+        letter-spacing: 1px;
+    }
+
+    #qdfContainer .mobileSeeMore:after {
+        content: "\25BC";
+        font-size: 22px;
+        float: right;
+        color: #5695c4
+    }
+
+    #qdfContainer .expand .mobileSeeMore:after {
+        content: "\25B2";
+        font-size: 22px;
+        float: right;
+        color: #5695c4;
+    }
+
+    #qdfContainer .Desired_Start_Date label {
+        background: #fff !important;
+        padding: 6px 40px 6px 10px !important;
+        font-size: 120% !important;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        margin: 0 0 3px;
+        overflow: hidden;
+        width: 99%;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .field-holder.TransformOnMobile .radio-inline input:checked + label {
+        background: #2298D3 !important;
+    }
+
+    #qdfContainer .expand {
+        max-height: 9000px !important;
+        transition: max-height .5s ease-in;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .field-holder.TransformOnMobile .radio-inline {
+        display: none !important;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .field-holder.TransformOnMobile.expand .radio-inline {
+        display: inline-block !important;
+        transition: display .5s ease-in;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .field-holder.Desired_Start_Date.TransformOnMobile.expand .radio-inline {
+        width: 90% !important;
+        margin-left: 5% !important
+    }
+
+    .eddy-form-wizard-container #qdfContainer .field-holder.form-group.Postal_Code {
+        padding-right: 0px !important;
+    }
+
+        .eddy-form-wizard-container #qdfContainer .field-holder.form-group.Postal_Code.expand {
+            height: 100px;
+        }
+
+    .eddy-form-wizard-container #qdfContainer .eddy-form-wizard-footer {
+        text-align: center;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .field-holder.form-group.SubCategories fieldset, .eddy-form-wizard-container #qdfContainer .field-holder.form-group.Categories fieldset, #qdfContainer .Desired_Degree_Level fieldset, #qdfContainer .CampusSoftPreference .image-checkbox-group, .eddy-form-wizard-container #qdfContainer .field-holder.form-group.Specialties fieldset {
+        overflow: hidden;
+        max-height: 0px;
+        margin-bottom: 0px;
+        transition: max-height .5s ease-in;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .field-holder.form-group.SubCategories.expand fieldset, .eddy-form-wizard-container #qdfContainer .field-holder.form-group.Categories.expand fieldset, #qdfContainer .Desired_Degree_Level.expand fieldset, #qdfContainer .CampusSoftPreference.expand .image-checkbox-group, .eddy-form-wizard-container #qdfContainer .field-holder.form-group.Specialties.expand fieldset {
+        max-height: 9000px;
+        transition: max-height .5s ease-in;
+    }
+
+    #qdfContainer .Postal_Code {
+        padding-bottom: 0px;
+    }
+
+        #qdfContainer .Postal_Code .input-group {
+            display: none !important;
+        }
+
+        #qdfContainer .Postal_Code.expand .input-group {
+            display: block !important;
+            width: 95%;
+            margin: 10px auto;
+        }
+
+    .eddy-form-wizard-container #qdfContainer .field-holder.form-group.expand {
+        padding-bottom: 5px;
+    }
+
+    #qdfContainer .mobileSeeMore {
+        display: block;
+        font-family: 'Source Sans Pro',sans-serif !important;
+        font-weight: 600 !important;
+        margin-bottom: 3px;
+        background-color: #1971b4;
+        height: 40px;
+        border: 0;
+        text-transform: uppercase;
+        color: #fff;
+        width: 100%;
+        font-size: 20px !important;
+        padding: 5px 10px;
+        text-align: left;
+        letter-spacing: 1px;
+    }
+
+    #qdfContainer #SubCategories_SeeMoreBtn, #qdfContainer #Categories_SeeMoreBtn, #qdfContainer .question, #qdfContainer .SeeMoreBtn, #qdfContainer .Postal_Code label, #qdfContainer #Specialties_SeeMoreBtn {
+        display: none !important;
+    }
+
+    #qdfContainer.field-holder-group {
+        width: 95%;
+        margin: auto;
+    }
+
+    .eddy-form-wizard-container #qdfContainer.eddy-form-wizard-body {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        margin-left: 0px;
+    }
+
+    .eddy-form-wizard-container #top-buttons {
+        display: none;
+    }
+
+    #qdfContainer .checkbox {
+        text-indent: 5px;
+        padding-left: 0px !important;
+    }
+
+    #WizardStepContainer #ulSubCategories, #WizardStepContainer #ulCategories, #WizardStepContainer #ulSpecialties {
+        max-height: 0px;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .field-holder.form-group.TransformOnMobile, .eddy-form-wizard-container #qdfContainer .field-holder.form-group.TransformOnMobile.Desired_Start_Date {
+        width: 100% !important;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .field-holder.form-group.SubCategories.TransformOnMobile, .eddy-form-wizard-container #qdfContainer .field-holder.form-group.Categories.TransformOnMobile, .eddy-form-wizard-container #qdfContainer .field-holder.form-group.Specialties.TransformOnMobile {
+        width: 100% !important;
+        float: none;
+        padding-left: 0px;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .field-holder.form-group {
+        width: 100% !important;
+        float: none;
+        background: #ece9e9;
+        margin-bottom: 0px !important;
+    }
+
+    #qdfContainer .eddy-form-wizard-footer {
+        position: inherit !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 30px;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .steps {
+        box-shadow: none;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+
+    #qdfContainer #ulSubCategories, #qdfContainer #ulCategories, #qdfContainer #ulSpecialties {
+        max-height: 0px;
+        min-height: 0px;
+    }
+
+    #qdfContainer .de-select-all-subcategories, #qdfContainer .de-select-all-categories, #qdfContainer .de-select-all-specialties {
+        display: none !important;
+    }
+
+    .eddy-form-wizard-container #qdfContainer legend {
+        display: none !important;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .checkbox input[type="checkbox"] {
+        display: none;
+    }
+
+    .eddy-form-wizard-container #qdfContainer legend:after {
+        content: "\02771";
+        color: #ffffff;
+        font: normal normal normal 15px;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .field-holder .field-holder-group li {
+        margin: 0 0 3px;
+        overflow: hidden;
+        width: 99%;
+        border: 1px solid #ddd;
+        position: relative;
+        height: 40px;
+        display: flex;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .field-holder .field-holder-group input[type="checkbox"] + label:after {
+        content: "\002B";
+        font-size: 20px;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: #2688c9;
+        position: absolute;
+        right: 3%;
+        top: 23%;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .checkbox label {
+        padding: 3px 40px 3px 10px !important;
+        font-size: 120% !important;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        background: #ffffff;
+        width: 100%;
+        line-height: 1em;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .checkbox input[type="checkbox"]:checked + label, .eddy-form-wizard-container #qdfContainer .Desired_Start_Date input[type="radio"]:checked + label {
+        color: #ffffff !important;
+        font-weight: 600 !important;
+        background-color: #00a1fc;
+    }
+
+    #WizardStepContainer .eddy-form-wizard-container .checkbox label:checked {
+        background: #00a1fc;
+        color: #fff;
+        width: 100%;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .field-holder .field-holder-group input[type="checkbox"]:checked + label:after {
+        content: "\02714";
+        color: #fff;
+    }
+}
+
+@media (max-width: 768px) {
+    #qdfContainer #top-buttons {
+        display: none !important;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .field-holder.form-group.TransformOnMobile, .eddy-form-wizard-container #qdfContainer .field-holder.form-group.Desired_Start_Date {
+        width: 31% !important;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .Desired_Start_Date .radio-inline {
+        border: 1px #ccc solid;
+        text-align: center;
+        margin-bottom: 3px;
+    }
+
+    #qdfContainer .Desired_Start_Date label {
+        background: none;
+        border: none;
+    }
+
+    .eddy-form-wizard-container #qdfContainer .Desired_Start_Date .radio-inline input:checked {
+        background: #2298d3 !important;
+        color: #fff !important;
+        width: 100%
+    }
+
+    #qdfContainer .eddy-form-wizard-footer {
+        bottom: -3px;
+    }
+}
+/**END QDF**/

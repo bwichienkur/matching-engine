@@ -1,0 +1,231 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Partner API Collection copy",
+		"_postman_id": "ddf802cd-e73b-c9d4-9118-1a76a3e3ed6c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api/directory/categories",
+			"request": {
+				"url": "http://partners.educationdynamics.com/api/Directory/categories",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"APIKey\": \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\",\r\n \"StartPage\": 1,\r\n \"PageSize\": 10\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "api/directory/Institutions",
+			"request": {
+				"url": "http://partners.educationdynamics.com/api/Directory/Institutions",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"InstitutionId\": \"141\",\r\n\t\"CampusType\": \"All\",\r\n\t\"APIKey\": \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\",\r\n\t\"CategoryIds\": [25,21],\r\n\t\"SubjectIds\": [658],\r\n\t\"ProgramLevelIds\": [2,3,6,18,22,8],\r\n\t\"PageSize\": 10,\r\n\t\"StartPage\": 1\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "api/directory/programlevels",
+			"request": {
+				"url": "http://partners.educationdynamics.com/api/Directory/programlevels",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"CampusType\": \"all\",\r\n\t\"APIKey\": \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\",\r\n\t\"CategoryIds\": [25,21],\r\n\t\"SubjectIds\": [658],\r\n\t\"PageSize\": 10,\r\n\t\"StartPage\": 1\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "api/directory/programmatches",
+			"request": {
+				"url": "http://partners.educationdynamics.com/api/directory/programmatches",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"apiKey\": \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\",\r\n\t\"CategoryIds\": [25],\r\n\t\"active\": true,\r\n\t\"firstName\": \"Testfirst\",\r\n\t\"lastname\": \"Testlast\",\r\n\t\"prefix\": \"Mr.\",\r\n\t\"Address\": \"801 test Corner Ct\",\r\n\t\"Address2\": \"apt a\",\r\n\t\"city\": \"Green Bay\",\r\n\t\"postalcode\": \"55555\",\r\n\t\"state\": \"WI\",\r\n\t\"country\": \"US\",\r\n\t\"Email\": \"test@test.com\",\r\n\t\"Phone\": \"5555555555\",\r\n\t\"AlternatePhone\": \"5555555555\",\r\n\t\"Age\": \"21\",\r\n\t\"YearHighestEducationCompleted\": \"1978\",\r\n\t\"HighestLevelofEducationCompleted\": \"9\",\r\n\t\"MilitaryAffiliation\": \"126\",\r\n\t\"DesiredStartDate\": \"Immediately\",\r\n\t\"USCitizen\": \"Yes\",\r\n\t\"SubjectIds\": [658],\r\n\t\"ProgramLevelId\": 2,\r\n\t\"IncludeAdditionalProgramQuestions\": true,\r\n\t\"ProgramId\": 7243,\r\n\t\"AffiliateId\": \"\",\r\n\t\"StartPage\": 1,\r\n\t\"PageSize\": 10,\r\n\t\"AdditionalQuestions\":  [{\"QuestionKey\":\"RNLicense\",\"QuestionValue\":\"Yes\"}]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "api/directory/programs",
+			"request": {
+				"url": "http://partners.educationdynamics.com/api/Directory/programs",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"CampusType\": \"all\",\r\n \"APIKey\": \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\",\r\n \"CategoryIds\": [25,21],\r\n \"SubjectIds\": [658],\r\n \"ProgramLevelIds\": [2,3,6,18,22,21],\r\n \"CampusId\": 6259,\r\n \"PageSize\": 10,\r\n \"StartPage\": 1,\r\n \"ProspectFilters\": [{\"QuestionKey\":\"RNLicense\",\"QuestionValue\":\"Yes\"}]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "api/directory/subjects",
+			"request": {
+				"url": "http://partners.educationdynamics.com/api/Directory/subjects",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"APIKey\": \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\",\r\n\"CategoryIds\": [25],\r\n\"ProgramLevelIds\": [2,3,6,18,22,8],\r\n\"PageSize\": 10,\r\n\"StartPage\": 1\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "api/lead/save",
+			"request": {
+				"url": "http://partners.educationdynamics.com/api/lead/save",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"apiKey\": \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\",\r\n\"CategoryIds\": [25],\r\n\"active\": true,\r\n\"firstName\": \"Testfirst\",\r\n\"lastname\": \"Testlast\",\r\n\"prefix\": \"Mr.\",\r\n\"Address\": \"801 test Corner Ct\",\r\n\"Address2\": \"apt a\",\r\n\"city\": \"Green Bay\",\r\n\"postalcode\": \"55555\",\r\n\"state\": \"WI\",\r\n\"country\": \"US\",\r\n\"Email\": \"test@test.com\",\r\n\"Phone\": \"5555555555\",\r\n\"AlternatePhone\": \"5555555555\",\r\n\"Age\": \"21\",\r\n\"YearHighestEducationCompleted\": \"1978\",\r\n\"HighestLevelofEducationCompleted\": \"9\",\r\n\"MilitaryAffiliation\": \"126\",\r\n\"DesiredStartDate\": \"Immediately\",\r\n\"USCitizen\": \"Yes\",\r\n\"SubjectIds\": [658],\r\n\"ProgramLevelID\": 2,\r\n\"IncludeAdditionalProgramQuestions\": true,\r\n\"ProgramId\": 7243,\r\n\"CampusId\": 4919,\r\n\"AffiliateId\": \"\",\r\n\"AdditionalQuestions\":  [{\"QuestionKey\":\"RNLicense\",\"QuestionValue\":\"Yes\"}],\r\n\"LeadIdToken\": \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\",\r\n\"UserAgreement\":\"I agree to the user Agreement\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "api/prospect/save",
+			"request": {
+				"url": "http://partners.educationdynamics.com/api/prospect/save",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"apiKey\": \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\",\r\n\"firstName\": \"Testfirst\",\r\n\"lastname\": \"Testlast\",\r\n\"Address\": \"801 test Corner Ct\",\r\n\"Address2\": \"apt a\",\r\n\"city\": \"Green Bay\",\r\n\"postalcode\": \"55555\",\r\n\"state\": \"WI\",\r\n\"country\": \"US\",\r\n\"Email\": \"test@test.com\",\r\n\"Phone\": \"5555555555\",\r\n\"AlternatePhone\": \"5555555555\",\r\n\"YearHighestEducationCompleted\": \"1978\",\r\n\"ExternalSystemId\": \"123\"\r\n}\r\n "
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "api/prospect/validate",
+			"request": {
+				"url": "http://partners.educationdynamics.com/api/prospect/validate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"apiKey\": \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\",\r\n\"firstName\": \"Testfirst\",\r\n\"lastname\": \"Testlast\",\r\n\"Address\": \"801 test Corner Ct\",\r\n\"Address2\": \"apt a\",\r\n\"city\": \"Green Bay\",\r\n\"postalcode\": \"55555\",\r\n\"state\": \"WI\",\r\n\"country\": \"US\",\r\n\"Email\": \"test@test.com\",\r\n\"Phone\": \"5555555555\",\r\n\"AlternatePhone\": \"5555555555\",\r\n\"YearHighestEducationCompleted\": \"1978\",\r\n\"ExternalSystemId\": \"123\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "api/program/details",
+			"request": {
+				"url": "http://partners.educationdynamics.com/api/program/details",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"APIKey\": \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\",\r\n\"ProgramId\": \"7243\",\r\n\"CampusId\": \"4919\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "api/program/form",
+			"request": {
+				"url": "http://partners.educationdynamics.com/api/program/form",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"APIKey\": \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\",\r\n\"ProgramId\": \"7243\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

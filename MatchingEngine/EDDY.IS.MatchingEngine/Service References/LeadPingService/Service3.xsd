@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadPing.Service.V3.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadPing.Service.V3.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50806/V3/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:50806/V3/Service.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ValidationRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InsitutionConfigs" nillable="true" type="tns:ArrayOfInstitutionConfig" />
+      <xs:element minOccurs="0" name="ProspectInfo" nillable="true" type="tns:ProspectInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidationRequest" nillable="true" type="tns:ValidationRequest" />
+  <xs:complexType name="ArrayOfInstitutionConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InstitutionConfig" nillable="true" type="tns:InstitutionConfig" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInstitutionConfig" nillable="true" type="tns:ArrayOfInstitutionConfig" />
+  <xs:complexType name="InstitutionConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BachelorsAvailable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CampusConfigs" nillable="true" type="tns:ArrayOfCampusConfig" />
+      <xs:element minOccurs="0" name="ClientrelationshipID" type="xs:int" />
+      <xs:element minOccurs="0" name="InstitutionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InstitutionConfig" nillable="true" type="tns:InstitutionConfig" />
+  <xs:complexType name="ArrayOfCampusConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CampusConfig" nillable="true" type="tns:CampusConfig" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCampusConfig" nillable="true" type="tns:ArrayOfCampusConfig" />
+  <xs:complexType name="CampusConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CampusID" type="xs:int" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsOnline" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MilesFromUser" type="xs:decimal" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CampusConfig" nillable="true" type="tns:CampusConfig" />
+  <xs:complexType name="ProspectInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AffiliateId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+      <xs:element minOccurs="0" name="CallCenterUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CampaignCECLeadScore" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CampaignTrackId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryID" type="xs:int" />
+      <xs:element minOccurs="0" name="DesiredStartDate" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationLevelID" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalLeadId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FormLeadUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HighSchoolGradyear" type="xs:int" />
+      <xs:element minOccurs="0" name="InitiatingUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LandingUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LeadCreationTypeId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MilitaryAffiliation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MilitaryStatusId" type="xs:int" />
+      <xs:element minOccurs="0" name="Phone1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StateID" type="xs:int" />
+      <xs:element minOccurs="0" name="StreetAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubSource1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubSource2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubmissionFormUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubmissionLeadInitiatingUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubmissionLeadSourceUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrackingSessionGUID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VideoUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProspectInfo" nillable="true" type="tns:ProspectInfo" />
+  <xs:complexType name="ValidationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ImmediateResponses" nillable="true" type="tns:ArrayOfFailedInstitutionResponse" />
+      <xs:element minOccurs="0" name="RelatedResponses" nillable="true" type="tns:ArrayOfFailedInstitutionResponse" />
+      <xs:element minOccurs="0" name="ScoreResponses" nillable="true" type="tns:ArrayOfScoreInstitutionResponse" />
+      <xs:element minOccurs="0" name="ServerMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="tns:ServiceCallStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidationResponse" nillable="true" type="tns:ValidationResponse" />
+  <xs:complexType name="ArrayOfFailedInstitutionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FailedInstitutionResponse" nillable="true" type="tns:FailedInstitutionResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFailedInstitutionResponse" nillable="true" type="tns:ArrayOfFailedInstitutionResponse" />
+  <xs:complexType name="FailedInstitutionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CampusID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientRelationshipId" type="xs:int" />
+      <xs:element minOccurs="0" name="InstitutionID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsEdmcWtDupe" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsInternal" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsOnline" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProductIDs" nillable="true" type="q1:ArrayOfint" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProgramLevelIDs" nillable="true" type="q2:ArrayOfint" />
+      <xs:element minOccurs="0" name="Type" type="tns:Type" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FailedInstitutionResponse" nillable="true" type="tns:FailedInstitutionResponse" />
+  <xs:simpleType name="Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ScoreCheck" />
+      <xs:enumeration value="Duplicate" />
+      <xs:enumeration value="ValidationCheck" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Type" nillable="true" type="tns:Type" />
+  <xs:complexType name="ArrayOfScoreInstitutionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScoreInstitutionResponse" nillable="true" type="tns:ScoreInstitutionResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScoreInstitutionResponse" nillable="true" type="tns:ArrayOfScoreInstitutionResponse" />
+  <xs:complexType name="ScoreInstitutionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CampusID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="InstitutionID" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProductIDs" nillable="true" type="q3:ArrayOfint" />
+      <xs:element minOccurs="0" name="Score" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScoreId" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScoreInstitutionResponse" nillable="true" type="tns:ScoreInstitutionResponse" />
+  <xs:simpleType name="ServiceCallStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Sucess" />
+      <xs:enumeration value="Failure" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServiceCallStatus" nillable="true" type="tns:ServiceCallStatus" />
+  <xs:complexType name="MpicProspectInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StateCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StreetAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MpicProspectInfo" nillable="true" type="tns:MpicProspectInfo" />
+  <xs:complexType name="CecoPingRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AffiliateId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CallCenterUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CampaignTrackId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InitiatingUrl" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="InstituionIdList" nillable="true" type="q4:ArrayOfint" />
+      <xs:element minOccurs="0" name="LandingUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LeadCreationTypeId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubmissionFormUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubmissionLeadInitiatingUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubmissionLeadSourceUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrackingSessionGUID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CecoPingRequest" nillable="true" type="tns:CecoPingRequest" />
+  <xs:complexType name="CecoPingResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InstitutionResponseList" nillable="true" type="tns:ArrayOfCecoInstitutionResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CecoPingResponse" nillable="true" type="tns:CecoPingResponse" />
+  <xs:complexType name="ArrayOfCecoInstitutionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CecoInstitutionResponse" nillable="true" type="tns:CecoInstitutionResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCecoInstitutionResponse" nillable="true" type="tns:ArrayOfCecoInstitutionResponse" />
+  <xs:complexType name="CecoInstitutionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InstitutionId" type="xs:int" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UniqueId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CecoInstitutionResponse" nillable="true" type="tns:CecoInstitutionResponse" />
+</xs:schema>

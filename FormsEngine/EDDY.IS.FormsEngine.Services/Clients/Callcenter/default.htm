@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html>
+<head>
+	<title>Eddy CallCenter</title>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <!-- Google Tag Manager -->
+    <script type="text/javascript">
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0];
+            var j = d.createElement(s);
+            var dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+            j.type = 'text/javascript';
+            j.async = true;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-55XQ37');
+    </script>
+    <!-- End Google Tag Manager -->
+    <script>var _etq = _etq || []; _etq.push(['_etPageView']); (function (d, t) { var et = d.createElement(t); et.async = true; et.src = '//et.educationdynamics.com/et.min.js'; var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(et, s) }(document, 'script'));</script>
+    <script type="text/javascript" src="/Static/GetBundledWizardJs"></script>
+	<script language="javascript" type="text/javascript">
+
+	    var FormsEngine = FormsEngine || {};
+        
+	    /* REQUIRED */
+	    FormsEngine.RenderingStrategy = 'WIZARDCALLCENTERWHITELABEL';
+	    FormsEngine.RenderingDiv = 'eddy-form-container';
+	    FormsEngine.SelfContained = true;
+	    FormsEngine.IsBeta = false;
+        FormsEngine.TrackId = fe_getParameterByName('trackid');
+        FormsEngine.SessionId = '00000000-0000-0000-0000-0000-000000000000';
+        FormsEngine.MatchResponseGuid = '00000000-0000-0000-0000-0000-000000000000';
+
+	    /* Optional */
+        FormsEngine.DebugMode = false;
+        FormsEngine.MultiSession = true;
+        FormsEngine.TemplateId = 57;
+        FormsEngine.ApplicationId = 9;
+        FormsEngine.AdditionalFields = [];
+        FormsEngine.AdditionalFields.push(["FEMicroSite", "FE.CallCenter"]);
+        FormsEngine.AdditionalFields.push(['FETemplate', FormsEngine.TemplateId]);
+        (function ($) { $(document).ready(function () { FormsEngine.LoadForm(); }); })(jQuery);
+    </script>
+   
+</head>
+<body style="background-color:#f2f2f2">
+    <div name="eddy-form-container" class="eddy-form-container">
+        Please wait, form loading...
+	</div>
+    <br /> <br />
+</body>
+</html>

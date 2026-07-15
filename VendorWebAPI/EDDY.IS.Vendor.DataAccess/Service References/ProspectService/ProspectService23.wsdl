@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://EducationDynamics.Services.ProspectService" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://EducationDynamics.Services.ProspectService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://EducationDynamics.Services.ProspectService/Imports">
+      <xsd:import schemaLocation="http://localhost:50631/ProspectService.svc?xsd=xsd0" namespace="http://EducationDynamics.Services.ProspectService" />
+      <xsd:import schemaLocation="http://localhost:50631/ProspectService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50631/ProspectService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:50631/ProspectService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" />
+      <xsd:import schemaLocation="http://localhost:50631/ProspectService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.Core.Base" />
+      <xsd:import schemaLocation="http://localhost:50631/ProspectService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IProspectService_ApproveProspectFlows_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveProspectFlows" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_ApproveProspectFlows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveProspectFlowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_AssignAdvisorToProspectFlows_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignAdvisorToProspectFlows" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_AssignAdvisorToProspectFlows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignAdvisorToProspectFlowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_DeleteProspect_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProspect" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_DeleteProspect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProspectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_DeleteProspectDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProspectDetails" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_DeleteProspectDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProspectDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectFlowDetailsById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectFlowDetailsById" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectFlowDetailsById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectFlowDetailsByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectFlowDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectFlowDetails" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectFlowDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectFlowDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectByID" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectCountByStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectCountByStatus" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectCountByStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectCountByStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectFlowEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectFlowEmail" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectFlowEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectFlowEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectFlowTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectFlowTypes" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectFlowTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectFlowTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_LockCallCenterProspectFlow_InputMessage">
+    <wsdl:part name="parameters" element="tns:LockCallCenterProspectFlow" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_LockCallCenterProspectFlow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LockCallCenterProspectFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_ResendProspectFlowEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResendProspectFlowEmail" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_ResendProspectFlowEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResendProspectFlowEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveProspect_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProspect" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveProspect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProspectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveHomeSecurityProspect_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveHomeSecurityProspect" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveHomeSecurityProspect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveHomeSecurityProspectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveProspect_Site_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProspect_Site" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveProspect_Site_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProspect_SiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveProspectDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProspectDetails" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveProspectDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProspectDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveProspectTracking_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProspectTracking" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveProspectTracking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProspectTrackingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveProspectAdditionalData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProspectAdditionalData" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveProspectAdditionalData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProspectAdditionalDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveProspectStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProspectStatus" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveProspectStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProspectStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveProspectNotes_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProspectNotes" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveProspectNotes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProspectNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveStatusHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveStatusHistory" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SaveStatusHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveStatusHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SearchProspects_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchProspects" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SearchProspects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchProspectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SendLeadEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendLeadEmail" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SendLeadEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendLeadEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_UnlockCallCenterProspect_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnlockCallCenterProspect" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_UnlockCallCenterProspect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnlockCallCenterProspectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_Five9UpdateLeadDisposition_InputMessage">
+    <wsdl:part name="parameters" element="tns:Five9UpdateLeadDisposition" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_Five9UpdateLeadDisposition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Five9UpdateLeadDispositionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GenerateLeadIDToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateLeadIDToken" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GenerateLeadIDToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateLeadIDTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SendLeadIDData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendLeadIDData" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_SendLeadIDData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendLeadIDDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectFlowDetailsByChatIntegrationSessionId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectFlowDetailsByChatIntegrationSessionId" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetProspectFlowDetailsByChatIntegrationSessionId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProspectFlowDetailsByChatIntegrationSessionIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetStateNameById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStateNameById" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_GetStateNameById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStateNameByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_CheckRepostingProspect_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRepostingProspect" />
+  </wsdl:message>
+  <wsdl:message name="IProspectService_CheckRepostingProspect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRepostingProspectResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IProspectService">
+    <wsdl:operation name="ApproveProspectFlows">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/ApproveProspectFlows" message="tns:IProspectService_ApproveProspectFlows_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/ApproveProspectFlowsResponse" message="tns:IProspectService_ApproveProspectFlows_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignAdvisorToProspectFlows">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/AssignAdvisorToProspectFlows" message="tns:IProspectService_AssignAdvisorToProspectFlows_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/AssignAdvisorToProspectFlowsResponse" message="tns:IProspectService_AssignAdvisorToProspectFlows_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProspect">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/DeleteProspect" message="tns:IProspectService_DeleteProspect_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/DeleteProspectResponse" message="tns:IProspectService_DeleteProspect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProspectDetails">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/DeleteProspectDetails" message="tns:IProspectService_DeleteProspectDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/DeleteProspectDetailsResponse" message="tns:IProspectService_DeleteProspectDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProspectFlowDetailsById">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectFlowDetailsById" message="tns:IProspectService_GetProspectFlowDetailsById_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectFlowDetailsByIdResponse" message="tns:IProspectService_GetProspectFlowDetailsById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProspectFlowDetails">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectFlowDetails" message="tns:IProspectService_GetProspectFlowDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectFlowDetailsResponse" message="tns:IProspectService_GetProspectFlowDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProspectByEmail">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectByEmail" message="tns:IProspectService_GetProspectByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectByEmailResponse" message="tns:IProspectService_GetProspectByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProspectByID">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectByID" message="tns:IProspectService_GetProspectByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectByIDResponse" message="tns:IProspectService_GetProspectByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProspectCountByStatus">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectCountByStatus" message="tns:IProspectService_GetProspectCountByStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectCountByStatusResponse" message="tns:IProspectService_GetProspectCountByStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProspectFlowEmail">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectFlowEmail" message="tns:IProspectService_GetProspectFlowEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectFlowEmailResponse" message="tns:IProspectService_GetProspectFlowEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProspectFlowTypes">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectFlowTypes" message="tns:IProspectService_GetProspectFlowTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectFlowTypesResponse" message="tns:IProspectService_GetProspectFlowTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LockCallCenterProspectFlow">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/LockCallCenterProspectFlow" message="tns:IProspectService_LockCallCenterProspectFlow_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/LockCallCenterProspectFlowResponse" message="tns:IProspectService_LockCallCenterProspectFlow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResendProspectFlowEmail">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/ResendProspectFlowEmail" message="tns:IProspectService_ResendProspectFlowEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/ResendProspectFlowEmailResponse" message="tns:IProspectService_ResendProspectFlowEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProspect">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveProspect" message="tns:IProspectService_SaveProspect_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveProspectResponse" message="tns:IProspectService_SaveProspect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveHomeSecurityProspect">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveHomeSecurityProspect" message="tns:IProspectService_SaveHomeSecurityProspect_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveHomeSecurityProspectResponse" message="tns:IProspectService_SaveHomeSecurityProspect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProspect_Site">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveProspect_Site" message="tns:IProspectService_SaveProspect_Site_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveProspect_SiteResponse" message="tns:IProspectService_SaveProspect_Site_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProspectDetails">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveProspectDetails" message="tns:IProspectService_SaveProspectDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveProspectDetailsResponse" message="tns:IProspectService_SaveProspectDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProspectTracking">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveProspectTracking" message="tns:IProspectService_SaveProspectTracking_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveProspectTrackingResponse" message="tns:IProspectService_SaveProspectTracking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProspectAdditionalData">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveProspectAdditionalData" message="tns:IProspectService_SaveProspectAdditionalData_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveProspectAdditionalDataResponse" message="tns:IProspectService_SaveProspectAdditionalData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProspectStatus">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveProspectStatus" message="tns:IProspectService_SaveProspectStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveProspectStatusResponse" message="tns:IProspectService_SaveProspectStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProspectNotes">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveProspectNotes" message="tns:IProspectService_SaveProspectNotes_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveProspectNotesResponse" message="tns:IProspectService_SaveProspectNotes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveStatusHistory">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveStatusHistory" message="tns:IProspectService_SaveStatusHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SaveStatusHistoryResponse" message="tns:IProspectService_SaveStatusHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchProspects">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SearchProspects" message="tns:IProspectService_SearchProspects_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SearchProspectsResponse" message="tns:IProspectService_SearchProspects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLeadEmail">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SendLeadEmail" message="tns:IProspectService_SendLeadEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SendLeadEmailResponse" message="tns:IProspectService_SendLeadEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlockCallCenterProspect">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/UnlockCallCenterProspect" message="tns:IProspectService_UnlockCallCenterProspect_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/UnlockCallCenterProspectResponse" message="tns:IProspectService_UnlockCallCenterProspect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Five9UpdateLeadDisposition">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/Five9UpdateLeadDisposition" message="tns:IProspectService_Five9UpdateLeadDisposition_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/Five9UpdateLeadDispositionResponse" message="tns:IProspectService_Five9UpdateLeadDisposition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateLeadIDToken">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GenerateLeadIDToken" message="tns:IProspectService_GenerateLeadIDToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GenerateLeadIDTokenResponse" message="tns:IProspectService_GenerateLeadIDToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLeadIDData">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SendLeadIDData" message="tns:IProspectService_SendLeadIDData_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/SendLeadIDDataResponse" message="tns:IProspectService_SendLeadIDData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProspectFlowDetailsByChatIntegrationSessionId">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectFlowDetailsByChatIntegrationSessionId" message="tns:IProspectService_GetProspectFlowDetailsByChatIntegrationSessionId_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetProspectFlowDetailsByChatIntegrationSessionIdResponse" message="tns:IProspectService_GetProspectFlowDetailsByChatIntegrationSessionId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStateNameById">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetStateNameById" message="tns:IProspectService_GetStateNameById_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/GetStateNameByIdResponse" message="tns:IProspectService_GetStateNameById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRepostingProspect">
+      <wsdl:input wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/CheckRepostingProspect" message="tns:IProspectService_CheckRepostingProspect_InputMessage" />
+      <wsdl:output wsaw:Action="http://EducationDynamics.Services.ProspectService/IProspectService/CheckRepostingProspectResponse" message="tns:IProspectService_CheckRepostingProspect_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

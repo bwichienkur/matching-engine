@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadEngine.DTO.Request" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadEngine.DTO.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="APILead">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalFields" nillable="true" type="tns:ArrayOfAdditionalField" />
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Age" nillable="true" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Categories" nillable="true" type="q1:ArrayOfint" />
+      <xs:element minOccurs="0" name="ChannelId" type="xs:int" />
+      <xs:element minOccurs="0" name="ChatIntegrationSessionId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientRelationContactId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DesiredDegreeLevel" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DialerKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstimatedRevShare" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ExternalMatchItemGuid" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HighestLevelOfEdu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstitutionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LeadId_Token" type="ser:guid" />
+      <xs:element minOccurs="0" name="Military" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreValidatedProgram" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Prefix" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProspectFlowId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProspectFlowStatusHistoryId" nillable="true" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Specialties" nillable="true" type="q2:ArrayOfint" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StateProvince" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SubCategories" nillable="true" type="q3:ArrayOfint" />
+      <xs:element minOccurs="0" name="SubChannelId" type="xs:int" />
+      <xs:element minOccurs="0" name="TSR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USCitizen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ValidateTCPA" type="xs:boolean" />
+      <xs:element minOccurs="0" name="YearHighestEduCompleted" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="APILead" nillable="true" type="tns:APILead" />
+  <xs:complexType name="ArrayOfAdditionalField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdditionalField" nillable="true" type="tns:AdditionalField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdditionalField" nillable="true" type="tns:ArrayOfAdditionalField" />
+  <xs:complexType name="AdditionalField">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdditionalField" nillable="true" type="tns:AdditionalField" />
+</xs:schema>

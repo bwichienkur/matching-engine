@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html>
+<head>
+    <meta charset="UTF-8" />
+	<title>IS-Form Engine ProgramTemplate</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://localhost:59955//Templates/Common/js/jqueryjson24min.js"></script>
+    <script type="text/javascript" src="http://localhost:59955//Static/GetGlobal"></script>
+    <script type="text/javascript" src="http://localhost:59955/Templates/Common/js/External/GoogleDFP.js"></script>
+    
+	<meta http-equiv="x-ua-compatible" content="IE=9" >
+	<script language="javascript" type="text/javascript">
+	    $(document).ready(function () {
+	        fe_getProgramTemplateResult(function (data) {
+                FEResponse = $.evalJSON(data);
+                console.log(data);
+	            var Message = "<br/><br/>InitialUID = " + FEResponse.InitialUID;
+	            Message += "<br/>IsAnyLeadValid = " + FEResponse.IsAnyLeadValid;
+	            Message += "<br/>IsCrossSell = " + FEResponse.IsCrossSell;
+	            Message += "<br/>IsTestLead = " + FEResponse.IsTestLead;
+	            Message += "<br/>UserFullName = " + FEResponse.UserFullName;
+	            $("#eddy-form-result").html(Message);
+	            
+	        });
+
+	        fe_getSessionObject("ProgramTemplate.UserSelections", function (data) {
+	            var Message = "<br/><br/>[UserSelections]";
+
+	            for (var index = 0; index < data.length; index++) {
+	                Message += "<hr>  Logo=<img src='" + data[index].Logo + "' >";
+	                Message += "<br/>  InstitutionId=" + data[index].InstitutionId;
+	                Message += "<br/> InstitutionName=" + data[index].InstitutionName;
+	                Message += "<br/> ProgramProductId=" + data[index].ProgramProductId;
+	                Message += "<br/> ProgramName=" + data[index].ProgramName;
+	            }
+	            $("#UserSelections").html(Message);
+
+	        });
+
+	        fe_loadPixelsForExtProgramTemplateTYPages();
+
+	    });
+    </script>
+</head>
+<body>
+    <div>This is a sample thank you page provided for testing purposes:</div>
+	<div id="eddy-form-result">
+	</div>
+    <div id="UserSelections">
+	</div>
+
+    <div name="GAAd" id="GAAd">
+    </div>
+</body>
+</html>

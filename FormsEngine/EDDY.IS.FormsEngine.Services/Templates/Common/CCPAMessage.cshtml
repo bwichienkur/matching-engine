@@ -1,0 +1,34 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.CCPAMessageModel>
+
+@{
+    bool shouldShowCCPAMessage = false;
+    bool.TryParse(System.Configuration.ConfigurationManager.AppSettings.Get("CCPAMessageEnabled"), out shouldShowCCPAMessage);
+}
+
+@if (shouldShowCCPAMessage)
+{
+    <div class="ccpa-message-container">
+        <div class="ccpa-message">@Html.Raw(Model.CCPAMessage)</div>
+    </div>
+
+    <script>
+        jQuery(document).ready(function () {
+            jQuery(FormsEngine).on("OnStepLoaded", function () {
+                fe_hideCCPAIfBeyondFirstStepOrEMS();
+            });
+
+            jQuery("#ccpaPrivacyPolicyUrl").on("click", function (e) {
+                var privacyPolicyHref = jQuery(this).attr("href");
+
+                if (!privacyPolicyHref && jQuery("#ccpaPrivacyPolicyModal").length == 0)
+                    fe_getPrivacyPolicy();
+            });
+
+            fe_setupPrivacyPolicyLink();
+            fe_hideCCPAIfBeyondFirstStepOrEMS();
+        });
+    </script>
+}
+
+
+

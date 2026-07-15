@@ -1,0 +1,428 @@
+﻿.eddy-form-wizard-container#eddy-form-wizard-managedchoice-container .eddy-form-wizard-body{
+    background:none;
+    width:480px;
+    padding:0;
+    margin-top:1em;
+}
+.eddy-form-wizard-container#eddy-form-wizard-managedchoice-container .eddy-form-wizard-footer {
+    background:url("[SERVER]/images/tabsBtm.gif") no-repeat;
+    padding:0;
+    width:480px;
+}
+
+.eddy-form-wizard-container #mc-SM-Area {
+    width:410px;
+    margin-left:0;
+}
+.eddy-form-wizard-container .mc-SM-Display {
+    position:relative;
+}
+.eddy-form-wizard-container .mc-SM-Display .sm-school li{
+	display:inline-block;
+	padding:5px;
+	width:30%;
+    vertical-align:top;
+	*float:left;
+	*width:30%;
+}
+
+.eddy-form-wizard-container .mc-SM-Display .sm-school .onlinecampusflag {
+    position:relative;
+    z-index:1;
+}
+.eddy-form-wizard-container .mc-SM-Display .sm-school .school-logo{
+	width:122px;
+	height:82px;
+	background:#FFF;
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	box-shadow: 2px 2px 10px 0px #888;
+	-moz-box-shadow: 2px 2px 10px 0px #888;
+	-webkit-box-shadow: 2px 2px 10px 0px #888;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	border-radius: 4px;
+    position:relative;
+    z-index:1;
+
+}
+	.eddy-form-wizard-container .mc-SM-Display .sm-school .school-logo img{
+		margin:auto;
+	}
+	.eddy-form-wizard-container .mc-SM-Display .sm-school .school-info{
+		text-align:center;
+		font-size:12px;
+        position:relative;
+        z-index:1;
+        margin:10px 5px;
+	}
+        .eddy-form-wizard-container .mc-SM-Display .sm-school .school-info a {
+            color: #555;
+        }
+	.eddy-form-wizard-container .mc-SM-Display .sm-school .school-info p{
+		margin:5px;
+	}
+	.eddy-form-wizard-container .mc-SM-Display .sm-school .school-info .school-name{
+		font-weight:bold;
+		margin:0;		
+	}
+	.eddy-form-wizard-container .mc-SM-Display .sm-school .change-program-link{
+		margin-top:8px;
+		display:block;
+		font-size:11px;
+		text-decoration:none;
+        color:#3d77cb;
+        text-align:center;
+	}
+
+
+    .eddy-form-wizard-container .mc-SM-Display .mc-sm-program.sm-removed .cover-sm-school{
+        height:100%;
+        width:100%;
+        padding-right:2px;
+        background:#BBB;
+        position:absolute;
+        z-index:2;
+        opacity:0.8;
+        filter:alpha(opacity=80); /* For IE8 and earlier */
+    }
+
+
+#eddy-form-wizard-managedchoice-container .groundCampusFlagIcon,
+#eddy-form-wizard-managedchoice-container .onlineCampusFlagIcon
+{
+    background:url("[SERVER]/images/icon-campus-flag.png") no-repeat center;
+    width:25px;
+    height:22px;
+    margin: 0.5em auto 0;
+}
+
+
+#eddy-form-wizard-managedchoice-container .onlineCampusFlagIcon
+{
+    background:url("[SERVER]/images/icon-online-flag.png") no-repeat center;
+
+}
+.eddy-form-wizard-container #mc-US-Area {
+    width:95%;
+    margin-left:0;
+    padding:0;
+}
+
+.eddy-form-wizard-container .field-holder.mc-US-Area .field-holder-group li{
+	display:block;
+	width:auto;
+	margin:10px 0 20px;
+    padding-bottom:20px;
+    background: url("[SERVER]/images/dividerShadowSchoolList.png") no-repeat center bottom;
+}
+.eddy-form-wizard-container .field-holder.mc-US-Area .field-holder-group label{
+	font-weight:bold;
+}
+.eddy-form-wizard-container .field-holder.mc-US-Area .field-holder-group .us-institution-info {
+    width: 90%;
+    display:inline-block;
+}
+.eddy-form-wizard-container .field-holder.mc-US-Area .us-institution-logo {
+    float:left;
+    margin-bottom:.6em;
+}
+.eddy-form-wizard-container .field-holder.mc-US-Area .field-holder-group .school-name {
+    font-size: 14px;
+    margin: 0px;
+    vertical-align:top;
+}
+    .eddy-form-wizard-container .field-holder.mc-US-Area .field-holder-group .school-name a {
+        color:#333;
+    }
+.eddy-form-wizard-container .field-holder.mc-US-Area .field-holder-group .select-program {
+    clear:both;
+}
+.eddy-form-wizard-container .field-holder.mc-US-Area .field-holder-group .select-program *{
+    font-size:.84em;
+    margin:4px auto 2px;
+}
+.eddy-form-wizard-container .field-holder.mc-US-Area .field-holder-group .program-info,
+.eddy-form-wizard-container .field-holder.mc-US-Area .field-holder-group .disclosure-info {
+    display:inline-block;
+}
+.eddy-form-wizard-container .field-holder.mc-US-Area .field-holder-group .campus-location {
+    font-size:12px;
+    margin:10px 0 0 0;
+}
+.eddy-form-wizard-container .field-holder.mc-US-Area .field-holder-group select{
+	width:100%;
+    margin-bottom:5px;
+}
+.eddy-form-wizard-container .field-holder.mc-US-Area img {
+    vertical-align:middle;
+    margin:0 5px 0 0;
+    padding:4px;
+    border:1px solid #888;
+    background:#FFF;
+}
+.eddy-form-wizard-container .mc-US-Area .onlineCampusFlagIcon,
+.eddy-form-wizard-container .mc-US-Area .groundCampusFlagIcon {
+    display:inline-block;
+    vertical-align:middle;
+}
+
+.eddy-form-wizard-container .mc-US-Area .us-program-popup-link,
+.eddy-form-wizard-container .mc-US-Area .us-disclosure-popup-link, 
+.eddy-form-wizard-container .mc-US-Area .us-disclosure-popup-link-linkout {
+      font-size: 12px;
+      margin:0;
+}
+.eddy-form-wizard-container .mc-us-checkbox {
+    display:inline-block;
+    font-size:11px;
+    margin-right:0.4em;
+    vertical-align:top;
+    width:7.5%;
+}
+    .eddy-form-wizard-container .mc-us-checkbox p{
+        margin-bottom:2px;
+    }
+#workflow-managedchoice-container .CSdisclosure
+{
+    margin: 10px 0 0 0;
+}
+#workflow-managedchoice-container .CSdisclaimerReferenceNumber, #eddy-form-container .CSdisclosure p {
+    font-size: 10px;
+    line-height: 13px;
+    margin: 0 5px 0 0;
+    z-index: 9999;
+}
+#workflow-managedchoice-container .CSdisclaimerReferenceNumber
+{
+    vertical-align: super;
+    font-weight:normal;
+    margin-top:-1px ;
+    background: #EFF6F9;
+    border-radius: 0;
+    bottom: auto;
+    color:	#3B3B3B;
+    display: inline;
+    padding: 0;
+    width: auto;
+}
+
+#workflow-managedchoice-container .cross-sell-express-consent
+{
+    padding: 20px 0 20px 50px;
+    width: 85%;
+}
+
+#workflow-managedchoice-container .cross-sell-express-consent label 
+{
+    font-size: 10px;
+    line-height: 13px;
+    margin: 0 5px 0 0;
+    text-align: left;
+    display:inline-block;
+    width:85%;
+}
+
+#workflow-managedchoice-container .cross-sell-express-consent label.express-consent-black
+{
+    color: #000;
+}
+#workflow-managedchoice-container .cross-sell-express-consent label.express-consent-error
+{
+    color: #B9121B;
+}
+
+
+.eddy-form-wizard-container .MCdisclosure {
+    margin: 10px 0 0 0 !important;
+}
+
+.eddy-form-wizard-container .MCdisclaimerReferenceNumber, .eddy-form-wizard-container .MCdisclosure p {
+    font-size: 10px !important;
+    line-height: 13px !important;
+    margin: 0 5px 10px 0 !important;
+    z-index: 9999 !important;
+}
+.eddy-form-wizard-container .CSdisclaimerReferenceNumber
+{
+    vertical-align: super !important;
+    font-weight:normal !important;
+    margin-top:-1px !important;
+    background: #EFF6F9 !important;
+    border-radius: 0 !important;
+    bottom: auto !important;
+    color:	#3B3B3B !important;
+    display: inline !important;
+    padding: 0 !important;
+    width: auto !important;
+}
+
+.eddy-form-wizard-container .managedchoice-express-consent
+{
+    padding: 0;
+    width: 95%;
+}
+.eddy-form-wizard-container .managedchoice-express-consent input
+{
+    display:inline-block;
+}
+
+.eddy-form-wizard-container .managedchoice-express-consent label 
+{
+    font-size: 11px;
+    line-height: 13px;
+    margin: 0 5px 0 0;
+    text-align: left;
+    display:inline-block;
+    width:90%;
+	font-weight:normal;
+    border:none;
+}
+
+.eddy-form-wizard-container .managedchoice-express-consent label.express-consent-black
+{
+    color: #000 !important;
+}
+.eddy-form-wizard-container .managedchoice-express-consent label.express-consent-error
+{
+    color: #B9121B !important;
+}
+
+.eddy-form-wizard-container #dvManagedChoiceError .error-summary
+{
+    padding: 10px 0 0 15px !important;
+}
+
+
+.eddy-form-wizard-container .mc-US-Display li.disable select {
+    color:#BBB;
+}
+
+/* Online School Campus School Tabs*/
+.eddy-form-wizard-container #OnlineCampusTabs {
+    background: url("[SERVER]/images/noTabsBg-old.png") no-repeat;
+    height: 53px;
+    overflow: hidden;
+    margin-top:.5em;
+}
+.eddy-form-wizard-container #OnlineTab {
+    float: left;
+    height: 53px;
+    overflow: hidden;
+    width:184px;
+    background: url("[SERVER]/images/tabsOnline_on.png") no-repeat;
+    cursor:pointer;
+}
+.eddy-form-wizard-container #OnlineTab.inactive {
+        background: url("[SERVER]/images/tabsOnline_off.png") no-repeat;
+    }
+.eddy-form-wizard-container #OnlineTab.OnlineSingle {
+        background: url("[SERVER]/images/tabsOnlineSingle_on.png") no-repeat;
+    }
+
+.eddy-form-wizard-container #CampusTab {
+    float: left;
+    height: 53px;
+    overflow: hidden;
+    width:205px;
+    background: url("[SERVER]/images/tabsCampus_on.png") no-repeat;
+    cursor:pointer;
+}
+    .eddy-form-wizard-container #CampusTab.inactive {
+        background: url("[SERVER]/images/tabsCampus_off.png") no-repeat;
+    }
+    .eddy-form-wizard-container #CampusTab.CampusSingle {
+        background: url("[SERVER]/images/tabsCampusSingle_on.png") no-repeat;
+    }
+/* managed-choice-list */
+.eddy-form-wizard-container #mc-us-choice-list {
+    background: url("[SERVER]/images/tabsBg.gif") repeat-y;
+    padding: 0.5em 0 0 .8em;
+}
+
+/* Managed Choice Button */
+.eddy-form-wizard-container .form-submit-button{
+    clear:both;
+	margin:1em auto 0;
+	display:table;    
+    padding:0;
+    position:relative;
+}
+    .eddy-form-wizard-container .form-submit-button #managechoice-form-submit-button {
+        background: url("[SERVER]/images/btnSubmitRequest2.gif") no-repeat 0 0;
+        width:200px;
+	    height:40px;
+        cursor:pointer;
+        padding:0;
+    }
+
+       
+    .eddy-form-wizard-container .form-submit-button #managechoice-form-submit-button:hover {
+        background-position:0 -40px;
+    }
+     .eddy-form-wizard-container .form-submit-button #managechoice-form-submit-button[smart-match="smart-match"] {
+            background: url("[SERVER]/images/btnSubmitRequestForceMatch.gif") no-repeat 0 0; 
+     }
+     .eddy-form-wizard-container .form-submit-button #managechoice-form-submit-button[smart-match="smart-match"]:hover {
+        background-position:0 -45px;
+     }
+
+
+.eddy-form-wizard-container .form-nothanks-button {
+    text-decoration:underline;
+    margin:auto auto 1em;
+    text-align:center;
+    cursor:pointer;
+}
+.eddy-form-wizard-container #form-nothanks-button-label {
+
+}
+
+
+.eddy-form-wizard-container .financial-available {
+    color:#22275A;
+    margin:.5em 0 0 .3em;
+    padding-bottom:1.3em;
+    background:url("[SERVER]/images/subHdrFinancialAid.gif") no-repeat;
+    width:309px;
+    height:21px;
+
+}
+.eddy-form-wizard-container .thank-you-msg {
+    display:inline-block;
+    color: #FE9504;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1em !important;
+    margin: 0 0 5px;
+}
+.eddy-form-wizard-container .sm_smartmatch_header_message_1,
+.eddy-form-wizard-container .sm_smartmatch_header_message_2,
+.eddy-form-wizard-container .userselect_header_message {
+    display:inline;
+}
+
+
+.eddy-form-wizard-container .sponsored_listings {
+    text-align:right;
+    font-size: 14px;
+    font-style: italic;
+    padding-bottom: 0.6em;
+    padding-right: 1.5em;
+    margin-top:0.5em;
+}
+
+.eddy-form-wizard-container .error-summary {
+    margin: auto !important;
+    padding-left: 30px !important;
+    padding-top: 20px !important;
+}
+
+
+.eddy-form-wizard-container .eddy-form-wizard-body #mc-SM-additional-questions{
+    margin-left:2.5em;
+
+}
+

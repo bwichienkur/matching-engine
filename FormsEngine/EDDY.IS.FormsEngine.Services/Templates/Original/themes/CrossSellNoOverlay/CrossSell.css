@@ -1,0 +1,192 @@
+﻿@charset "utf-8";
+@import url("[SERVER]/../../../../Static/GetCss?BasePath=Original&Theme=default&FileName=CrossSell");
+
+#eddy-form-container .onlineCampusFlagIcon{width:65px; height:17px; background: url("[SERVER]/images/type-online.png") no-repeat !important;}
+#eddy-form-container .cross-sell a.close-button{background: url("[SERVER]/../default/images/close-button.gif") no-repeat !important;}
+#eddy-form-container .submit-button.request-info{background: url("[SERVER]/../default/images/button-request-info.gif") top left no-repeat !important;}
+#eddy-form-container .submit-button.search-again{background: url("[SERVER]/../default/images/button-search-again.gif") top left no-repeat !important;}
+#eddy-form-container .groundCampusFlagIcon {width:65px; height:17px;background: url("[SERVER]/images/type-campus.gif") no-repeat !important;}
+
+#eddy-form-container .groundCampusFlagIcon:after,
+#eddy-form-container .onlineCampusFlagIcon:after{
+    content:"Campus";
+    vertical-align:middle;
+    padding-left:16px;
+    font-size:115%;
+}
+#eddy-form-container .onlineCampusFlagIcon:after{
+    content:"Online";
+}
+
+#eddynexusform{
+    display:none;
+}
+
+#eddy-form-container .cross-sell {
+    position:static;
+    top:auto;
+    width:auto;
+    right:auto;
+    padding:0;
+    border:none;
+    background:none;
+}
+#eddy-form-container .FEoverlay{
+    display:none;
+    margin:-9999px;
+}
+
+#eddy-form-container .cross-sell a.close-button
+    {
+        display:none;
+    }
+
+#eddy-form-container .cursor-pointer {
+    cursor: pointer;
+}
+
+    #eddy-form-container .success ul
+    {
+        margin: 10px 10px 0 0;
+    }
+
+    #eddy-form-container .success ul li
+    {
+        background: #F1F1F1 !important; /* for non-css3 browsers */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F1F1F1', endColorstr='#E5E5E5') !important; /* for IE */
+        background: -webkit-gradient(linear, left top, left bottom, from(#F1F1F1), to(#E5E5E5)) !important; /* for webkit browsers */
+        background: -moz-linear-gradient(center top , #F1F1F1, #E5E5E5) repeat scroll 0 0 transparent !important; /* for firefox 3.6+ */
+        border-radius: 0.5em 0.5em 0.5em 0.5em;
+        padding: 2%;
+        width:96%;
+        min-height:0;
+        height:auto !important;
+    }
+
+    #eddy-form-container #crossSellForm
+    {
+        min-height: 0;
+        max-height: none;
+        width:auto;
+    }
+
+    #eddy-form-container .success img
+    {
+        display:table;
+        margin: 0 10px 0 20px;
+    }
+
+        #eddy-form-container .success ul li p{
+            margin:0;
+            width:52%;
+            float:left;
+        }
+        #eddy-form-container .success ul li p.bold{
+            font-family: Georgia;
+            font-size: 14px;
+            color:#000;
+        }
+
+    .cross-sell-option label
+    {
+        display:none;
+    }
+
+    #eddy-form-container .cross-sell li span.cross-sell-option
+    {
+        width: auto;
+        padding: 0;
+        border-radius:0;
+        top: 10px;
+        background:none;
+        bottom: auto !important;
+        margin:0;
+    }
+
+    #eddy-form-container .cross-sell #crossSellForm input
+    {
+        margin:0;
+    }
+
+    #eddy-form-container .cross-sell a.close-overlay
+    {
+        text-align:center;
+    }
+
+/**addtional questions**/
+#eddy-form-container .cross-sell div[name="cs-additional-questions"]{
+    margin-left:263px;
+    float:left;
+    width:47%;
+}
+    #eddy-form-container .cross-sell div[name="cs-additional-questions"] .aq-label{
+        margin-left:5px;
+    }
+    #eddy-form-container .cross-sell div[name="cs-additional-questions"] .field-holder label:not(.error):not([for$="Yes"]):not([for$="No"]):before {
+        content: "\f101";
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale; 
+        margin-left:-12px;       
+    }
+    #eddy-form-container .cross-sell div[name="cs-additional-questions"] .field-holder label[data-error="true"]{
+        display:block;
+    }
+
+
+@media (max-width:768px){
+    #eddy-form-container .success img{
+        width:120px;
+        height:auto;
+    }
+    #eddy-form-container .cross-sell div[name="cs-additional-questions"]{
+        margin-left:145px;
+        width:auto;
+    }
+    #eddy-form-container .success ul li p {
+        width: 65%;
+    }
+}
+
+@media (max-width:600px) {
+    #eddy-form-container .success ul li p {
+        width: 49%;
+    }
+    #eddy-form-container .onlineCampusFlagIcon{
+        width:55px;
+    }
+}
+
+@media (max-width:480px) {
+    #eddy-form-container .success ul li p.bold {
+        width: 42%;
+    }
+    #eddy-form-container .onlineCampusFlagIcon{
+        width:55px;
+    }
+    #eddy-form-container .success ul li p:not(.bold){
+        width:auto;
+        margin:5px 0 0 20px;
+        clear:both;
+    }
+    #eddy-form-container .cross-sell div[name="cs-additional-questions"] {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width:440px) {
+    #eddy-form-container .success ul li p.bold{
+        clear:none;
+        padding-top:0;
+    }
+}
+@media (max-width:400px) {
+    #eddy-form-container .success ul li p.bold {
+        width: auto;
+        margin:10px 0 0 20px;
+        clear:both;
+    }
+}

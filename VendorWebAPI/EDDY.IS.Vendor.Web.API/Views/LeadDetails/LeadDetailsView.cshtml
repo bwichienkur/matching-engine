@@ -1,0 +1,379 @@
+﻿@model EDDY.IS.Vendor.Web.API.Models.LeadDetailsViewModel
+@{
+    ViewBag.Title = "LeadDetailsView";
+    Layout = "~/Views/Shared/_LeadDetailsLayout.cshtml";
+}
+<style>
+    body
+    {
+        background-color: #f0f0f0;
+        color: #000;
+        font-family: Arial,Helvetica,sans-serif;
+        font-size: 12px;
+        line-height: 12px;
+    }
+    table td
+    {
+        font-size: 11px;
+        padding: 0px;
+    }
+    .label
+    {
+        font-weight: bold;
+        margin: 0px 5px 0px 0px;
+    }
+    span
+    {
+        padding: 0px 2px 0px 2px;
+    }
+
+    #history, #notes
+    {
+        margin: 0px 0px 0px 0px;
+    }
+    table th
+    {
+        text-align: left;
+        text-transform: uppercase;
+        padding: 5px 5px 0px 5px;
+    }
+    #txtAreaNoteBox
+    {
+        width: 600px;
+        height: 100px;
+        font-size: 12px;
+        font-family: Arial,Helvetica,sans-serif;
+    }
+    table#Notes td, table#DispositionHistory td
+    {
+        border-bottom: 1px dotted #000;
+        line-height: 15px;
+        padding: 5px 0px 5px 0px;
+    }
+    table#Notes th#Date, table#DispositionHistory th#CreatedDate
+    {
+        width: 130px;
+    }
+    table#Notes th#nAdvisor
+    {
+        width: 100px;
+    }
+    table#DispositionHistory th#Disposition
+    {
+        width: 180px;
+    }
+    table#Notes, table#DispositionHistory
+    {
+        margin: 0px 0px 0px 0px;
+    }
+    .leadInfo span
+    {
+        display: block;
+        float: left;
+        padding: 5px 0px 5px 0px;
+    }
+    .clear
+    {
+        clear: both;
+        display: block;
+        overflow: hidden;
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+    .leadInfo
+    {
+        width: 300px;
+        float: left;
+    }
+    fieldset
+    {
+        margin: 10px 0px 10px 0px;
+        padding: 10px;
+        background: #FCFCFC;
+    }
+    legend
+    {
+        font-size: 14px;
+    }
+</style>
+@if (Model != null)
+{
+    <fieldset>
+        <legend>LEAD DETAILS</legend>
+        <table style="width: 100%; height: 100%;">
+            <colgroup>
+                <col width="5%" />
+                <col width="15%" />
+                <col width="9%" />
+                <col width="71%" />
+            </colgroup>
+            <tr>
+                <td style="font-weight: bold;">
+                    @Html.LabelFor(m => m.LeadDetails.ProspectFlowId)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.LeadDetails.ProspectFlowId)
+                </td>
+                <td style="font-weight: bold;">
+                    @Html.LabelFor(m => m.LeadDetails.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.LeadDetails.Email)
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">
+                    @Html.LabelFor(m => m.LeadDetails.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.LeadDetails.FirstName)
+                </td>
+                <td style="font-weight: bold;">
+                    @Html.LabelFor(m => m.LeadDetails.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.LeadDetails.FirstName)
+                </td>
+                <td style="font-weight: bold;">
+                    @Html.LabelFor(m => m.LeadDetails.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.LeadDetails.Phone)
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">
+                    @Html.LabelFor(m => m.LeadDetails.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.LeadDetails.Address)
+                </td>
+                <td style="font-weight: bold;">
+                    @Html.LabelFor(m => m.LeadDetails.AlternatePhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.LeadDetails.AlternatePhone)
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">
+                    @Html.LabelFor(m => m.LeadDetails.Address2)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.LeadDetails.Address2)
+                </td>
+                <td style="font-weight: bold;">
+                    @Html.LabelFor(m => m.LeadDetails.CurrentDisposition)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.LeadDetails.CurrentDisposition)
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">
+                    @Html.LabelFor(m => m.LeadDetails.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.LeadDetails.City)
+                </td>
+                <td style="font-weight: bold;">
+                    @Html.LabelFor(m => m.LeadDetails.CreatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.LeadDetails.CreatedDate)
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">
+                    @Html.LabelFor(m => m.LeadDetails.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.LeadDetails.State)
+                </td>
+                <td style="font-weight: bold;">
+                    @Html.LabelFor(m => m.LeadDetails.ModifiedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.LeadDetails.ModifiedDate)
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">
+                    @Html.LabelFor(m => m.LeadDetails.PostalCode)
+                </td>
+                <td colspan="3">
+                    @Html.DisplayFor(m => m.LeadDetails.PostalCode)
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <br />
+    <fieldset>
+        <legend>NOTES</legend>
+        @using (Html.BeginForm("SaveNote", "LeadDetails", FormMethod.Post))
+        {
+            @Html.Hidden("ProspectFlowId",Model.LeadDetails.ProspectFlowId,new { @id = "LeadDetails.ProspectFlowId" })
+            @Html.Hidden("AdvisorId", Model.LeadDetails.AdvisorId, new { @id = "LeadDetails.AdvisorId" })
+            @Html.Hidden("AdvisorEmail", Model.LeadDetails.AdvisorEmail, new { @id = "LeadDetails.AdvisorEmail" })
+       
+            <table style="width: 100%; height: 100%;">
+                <colgroup>
+                    <col width="5%" />
+                    <col width="15%" />
+                    <col width="7%" />
+                    <col width="73%" />
+                </colgroup>
+                <tr>
+                    <td style="font-weight: bold;" colspan="4">
+                        @Html.LabelFor(m => m.LeadNote.Note)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;" colspan="3">
+                        @Html.TextArea("Note",Model.LeadNote.Note, 5, 80, null)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;" colspan="3">
+                        <input type="submit" title="Save Note" value="Save Note" /><br />
+                        <br />
+                    </td>
+                </tr>
+            </table>
+        }
+        <table style="width: 100%; height: 100%;">
+            <colgroup>
+                <col width="10%" />
+                <col width="10%" />
+                <col width="80%" />
+            </colgroup>
+            <tr>
+                <td style="font-weight: bold;">
+                    <label>
+                        ADVISOR
+                    </label>
+                </td>
+                <td style="font-weight: bold;">
+                    <label>
+                        CREATED
+                    </label>
+                </td>
+                <td style="font-weight: bold;">
+                    <label>
+                        NOTE
+                    </label>
+                </td>
+            </tr>
+
+            @if (Model.LeadDetails.Notes != null)
+            {
+              
+                    foreach (var note in Model.LeadDetails.Notes)
+                    {
+                        <tr>
+                            <td>
+                                <label>
+                                    @note.Advisor
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @note.CreatedDate
+                                </label>
+                            </td>
+                            <td>
+                                <label>
+                                    @note.Note
+                                </label>
+                            </td>
+                        </tr>
+                    }
+                
+            }
+            
+        </table>
+    </fieldset>
+    <br />
+    <fieldset>
+        <legend>DISPOSITION HISTORY</legend>
+        <table style="width: 100%; height: 100%;">
+            <colgroup>
+                <col width="10%" />
+                <col width="20%" />
+                <col width="10%" />
+                <col width="60%" />
+            </colgroup>
+            <tr>
+                <td style="font-weight: bold;">
+                    <label>
+                        CREATE DATE
+                    </label>
+                </td>
+                <td style="font-weight: bold;">
+                    <label>
+                        DISPOSITION
+                    </label>
+                </td>
+                <td style="font-weight: bold;">
+                    <label>
+                        ADVISOR
+                    </label>
+                </td>
+                <td style="font-weight: bold;">
+                    <label>
+                        NOTE
+                    </label>
+                </td>
+            </tr>
+            @if (Model.LeadDetails.Notes != null)
+            {
+                foreach (var leadDisposition in Model.LeadDetails.LeadDispositionHistory)
+                {
+                <tr>
+                    <td>
+                        <label>
+                            @leadDisposition.CreatedDate
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            @leadDisposition.Disposition
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            @leadDisposition.Advisor
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            @leadDisposition.Advisor
+                        </label>
+                    </td>
+                </tr>
+                }
+            }
+           
+        </table>
+    </fieldset>
+}
+else
+{
+    <fieldset>
+        <table style="width: 100%; height: 100%;">
+            <colgroup>
+                <col width="5%" />
+                <col width="15%" />
+                <col width="9%" />
+                <col width="71%" />
+            </colgroup>
+            <tr>
+                <td style="font-weight: bold;" colspan="4">
+                    <span>Invalid ProspectFlowId</span>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+}
+

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D89119F5-9058-4A8D-B9AE-FCB2E298D74A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>EDDY.IS.ProspectResubmit</RootNamespace>
+    <AssemblyName>EDDY.IS.ProspectResubmit</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cobisi.EmailVerify.Net45">
+      <HintPath>..\..\..\lib\Cobisi.EmailVerify.Net45.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\lib\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\EDDY.IS.Base\EDDY.IS.Base.csproj">
+      <Project>{01bcb55b-e03a-43cf-b4f5-e991ec95be84}</Project>
+      <Name>EDDY.IS.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\EDDY.IS.Core.DataAccess\EDDY.IS.Core.DataAccess.csproj">
+      <Project>{971ef16a-46ee-4ae5-b98e-93182883542f}</Project>
+      <Name>EDDY.IS.Core.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\EDDY.IS.Core.Logging\EDDY.IS.Core.Logging.csproj">
+      <Project>{f9b9e2b4-c39d-4365-89c7-5734ad7f3e9e}</Project>
+      <Name>EDDY.IS.Core.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\EDDY.IS.Core\EDDY.IS.Core.csproj">
+      <Project>{68572e4b-99ba-40c1-aeb9-cad36c1eb1d0}</Project>
+      <Name>EDDY.IS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\EDDY.IS.LocalCache\EDDY.IS.LocalCache\EDDY.IS.LocalCache.csproj">
+      <Project>{1ea93f69-7ca4-49be-9b1b-2907b503801f}</Project>
+      <Name>EDDY.IS.LocalCache</Name>
+    </ProjectReference>   
+    <ProjectReference Include="..\..\LeadEngine\EDDY.IS.LeadEngine-RF\EDDY.IS.LeadEngine.csproj">
+      <Project>{779e8cec-5404-4888-83ea-24cd543b63f6}</Project>
+      <Name>EDDY.IS.LeadEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Util\EDDY.IS.Util\EDDY.IS.Util.csproj">
+      <Project>{86612390-2dc8-4a0d-be7f-34e59a97e615}</Project>
+      <Name>EDDY.IS.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Validation\EDDY.IS.Validation-RF\EDDY.IS.Validation.csproj">
+      <Project>{a5c2ce4e-007c-4e1b-8b29-cb44333e6293}</Project>
+      <Name>EDDY.IS.Validation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Validation\EDDY.IS.Validation.IPUtils\EDDY.IS.Validation.IPUtils.csproj">
+      <Project>{bfadbb25-6dc0-4b62-98f2-6a8dda7b5ba4}</Project>
+      <Name>EDDY.IS.Validation.IPUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Validation\EDDY.IS.Validation.Service\EDDY.IS.Validation.Service.csproj">
+      <Project>{22e91e53-7abd-460c-b77d-59d320145313}</Project>
+      <Name>EDDY.IS.Validation.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDDY.IS.FormsEngine.RF\EDDY.IS.FormsEngine.csproj">
+      <Project>{f9fbfa65-b5bd-4cfd-ba12-5b2ee01e1c32}</Project>
+      <Name>EDDY.IS.FormsEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDDY.IS.FormsEngine.Services\EDDY.IS.FormsEngine.Services.csproj">
+      <Project>{db13a2d3-8e9f-47f0-83fa-588e5d92760b}</Project>
+      <Name>EDDY.IS.FormsEngine.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

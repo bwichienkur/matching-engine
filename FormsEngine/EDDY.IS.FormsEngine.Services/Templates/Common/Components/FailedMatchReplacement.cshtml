@@ -1,0 +1,25 @@
+﻿
+
+<div class="row">
+
+    <div class="col-xs-12">
+        @if (!string.IsNullOrWhiteSpace(Model.InstitutionLogoUrl))
+        {
+            <img src="@Model.InstitutionLogoUrl" alt="@Model.InstitutionName" />
+        }
+        else
+        {
+            <h3>@Model.InstitutionName</h3>
+        }
+    </div>
+    
+    <div class="col-xs-12">
+        <h4>@Model.ProgramName</h4>
+    </div>
+
+    <div class="col-xs-12" data-institutionid="@Model.InstitutionId" data-institutionName="@Model.InstitutionName" data-programid="@Model.ProgramId" data-programproductid="@Model.ProgramProductId" data-programtemplateid="@Model.ProgramTemplateId">
+        <button type="button" class="btn btn-primary yes-btn">Yes</button>
+        <button type="button" class="btn btn-default no-btn">No</button>
+    </div>
+
+</div>

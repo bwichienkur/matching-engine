@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://nexperf/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.Core" />
+  <xs:import schemaLocation="http://nexperf/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://nexperf/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://nexperf/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.Core.Base" />
+  <xs:import schemaLocation="http://nexperf/EDDY.IS.MatchingEngine.Service/MatchingService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+  <xs:complexType name="DirectoryMatchRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CampusId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="FeatureId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="GeoTarget" nillable="true" type="tns:GeoTarget" />
+          <xs:element minOccurs="0" name="InstitutionId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MaxNestedProgramCount" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PageNumber" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProgramId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RemoveInvalidEntities" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SortMethod" type="tns:EntitySortMethod" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DirectoryMatchRequest" nillable="true" type="tns:DirectoryMatchRequest" />
+  <xs:complexType name="BaseMatchRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/EDDY.IS.Core.Base" base="q1:BaseEntity">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EDDY.IS.Core" minOccurs="0" name="Application" nillable="true" type="q2:ISApplication" />
+          <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+          <xs:element minOccurs="0" name="CampusType" nillable="true" type="tns:CampusType" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CategoryList" nillable="true" type="q3:ArrayOfint" />
+          <xs:element minOccurs="0" name="IsBeta" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MaxResultsCount" nillable="true" type="xs:int" />
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProgramLevelList" nillable="true" type="q4:ArrayOfint" />
+          <xs:element minOccurs="0" name="ProgramTypeList" nillable="true" type="tns:ArrayOfProgramType" />
+          <xs:element minOccurs="0" name="ProspectInput" nillable="true" type="tns:ProspectInput" />
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SubjectList" nillable="true" type="q5:ArrayOfint" />
+          <xs:element minOccurs="0" name="TrackGuid" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BaseMatchRequest" nillable="true" type="tns:BaseMatchRequest" />
+  <xs:simpleType name="CampusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Online">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Ground">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CampusType" nillable="true" type="tns:CampusType" />
+  <xs:complexType name="ArrayOfProgramType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProgramType" type="tns:ProgramType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProgramType" nillable="true" type="tns:ArrayOfProgramType" />
+  <xs:simpleType name="ProgramType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Degrees">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Courses">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Certificates">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ProgramType" nillable="true" type="tns:ProgramType" />
+  <xs:complexType name="ProspectInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Age" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationLevelId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GPAKeyValueId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="HSGraduationYear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsCitizen" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMilitary" nillable="true" type="xs:boolean" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="KVCodeData" nillable="true" type="q6:ArrayOfKeyValuePairOfstringint" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StateId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StreetAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YearsTeachingExperienceKeyValueId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="YearsWorkExperienceKeyValueId" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProspectInput" nillable="true" type="tns:ProspectInput" />
+  <xs:complexType name="GeoTarget">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RadiusFromPostalCode" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GeoTarget" nillable="true" type="tns:GeoTarget" />
+  <xs:simpleType name="EntitySortMethod">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RankScore">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Alphabetical">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EntitySortMethod" nillable="true" type="tns:EntitySortMethod" />
+  <xs:complexType name="FormProgramResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FormProgramList" nillable="true" type="tns:ArrayOfFormProgram" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FormProgramResponse" nillable="true" type="tns:FormProgramResponse" />
+  <xs:complexType name="BaseMatchResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MatchResponseGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="ResultCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseMatchResponse" nillable="true" type="tns:BaseMatchResponse" />
+  <xs:complexType name="ArrayOfFormProgram">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FormProgram" nillable="true" type="tns:FormProgram" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFormProgram" nillable="true" type="tns:ArrayOfFormProgram" />
+  <xs:complexType name="FormProgram">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FormCampusList" nillable="true" type="tns:ArrayOfFormCampus" />
+          <xs:element minOccurs="0" name="ProgramId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProgramLevelId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProgramLevelName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProgramName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FormProgram" nillable="true" type="tns:FormProgram" />
+  <xs:complexType name="BaseMatchEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FailedValidation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProgramRankScore" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseMatchEntity" nillable="true" type="tns:BaseMatchEntity" />
+  <xs:complexType name="ArrayOfFormCampus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FormCampus" nillable="true" type="tns:FormCampus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFormCampus" nillable="true" type="tns:ArrayOfFormCampus" />
+  <xs:complexType name="FormCampus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CampusId" type="xs:int" />
+          <xs:element minOccurs="0" name="CampusName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CampusType" type="tns:CampusType" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProgramProductId" type="xs:int" />
+          <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TemplateId" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FormCampus" nillable="true" type="tns:FormCampus" />
+  <xs:complexType name="InstitutionResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InstitutionList" nillable="true" type="tns:ArrayOfInstitution" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InstitutionResponse" nillable="true" type="tns:InstitutionResponse" />
+  <xs:complexType name="ArrayOfInstitution">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Institution" nillable="true" type="tns:Institution" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInstitution" nillable="true" type="tns:ArrayOfInstitution" />
+  <xs:complexType name="Institution">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InstitutionDescriptionCampus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InstitutionDescriptionOnline" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InstitutionDisclaimer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InstitutionDisclaimerType" nillable="true" type="tns:DisclaimerType" />
+          <xs:element minOccurs="0" name="InstitutionId" type="xs:int" />
+          <xs:element minOccurs="0" name="InstitutionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProgramCount" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Institution" nillable="true" type="tns:Institution" />
+  <xs:simpleType name="DisclaimerType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Text">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Link">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DisclaimerType" nillable="true" type="tns:DisclaimerType" />
+  <xs:complexType name="InstitutionWithProgram">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Institution">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProgramList" nillable="true" type="tns:ArrayOfProgram" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InstitutionWithProgram" nillable="true" type="tns:InstitutionWithProgram" />
+  <xs:complexType name="ArrayOfProgram">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Program" nillable="true" type="tns:Program" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProgram" nillable="true" type="tns:ArrayOfProgram" />
+  <xs:complexType name="Program">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CategoryId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProgramCampusType" type="tns:CampusType" />
+          <xs:element minOccurs="0" name="ProgramDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProgramDisclaimer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProgramDisclaimerType" nillable="true" type="tns:DisclaimerType" />
+          <xs:element minOccurs="0" name="ProgramId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProgramLevelId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProgramLevelName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProgramName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProgramProductId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProgramType" type="tns:ProgramType" />
+          <xs:element minOccurs="0" name="SubjectId" type="xs:int" />
+          <xs:element minOccurs="0" name="TemplateId" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Program" nillable="true" type="tns:Program" />
+  <xs:complexType name="InstitutionWithCampus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Institution">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CampusList" nillable="true" type="tns:ArrayOfCampus" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InstitutionWithCampus" nillable="true" type="tns:InstitutionWithCampus" />
+  <xs:complexType name="ArrayOfCampus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Campus" nillable="true" type="tns:Campus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCampus" nillable="true" type="tns:ArrayOfCampus" />
+  <xs:complexType name="Campus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CampusId" type="xs:int" />
+          <xs:element minOccurs="0" name="CampusName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CampusType" type="tns:CampusType" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProgramCount" type="xs:int" />
+          <xs:element minOccurs="0" name="ProgramList" nillable="true" type="tns:ArrayOfProgram" />
+          <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Campus" nillable="true" type="tns:Campus" />
+  <xs:complexType name="CampusResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CampusList" nillable="true" type="tns:ArrayOfCampusWithInstitution" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CampusResponse" nillable="true" type="tns:CampusResponse" />
+  <xs:complexType name="ArrayOfCampusWithInstitution">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CampusWithInstitution" nillable="true" type="tns:CampusWithInstitution" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCampusWithInstitution" nillable="true" type="tns:ArrayOfCampusWithInstitution" />
+  <xs:complexType name="CampusWithInstitution">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Campus">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InstitutionId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="InstitutionName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CampusWithInstitution" nillable="true" type="tns:CampusWithInstitution" />
+  <xs:complexType name="ProgramResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProgramList" nillable="true" type="tns:ArrayOfProgram" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProgramResponse" nillable="true" type="tns:ProgramResponse" />
+  <xs:complexType name="ProgramWithInstitutionCampus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Program">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CampusAddress1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CampusAddress2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CampusCity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CampusId" type="xs:int" />
+          <xs:element minOccurs="0" name="CampusName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CampusPostalCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CampusState" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CampusType" type="tns:CampusType" />
+          <xs:element minOccurs="0" name="HasCampusLogo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="InstitutionDisclaimer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InstitutionDisclaimerType" nillable="true" type="tns:DisclaimerType" />
+          <xs:element minOccurs="0" name="InstitutionId" type="xs:int" />
+          <xs:element minOccurs="0" name="InstitutionName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProgramWithInstitutionCampus" nillable="true" type="tns:ProgramWithInstitutionCampus" />
+  <xs:complexType name="CategoryResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CategoryList" nillable="true" type="tns:ArrayOfCategory" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CategoryResponse" nillable="true" type="tns:CategoryResponse" />
+  <xs:complexType name="ArrayOfCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Category" nillable="true" type="tns:Category" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategory" nillable="true" type="tns:ArrayOfCategory" />
+  <xs:complexType name="Category">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CategoryId" type="xs:int" />
+          <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Category" nillable="true" type="tns:Category" />
+  <xs:complexType name="SubjectResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SubjectList" nillable="true" type="tns:ArrayOfSubject" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SubjectResponse" nillable="true" type="tns:SubjectResponse" />
+  <xs:complexType name="ArrayOfSubject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Subject" nillable="true" type="tns:Subject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubject" nillable="true" type="tns:ArrayOfSubject" />
+  <xs:complexType name="Subject">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SubjectId" type="xs:int" />
+          <xs:element minOccurs="0" name="SubjectName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Subject" nillable="true" type="tns:Subject" />
+  <xs:complexType name="ProgramLevelResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProgramLevelList" nillable="true" type="tns:ArrayOfProgramLevel" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProgramLevelResponse" nillable="true" type="tns:ProgramLevelResponse" />
+  <xs:complexType name="ArrayOfProgramLevel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProgramLevel" nillable="true" type="tns:ProgramLevel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProgramLevel" nillable="true" type="tns:ArrayOfProgramLevel" />
+  <xs:complexType name="ProgramLevel">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProgramLevelId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProgramLevelName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProgramLevel" nillable="true" type="tns:ProgramLevel" />
+  <xs:complexType name="CrossSellMatchRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FormDefaultTemplateId" type="xs:int" />
+          <xs:element minOccurs="0" name="FormInstitutionId" type="xs:int" />
+          <xs:element minOccurs="0" name="FormProgramLevelId" type="xs:int" />
+          <xs:element minOccurs="0" name="FormProgramProductId" type="xs:int" />
+          <xs:element minOccurs="0" name="FormTemplateId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CrossSellMatchRequest" nillable="true" type="tns:CrossSellMatchRequest" />
+  <xs:complexType name="CrossSellProgramResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InitialLeadInvalidMessage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InitialLeadValidMessage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MaxProgramsToDisplay" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MaxUserSelections" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProgramList" nillable="true" type="tns:ArrayOfProgramWithInstitutionCampus" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CrossSellProgramResponse" nillable="true" type="tns:CrossSellProgramResponse" />
+  <xs:complexType name="ArrayOfProgramWithInstitutionCampus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProgramWithInstitutionCampus" nillable="true" type="tns:ProgramWithInstitutionCampus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProgramWithInstitutionCampus" nillable="true" type="tns:ArrayOfProgramWithInstitutionCampus" />
+  <xs:complexType name="InstitutionDetailResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InstitutionDetails" nillable="true" type="tns:InstitutionDetail" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InstitutionDetailResponse" nillable="true" type="tns:InstitutionDetailResponse" />
+  <xs:complexType name="InstitutionDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CalendarTypeOnline" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CarnegieClassification" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ComputerRequirement" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateTotalEnrollmentAsOf" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FailedValidation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GeographicComments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstitutionDescriptionCampus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstitutionDescriptionOnline" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstitutionDisclaimer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstitutionDisclaimerType" nillable="true" type="tns:DisclaimerType" />
+      <xs:element minOccurs="0" name="InstitutionId" type="xs:int" />
+      <xs:element minOccurs="0" name="InstitutionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstitutionType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstitutionalAccreditationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LearningFormatOnline" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoansOffered" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OnCampusRequirements" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegistrationDetails" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScholarshipOffered" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalEnrollment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InstitutionDetail" nillable="true" type="tns:InstitutionDetail" />
+  <xs:complexType name="ProgramDetailResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseMatchResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProgramDetails" nillable="true" type="tns:ProgramDetail" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProgramDetailResponse" nillable="true" type="tns:ProgramDetailResponse" />
+  <xs:complexType name="ProgramDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccreditationDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdditionalFinancialAidInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdditionalTuitionInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CostPerCredit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CourseCost" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CourseLength" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreditsRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FailedValidation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FinancialAidInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstitutionId" type="xs:int" />
+      <xs:element minOccurs="0" name="InstitutionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InternationalRequirements" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InternationalTuition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LearningFormat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfStartDates" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OnCampusRequirements" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PriorCreditsRequired" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProgramDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProgramDisclaimer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProgramDisclaimerType" nillable="true" type="tns:DisclaimerType" />
+      <xs:element minOccurs="0" name="ProgramId" type="xs:int" />
+      <xs:element minOccurs="0" name="ProgramLevelId" type="xs:int" />
+      <xs:element minOccurs="0" name="ProgramLevelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProgramName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProgramTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="Requirements" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Schedule" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProgramDetail" nillable="true" type="tns:ProgramDetail" />
+  <xs:complexType name="ProgramValidateRequest">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/EDDY.IS.Core" minOccurs="0" name="Application" type="q7:ISApplication" />
+      <xs:element minOccurs="0" name="BreakOnFirstValidationFailure" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProgramProductId" type="xs:int" />
+      <xs:element minOccurs="0" name="ProspectInput" nillable="true" type="tns:ProspectInput" />
+      <xs:element minOccurs="0" name="TrackGuid" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProgramValidateRequest" nillable="true" type="tns:ProgramValidateRequest" />
+  <xs:complexType name="ProgramValidateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PassedValidation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RuleFailures" nillable="true" type="tns:ArrayOfRuleFailure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProgramValidateResponse" nillable="true" type="tns:ProgramValidateResponse" />
+  <xs:complexType name="ArrayOfRuleFailure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RuleFailure" nillable="true" type="tns:RuleFailure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRuleFailure" nillable="true" type="tns:ArrayOfRuleFailure" />
+  <xs:complexType name="RuleFailure">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RuleFailureName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RuleFailureType" nillable="true" type="tns:BaseRuleType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RuleFailure" nillable="true" type="tns:RuleFailure" />
+  <xs:simpleType name="BaseRuleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GPA">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="HSGradYear">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="YearsWorkExperience">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="YearsTeachingExperience">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MinimumAge">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IsMilitary">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Custom_KVLookup">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LeadCap">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">100</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Minimum_Education_Level">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">101</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Geographic_Restriction">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">102</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TemplateAssigned">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">103</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ExternalDuplicate">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">104</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InternalDuplicate">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">105</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LeadScore">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">106</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CampaignRestriction">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">107</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BaseRuleType" nillable="true" type="tns:BaseRuleType" />
+  <xs:complexType name="CountryValidateRequest">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/EDDY.IS.Core" minOccurs="0" name="Application" type="q8:ISApplication" />
+      <xs:element minOccurs="0" name="CountryId" type="xs:int" />
+      <xs:element minOccurs="0" name="ProgramProductId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CountryValidateRequest" nillable="true" type="tns:CountryValidateRequest" />
+</xs:schema>

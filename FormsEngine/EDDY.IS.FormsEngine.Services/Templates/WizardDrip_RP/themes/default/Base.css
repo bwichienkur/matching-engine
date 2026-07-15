@@ -1,0 +1,1901 @@
+﻿/*********************************************** Basic CSS for Professional Blue *************************/
+/*******************Will move into a seperate css file, and imported by specific css file ********************/
+
+.eddy-form-container{
+	font-size:14px;
+    color:#333;
+    line-height: 1.1;
+    font-family: Arial,Helvetica,sans-serif;
+}
+.eddy-form-container .clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+	visibility:hidden;
+}
+.eddy-form-container h1, 
+.eddy-form-container h2, 
+.eddy-form-container h3, 
+.eddy-form-container h4, 
+.eddy-form-container h5{
+    font-weight: bold;
+}
+.eddy-form-container h2, 
+.eddy-form-container h3, 
+.eddy-form-container h4, 
+.eddy-form-container h5,
+.eddy-form-container p{
+	margin:.5em 0;
+}
+.eddy-form-container h2 {
+    font-size: 150%;
+}
+.eddy-form-container h3 {
+    font-size:130%;
+}
+.eddy-form-container h4 {
+    font-size:110%;
+}
+.eddy-form-container h5 {
+    font-size:90%;
+}
+.eddy-form-container a,
+.eddy-form-container img {
+    outline:none;
+    color:#333;
+}
+    .eddy-form-container a,
+    .eddy-form-container a:hover,
+    .eddy-form-container a:link,
+    .eddy-form-container a:visited {
+        text-decoration:underline;
+    }
+
+/* overwrite the color of watermark*/
+.eddy-form-container ::-webkit-input-placeholder	{ color:#777; }
+.eddy-form-container ::-moz-placeholder { color:#777; } /* firefox 19+ */
+.eddy-form-container input:-moz-placeholder { color:#777; }
+		
+.eddy-form-container input:-ms-placeholder { color:#8F8F8F; }
+.eddy-form-container ::-ms-input-placeholder	{ color:#8F8F8F; }
+.eddy-form-container :-ms-input-placeholder	{ color:#8F8F8F; }
+
+/* for overwrite the color of watermark in <=IE9*/
+.eddy-form-wizard-container input.watermark {
+    color: #8F8F8F !important;
+}
+
+/*************** reset ****************/
+.eddy-form-wizard-container ol, .eddy-form-wizard-container ul {
+    list-style: none outside none;
+	margin:8px auto;
+    padding: 0;
+}
+.eddy-form-wizard-container fieldset {
+    border-width: 0;
+	padding: 0;
+    margin:0 2px;
+    position: static;
+}
+.eddy-form-wizard-container fieldset legend{
+    font-weight:bold;
+	margin:0 8px 14px 0;
+    border:0;
+    border-bottom: 2px solid #E3E3E3;
+    width:100%;
+    line-height:150%;
+    font-size:15px;
+    background:none;
+    position:relative;
+    top:0;
+    left:0;
+    height:auto;
+    font-family:inherit;
+    border-radius:0;
+    text-indent:0;
+    text-shadow:none;
+}
+
+.eddy-form-wizard-container .field-holder fieldset label{
+	font-weight:normal;
+	display:inline-block;
+    border:none;
+}
+.eddy-form-wizard-container .field-holder fieldset input{
+    display:inline-block;
+	margin:3px 5px 3px 0;
+	width:40%;
+}
+.hide, .hidden {
+    display: none;
+}
+
+.eddy-form-wizard-container *:focus {
+    outline: 0 none;
+}
+
+.eddy-form-wizard-container select:focus, .eddy-form-wizard-container input[type="text"]:focus, .eddy-form-wizard-container textarea:focus{
+    box-shadow: 0 0 5px #a8d5f2;
+}
+/****** .eddy-form-wizard-container ******/
+
+.eddy-form-wizard-container{
+	width:100%;
+	font-family: Arial,Helvetica,sans-serif;
+    margin-left:5px;
+}
+
+.eddy-form-wizard-container h1 {
+    color: #111111;
+    font-size: 22px;
+    font-style: italic;
+    margin: 1em 0 0.5em 1em;
+}
+.eddy-form-wizard-container h2{
+
+}
+.eddy-form-wizard-container .form-page-step-message *{
+
+	margin:15px 10px 15px 0;
+}
+
+.steps {
+    min-height:340px;
+    float:left;
+    width:84%;
+    margin: 0 10% 0 6%;
+
+}
+.eddy-form-wizard-container .text-field, .select-field, .label-holder {
+    margin: 0;
+}
+.eddy-form-wizard-container .field-holder {
+    clear: both;
+    margin: 0 0 16px;
+    /*min-height: 30px;*/
+    padding: 0;
+    position: relative;
+    text-align: left;
+    vertical-align: top;
+}
+
+
+	.eddy-form-wizard-container .field-holder label{
+        border-bottom: 2px solid #E3E3E3;
+		color: #333333;
+        display: block;
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 110%;
+		margin: 0 2px 14px 0;
+        vertical-align:middle;
+        padding-bottom:5px;
+	}
+
+    .eddy-form-wizard-container .field-holder fieldset legend { /* ":not " not working in < IE8 */
+        border-bottom: 2px solid #E3E3E3;
+		color: #333333;
+        display: block;
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 110%;
+		margin: 0 2px 14px 0;
+        vertical-align:middle;
+        padding-bottom:5px;
+    }
+
+	.eddy-form-wizard-container .field-holder select,
+	.eddy-form-wizard-container .field-holder input{		
+        /*background:none\0;
+		background: -webkit-gradient(linear, left top, left 45, from(#FFFFFF), color-stop(40%, #FFFFFF), to(#BBBBBB));
+		background: -moz-linear-gradient(top, #FFFFFF, #FFFFFF 1px, #BBBBBB 45px);*/
+        border: 1px solid #BBBBBB; /* this line causes dropdown icon missing in IE of some samsung(Android)*/
+		font-size: 14px;
+		margin-bottom: 4px;
+		padding: 8px 1%;
+        padding-bottom: 8px \0/;
+		width: auto;
+        height:auto;
+		vertical-align: middle;	
+		padding-top:10px\9;		
+        float:none;
+        top:0;
+        font-family: Arial,Helvetica,sans-serif;
+        display:block;
+        background-color: #FFF; 
+	}
+
+	.eddy-form-wizard-container .field-holder input{
+		background:white;
+        padding:9px 3%;
+        width:94%;
+	}
+    .eddy-form-wizard-container .field-holder select{
+        width:65%;
+        height:36px;
+        min-width:150px;
+	}
+    .eddy-form-wizard-container .field-holder select option{
+        padding-left:2px;
+        padding-right:2px;
+    }
+	.eddy-form-wizard-container .field-holder input[type='checkbox']{
+		border:none;
+        margin:0 5px 0 0;
+		padding:0;
+		width:auto;
+		vertical-align:top;
+		background:transparent;
+	}
+	.eddy-form-wizard-container .field-holder .sub-field-holder input[type='checkbox']{
+		vertical-align:middle;
+	}
+	
+	
+	.eddy-form-wizard-container .field-holder select.actived,
+	.eddy-form-wizard-container .field-holder input.actived,
+	.eddy-form-wizard-container .field-holder select:focus,
+	.eddy-form-wizard-container .field-holder input:focus{
+		/*color:#333;*/
+	}
+
+	.eddy-form-wizard-container .field-holder .sub-field-holder{
+		display:inline;
+		margin: .3em;
+	}
+		.eddy-form-wizard-container .field-holder .sub-field-holder input[type='checkbox']{
+			margin:0 2px 0 0;
+			width:auto;
+			padding:0;
+		}
+		.eddy-form-wizard-container .field-holder .sub-field-holder label,
+		.eddy-form-wizard-container .field-holder .field-holder-group label{
+			display:inline-block;
+			font-weight:normal;
+			vertical-align:middle;
+			color:#555;
+			margin-bottom:0;
+		}
+
+	.eddy-form-wizard-container .field-holder .field-holder-group{
+		
+	}
+
+	
+	.eddy-form-wizard-container .field-holder .field-holder-group li{
+		width:48%;
+		margin:0 0 5px;
+		display:inline-block;
+		vertical-align:top;
+		width:49%\9;
+		margin:3px 0\9;
+		/*line-height: 10%\9;*/
+		*display:inline;
+		*float:left;		
+		*width:47%;
+	}
+	.eddy-form-wizard-container .field-holder .field-holder-group label{
+		font-size:13px;
+		margin:0px;
+		width:80%;
+		*margin-top:2px;
+        line-height: 100%;
+        vertical-align:top;
+        border:none;
+	}
+	
+.eddy-form-wizard-container div.checkbox input {
+    width: auto;
+}
+.eddy-form-wizard-container div.checkbox label {
+    font-size: 11px;
+    line-height: 15px;
+    width: 90%;
+	margin: 0;
+	display: inline-block;
+	font-weight: normal;
+}
+
+.eddy-form-wizard-container input.error, .eddy-form-wizard-container select.error {
+    border: 1px solid #B9121B;
+}
+.eddy-form-wizard-container label.error {
+    color: #B9121B;
+    font-size: 12px;
+    font-weight:normal;
+    border:none;
+}
+.eddy-form-wizard-container .error-summary, .eddy-form-wizard-container .UserAgreement ul {
+    color: #B9121B;
+    font-size: 14px;
+    margin: 10px 0 10px 90px;
+    padding: 0;
+    width: auto;
+}
+.eddy-form-wizard-container .error-summary *{
+    color: #B9121B;
+}
+.eddy-form-wizard-container .UserAgreement ul {
+    margin-left: 65px;
+}
+.eddy-form-wizard-container .error-summary li, .UserAgreement fieldset ul li {
+    background: none repeat scroll 0 0 transparent;
+    clear: both;
+    color: #B9121B;
+    font-size: 15px;
+    list-style-type: disc !important;
+    margin: 5px 0;
+    padding: 0;
+    position: relative;
+    width: auto !important;
+}
+.eddy-form-wizard-container .error-summary label.error, .eddy-form-wizard-container .UserAgreement label.error {
+    background: none repeat scroll 0 0 transparent;
+    clear: both;
+    color: #B9121B;
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    list-style-type: disc !important;
+    margin: 0 0 8px;
+    padding: 0;
+    position: relative;
+    text-align: left;
+    width: auto;
+}
+.eddy-form-wizard-container .field-holder.radio label {
+    margin: 7px 10px 2px 0;
+    vertical-align: middle;
+    width: auto;
+}
+
+.eddy-form-wizard-container .field-holder.radio input {
+    margin: 1px 3px 0;
+	border:none;
+	padding:0;
+	width:auto;
+    float:none;
+}
+
+.eddy-form-wizard-container .field-holder #ECMilitaryQ1_Yes, 
+.eddy-form-wizard-container .field-holder #ECMilitaryQ1_No {
+    margin: 1px 3px 0 !important;
+	border:none !important;
+	padding:0 !important;
+	width:auto !important;
+}
+
+.eddy-form-wizard-container .hide, .eddy-form-wizard-container .hidden {
+    display: none;
+}
+
+.eddy-form-wizard-container #screen-button {
+    display: none;
+}
+
+/******************* Wizard Drip *********************/
+
+/* wizard drip body */
+.eddy-form-wizard-container .eddy-form-wizard-body {
+    position:relative;
+    background:#FFF;
+    /*background: url("[SERVER]/images/dripForm-bg.png") no-repeat center top;*/
+    padding: 20px 0 4em;
+    margin:0 0 15px 4%;
+    width: 88%;
+    -moz-border-radius: 0 0 10px 10px;
+	-webkit-border-radius: 0 0 10px 10px;
+	-khtml-border-radius: 0 0 10px 10px;
+	border-radius: 0 0 10px 10px;
+    border: 1px solid #ACACAC;
+    top:-20px;
+    -moz-box-shadow: inset 0 0 10px #CCC;
+    -webkit-box-shadow: inset 0 0 10px #CCC;
+    box-shadow: inset 0 0 10px #CCC;
+}
+
+.eddy-form-wizard-container .eddy-form-wizard-body ul.steps{
+	margin:10px 0 20px;
+}
+
+/* Button */
+.eddy-form-wizard-container .btnNext,
+.eddy-form-wizard-container .btnPrev {
+    background: none;
+    border: 0 none;
+    bottom: 45%;
+    display: inline;
+    position: absolute;
+    z-index: 10;
+}
+.eddy-form-wizard-container .btnNext {
+    float: right;
+    right:-40px;
+    width: 76px;
+    background: url("[SERVER]/images/call_to_action_sprite.png") no-repeat 0 -55px;
+    cursor: pointer;
+    display: block;
+    height: 53px;
+    line-height: normal;
+    margin: 0 auto;
+    padding: 0;
+    
+}
+    .eddy-form-wizard-container .btnNext.buttonLastStep {
+        background: url("[SERVER]/images/call_to_action_sprite_laststep.png") no-repeat 0 -55px;
+    }
+.eddy-form-wizard-container .btnPrev { 
+    margin-top: 8px auto; 
+    left:-23px;
+    width: 50px; 
+    float:left; 
+    display:block; 
+    height:42px; 
+    background:url("[SERVER]/images/call_to_action_sprite_prev.png") no-repeat 0 -40px; 
+    line-height:normal !important; 
+    padding:0 !important; 
+    cursor:pointer;
+    bottom:46%;
+}
+
+    .eddy-form-wizard-container .btnNext a {
+        background: url("[SERVER]/images/call_to_action_sprite.png") no-repeat 0 0;
+        display: block;
+        height: 100%;
+        text-indent: -9999px;
+        width: 100%;
+    }
+    .eddy-form-wizard-container .btnNext.buttonLastStep a {
+        background: url("[SERVER]/images/call_to_action_sprite_laststep.png") no-repeat 0 0;
+    }
+    .eddy-form-wizard-container .btnNext a:hover { 
+        background-position: 0 56px; 
+        outline:none; 
+    }
+    
+    .eddy-form-wizard-container .btnPrev a { 
+        display:block; 
+        width:100%; 
+        height:100%; 
+        background:url("[SERVER]/images/call_to_action_sprite_prev.png") no-repeat 0 0 transparent; 
+        text-indent:-9999px; 
+
+    }
+    .eddy-form-wizard-container .btnPrev a:hover { 
+        background-position: 0 41px; 
+        outline:none; 
+
+    }
+
+
+/* wizard drip header */
+.eddy-form-wizard-container .eddy-form-wizard-header{
+	position:relative;
+	padding:5px 5px 0px;
+    z-index:10;
+}
+	.eddy-form-wizard-header .matching-progress{
+		background: url("[SERVER]/images/hdrMatchingProgress.png") no-repeat;
+		width:173px;
+		height:26px;
+	}
+	
+	.eddy-form-wizard-header .progress{		
+        height:16px;
+        width:95%;
+		margin:4px 0px;
+        -moz-border-radius: 4px;
+	    -webkit-border-radius: 4px;
+	    -khtml-border-radius: 4px;
+	    border-radius: 4px;
+        border: 1px solid #ACACAC;
+        background:#EBEBEB;
+	}
+
+			
+        .eddy-form-wizard-header .progress .progress-bar-inside{
+			top:0;
+			left:0;
+			height:88%;
+            margin:0 -1px -1px 0;
+            -moz-border-radius: 4px 0 0 4px;
+	        -webkit-border-radius: 4px 0 0 4px;
+	        -khtml-border-radius: 4px 0 0 4px;
+	        border-radius: 4px 0 0 4px;
+            background:url("[SERVER]/images/pbar-ani.gif");
+            border:1px solid #E78F08;
+		}
+		
+
+		.eddy-form-wizard-header .programMatches{
+            background: url("[SERVER]/images/programMatch.png") no-repeat right top;
+            height: 80px;
+            position: absolute;
+            top: 0;
+            right:5px;
+            width: 100px;
+		}
+        .eddy-form-wizard-header .programMatches span {
+            bottom: 14px;
+            color: #5D5D5D;
+            font-size: 19px;
+            font-weight: bold;
+            height: 25px;
+            right: 0;
+            margin-right: auto;
+            margin-top: 0;
+            position: absolute;
+            text-align: center;
+            text-shadow: 1px 1px 1px #FFFFFF;
+            width: 73px;
+        }
+		
+
+/* wizard drip footer */		
+.eddy-form-wizard-container .eddy-form-wizard-footer{
+    height: 0;
+    padding: 10px 10px 20px 30px;
+    width: 100%;
+}
+
+
+    .eddy-form-wizard-container.no-match .form-page-step-message *{	   
+        font-size:13px;
+    }
+
+    .eddy-form-wizard-container #contactAdvisor {
+        background:url("[SERVER]/images/noMatchImg.jpg") no-repeat;
+        width:280px;
+        height:190px;
+        margin:auto;
+    }
+.eddy-form-wizard-container.no-match .form-submit-button {
+    background:url("[SERVER]/images/btnMatchMeAgain.gif") no-repeat;
+    width:185px;
+    height:30px;
+    float:right;
+}
+    .eddy-form-wizard-container.no-match .form-submit-button a {
+        padding:15px 90px;
+    }
+
+
+
+
+
+/* loader  */
+
+.eddy-form-container .FEoverlay {
+	background: none repeat scroll 0 0 #FFF;
+    height: 93%;
+    opacity: 0.85;
+	filter: alpha(opacity = 95);
+	zoom:1;
+    position: absolute;
+    top: 25px;
+    width: 100%;
+    z-index: 10;
+}
+
+
+.eddy-form-container #FEloader {
+	width: 60%;
+	height: 200px;
+	margin: 0 15px;
+	background: url("[SERVER]/images/ajax-loader.gif") no-repeat 45% 60px;
+	background-size: 48px 48px;
+	font-family: Arial, Helvetica, sans-serif Aharoni !important;
+	color: #262626;
+	text-align: center;
+    z-index: 11;
+}
+.eddy-form-container #FEloader .loading {
+	font-weight: bold !important;
+	font-size: 16px !important;
+	text-transform: uppercase !important;
+	margin: 120px 0 5px 0 !important;
+}
+.eddy-form-container #FEloader .loadingParagraph {
+	font-weight: normal;
+	font-size: 14px;
+	font-style: italic;
+	color: #262626;
+	margin: 0;
+}
+.eddy-form-container #FEloader.loaderOn {
+    top: 20%;
+    left: 19%;
+    position: absolute;
+}
+
+/******** More School Area **************/
+.eddy-form-wizard-footer .more-school-area .more-schools{
+
+}	
+.eddy-form-wizard-footer .more-school-area .more-schools ul{
+	width:340px;
+}	
+.eddy-form-wizard-footer .more-school-area .more-schools li{
+	border:1px solid #d8d8d8;
+	-webkit-border-radius: 60px;
+	-moz-border-radius: 60px;
+	border-radius: 60px;
+	margin-bottom:15px;
+	box-shadow: 2px 2px 10px 0px #888;
+	-moz-box-shadow: 2px 2px 10px 0px #888;
+	-webkit-box-shadow: 2px 2px 10px 0px #888;
+	padding:10px 20px;
+	text-align:center;
+}
+    .eddy-form-wizard-footer .more-school-area .more-schools li .school-icon {
+        width:278px;
+        height:50px;
+        margin:0 auto 5px;
+    }
+    .eddy-form-wizard-footer .more-school-area .more-schools li #CollegeCredit {
+        background: url("[SERVER]/images/collegecredit.png") no-repeat;
+    }
+    .eddy-form-wizard-footer .more-school-area .more-schools li #TestDriveCollege {
+        background: url("[SERVER]/images/testdrivecollege.png") no-repeat;
+    }
+    .eddy-form-wizard-footer .more-school-area .more-schools li #eLearners {
+        background: url("[SERVER]/images/elearners.png") no-repeat;
+    }
+.eddy-form-wizard-footer .more-school-area .more-schools li p{
+	margin:0;
+	text-align:center;
+}
+
+
+/******* Thank you page/no match page ***************/
+.eddy-form-wizard-container.thank-you-page,
+.eddy-form-wizard-container.no-match {
+    background:none;
+}
+.eddy-form-wizard-container.thank-you-page .eddy-form-wizard-body,
+.eddy-form-wizard-container.no-match .eddy-form-wizard-body{
+     background:none;
+     padding:0;
+     font-size:12px;
+     width:auto;
+     border:0;
+     top:0;
+     -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.eddy-form-wizard-container.thank-you-page .eddy-form-wizard-footer{
+    margin-left:4%;
+}
+
+.eddy-form-wizard-container .thank-you-msg {
+    color: #FE9504;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1em !important;
+    margin: 0 0 5px;
+
+}
+
+.eddy-form-wizard-container.thank-you-page .image-text-group {
+    margin-left:30px;
+}
+.eddy-form-wizard-container.thank-you-page .image-text-group .image-text li{
+	display:block;
+	width:100%;
+    padding:5px 0 25px;
+    margin-bottom:1em;
+    background:url("[SERVER]/images/dividerShadowSchoolList.png") no-repeat center bottom;
+}
+.eddy-form-wizard-container.thank-you-page .image-text-group .image-text .school-logo{
+	display:inline-block;
+	height:auto;
+	box-shadow:none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	-khtml-border-radius: 0;
+	border-radius: 0;
+	border:1px solid #848284;
+    padding:1px;
+}
+
+.eddy-form-wizard-container.thank-you-page .image-text-group .image-text .school-logo .school-logo-name{
+    display: table-cell !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+.eddy-form-wizard-container.thank-you-page .image-text-group .image-text .school-info{
+	display:inline-block;
+	text-align:left;
+	vertical-align:top;
+	font-size:14px;
+	line-height:120%;
+	margin:0 5px;
+
+}
+    .eddy-form-wizard-container.thank-you-page .image-text-group .image-text .school-info p {
+        padding:0;
+        margin:0;
+    }
+.eddy-form-wizard-container.thank-you-page .image-text-group .image-text .school-info p.program-name{
+	font-size:11px;
+    margin:0;
+    line-height:100%;
+}
+.eddy-form-wizard-container.thank-you-page .submitted-school-msg {
+    padding:4px 0 8px 30px;
+	margin-top:20px;
+}
+    .eddy-form-wizard-container.thank-you-page .submitted-school-msg {
+
+    }
+    .eddy-form-wizard-container.thank-you-page .submitted-school-msg.online-msg,
+    .eddy-form-wizard-container.thank-you-page .submitted-school-msg.campus-msg {        
+        background: url("[SERVER]/images/tabsOnline.png") no-repeat 0 0;
+        color:#22275A;
+        padding-left:2.6em;
+        font:14px Tahoma, Geneva, sans-serif;
+    }
+    .eddy-form-wizard-container.thank-you-page .submitted-school-msg.online-msg:before,
+    .eddy-form-wizard-container.thank-you-page .submitted-school-msg.campus-msg:before{
+        content:"Your information has been submitted to the following ";        
+    }
+    .eddy-form-wizard-container.thank-you-page .submitted-school-msg.online-msg span:after{
+        content:"Online";
+        font-weight:bold;
+        font-size:15px;
+    }
+    .eddy-form-wizard-container.thank-you-page .submitted-school-msg.online-msg:after,
+    .eddy-form-wizard-container.thank-you-page .submitted-school-msg.campus-msg:after {
+        content:" schools:";
+    }
+
+    .eddy-form-wizard-container.thank-you-page .submitted-school-msg.campus-msg {
+        background: url("[SERVER]/images/tabsCampus.png") no-repeat -3px -3px;
+    }
+
+    .eddy-form-wizard-container.thank-you-page .submitted-school-msg.campus-msg span:after{
+        content:"Campus";
+        font-weight:bold;
+        font-size:15px;
+    }
+
+
+    .eddy-form-wizard-container.thank-you-page .eddy-form-wizard-footer,
+    .eddy-form-wizard-container.no-match .eddy-form-wizard-footer {
+        background:none;
+        padding:0;
+    }
+
+        .eddy-form-wizard-container.thank-you-page .eddy-form-wizard-footer .form-submit-button {
+            background: url("[SERVER]/images/btnBack.png") no-repeat;
+            height: 36px;
+            width: 111px;
+        }
+/* popup */
+.eddy-form-wizard-container .popup-info
+{
+    width:95%;
+    position:absolute;
+    z-index:10;
+    background:#F1F1F1;
+    padding:15px;
+    overflow-y:auto;
+    top:0;
+    -moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	-khtml-border-radius: 12px;
+	border-radius: 12px;
+    font-size:12px;
+    border: 1px solid #ACACAC;
+    -moz-box-shadow: inset 0 0 10px #AAA;
+    -webkit-box-shadow: inset 0 0 10px #AAA;
+    box-shadow: inset 0 0 10px #AAA;
+}
+
+
+    .eddy-form-wizard-container .popup-info .popup-close {
+        text-decoration:none;
+        background:url("[SERVER]/images/close.gif") no-repeat center;
+        height:20px;
+        width:20px;
+        position:absolute;
+        right:10px;
+        top:10px;
+    }
+
+    .eddy-form-wizard-container .popup-info h4 {
+        margin:0 1.5em 0.5em 0;
+        display:inline-block;
+    }
+
+
+/* Popup window */
+.eddy-form-wizard-container .popup-info #progDescTop {
+    display:none;
+}
+
+
+.eddy-form-wizard-container .popup-info #progDescBtm {
+    display:none;
+}
+.eddy-form-wizard-container .popup-info .us-institution-logo {
+    display:block;
+    float:left;
+    margin:0 .5em .6em 0;
+}
+.eddy-form-wizard-container .popup-info .sm-institution-popup-CampusName {
+    margin:0 0 2px 0;
+}
+.eddy-form-wizard-container .popup-info .us-program-popup-ProgramDescription,
+.eddy-form-wizard-container .popup-info .sm-institution-popup-InstitutionDescription,
+.eddy-form-wizard-container .popup-info .Description{
+    clear:both;
+    display:block;
+}
+.eddy-form-wizard-container .popup-info .us-program-popup-InstitutionName {
+    color: #22275A;
+    margin:0;
+    display:inline-block;
+}
+.eddy-form-wizard-container .popup-info .us-program-popup-ProgramName {
+    font-weight:normal;
+    margin-right: 1.5em;
+    display:inline-block;
+}
+.eddy-form-wizard-container .popup-info .sm-institution-popup-CampusCity, 
+.eddy-form-wizard-container .popup-info .sm-institution-popup-CampusState {
+    display:inline-block;
+}
+
+
+.eddy-form-container #eddy-form-wizard-managedchoice-container .FEoverlay {
+    width:470px;
+    left:0;
+    top:0;
+    height:98%;
+}
+
+.eddy-form-wizard-container .required-mark {
+    font-size:11px;
+}
+
+
+
+.eddy-form-wizard-container .btnNext #next-top,
+.eddy-form-wizard-container .btnPrev #prev-top{
+    display:none;
+}
+
+.eddy-form-wizard-container #ErrorMessage{
+    margin-top:20px;
+}
+
+/*********************************************** End of Basic CSS for Professional Blue *************************/
+
+
+
+/********************** CSS for specific fields **********************/
+
+.eddy-form-wizard-container .field-holder.Prefix label,
+.eddy-form-wizard-container .field-holder.City label,
+.eddy-form-wizard-container .field-holder.State label,
+.eddy-form-wizard-container .field-holder.Postal_Code_Duplicate label,
+.eddy-form-wizard-container .field-holder.Country label,
+.eddy-form-wizard-container .field-holder.Phone label,
+.eddy-form-wizard-container .field-holder.Alternate_Phone label {
+    display:none;
+}
+
+/*********** Wizard Start Form ***********************/
+.eddy-form-wizard-container .field-holder.full select{
+	width: 93.5%;
+}
+.eddy-form-wizard-container .field-holder.medium  select{
+	width: 63.5%;
+}
+.eddy-form-wizard-container .field-holder.full input{
+	width: 91.5%;
+}
+.eddy-form-wizard-container .field-holder.medium input{
+	width: 58.5%;
+}
+
+
+	.eddy-form-wizard-container .field-holder.has-scrollbar .featured-subcategories.field-holder-group {
+        height: auto;
+    }
+
+	.eddy-form-wizard-container .field-holder.has-scrollbar .field-holder-group{
+		overflow-y:auto;
+		/*background: #EDEDED;*/
+		padding:8px 0 8px 8px;
+        height:210px;
+        margin:0;
+		width: 98%;
+		clear: both;
+	}
+
+    .eddy-form-wizard-container .field-holder.has-scrollbar.no-scroll .field-holder-group{
+        height:auto;
+	}
+
+	
+.eddy-form-wizard-container .campus-preference-online{
+    background: url("[SERVER]/images/online.png") no-repeat scroll 0 0;
+    border: medium none !important;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+    vertical-align: bottom;
+    width: 177px;
+    height: 76px;
+}
+.eddy-form-wizard-container .campus-preference-campus{
+    background: url("[SERVER]/images/campus.png") no-repeat scroll 0 0;
+    border: medium none !important;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+    vertical-align: bottom;
+    width: 177px;
+    height: 76px;
+}
+.eddy-form-wizard-container .campus-preference-both{
+    background: url("[SERVER]/images/both.png") no-repeat scroll 0 0;
+    border: medium none !important;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+    vertical-align: bottom;
+    width: 177px;
+    height: 76px;
+	margin-top: 60px;
+}
+
+
+
+.eddy-form-wizard-container .image-checkbox-group .image-checkbox li{
+	display:inline-block;
+	padding:5px;
+	width:30%;
+	*float:left;
+	*width:30%;
+}
+	.eddy-form-wizard-container .image-checkbox-group .image-checkbox li.selected{
+		background:#DDD;
+		box-shadow: inset 2px 2px 15px 0px #888;
+		-moz-box-shadow: inset 2px 2px 15px 0px #888;
+		-webkit-box-shadow: inset 2px 2px 15px 0px #888;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		-khtml-border-radius: 10px;
+		border-radius: 10px;
+	}
+	
+.eddy-form-wizard-container .image-checkbox-group .image-checkbox input{
+	display:block;
+	margin:5px auto;
+    background:transparent;
+}
+.eddy-form-wizard-container .image-checkbox-group .image-checkbox a{
+	outline:none;
+}
+
+/*.eddy-form-wizard-container .select-all-categories,
+.eddy-form-wizard-container .select-all-subcategories,
+.eddy-form-wizard-container .select-all-specialties {
+    background:url("[SERVER]/images/btn-selectall.png") no-repeat;
+    width:77px;
+    height:21px;
+    text-indent:-999px;
+    cursor:pointer;
+    margin: 1.3em 0 1em 0.5em;
+    display:inline-block;
+    color:transparent;
+}
+.eddy-form-wizard-container .de-select-all-categories,
+.eddy-form-wizard-container .de-select-all-subcategories,
+.eddy-form-wizard-container .de-select-all-specialties {
+    background:url("[SERVER]/images/btn-clearall.png") no-repeat;
+    width:77px;
+    height:21px;
+    text-indent:-999px;
+    cursor:pointer;
+    margin:1.3em 0 0 .5em;
+    display:inline-block;
+    color:transparent;
+}*/
+
+
+/********************** CSS for specific fields **********************/
+
+
+.eddy-form-wizard-container .steps[data-title=DynamicQuestions] .field-holder fieldset legend,
+.eddy-form-wizard-container .steps[data-title=DynamicQuestions] .field-holder label { /* ":not " not working in < IE8 */
+        border-bottom: none;
+		font-weight: normal;
+        margin-bottom:.5em;
+    }
+.eddy-form-wizard-container .steps[data-title=DynamicQuestions] .field-holder fieldset label {
+    margin-bottom:2px;
+}
+.eddy-form-wizard-container .field-holder.Phone label,
+.eddy-form-wizard-container .field-holder.Alternate_Phone label,
+.eddy-form-wizard-container .field-holder.Desired_Start_Date label {
+	width: 35%;
+}
+/*
+.field-holder.Phone,
+.field-holder.Alternate_Phone {
+    float: left;
+}*/
+.eddy-form-wizard-container .field-holder.Phone label,
+.eddy-form-wizard-container .field-holder.Alternate_Phone label,
+.eddy-form-wizard-container .field-holder.Desired_Start_Date label,
+.eddy-form-wizard-container .field-holder.BestTimeToContact label,
+.eddy-form-wizard-container .field-holder.EmploymentStatus label,
+.eddy-form-wizard-container .field-holder.DynamicCampusSoftPreference label,
+.eddy-form-wizard-container .field-holder.StudentLoan label,
+.eddy-form-wizard-container .field-holder.HaveTransferCredits fieldset legend,
+.eddy-form-wizard-container .field-holder.us_citizen fieldset legend,
+.eddy-form-wizard-container .field-holder.ECMilitaryRadio fieldset legend,
+.eddy-form-wizard-container .field-holder.Military_Affiliation label {
+    border:none;
+    display:inline-block;
+    font-weight:normal;
+    text-align:right;
+    margin-bottom:4px;
+}
+.eddy-form-wizard-container .field-holder.HaveTransferCredits legend,
+.eddy-form-wizard-container .field-holder.us_citizen legend,
+.eddy-form-wizard-container .field-holder.ECMilitaryRadio legend {
+    float:left;
+}
+.eddy-form-wizard-container .field-holder.Phone label.error,
+.eddy-form-wizard-container .field-holder.Alternate_Phone label.error,
+.eddy-form-wizard-container .field-holder.Desired_Start_Date label.error {
+    width: auto;
+    margin-left:39%;
+    text-align:left;
+}
+.eddy-form-wizard-container .field-holder.BestTimeToContact label,
+.eddy-form-wizard-container .field-holder.EmploymentStatus label{
+    width:38%;
+}
+.eddy-form-wizard-container .field-holder.BestTimeToContact label.error,
+.eddy-form-wizard-container .field-holder.Desired_Start_Date label.error,
+.eddy-form-wizard-container .field-holder.EmploymentStatus label.error,
+.eddy-form-wizard-container .field-holder.Military_Affiliation label.error {
+    width:auto;
+}
+
+.eddy-form-wizard-container .field-holder.HaveTransferCredits legend,
+.eddy-form-wizard-container .field-holder.us_citizen legend,
+.eddy-form-wizard-container .field-holder.ECMilitaryRadio legend,
+.eddy-form-wizard-container .field-holder.DynamicCampusSoftPreference label,
+.eddy-form-wizard-container .field-holder.StudentLoan label
+.eddy-form-wizard-container .field-holder.Military_Affiliation label  {    
+    width:47%;
+}
+.eddy-form-wizard-container .field-holder.BestTimeToContact select,
+.eddy-form-wizard-container .field-holder.EmploymentStatus select, 
+.eddy-form-wizard-container .field-holder.Military_Affiliation select,
+.eddy-form-wizard-container .field-holder.DynamicCampusSoftPreference select,
+.eddy-form-wizard-container .field-holder.StudentLoan select {
+    width:49%;
+    display:inline-block;
+}
+/*
+.eddy-form-wizard-container .field-holder.Military_Affiliation label {
+	clear: both;
+    width: 68% !important;
+}*/
+
+.eddy-form-wizard-container .field-holder.Prefix select{
+    width:120px;
+}
+
+/*
+.eddy-form-wizard-container .field-holder.City input,
+.eddy-form-wizard-container .field-holder.Postal_Code_Duplicate input{
+       width:84%;
+}*/
+.eddy-form-wizard-container .field-holder.State select,
+.eddy-form-wizard-container .field-holder.Country select {
+    width:99%;
+}
+
+.eddy-form-wizard-container .field-holder.Age input,
+.eddy-form-wizard-container .field-holder.Postal_Code input{
+	width:20%;
+}
+.eddy-form-wizard-container .field-holder.Email{
+    width:88%;
+}
+.eddy-form-wizard-container .field-holder.Email input{
+    width:98%;
+}
+.eddy-form-wizard-container .field-holder.First_Name,
+.eddy-form-wizard-container .field-holder.Last_Name{
+	display:inline-block;
+    width:45%;
+}
+.eddy-form-wizard-container .field-holder.City,
+.eddy-form-wizard-container .field-holder.Postal_Code_Duplicate {
+    display:inline-block;
+    width:35%;
+}
+.eddy-form-wizard-container .field-holder.Country,
+.eddy-form-wizard-container .field-holder.State {
+    display:inline-block;
+    width:56%
+}
+    .eddy-form-wizard-container .field-holder.Address input,
+    .eddy-form-wizard-container .field-holder.Address_2 input{
+        width:85%;
+    }
+.eddy-form-wizard-container .field-holder.Email label {
+    font-weight:normal;
+    border:none;
+    padding:0;
+    margin-bottom:5px;
+}
+.eddy-form-wizard-container .field-holder.interest-field ul{
+    background:#FFFEEF;
+    border:1px solid #EEE;
+    padding:.4em .4em .4em .9em;
+}
+
+.eddy-form-wizard-container .field-holder.UseDayTimePhone {
+    margin-left:37%;
+    margin-top:.5em;
+}
+.eddy-form-wizard-container .field-holder.UseDayTimePhone label{
+    width:80%;
+}
+
+
+/*
+.eddy-form-wizard-container .field-holder.Alternate_Phone {
+    margin-bottom:0;
+}*/
+.eddy-form-wizard-container .field-holder.Phone input[name="Phone"],
+.eddy-form-wizard-container .field-holder.Alternate_Phone input[name="Alternate_Phone"] {
+    width: 50%;
+    display:inline-block;
+}
+.eddy-form-wizard-container .field-holder.Desired_Start_Date select{
+    width:57%;
+    display:inline-block;
+}
+.eddy-form-wizard-container .field-holder .replace_Phone,
+.eddy-form-wizard-container .field-holder .replace_Alternate_Phone {
+    width:35px;
+    display:inline-block;
+    margin:0;
+}
+.eddy-form-wizard-container .field-holder .replace_Phone[name='suffix'],
+.eddy-form-wizard-container .field-holder .replace_Alternate_Phone[name='suffix'] {
+    width:50px;
+}
+
+/*.eddy-form-wizard-container .steps[data-title="DynamicQuestions"] {
+    margin-top:1.2em;
+}*/
+
+/* Added by ME */
+.eddy-form-wizard-container .Alternate_Phone label, .eddy-form-wizard-container .Phone label {
+   width:118px;
+}
+
+/********************** End of CSS for specific fields **********************/
+
+@media all and (max-width: 900px) {
+    .responsive .eddy-form-wizard-container .eddy-form-wizard-body{
+        margin:auto;
+        background:#FFF;
+        width:90%;
+    }
+    
+    .responsive .eddy-form-wizard-container .steps{
+        width:84%;
+        margin-right:11.5%;
+        margin-left:4.5%;
+    }
+    .responsive .eddy-form-wizard-container .btnNext {
+        right: -25px;
+    }
+
+    
+
+    
+    .responsive .eddy-form-wizard-container .field-holder input[type='checkbox']{
+        
+        -ms-transform: scale(1.5); /* IE */
+        -moz-transform: scale(1.5); /* FF */
+        -webkit-transform: scale(1.5); /* Safari and Chrome */
+        -o-transform: scale(1.5); /* Opera */
+        margin:3px 5px 0 5px;
+    }
+    .responsive .eddy-form-wizard-container div.checkbox label{
+        width:85%;
+    }
+    .responsive .eddy-form-wizard-container .field-holder .field-holder-group label{
+        margin-top:2px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .responsive .eddy-form-wizard-container .eddy-form-wizard-body {
+        width: 93%;
+    }
+    .responsive .eddy-form-wizard-container .steps{
+        width:92%;
+        margin-right:4%;
+        margin-left:4%;
+    }
+    .responsive .eddy-form-wizard-container .btnNext{
+        bottom:10px;
+        right:0;
+    }
+    .responsive .eddy-form-wizard-container .btnPrev{
+        bottom:15px;
+        left:0;
+    }
+
+    /*.responsive .eddy-form-wizard-container .select-all-categories, 
+    .responsive .eddy-form-wizard-container .select-all-subcategories, 
+    .responsive .eddy-form-wizard-container .select-all-specialties{
+        margin-left:18%;
+    }*/
+    .responsive .eddy-form-wizard-container .field-holder.radio input {
+        visibility: hidden;
+        height: 10px;
+        left: 20px;
+        margin: -5px 0 0;
+        outline: 0 none !important;
+        position: absolute;
+        top: 50%;
+        width: 10px;
+        z-index: 1;
+    }
+    .responsive .eddy-form-wizard-container .field-holder.radio label[for$="Yes"],
+    .responsive .eddy-form-wizard-container .field-holder.radio label[for$="No"] {
+        border: 1px solid #B6B6B6;
+	    font-family: Helvetica,Arial,sans-serif;
+        font-weight:bold;
+        text-decoration: none;
+	    background-clip: padding-box;
+	    cursor: pointer;
+        margin:0;
+        padding: 5px 0;
+        position: relative;
+	    color: #333;
+        overflow: hidden;
+        position: relative;
+        text-overflow: ellipsis;
+	    text-align: center;
+	    display: inline-block;
+        width: 24.5%;
+	    background: #FFF; /* Old browsers */
+
+    }
+    .responsive .eddy-form-wizard-container .field-holder.radio label[for$="Yes"]{
+        border-radius: 6px 0 0 6px;
+        -moz-border-radius: 6px 0 0 6px;
+		-webkit-border-radius: 6px 0 0 6px;
+		-khtml-border-radius: 6px 0 0 6px;
+    }
+    .responsive .eddy-form-wizard-container .field-holder.radio label[for$="No"]{
+        margin-left:-4px;
+        border-radius: 0 6px 6px 0;
+        -moz-border-radius: 0 6px 6px 0;
+		-webkit-border-radius: 0 6px 6px 0;
+		-khtml-border-radius: 0 6px 6px 0;
+    }
+    .responsive .eddy-form-wizard-container .field-holder.radio input:checked+label,
+    .responsive .eddy-form-wizard-container .field-holder.radio label[for$="Yes"]:hover,
+    .responsive .eddy-form-wizard-container .field-holder.radio label[for$="No"]:hover{ 
+        background: #6FACD5; /* Old browsers */
+        color:#FFF;
+
+    } 
+
+
+}
+
+@media all and (max-width: 640px) {
+    .responsive .eddy-form-wizard-container{
+        margin:0;
+    }
+    .responsive .eddy-form-wizard-container #ErrorMessage{
+        margin:5px auto;
+    }
+    .responsive .eddy-form-wizard-header{
+        display:none;
+    }
+    .responsive .eddy-form-wizard-container .eddy-form-wizard-body{
+        width:96%;
+        margin:auto;
+        padding:0;
+        -moz-border-radius: 0px;
+	    -webkit-border-radius: 0px;
+	    -khtml-border-radius:0px;
+	    border-radius: 0px;
+        top:0;
+    }
+    .responsive .eddy-form-wizard-container .steps{
+        width:70%;
+        margin:3em auto 1em;
+        padding:0 0 10px 0;
+        min-height:0;
+        float:none;
+    }
+    .responsive .eddy-form-wizard-container .field-holder{
+        padding:0;
+        margin-bottom:15px;
+    }
+    .responsive .eddy-form-wizard-container .field-holder select{
+        width:100%;
+        padding:10px 0;
+        height:40px;
+    }
+    .responsive .eddy-form-wizard-container .field-holder.radio label[for$="Yes"],
+    .responsive .eddy-form-wizard-container .field-holder.radio label[for$="No"]{
+        width:49%;
+        padding-top:8px;
+        padding-bottom:8px;
+    }
+    .responsive .eddy-form-wizard-container .steps .field-holder input[name="Postal_Code_Duplicate"]{
+        width:94%;
+        padding:11px 2%;
+    } 
+    .responsive .eddy-form-wizard-container .steps .field-holder input[type="text"]{
+        width:96%;
+        padding:11px 2%;
+    }
+    .responsive .eddy-form-wizard-container .field-holder label,
+    .responsive .eddy-form-wizard-container .field-holder fieldset legend{
+        border:none;
+        margin-bottom:5px;
+    }
+    .responsive .eddy-form-wizard-container fieldset legend {
+        border:none;
+        margin-bottom:15px;
+    }
+    .responsive .eddy-form-wizard-container .top-buttons{
+        float: left;
+        width: 100%;
+        margin-top: -40px;
+    }
+    .responsive .eddy-form-wizard-container .btnPrev{
+        left:auto;
+        float:none;
+        background:none;
+        width:auto;
+        height:auto;
+        cursor:default;
+        bottom:auto;
+        position:static;
+    }
+ 
+    .responsive .eddy-form-wizard-container .btnNext {
+        right: auto;
+        float: none;
+        display: block;
+        width: 100%;
+        left: 0;
+        background: #4069a8;
+        clear:both;
+        position:static;
+        cursor:default;
+        padding:5px 0;
+    }
+        .responsive .eddy-form-wizard-container .btnNext #next-top,
+        .responsive .eddy-form-wizard-container .btnPrev #prev-top{
+            cursor: pointer;
+            display: block;
+            height: 32px;
+            line-height: normal;
+            margin: 0 auto;
+            padding: 0px;
+            margin-top: 12px;
+            width: 32px;
+            position: absolute;
+            top: -5px;
+        }
+        .responsive .eddy-form-wizard-container .btnNext #next-top{
+            background: url("[SERVER]/images/btn-next-top.png") no-repeat;
+            float: right;
+            right: 1%;
+        }
+        .responsive .eddy-form-wizard-container .btnPrev #prev{
+            display:none;
+        }
+        .responsive .eddy-form-wizard-container .btnPrev #prev-top{
+            background: url("[SERVER]/images/btn-back-top.png") no-repeat;
+            float: left;
+            left: 1%;
+        }
+    
+
+        .responsive .eddy-form-wizard-container .btnNext #next {
+            width:68%;
+            margin:5px auto;
+            background:#fdb728;
+            cursor:pointer;
+            border-radius: 8px;
+            -moz-border-radius: 8px;
+		    -webkit-border-radius: 8px;
+		    -khtml-border-radius: 8px;
+            color:#FFF;
+            text-indent:0;
+            text-decoration:none;
+            font:bold 150% Arial, Helvetica, sans-serif Aharoni;
+            height:auto;
+            padding:10px 0;
+            text-align:center;
+            text-shadow:1px 2px #888;
+        }
+        .responsive .eddy-form-wizard-container .btnNext #next:after{
+            content:"NEXT";
+
+        }
+        .responsive .eddy-form-wizard-container .btnNext.buttonLastStep{
+            background:#4069a8;
+        }
+        .responsive .eddy-form-wizard-container .btnNext.buttonLastStep #next:after{
+            content:"SUBMIT";
+        }
+
+    
+
+
+    .responsive .eddy-form-wizard-container#WizardStepContainer .field-holder ul.field-holder-group li{
+        background: #fff;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-khtml-border-radius: 5px;
+        color: #394552;
+        font-weight: bold;
+        height: auto;
+        line-height: 25px;
+        list-style-type: none;
+        margin: 0 0 3px;
+        overflow: hidden;
+        text-shadow: 0 1px 0 #FFFFFF;
+        width: 99%;
+        border: 1px solid #777;
+    }
+    	
+        .responsive .eddy-form-wizard-container#WizardStepContainer .field-holder ul.field-holder-group li input[type="checkbox"]{
+            display:none;
+        }
+        .responsive .eddy-form-wizard-container#WizardStepContainer .field-holder ul.field-holder-group li input[type="checkbox"] + label{
+            width:88%;
+            padding: 10px 8% 10px 2%;
+            background: url("[SERVER]/images/unchecked.png") no-repeat right #FFF;
+            font-size:120%;
+            height:auto;
+            margin-top:0;
+            cursor:pointer;
+        }
+        .responsive .eddy-form-wizard-container#WizardStepContainer .field-holder ul.field-holder-group li input[type="checkbox"]:checked + label{
+            background:url("[SERVER]/images/checked.png") no-repeat right #FFF;
+        }
+
+    .responsive .eddy-form-container .FEoverlay{
+        top:0;
+        height:100%;
+        border-radius:0;
+        -moz-border-radius: 0;
+	    -webkit-border-radius: 0;
+	    -khtml-border-radius: 0;
+    }
+        
+
+    /*thank you, no match*/
+    .responsive .eddy-form-wizard-container.thank-you-page .eddy-form-wizard-body{
+        padding-left:5%;
+        padding-right:5%;
+
+    }
+    .responsive .eddy-form-wizard-container.thank-you-page .eddy-form-wizard-footer{
+        height:auto;
+        padding-top:1em;
+        padding-bottom:5em;
+        background:url("[SERVER]/images/dividerShadowSchoolList.png") no-repeat center bottom !important;
+        margin-bottom:0;
+    }
+    .responsive .eddy-form-wizard-container.thank-you-page .image-text-group{
+        margin-left:0;
+    }
+
+    .responsive .eddy-form-wizard-container.thank-you-page .image-text-group .image-text li{
+        display:inline-block;
+        width:30%;
+        margin:0 3% 0 0;
+        background:none;
+        padding-bottom:0;
+        text-align:left;
+    }
+    .responsive .eddy-form-wizard-container.thank-you-page .image-text-group .image-text li:last-child{
+        margin-right:0;
+    }
+    .responsive .eddy-form-wizard-container.thank-you-page .image-text-group .image-text .school-logo {
+        border: 0;
+    }   
+    
+    .responsive .eddy-form-wizard-container .field-holder[data-controlcode='CEA_CurrentSchool'] .select2 ~ .select2-container .select2-selection {
+        height: 40px;
+    }
+    .responsive .eddy-form-wizard-container .field-holder[data-controlcode='CEA_CurrentSchool'] .select2 ~ .select2-container .select2-selection__rendered {
+        line-height: 40px;
+    }
+    .responsive .eddy-form-wizard-container .field-holder[data-controlcode='CEA_CurrentSchool'] .select2 ~ .select2-container {
+       width:100% !important;
+    }
+
+    /* Continue Mobile Button */
+    #screen-button:not(.hide-button) {
+        position: fixed;
+        left: 0 !important;
+        bottom: 0;
+        z-index: 999999;
+        background: #f57f11;
+        width: 100% !important;
+        height: 62px !important;
+        text-align: center !important;
+        display: table !important;
+    }
+
+     #screen-button span {
+        vertical-align: middle;
+        display: table-cell;
+        color: white;
+        font-size: 32px;
+        font-weight: 700;
+        text-shadow: 2px 2px gray;
+        cursor: default;
+    }
+
+    #screen-button span i.fa {
+        color: white !important;
+        font-size: 32px !important;
+    }
+
+    #screen-button i.fa {
+        display: none;        
+    }
+    
+    #screen-button.enabled-button span {
+        cursor: pointer !important;
+    }
+
+    #screen-button.enabled-button i.fa {
+        display: inline !important;
+        cursor: pointer !important;
+    }
+
+    .eddy-form-wizard-container #wizard-form-submit-button.non-mobile-btn,
+    .eddy-form-wizard-container #managechoice-form-submit-button.non-mobile-btn, 
+    .eddy-form-wizard-container .non-mobile-btn,
+    #screen-button.hide-button {
+        display: none !important;
+    }
+
+    .lf-ghost {
+        height: auto !important;
+    }
+
+    body.screen-button-container {
+        padding-bottom:62px !important;
+    }
+
+    .hidden-wrapper {
+        height: 0 !important;
+        padding: 0 !important;
+    }
+    /* End Continue Mobile Button */
+}
+
+
+@media all and (max-width: 480px) {
+    .responsive .eddy-form-wizard-container .steps,
+    .responsive .eddy-form-wizard-container .btnNext a{
+        width:92%;
+
+    }
+    .responsive .eddy-form-wizard-container .btnNext #next{
+        width:88%;
+    }
+
+
+    /* thank you, no match */
+    .responsive .eddy-form-wizard-container.thank-you-page .eddy-form-wizard-body{
+        padding-left:1%;
+        padding-right:1%;
+
+    }
+    .responsive .eddy-form-wizard-container.thank-you-page .eddy-form-wizard-footer{
+        margin-left:1%;
+    }
+
+    .responsive .eddy-form-wizard-container.thank-you-page .image-text-group .image-text li{
+        width:32%;
+        margin-right:1%;
+    }
+     /*.responsive .eddy-form-wizard-container.thank-you-page .image-text-group .image-text li img{
+         height:90%;
+         width:90%;
+     }*/
+}
+
+@media all and (max-width: 400px) {
+    .responsive .eddy-form-wizard-container.thank-you-page .image-text-group .image-text li {
+        width: 45%;
+    }
+}
+@media all and (max-width: 340px) {
+    .responsive .eddy-form-wizard-container fieldset legend{
+        text-align:center;
+        margin-bottom:5px;
+    }
+
+
+    .responsive .eddy-form-wizard-container .steps,
+    .responsive .eddy-form-wizard-container .btnNext a{
+        width:96%;
+
+    }
+
+    /* thank you, no match */
+
+    .responsive .eddy-form-wizard-container.thank-you-page .image-text-group .image-text li{
+        display:block;
+        width:100%;
+        margin:0;
+    }
+    .responsive .eddy-form-wizard-container.thank-you-page .image-text-group .image-text li img{
+        width:auto;
+        height:auto;
+    }
+    .responsive .eddy-form-wizard-container.thank-you-page .image-text-group .image-text .school-info{
+        width:50%;
+        margin-right:0;
+    }
+
+}
+
+/*
+
+@media all and (max-width: 900px) {
+    .responsive .eddy-form-wizard-container .field-holder ul.field-holder-group,
+    .responsive .eddy-form-wizard-container .field-holder.has-scrollbar ul.field-holder-group {
+        background: none;
+        border: 0;
+        padding-left:0;
+        padding-right:0;
+        margin-top: 0;
+    }
+    .responsive .eddy-form-wizard-container .select-all-categories, 
+    .responsive .eddy-form-wizard-container .select-all-subcategories, 
+    .responsive .eddy-form-wizard-container .select-all-specialties{
+        margin:0 0 0 28%;
+    }
+
+ 
+}
+@media all and (max-width: 768px) {
+
+}
+@media all and (max-width: 640px) {
+    
+    .responsive .eddy-form-wizard-container div.checkbox label{
+        font-size:12px;
+    }
+
+    .responsive .eddy-form-wizard-container .select-all-categories, 
+    .responsive .eddy-form-wizard-container .select-all-subcategories, 
+    .responsive .eddy-form-wizard-container .select-all-specialties,
+    .responsive .eddy-form-wizard-container .de-select-all-categories, 
+    .responsive .eddy-form-wizard-container .de-select-all-subcategories, 
+    .responsive .eddy-form-wizard-container .de-select-all-specialties{
+        display:none;
+    }
+
+    .responsive .eddy-form-wizard-container .field-holder ul.field-holder-group,
+    .responsive .eddy-form-wizard-container .field-holder.has-scrollbar ul.field-holder-group {
+        overflow: hidden;
+        width:100%;
+        height:auto;
+    }
+
+    .responsive .eddy-form-wizard-container .field-holder.City,
+    .responsive .eddy-form-wizard-container .field-holder.Postal_Code_Duplicate{
+        width:42%;
+    }
+    .responsive .eddy-form-wizard-container .field-holder.State{
+        width:56%;
+    }
+    .responsive .eddy-form-wizard-container .field-holder.Address,
+    .responsive .eddy-form-wizard-container .field-holder.Address_2{
+        width:99%;
+    }
+    .responsive .eddy-form-wizard-container .field-holder.State select, 
+    .responsive .eddy-form-wizard-container .field-holder.Country select{
+        width:100%;
+    }
+    .responsive .eddy-form-wizard-container .field-holder.Phone input[name="Phone"], 
+    .responsive .eddy-form-wizard-container .field-holder.Alternate_Phone input[name="Alternate_Phone"]{
+        display:block;
+        width:96%;
+    }
+    .responsive .eddy-form-wizard-container .field-holder.UseDayTimePhone{
+        margin-left:0;
+    }
+    .responsive .eddy-form-wizard-container .field-holder.Desired_Start_Date select,
+    .responsive .eddy-form-wizard-container .field-holder.Desired_Start_Date label {
+        display:block;
+        width:100%;
+        text-align:left;
+    }
+   .responsive .eddy-form-wizard-container .field-holder.Prefix label,
+   .responsive .eddy-form-wizard-container .field-holder.First_Name label,
+   .responsive .eddy-form-wizard-container .field-holder.Last_Name label,
+   .responsive .eddy-form-wizard-container .field-holder.Email label,
+   .responsive .eddy-form-wizard-container .field-holder.City label,
+   .responsive .eddy-form-wizard-container .field-holder.State label,
+   .responsive .eddy-form-wizard-container .field-holder.Postal_Code_Duplicate label,
+   .responsive .eddy-form-wizard-container .field-holder.Phone label,
+   .responsive .eddy-form-wizard-container .field-holder.Alternate_Phone label {
+       display:none;
+   }
+
+   .responsive .eddy-form-wizard-container .field-holder.First_Name, 
+   .responsive .eddy-form-wizard-container .field-holder.Last_Name,
+   .responsive .eddy-form-wizard-container .field-holder.Email{
+       display:block;
+       width:100%;
+   }
+
+   
+   .responsive .eddy-form-wizard-container .steps#Step8 .sections legend{
+        display:none;
+    }
+   .responsive .eddy-form-wizard-container .steps#Step8 fieldset.sections fieldset legend{
+        display:block;
+    }
+
+   .responsive .eddy-form-wizard-container .field-holder.HaveTransferCredits fieldset legend, 
+   .responsive .eddy-form-wizard-container .field-holder.us_citizen fieldset legend, 
+   .responsive .eddy-form-wizard-container .field-holder.DynamicCampusSoftPreference label, 
+   .responsive .eddy-form-wizard-container .field-holder.Military_Affiliation label,
+   .responsive .eddy-form-wizard-container .field-holder.DynamicCampusSoftPreference select,
+   .responsive .eddy-form-wizard-container .field-holder.Military_Affiliation select{
+       display:block;
+       width:100%;
+       text-align:left;
+   }
+   .responsive .eddy-form-wizard-container .field-holder.radio label{
+       padding:10px 0;
+       width:49%;
+   }
+
+
+   .responsive .eddy-form-wizard-container .field-holder.Phone label.error, 
+   .responsive .eddy-form-wizard-container .field-holder.Alternate_Phone label.error, 
+   .responsive .eddy-form-wizard-container .field-holder.Desired_Start_Date label.error{
+       margin-left:0;
+
+   }
+
+}*/
+/* TwoULeadShare Text Formatting*/
+.eddy-form-container .twou-leadshare-text{
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: normal;
+    color: #333333;
+}
+
+.eddy-form-wizard-container .field-holder.interest-field ul.featured-categories, .eddy-form-wizard-container .field-holder.interest-field ul.featured-subcategories, .eddy-form-wizard-container .field-holder.interest-field ul.featured-specialties {
+    background: none repeat scroll 0 0;
+    border: medium none;
+}
+
+ul.featured-categories li label, ul.featured-subcategories li label, ul.featured-specialties li label {
+    font-weight: bold !important;
+    font-size: 13px !important;
+    line-height: 100% !important;
+    margin: 0;
+    vertical-align: top;
+    width: 80%;
+}
+
+ul.featured-categories.field-holder-group li label, ul.featured-subcategories.field-holder-group li label, ul.featured-specialties.field-holder-group li label {
+    font-size: initial !important;
+}
+
+/* Inline Drop Down */
+.inlineDropDown-wrapper select::-ms-expand{
+  display:none;
+}
+
+.inlineDropDown-wrapper {    
+    overflow: hidden; 
+    position: relative;
+    display: inline-block;
+    width: 100% !important;
+    border:none !important;
+}
+
+.eddy-form-container .eddy-form-wizard-container .field-holder select.inlineDropDown{       
+    background: transparent !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.inlineDropDown-wrapper:after {
+    content:"\f0d7";
+    font-family: FontAwesome;
+    font-size: 15px;
+    padding: 8px 8px;
+    position: absolute; right: 0; top: 0;
+    z-index: 1;
+    text-align: center;
+    width: 40px;
+    height: 100%;      
+    pointer-events: none;
+    box-sizing: border-box;   
+}
+
+.eddy-form-wizard-container .inlineDropDown {
+    width: 99% !important;
+    border-radius: 0 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+}
+
+.eddy-form-wizard-container .inline-hidden-label,
+.eddy-form-wizard-container .inline-hidden-option {
+    display: none !important;
+}
+/* End Inline Drop Down */
+
+/* Clickable Schools Begin */
+
+#eddy-form-wizard-managedchoice-container .mc-us-school.clickable.mc-us-schoolcontainer-selected{
+	border: 5px solid #8ea5a3;
+}
+.mc-us-school.clickable div.school-name a.us-institution-popup-link{
+	vertical-align: top;
+}
+
+.mc-us-school.clickable .us-institution-popup-link{
+	pointer-events:none;
+}
+
+.eddy-form-wizard-container .field-holder.mc-US-Area .mc-us-school.clickable img.mc-us-more-info{
+    width: 13px;
+    margin-left: 5px;
+    vertical-align: top;
+    border: none;
+    background-color: transparent;
+}
+
+/* Clickable Schools End */

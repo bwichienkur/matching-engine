@@ -1,0 +1,468 @@
+﻿@charset "utf-8";
+/* CSS RESET */
+
+#eddy-form-container ol, #eddy-form-container ul { list-style: none; margin: 0 20px; padding: 0; }
+#eddy-form-container blockquote, #eddy-form-container q { quotes: none; }
+    blockquote:before, #eddy-form-container blockquote:after, #eddy-form-container q:before, #eddy-form-container q:after { content: ''; content: none; }
+#eddy-form-container :focus { outline: 0; }
+#eddy-form-container ins { text-decoration: none; }
+#eddy-form-container del { text-decoration: line-through; }
+#eddy-form-container table { border-collapse: collapse; border-spacing: 0; }
+#eddy-form-container fieldset {border-width:0;}
+
+
+
+/* SECTION STRUCTURE */
+#eddy-form-container {
+
+	width:93%;
+	font-family: Arial,Helvetica,sans-serif; 
+	margin:20px auto;
+    background: -o-linear-gradient(bottom, #C2C2C2 0%, #E6E6E6 100%);
+    background: -moz-linear-gradient(bottom, #C2C2C2 0%, #E6E6E6 100%);
+    background: -webkit-linear-gradient(bottom, #C2C2C2 0%, #E6E6E6 100%);
+    background: -ms-linear-gradient(bottom, #C2C2C2 0%, #E6E6E6 100%);
+    background: linear-gradient(to bottom, #C2C2C2 0%, #E6E6E6 100%);
+    border:5px solid #FFF;
+
+    -webkit-box-shadow: 0px 0px 2px 3px rgba(192,192,192,1);
+    -moz-box-shadow: 0px 0px 2px 3px rgba(192,192,192,1);
+    box-shadow: 0px 0px 2px 3px rgba(192,192,192,1);
+	
+}
+#eddy-form-container h1 {
+    color: #111111;
+    font-size: 22px;
+    font-style: italic;
+    margin: 1em 0 0.5em 1em;
+}
+#eddy-form-container h1#school-name {
+    font-family: Georgia,'Palatino Linotype',serif;
+    font-weight: normal;
+    margin: 0;
+}
+#eddynexusform h4 { 
+    background: url("[SERVER]/images/tag.png") no-repeat scroll 0 0 transparent;;
+    color: #FFFFFF;
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 4px 8px 4px 28px;
+    margin: 10px auto;
+    position:relative;
+    left:-1em;
+    line-height:200%;
+    font-weight:normal;
+}
+    .Step  { width: 691px;  margin: 0 auto;
+    padding: 0 0 1em;}
+#eddy-form-container .Section {clear: both;
+    margin: 0 auto;
+    padding: 4px 8px;
+    position: relative;
+    width: 691px; }
+
+#eddy-form-container h4 { /*margin: 10px 0px 5px 0px; font-family: Georgia,'Palatino Linotype',serif;
+    font-weight: normal;
+    margin: 0;*/}
+
+#eddy-form-container fieldset{
+	margin-bottom: 1em;
+	padding: 0.5em;
+}
+
+/* GENERAL FORM FIELD POSITION */
+#eddy-form-container .text-field, .select-field, .label-holder { margin: 0px 0px 0px 0px; }
+
+#eddy-form-container .field-holder {  
+	clear: both;
+	margin: 0; 
+	position: relative; 
+	overflow: hidden; 
+	vertical-align: middle;
+	text-align:left;
+	min-height:30px;
+}
+
+#eddy-form-container .field-holder label {  
+	display:inline-block; 
+	color: #333333;/*float: left;*/ 
+	font-size: 14px; 
+	font-weight: normal; 
+	margin: 0 8px 0 3px;
+	text-align: left; /*width:120px;*/ 
+	width: 20%; 
+	vertical-align:bottom;
+	min-height:25px;
+	line-height:120%;
+}
+
+#eddy-form-container .field-holder input, #eddy-form-container select{  
+	background: none repeat scroll 0 0 #FFFFFF; 
+	border: 1px solid #959595; /*float: left;*/ 
+	font-size: 12px; 
+	margin-bottom: 4px; 
+	padding: 4px; 
+	width: 75%; 
+	vertical-align: top;
+}
+#eddy-form-container select { 
+	padding: 3px; 
+	width: 76.75%;
+}
+
+#eddy-form-container .Program_Of_Interest select, #eddy-form-container .Desired_Start_Date select, #eddy-form-container .Year_of_Highest_Education_Completed select, #eddy-form-container .Highest_Level_of_Education_Completed select, #eddy-form-container .Military_Affiliation select {  /*width: 74.75%;*/}
+
+#eddy-form-container .Section1 li.Postal_Code.Postal_Code {/*padding-left: 27px; width: 50%; */}
+/*#eddy-form-container li.Postal_Code label{
+	line-height:25px;
+}*/
+	
+#eddy-form-container .Section1 li.Postal_Code input {width:30%;/*margin-left: 58px; */}
+#eddy-form-container li.Age, #eddy-form-container .Section3 li.Postal_Code, #eddy-form-container li.Country, #eddy-form-container li.Prefix, #eddy-form-container li.First_Name, #eddy-form-container li.Last_Name {  /*float: left;*/ display:inline-block; width: 31%;  clear: none; }
+#eddy-form-container li.Age { /*margin-left: 19px; */}
+#eddy-form-container li.First_Name{width:33%;}
+#eddy-form-container li.Age input, #eddy-form-container li.Postal_Code input, #eddy-form-container li.Prefix select, #eddy-form-container li.First_Name input { width: 45%; }
+#eddy-form-container li.Country select{ width:50%;}
+#eddy-form-container li.Last_Name input { width: 41.5%; }
+#eddy-form-container li.Age label, #eddy-form-container .Section3 li.Postal_Code label, #eddy-form-container li.Country label, #eddy-form-container li.Prefix label, #eddy-form-container li.First_Name label, #eddy-form-container li.Last_Name label { 
+	width: auto; 
+	/*line-height: 25px; */
+}
+#eddy-form-container li.Prefix, #eddy-form-container li.First_Name, #eddy-form-container li.Last_Name  {  /*float: left; width: 29%;  clear: none; */}
+#eddy-form-container li.Prefix { /*margin-left: 19px; */}
+#eddy-form-container li.us_citizen label {  text-align: left;width: 72px; }
+#eddy-form-container li.us_citizen input {width: 20px; }
+#eddy-form-container li.City, #eddy-form-container li.State, #eddy-form-container li.Phone, #eddy-form-container li.Alternate_Phone {/*float: left;*/ display:inline-block; width: 48%;  clear: none; }
+#eddy-form-container li.City label, #eddy-form-container li.State label, #eddy-form-container li.Phone label, #eddy-form-container li.Alternate_Phone label { width: 41.3%; padding-top:4px;}
+/*#eddy-form-container li.State { clear: right; }
+#eddy-form-container li.Phone { clear: left; }*/
+#eddy-form-container li.City input, #eddy-form-container li.State select, #eddy-form-container li.Phone input { width: 50.6%; }
+#eddy-form-container li.State select{float:right;}
+#eddy-form-container li.Alternate_Phone input { width: 47.4%; float:right;}
+/*#eddy-form-container li.City { margin-left:19px; }
+#eddy-form-container li.Phone { margin-left:19px; }*/
+#eddy-form-container li.Address input, #eddy-form-container li.Address_2 input { width: 75%;  }
+#eddy-form-container li.Preferred_Methods_of_Contact > label {float:left; padding-top:.3em;}
+#eddy-form-container li.Preferred_Methods_of_Contact fieldset { /*float:left;*/ display:inline-block; margin-top: 0; }
+#eddy-form-container li.Preferred_Methods_of_Contact input { width: auto; }
+#eddy-form-container li.Preferred_Methods_of_Contact fieldset label { text-align: left; width: auto; }
+#eddy-form-container .Highest_Level_of_Education_Completed { overflow: visible !important;}
+#eddy-form-container div.checkbox input { width: auto; }
+#eddy-form-container div.checkbox label{ width:94%; font-size: 12px; line-height: 15px; }
+#eddynexusformSubmit {  	
+    clear: left;
+	float:none !important;
+    cursor: pointer;
+    display: block;
+    font-size: 0px;
+    margin: 12px auto 0;
+    padding: 0.5em 2em 0.55em !important;
+    width: 215px;
+    height:68px;
+    background:url("[SERVER]/images/request-button.png") no-repeat scroll 0 0 transparent;
+    border:0;
+	}
+/* TOP BOX ERROR MESSAGE */
+#ErrorBox li { list-style: none; }
+#ErrorBox  { color: red; background-color: #FFF; line-height: 18px; padding: 5px; width: 50%; margin: 10px; }
+/*#ErrorBox label.error, #eddy-form-container .UserAgreement li label.error  { color: red; float: none; font-size: 12px; }*/
+
+/* INLINE VALIDATION ERROR MESSAGE */
+#eddy-form-container input.error, #eddy-form-container select.error { border: 1px solid #B9121B; }
+#eddy-form-container label.error { color: #B9121B; font-size: 12px; }
+
+
+#eddy-form-container .UserAgreement li label.error
+{ 
+    /*color: #B9121B; 
+    font-size: 14px; */
+}
+    
+
+/* SECTION SEPERATED ERROR SUMMARY */
+#eddy-form-container .error-summary, #eddy-form-container .UserAgreement ul { 
+    color: #B9121B;
+    font-size: 14px;
+    margin: 10px 0 10px 90px;
+    padding: 0;
+    width: auto;
+
+}
+#eddy-form-container .UserAgreement ul {
+	margin-left: 65px;
+}
+
+#eddy-form-container .UserAgreement fieldset ul {
+    /*padding-left:12px;*/
+}
+
+#eddy-form-container .error-summary li, .UserAgreement fieldset ul li { 
+    clear: both;
+    margin: 0 auto;
+    padding: 4px 8px;
+    position: relative;
+    width: 610px;  background: none repeat scroll 0 0 transparent;
+    font-size: 15px;
+    list-style-type: disc !important;
+    margin: 5px 0;
+    padding: 0;
+    width: auto !important; 
+    color: #B9121B;
+    }
+
+#eddy-form-container .error-summary label.error, #eddy-form-container .UserAgreement label.error {
+    clear: both;
+    padding: 4px 8px;
+    position: relative;
+    width: 610px;  background: none repeat scroll 0 0 transparent;
+    font-size: 15px;
+    list-style-type: disc !important;
+    margin: 0 0 8px 0;
+    padding: 0;
+    width: auto !important; 
+    color: #B9121B;   
+    text-align: left;
+	display:block;
+}
+
+/* Required Mark */
+#eddy-form-container .required-mark {
+    text-align: left;
+    margin-bottom: .5em;
+    font-size: 12px;
+}
+
+/* RADIO BUTTON STYLING */
+#eddy-form-container .field-holder.radio label.question {  width: 125px !important; /*float: left;*/ }
+#eddy-form-container .field-holder.radio label {  width: auto; margin-right:2px; /*float: left; */}
+#eddy-form-container .field-holder.radio input {  width: auto; /*float: left;*/min-height:18px; margin: 0 20px 0 2px; padding-top: 0; }
+
+
+
+/* UAB */
+#eddy-form-container .uab-1 {
+    padding: 10px !important;
+    width: 640px !important;
+}
+#eddy-form-container .uab-popup {
+    background: none repeat scroll 0 0 #E5EBEE;
+    border: 1px solid #FFFFFF;
+    left: auto;
+    padding: 0.75em 1.5em;
+    position: absolute;
+    right: auto;
+    top: 18%;
+    width: 610px !important;
+    z-index: 9999;
+}
+
+
+#eddy-form-container .uab-popup a.close-overlay {
+    display: block;
+    font-family: georgia,serif;
+    font-size: 12px;
+    text-align: right;
+}
+
+#eddy-form-container .uab-popup a.close-button {
+    background: url("[SERVER]/images/close-button.gif") no-repeat scroll 0 0 transparent;
+    border: medium none !important;
+    cursor: pointer;
+    display: block;
+    float: right;
+    height: 26px;
+    margin: 0;
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    width: 26px;
+}
+
+
+#eddy-form-container .uab-logo {
+    background: url("[SERVER]/images/uab-logo.gif") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 150px;
+    margin: 10px auto;
+    width: 620px;
+}
+
+#eddy-form-container .uab-1 .medium  {
+    font-size: 12px !important;
+    font-weight: bold !important;
+    padding: 0.4em 1.5em 0.42em !important;
+}
+#eddy-form-container .uab-text { 
+    margin: 10px 0px 5px 0px; font-family: Georgia,'Palatino Linotype',serif;
+    font-size: 23px !important;
+    font-weight: normal;
+    margin: 0;
+}
+#eddy-form-container .uab-1 .blue {
+    background: -moz-linear-gradient(center top , #00ADEE, #0078A5) repeat scroll 0 0 transparent;
+    border: 1px solid #0076A3;
+    color: #D9EEF7;
+}
+#eddy-form-container .uab-1 .button {
+    border-radius: 0.5em 0.5em 0.5em 0.5em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: inline-block;
+    font: 14px/100% Arial,Helvetica,sans-serif;
+    left: 25%;
+    margin: 10px 2px;
+    outline: medium none;
+    padding: 0.5em 2em 0.55em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    vertical-align: baseline;
+}
+
+#eddy-form-container .hide, #eddy-form-container .hidden {
+    display: none;
+}
+
+#eddy-form-container .FEoverlay {
+	background: none repeat scroll 0 0 #000000;
+    height: 100%;
+    left: 0;
+    opacity: 0.7;
+	filter: alpha(opacity = 70);
+	zoom:1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9998;
+}
+
+/* loader  */
+
+#eddy-form-container #FEloader {
+	width: 248px;
+	height: 200px;
+	margin: 0 auto;
+	background: #fff url("[SERVER]/images/ajax-loader.gif") no-repeat 100px 60px;
+	background-size: 48px 48px;
+	border: 1px solid #D0D6D9;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	font-family: Arial, Helvetica, sans-serif Aharoni !important;
+	color: #262626;
+	text-align: center;
+    z-index: 9999;
+}
+#eddy-form-container #FEloader .loading {
+	font-weight: bold !important;
+	font-size: 16px !important;
+	text-transform: uppercase !important;
+	margin: 120px 0 5px 0 !important;
+}
+#eddy-form-container #FEloader .loadingParagraph {
+	font-weight: normal;
+	font-size: 14px;
+	font-style: italic;
+	color: #262626;
+	margin: 0;
+}
+
+#eddy-form-container .privacy-holder {
+    color: #CACACA;
+    text-align: center;
+    font-family: Arial,Helvetica,sans-serif;
+    line-height: 1;
+    font-size: 13px;
+    margin-top: 14px;
+}
+
+#eddy-form-container .tooltip {
+    background: url("[SERVER]/images/tooltip.png") no-repeat scroll 0 0 transparent;
+    background-size: 16px 16px;
+    border: medium none !important;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    text-decoration:none;
+}
+
+
+  
+#eddy-form-container .ttip {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px double #E5EBEE;
+    border-radius: 4px 4px 4px 4px;
+    color: #333333;
+    display: none;
+    font-size: 11px;
+    line-height: 120%;
+    margin-left: 100px;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    width: 180px;
+    height:auto;
+    z-index: 1000;
+}
+
+
+#eddy-form-container #FEloader.loaderOn {
+    margin: -150px 0 0 -150px;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+}
+
+/* Inline Drop Down */
+.inlineDropDown-wrapper select::-ms-expand{
+  display:none;
+}
+
+.inlineDropDown-wrapper {    
+    overflow: hidden; 
+    position: relative;
+    display: inline-block;
+    width: 100% !important;
+    border:none !important;
+}
+
+#eddy-form-container .field-holder select.inlineDropDown{       
+    background: transparent !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.inlineDropDown-wrapper:after {
+    content:"\f0d7";
+    font-family: FontAwesome;
+    font-size: 15px;
+    padding: 8px 8px;
+    position: absolute; right: 0; top: 0;
+    z-index: 1;
+    text-align: center;
+    width: 40px;
+    height: 100%;      
+    pointer-events: none;
+    box-sizing: border-box;   
+}
+
+#eddy-form-container .inlineDropDown {
+    width: 99% !important;
+    border-radius: 0 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+}
+
+#eddy-form-container .inline-hidden-label,
+#eddy-form-container .inlineDropDown option.inline-hidden-option {
+    display:none !important;
+}
+/* End Inline Drop Down */

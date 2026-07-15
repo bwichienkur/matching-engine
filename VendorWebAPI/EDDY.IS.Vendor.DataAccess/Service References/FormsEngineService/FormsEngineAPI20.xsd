@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" />
+  <xs:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine" />
+  <xs:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadEngine.DTO.Request" />
+  <xs:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" />
+  <xs:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+  <xs:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://tcpa-issvc1/EDDY.IS.FormsEngine.Service/Classic/FormsEngineAPI.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="GetRenderingStrategies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Wizard" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRenderingStrategiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" minOccurs="0" name="GetRenderingStrategiesResult" nillable="true" type="q1:ArrayOfHTMLRenderingStrategyDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRenderingStrategiesByType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine" minOccurs="0" name="FormTemplateType" type="q2:FormTemplateTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRenderingStrategiesByTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" minOccurs="0" name="GetRenderingStrategiesByTypeResult" nillable="true" type="q3:ArrayOfHTMLRenderingStrategyDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramTemplateModel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProgramProductId" type="xs:int" />
+        <xs:element minOccurs="0" name="IsBeta" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramTemplateModelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" minOccurs="0" name="GetProgramTemplateModelResult" nillable="true" type="q4:TemplateDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramTemplateModelByTemplate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TemplateId" type="xs:int" />
+        <xs:element minOccurs="0" name="IsBeta" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramTemplateModelByTemplateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" minOccurs="0" name="GetProgramTemplateModelByTemplateResult" nillable="true" type="q5:TemplateDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateForm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+        <xs:element minOccurs="0" name="ProgramProductId" type="xs:int" />
+        <xs:element minOccurs="0" name="IsBeta" type="xs:boolean" />
+        <xs:element minOccurs="0" name="TrackId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadEngine.DTO.Request" minOccurs="0" name="Lead" nillable="true" type="q6:APILead" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateFormResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" minOccurs="0" name="ValidateFormResult" nillable="true" type="q7:APIValidationResultDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildProspect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+        <xs:element minOccurs="0" name="IsBeta" type="xs:boolean" />
+        <xs:element minOccurs="0" name="TrackId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadEngine.DTO.Request" minOccurs="0" name="Lead" nillable="true" type="q8:APILead" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildProspectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/EDDY.IS.MatchingEngine.DTO" minOccurs="0" name="BuildProspectResult" nillable="true" type="q9:ProspectInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateFormPost">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+        <xs:element minOccurs="0" name="ProgramProductId" type="xs:int" />
+        <xs:element minOccurs="0" name="IsBeta" type="xs:boolean" />
+        <xs:element minOccurs="0" name="TrackId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="LeadData" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateFormPostResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" minOccurs="0" name="ValidateFormPostResult" nillable="true" type="q10:APIValidationResultDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessHostAndPostLead">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+        <xs:element minOccurs="0" name="ProgramProductId" type="xs:int" />
+        <xs:element minOccurs="0" name="IsBeta" type="xs:boolean" />
+        <xs:element minOccurs="0" name="TrackId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadEngine.DTO.Request" minOccurs="0" name="Lead" nillable="true" type="q11:APILead" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessHostAndPostLeadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" minOccurs="0" name="ProcessHostAndPostLeadResult" nillable="true" type="q12:APISubmissionResultDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessHostAndPostLeadPost">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+        <xs:element minOccurs="0" name="ProgramProductId" type="xs:int" />
+        <xs:element minOccurs="0" name="IsBeta" type="xs:boolean" />
+        <xs:element minOccurs="0" name="TrackId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="LeadData" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessHostAndPostLeadPostResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" minOccurs="0" name="ProcessHostAndPostLeadPostResult" nillable="true" type="q13:APISubmissionResultDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramMatches">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+        <xs:element minOccurs="0" name="IsBeta" type="xs:boolean" />
+        <xs:element minOccurs="0" name="TrackId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadEngine.DTO.Request" minOccurs="0" name="Lead" nillable="true" type="q14:APILead" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramMatchesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" minOccurs="0" name="GetProgramMatchesResult" nillable="true" type="q15:APIProgramMatchesDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEnhancedProgramMatches">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+        <xs:element minOccurs="0" name="IsBeta" type="xs:boolean" />
+        <xs:element minOccurs="0" name="TrackId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadEngine.DTO.Request" minOccurs="0" name="Lead" nillable="true" type="q16:APILead" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEnhancedProgramMatchesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" minOccurs="0" name="GetEnhancedProgramMatchesResult" nillable="true" type="q17:APIProgramMatchesDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramMatchesPost">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+        <xs:element minOccurs="0" name="IsBeta" type="xs:boolean" />
+        <xs:element minOccurs="0" name="TrackId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="LeadData" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramMatchesPostResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" minOccurs="0" name="GetProgramMatchesPostResult" nillable="true" type="q18:APIProgramMatchesDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateMultipleForms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProgramProducts" nillable="true" type="q19:ArrayOfint" />
+        <xs:element minOccurs="0" name="IsBeta" type="xs:boolean" />
+        <xs:element minOccurs="0" name="TrackId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadEngine.DTO.Request" minOccurs="0" name="Lead" nillable="true" type="q20:APILead" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateMultipleFormsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" minOccurs="0" name="ValidateMultipleFormsResult" nillable="true" type="q21:APIMultiValidationResultDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidateEmailResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessApolloSubmission">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="ProgramProducts" nillable="true" type="q22:ArrayOfKeyValuePairOfintstring" />
+        <xs:element minOccurs="0" name="ProspectId" type="xs:int" />
+        <xs:element minOccurs="0" name="TrackId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MatchResponseGuid" nillable="true" type="xs:string" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadEngine.DTO.Request" minOccurs="0" name="Lead" nillable="true" type="q23:APILead" />
+        <xs:element minOccurs="0" name="ClientRelationContactId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="RealtimeDelivery" type="xs:boolean" />
+        <xs:element minOccurs="0" name="prospectFlowId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="PaidStatusTypeIds" nillable="true" type="q24:ArrayOfNullableOfint" />
+        <xs:element minOccurs="0" name="isBeta" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessApolloSubmissionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" minOccurs="0" name="ProcessApolloSubmissionResult" nillable="true" type="q25:APIMultiSubmissionResultDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReleaseTitaniumLead">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="programProductId" type="xs:int" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/EDDY.IS.LeadEngine.DTO.Request" minOccurs="0" name="Lead" nillable="true" type="q26:APILead" />
+        <xs:element minOccurs="0" name="ProspectId" type="xs:int" />
+        <xs:element minOccurs="0" name="ClientRelationContactId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="prospectFlowId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="leadId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReleaseTitaniumLeadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveTemplateControlsByProgramTemplate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="trackId" nillable="true" type="q27:guid" />
+        <xs:element minOccurs="0" name="application" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveTemplateControlsByProgramTemplateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" minOccurs="0" name="RetrieveTemplateControlsByProgramTemplateResult" nillable="true" type="q28:ArrayOfAPITemplateControlResultDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramAllTemplatesMergedModel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="programId" type="xs:int" />
+        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="trackId" type="q29:guid" />
+        <xs:element minOccurs="0" name="IsBeta" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramAllTemplatesMergedModelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/EDDY.IS.FormsEngine.DTO" minOccurs="0" name="GetProgramAllTemplatesMergedModelResult" nillable="true" type="q30:TemplateDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

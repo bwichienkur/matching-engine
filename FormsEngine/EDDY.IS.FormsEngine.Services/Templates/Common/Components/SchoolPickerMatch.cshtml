@@ -1,0 +1,30 @@
+﻿
+    <div class="mySlides row institution-carousel-slide text-center" data-institutionid="@Model.InstitutionId">
+
+        <div class="col-xs-12 slide-school-heading">
+            @if (!string.IsNullOrWhiteSpace(Model.InstitutionLogoUrl))
+            {
+                <img src="@Model.InstitutionLogoUrl" alt="@Model.InstitutionName" />
+            }
+            else
+            {
+                <p>@Model.InstitutionName</p>
+            }
+        </div>
+
+        <div class="col-xs-12">
+            <button type='button' class='btn btn-default school-picker-selection-btn' data-institutionid="@Model.InstitutionId">Click if Interested</button>
+        </div>
+
+        <div class="col-xs-12">
+            <select class='form-control school-picker-selection-dropdown' data-institutionid="@Model.InstitutionId">
+
+                @foreach (var program in Model.Programs)
+                {
+                    <option value="@program.ProgramId" data-programid="@program.ProgramId" data-programproductid="@program.ProgramProductId" data-programtemplateid="@program.ProgramTemplateId" data-institutionname="@Model.InstitutionName">@program.ProgramName</option>
+                }
+
+            </select>
+        </div>
+
+    </div>

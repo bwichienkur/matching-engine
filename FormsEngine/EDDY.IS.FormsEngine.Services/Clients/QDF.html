@@ -1,0 +1,106 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>IS-Form Engine QDFTemplate</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="http://cms.educationdynamics.com/sites/all/files/css/animate.min.css" />
+    <script src="http://agrservice.cycle.educationdynamics.local/scripts/bundles/eddyadaggregator"></script>
+    <!--<script src="//cdn.optimizely.com/js/5309656004034560.js"></script>-->
+    <script type="text/javascript" src="/Static/GetBundledQDFJs?minifyJavascript=false"></script>
+    <!--<script id="formsEngineScript" language="javascript"  type="text/javascript">
+        var templateId = 553;
+        FormsEngine.RenderingStrategy = "QDF";
+        FormsEngine.RenderingDiv = "qdf-form";
+        FormsEngine.TemplateId = templateId;
+        FormsEngine.InstitutionId = "";
+        FormsEngine.InstitutionName = "";
+        FormsEngine.SelfContained = true;
+        FormsEngine.IsBeta = false;
+        FormsEngine.PlacementToken = "289fc3c2-4ff2-418e-b05c-4357ef3722df";
+        FormsEngine.TrackId = "38ca993e-865f-4d87-8b37-8420489fcd31";
+        FormsEngine.ApplicationId = 9;
+        FormsEngine.Theme = "plain";
+        FormsEngine.LoadForm();
+    </script>-->
+    <script language="javascript" type="text/javascript">
+
+        var FormsEngine = FormsEngine || {};
+
+        /* REQUIRED */
+        FormsEngine.RenderingStrategy = 'QDF';
+        FormsEngine.RenderingDiv = 'qdf-form';
+        FormsEngine.SelfContained = true; //false: must contain page to redirect and divs will be ignored
+        FormsEngine.IsBeta = false;
+        FormsEngine.PlacementToken = 'ccc3a71c-c55c-4e5c-bf99-666fc7e00e20';
+        FormsEngine.TrackId = '1898721e-4fdb-4037-84dc-20742585b1b6';
+
+        /* Optional */
+        FormsEngine.DebugMode = true;
+        FormsEngine.SessionId = '00000000-0000-0000-0000-0000-000000000000';
+        FormsEngine.MatchResponseGuid = '00000000-0000-0000-0000-0000-000000000000';
+        FormsEngine.CompressJs = false;
+        FormsEngine.TemplateId = 653;
+        FormsEngine.ApplicationId = 9;
+        FormsEngine.Theme = 'refinewidget';
+        /*
+        FormsEngine.PassThruItems = [];
+        var settingv = {};
+        settingv.QuestionName = 'Categories';
+        settingv.Answers = '21';
+        FormsEngine.PassThruItems.push(settingv);
+        var settingf = { };
+        settingf.QuestionName = 'SubCategories';
+        settingf.Answers = '610';
+        FormsEngine.PassThruItems.push(settingf);
+        var setting = {};
+        setting.QuestionName = 'Specialties';
+        setting.Answers = '753,1051,1166';
+        FormsEngine.PassThruItems.push(setting);
+        var settingl = {};
+        settingl.QuestionName = 'Desired_Degree_Level';
+        settingl.Answers = '3,8';
+        window.FormsEngine.PassThruItems.push(settingl);
+        */
+        FormsEngine.SubmitButtonLabelTextLast = "Do Something";
+        FormsEngine.AdditionalFields = FormsEngine.AdditionalFields || [];
+        FormsEngine.AdditionalFields.push(['LeadSourceUrl', 'http://google.com']);
+        FormsEngine.AdditionalFields.push(['SubSource2', 'ZikkyTheTurtle']);
+
+        FormsEngine.LoadForm();
+
+
+    </script>
+    <!--<link rel="stylesheet" type="text/css" href="/Templates/WizardProfessionalBootstrap/themes/default/Base.css" />
+    <link rel="stylesheet" type="text/css" href="/Templates/WizardProfessionalBootstrap/themes/default/Wizard.css" />-->
+
+    <style>
+        /*#eddyListings {
+                float: left;
+                width: 500px;
+                margin-top: -50px;
+                margin-left: 75px;
+            }
+
+            #WizardStepContainer {
+                float: left;
+                width: 500px;
+            }
+
+            .eddy-form-wizard-container .form-submit-button.previous {
+                position: relative !important;
+            }*/
+    </style>
+</head>
+<body class="responsive">
+    <div name="qdf-form" class="eddy-form-container">
+    </div>
+    <br /> <br />
+
+    <!--The Ad container-->
+    <div id="eddyListings"></div>
+</body>
+</html>

@@ -1,0 +1,709 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DD34C3DF-CF51-4DEB-A198-5029323BC1AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EDDY.IS.Vendor.DataAccess</RootNamespace>
+    <AssemblyName>EDDY.IS.Vendor.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EDDY.IS.Common.ExceptionHandler, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.Common.ExceptionHandler.2.0.0\lib\net48\EDDY.IS.Common.ExceptionHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.Common.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.Common.Logging.2.0.0\lib\net48\EDDY.IS.Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.Common.Utilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.Common.Utilities.2.0.4\lib\net48\EDDY.IS.Common.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.EmsLeadEngine.Entities, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.EmsLeadEngine.Entities.1.0.3\lib\net48\EDDY.IS.EmsLeadEngine.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.ExternalMatch, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.ExternalMatch.1.0.0-ci.20260504.1320\lib\net45\EDDY.IS.ExternalMatch.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.ExternalMatch.PartnerAPI.Business, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.ExternalMatch.1.0.0-ci.20260504.1320\lib\net45\EDDY.IS.ExternalMatch.PartnerAPI.Business.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.ExternalMatch.PartnerAPI.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.ExternalMatch.1.0.0-ci.20260504.1320\lib\net45\EDDY.IS.ExternalMatch.PartnerAPI.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.ExternalMatch.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.ExternalMatch.1.0.0-ci.20260504.1320\lib\net45\EDDY.IS.ExternalMatch.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.ExternalMatch.UnitTest, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EDDY.IS.ExternalMatch.1.0.0-ci.20260504.1320\lib\net45\EDDY.IS.ExternalMatch.UnitTest.dll</HintPath>
+    </Reference>
+    <Reference Include="EDDY.IS.Matching.PartnerAPI.Business.UnitTest, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\EDDY.IS.ExternalMatch.1.0.0-ci.20260504.1320\lib\net45\EDDY.IS.Matching.PartnerAPI.Business.UnitTest.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.2.6\lib\net45\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.9.0\lib\net462\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CampusDAO.cs" />
+    <Compile Include="CategoryDAO.cs" />
+    <Compile Include="DataExchangeServiceDAO.cs" />
+    <Compile Include="DataModels\APILog.cs">
+      <DependentUpon>EddyLoggingDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\CallCenter.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\CallCenterLead.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Campaign.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\CampaignDetail.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\CampaignPeriod.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\CampaignStatu.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Campus.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Category.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\CategorySubject.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ClientRelationship.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Country.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Directory.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\DirectoryApplicationUrl.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\EddyApiLog.cs">
+      <DependentUpon>EddyLoggingDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\EDDY_GetAllProspectStatus_Result.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\EDDY_GetAllUsers_Result.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\EDDY_GET_ValidationRules_ByProgramProductId_Result.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\GetAllProspectStatus_Result.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\GetAllUsers_Result.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\GetValidationRulesByProgramProductId_Result.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Institution.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Lead.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\MilitaryStatus.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Program.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ProgramLevel.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ResourceMetaData.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Specialty.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\State.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\StoreFront.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Subject.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\User.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\USZipCodeAreaCodeMerge.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\VendorAPIContactToStandardControlMap.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\VendorAPIMessage.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\View_EDDY_GET_ZipCodes.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\vwInstitutionAddress.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\VW_EMSLead.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\VW_Matching_ProgramProduct_Prod.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormsServiceDAO.cs" />
+    <Compile Include="GpFive9ServiceDAO.cs" />
+    <Compile Include="InstitutionDAO.cs" />
+    <Compile Include="LocationDAO.cs" />
+    <Compile Include="MatchingServiceDAO.cs" />
+    <Compile Include="MilitaryStatusDAO.cs" />
+    <Compile Include="ProgramDAO.cs" />
+    <Compile Include="ProgramLevelDAO.cs" />
+    <Compile Include="ProspectServiceDAO.cs" />
+    <Compile Include="RedisHelper.cs" />
+    <Compile Include="Service References\FormsEngineService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\GpFive9Service\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MatchingService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProspectService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectDAO.cs" />
+    <Compile Include="TimezoneServiceDAO.cs" />
+    <Compile Include="VendorBaseDAO.cs" />
+    <Compile Include="VendorCampaignsDAO.cs" />
+    <Compile Include="DataModels\CampaignType.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\EddyLoggingDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EddyLoggingDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\EddyLoggingDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EddyLoggingDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\EddyLoggingDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EddyLoggingDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\HostAndPostLog.cs">
+      <DependentUpon>EddyLoggingDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\HostAndPostOptionFieldLog.cs">
+      <DependentUpon>EddyLoggingDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogsDAO.cs" />
+    <Compile Include="DataModels\NexusDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NexusDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\NexusDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\NexusDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NexusDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataModels\Vendor.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\VendorAPISetting.cs">
+      <DependentUpon>NexusDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VendorResponseMessagesDAO.cs" />
+    <Compile Include="ZipDAO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="DataModels\NexusDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NexusDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="DataModels\EddyLoggingDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EddyLoggingDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="build-common-ci-exception-handler.yaml" />
+    <None Include="DataModels\EddyLoggingDataModel.edmx.diagram">
+      <DependentUpon>EddyLoggingDataModel.edmx</DependentUpon>
+    </None>
+    <None Include="DataModels\NexusDataModel.edmx.diagram">
+      <DependentUpon>NexusDataModel.edmx</DependentUpon>
+    </None>
+    <None Include="Exception.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\EDDY.IS.Vendor.DataAccess.FormsEngineService.APIMultiSubmissionResultDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FormsEngineService\EDDY.IS.Vendor.DataAccess.FormsEngineService.APIMultiValidationResultDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FormsEngineService\EDDY.IS.Vendor.DataAccess.FormsEngineService.APIProgramMatchesDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FormsEngineService\EDDY.IS.Vendor.DataAccess.FormsEngineService.APISubmissionResultDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FormsEngineService\EDDY.IS.Vendor.DataAccess.FormsEngineService.APITemplateControlResultDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FormsEngineService\EDDY.IS.Vendor.DataAccess.FormsEngineService.APIValidationResultDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FormsEngineService\EDDY.IS.Vendor.DataAccess.FormsEngineService.HTMLRenderingStrategyDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FormsEngineService\EDDY.IS.Vendor.DataAccess.FormsEngineService.ProspectInput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FormsEngineService\EDDY.IS.Vendor.DataAccess.FormsEngineService.TemplateDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI.wsdl" />
+    <None Include="Service References\FormsEngineService\FormsEngineAPI.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI1.wsdl" />
+    <None Include="Service References\FormsEngineService\FormsEngineAPI1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI18.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI19.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI20.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormsEngineService\FormsEngineAPI9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GpFive9Service\GpFive9Service1.wsdl" />
+    <None Include="Service References\GpFive9Service\GpFive9Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GpFive9Service\GpFive9Service31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GpFive9Service\GpFive9Service32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.AdServerClientRelationshipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.ApiProgramResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.ApolloCampusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.CampaignDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.CampusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.CampusTypeMatchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.CampusZipCodeRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.CategoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.CrossSellProgramResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.FormProgramResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.InstitutionDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.InstitutionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.NavigationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.NeoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.ProgramDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.ProgramLevelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.ProgramProductValidateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.ProgramResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.ProgramRuleDefinition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.ProgramValidateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.SiteMapResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.SpecialtyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.SubjectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.TemplateMatchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\EDDY.IS.Vendor.DataAccess.MatchingService.WizardMatchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingService\MatchingService1.wsdl" />
+    <None Include="Service References\MatchingService\MatchingService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingService\MatchingService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingService\MatchingService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingService\MatchingService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingService\MatchingService14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingService\MatchingService15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingService\MatchingService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingService\MatchingService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.Vendor.DataAccess.ProspectService.GetProspectCountByStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.Vendor.DataAccess.ProspectService.GetProspectFlowDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.Vendor.DataAccess.ProspectService.ProspectDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.Vendor.DataAccess.ProspectService.ProspectFlowEmailLogDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.Vendor.DataAccess.ProspectService.ProspectFlowTypeDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.Vendor.DataAccess.ProspectService.SaveHomeSecurityProspectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.Vendor.DataAccess.ProspectService.SaveProspectDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.Vendor.DataAccess.ProspectService.SaveProspectNotesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.Vendor.DataAccess.ProspectService.SaveProspectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.Vendor.DataAccess.ProspectService.SaveProspectStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.Vendor.DataAccess.ProspectService.SearchProspectsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.Vendor.DataAccess.ProspectService.SendLeadEmailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.Vendor.DataAccess.ProspectService.StatusHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataModels\EddyLoggingDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EddyLoggingDataModel.edmx</DependentUpon>
+      <LastGenOutput>EddyLoggingDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\EddyLoggingDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EddyLoggingDataModel.edmx</DependentUpon>
+      <LastGenOutput>EddyLoggingDataModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\NexusDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NexusDataModel.edmx</DependentUpon>
+      <LastGenOutput>NexusDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\NexusDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NexusDataModel.edmx</DependentUpon>
+      <LastGenOutput>NexusDataModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Service References\MatchingService\MatchingService2.disco" />
+    <None Include="Service References\FormsEngineService\FormsEngineAPI1.disco" />
+    <None Include="Service References\FormsEngineService\FormsEngineAPI.disco" />
+    <None Include="Service References\GpFive9Service\GpFive9Service1.disco" />
+    <None Include="Service References\MatchingService\MatchingService1.disco" />
+    <None Include="Service References\ProspectService\ProspectService1.disco" />
+    <None Include="Service References\GpFive9Service\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\GpFive9Service\configuration.svcinfo" />
+    <None Include="Service References\GpFive9Service\configuration91.svcinfo" />
+    <None Include="Service References\ProspectService\ProspectService2.wsdl" />
+    <None Include="Service References\ProspectService\ProspectService21.wsdl" />
+    <None Include="Service References\ProspectService\ProspectService22.wsdl" />
+    <None Include="Service References\ProspectService\ProspectService23.wsdl" />
+    <None Include="Service References\ProspectService\ProspectService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService61.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService610.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService611.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService62.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService63.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService64.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService65.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService66.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService67.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService68.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService69.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ProspectService\configuration.svcinfo" />
+    <None Include="Service References\ProspectService\configuration91.svcinfo" />
+    <None Include="Service References\FormsEngineService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\FormsEngineService\configuration.svcinfo" />
+    <None Include="Service References\FormsEngineService\configuration91.svcinfo" />
+    <None Include="Service References\MatchingService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MatchingService\configuration.svcinfo" />
+    <None Include="Service References\MatchingService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EDDY.IS.Vendor.Entities\EDDY.IS.Vendor.Entities.csproj">
+      <Project>{162c5524-cef8-4894-ba2c-aac9bbf094e3}</Project>
+      <Name>EDDY.IS.Vendor.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EDDY.IS.Vendor.Utilities\EDDY.IS.Vendor.Utilities.csproj">
+      <Project>{71e32eb1-bbc3-43f2-9a5f-46ed72257833}</Project>
+      <Name>EDDY.IS.Vendor.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\FormsEngineService\" />
+    <WCFMetadataStorage Include="Service References\GpFive9Service\" />
+    <WCFMetadataStorage Include="Service References\MatchingService\" />
+    <WCFMetadataStorage Include="Service References\ProspectService\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="70316735-20f5-461d-a715-3dd75d1e8a82" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ValidationService6.xsd" MetadataType="Schema" ID="0badda02-ce14-45d8-94ea-21aa6ff6d908" SourceId="1" SourceUrl="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ValidationService61.xsd" MetadataType="Schema" ID="647ef2ca-a17b-498c-8862-397f44296c45" SourceId="1" SourceUrl="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ValidationService1.disco" MetadataType="Disco" ID="27b8733e-d58b-4d05-955e-31a225a91e81" SourceId="1" SourceUrl="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc?disco" />
+    <MetadataFile FileName="ValidationService62.xsd" MetadataType="Schema" ID="8777ee8f-cdc0-406e-a2cf-422339415929" SourceId="1" SourceUrl="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ValidationService63.xsd" MetadataType="Schema" ID="5985e998-0130-4a93-b7ca-02e29ca74ab6" SourceId="1" SourceUrl="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ValidationService64.xsd" MetadataType="Schema" ID="0b9b2695-a548-489b-aa96-1e1345adec6a" SourceId="1" SourceUrl="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ValidationService1.wsdl" MetadataType="Wsdl" ID="ec8bf67c-7d6b-4e53-ac07-d56f3e8ef8ff" SourceId="1" SourceUrl="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc?wsdl" />
+    <MetadataFile FileName="ValidationService65.xsd" MetadataType="Schema" ID="c48dd782-1ac5-45ec-9829-51b0c4fd82b0" SourceId="1" SourceUrl="http://emsfe-issvc1/EDDY.IS.ValidationEngine.Service/ValidationService.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

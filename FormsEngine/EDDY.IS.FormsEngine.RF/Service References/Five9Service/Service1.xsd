@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EDDY.IS.ABEA.Service.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EDDY.IS.ABEA.Service.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:62293/Service.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ProcessRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AreaofInterest" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DialerListName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalSystemId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Options" nillable="true" type="q1:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+      <xs:element minOccurs="0" name="ProspectFlowTypeId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProspectRouteId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProspectStatusId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProcessRequest" nillable="true" type="tns:ProcessRequest" />
+  <xs:complexType name="Five9Request">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DegreeInterest" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EducationLevel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalLeadId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GradYear" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ListName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProgramInterest" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrackId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Five9Request" nillable="true" type="tns:Five9Request" />
+</xs:schema>

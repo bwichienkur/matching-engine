@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://EducationDynamics.Services.ProspectService" elementFormDefault="qualified" targetNamespace="http://EducationDynamics.Services.ProspectService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://nexuatws01/EDDY.ProspectService.Service/ProspectService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://nexuatws01/EDDY.ProspectService.Service/ProspectService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" />
+  <xs:import schemaLocation="http://nexuatws01/EDDY.ProspectService.Service/ProspectService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="ApproveProspectFlows">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="prospectFlowIds" nillable="true" type="q1:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApproveProspectFlowsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignAdvisorToProspectFlows">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="assignAdvisorToProspectFlowsRequest" nillable="true" type="q2:AssignAdvisorToProspectFlowsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignAdvisorToProspectFlowsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AssignAdvisorToProspectFlowsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProspect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="prospectid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProspectResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProspectDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="deleteProspectDetailsRequest" nillable="true" type="q3:DeleteProspectDetailsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProspectDetailsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectFlowDetailsById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="getProspectFlowDetailsRequest" nillable="true" type="q4:GetProspectFlowDetailsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectFlowDetailsByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="GetProspectFlowDetailsByIdResult" nillable="true" type="q5:GetProspectFlowDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectFlowDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="getProspectFlowDetailsRequest" nillable="true" type="q6:GetProspectFlowDetailsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectFlowDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="GetProspectFlowDetailsResult" nillable="true" type="q7:GetProspectFlowDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectByEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectByEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="GetProspectByEmailResult" nillable="true" type="q8:ProspectDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="prospectid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="GetProspectByIDResult" nillable="true" type="q9:ProspectDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectCountByStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="getProspectCountByStatusRequest" nillable="true" type="q10:GetProspectCountByStatusRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectCountByStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="GetProspectCountByStatusResult" nillable="true" type="q11:GetProspectCountByStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectFlowEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectFlowEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="GetProspectFlowEmailResult" nillable="true" type="q12:ProspectFlowEmailLogDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectFlowTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectFlowTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="GetProspectFlowTypesResult" nillable="true" type="q13:ArrayOfProspectFlowTypeDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LockCallCenterProspectFlow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="lockCallCenterProspectRequest" nillable="true" type="q14:LockCallCenterProspectFlowRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LockCallCenterProspectFlowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LockCallCenterProspectFlowResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResendProspectFlowEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="ResendProspectFlowEmailRequest" nillable="true" type="q15:ResendProspectFlowEmailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResendProspectFlowEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ResendProspectFlowEmailResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveProspect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="Request" nillable="true" type="q16:SaveProspectRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveProspectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="SaveProspectResult" nillable="true" type="q17:SaveProspectResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveHomeSecurityProspect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="Request" nillable="true" type="q18:SaveHomeSecurityProspectRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveHomeSecurityProspectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="SaveHomeSecurityProspectResult" nillable="true" type="q19:SaveHomeSecurityProspectResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveProspect_Site">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="Request" nillable="true" type="q20:SaveProspectRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveProspect_SiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="SaveProspect_SiteResult" nillable="true" type="q21:SaveProspectResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveProspectDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="Request" nillable="true" type="q22:SaveProspectDetailsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveProspectDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="SaveProspectDetailsResult" nillable="true" type="q23:SaveProspectDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveProspectTracking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="Request" nillable="true" type="q24:SaveProspectRequest" />
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="sessionGuid" type="q25:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveProspectTrackingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveProspectTrackingResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveProspectAdditionalData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProspectId" type="xs:int" />
+        <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DataDictionary" nillable="true" type="q26:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveProspectAdditionalDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveProspectAdditionalDataResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveProspectStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="Request" nillable="true" type="q27:SaveProspectStatusRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveProspectStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="SaveProspectStatusResult" nillable="true" type="q28:SaveProspectStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveProspectNotes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="Request" nillable="true" type="q29:SaveProspectNotesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveProspectNotesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="SaveProspectNotesResult" nillable="true" type="q30:SaveProspectNotesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveStatusHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="SaveHistory" nillable="true" type="q31:StatusHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveStatusHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="SaveStatusHistoryResult" nillable="true" type="q32:StatusHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchProspects">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="searchProspectsRequest" nillable="true" type="q33:SearchProspectsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchProspectsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="SearchProspectsResult" nillable="true" type="q34:SearchProspectsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendLeadEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="SendLeadEmailRequest" nillable="true" type="q35:SendLeadEmailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendLeadEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="SendLeadEmailResult" nillable="true" type="q36:SendLeadEmailResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnlockCallCenterProspect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="unlockCallCenterProspectRequest" nillable="true" type="q37:UnlockCallCenterProspectRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnlockCallCenterProspectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UnlockCallCenterProspectResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Five9UpdateLeadDisposition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProspectFlowId" type="xs:int" />
+        <xs:element minOccurs="0" name="Disposition" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AdvisorEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Five9UpdateLeadDispositionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateLeadIDToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="trackId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateLeadIDTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GenerateLeadIDTokenResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendLeadIDData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="leadData" nillable="true" type="q38:LeadData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendLeadIDDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendLeadIDDataResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectFlowDetailsByChatIntegrationSessionId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="getProspectFlowDetailsRequest" nillable="true" type="q39:GetProspectFlowDetailsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProspectFlowDetailsByChatIntegrationSessionIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/EDDY.IS.ProspectEngine.DTO" minOccurs="0" name="GetProspectFlowDetailsByChatIntegrationSessionIdResult" nillable="true" type="q40:GetProspectFlowDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStateNameById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StateId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStateNameByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStateNameByIdResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckRepostingProspect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="prospectFlowTypeId" type="xs:int" />
+        <xs:element minOccurs="0" name="trackid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckRepostingProspectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckRepostingProspectResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

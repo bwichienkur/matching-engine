@@ -1,0 +1,36 @@
+﻿@inherits System.Web.Mvc.WebViewPage<EDDY.IS.FormsEngine.Services.Models.NoMatchModel>
+
+
+@if(!Model.GenericNoMatch)
+{
+<div class="eddy-form-wizard-container">
+		<div id="eddy-form-wizard-nomatch-header" class="eddy-form-wizard-header">
+			<div class="start-now"><p>START AGAIN</p></div>
+			<div class="wizard-header-content">
+				<div class="progress">
+					<span>PROGRESS</span>
+					<div class="progress-bar clearfix pie">
+						<div class="progress-bar-inside"></div>
+						<div class="progress-bar-number">100%</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- end of #eddy-form-wizard-header -->
+		<div class="eddy-form-wizard-body">
+				<div class="form-page-step-message-nomatch">
+					<h2>
+					@Model.UserFullName, Thank you!
+					</h2>
+				</div>
+            	<div class="steps" id="nomatch_clicksnet_listing">
+			        
+                </div>
+			 
+		</div>
+		<div class="eddy-form-wizard-footer-nomatch clearfix">
+				<div class="more-school-area">
+					 
+				</div>
+		</div><!-- end of #eddy-form-wizard-footer -->
+	</div><!-- end of ##eddy-form-wizard-body -->
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ef8229a7-6bd2-4854-b126-fd5959d1fee7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://emsfe-issvc1/EDDY.IS.LeadScoring.Service/LeadScoringService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LeadScoringService4.xsd" MetadataType="Schema" ID="7fc62545-14c0-4df4-920c-42bc64b26543" SourceId="1" SourceUrl="http://emsfe-issvc1/EDDY.IS.LeadScoring.Service/LeadScoringService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LeadScoringService41.xsd" MetadataType="Schema" ID="0b9bf50c-7252-4ec0-9059-5cd8f6e2fd02" SourceId="1" SourceUrl="http://emsfe-issvc1/EDDY.IS.LeadScoring.Service/LeadScoringService.svc?xsd=xsd3" />
+    <MetadataFile FileName="LeadScoringService42.xsd" MetadataType="Schema" ID="27a6c2dc-b8df-4b3a-b64c-795cda58ee06" SourceId="1" SourceUrl="http://emsfe-issvc1/EDDY.IS.LeadScoring.Service/LeadScoringService.svc?xsd=xsd2" />
+    <MetadataFile FileName="LeadScoringService1.disco" MetadataType="Disco" ID="6b6e446c-5f5b-4bf7-9a4d-28af317ad667" SourceId="1" SourceUrl="http://emsfe-issvc1/EDDY.IS.LeadScoring.Service/LeadScoringService.svc?disco" />
+    <MetadataFile FileName="LeadScoringService1.wsdl" MetadataType="Wsdl" ID="3a9717b2-9f05-4761-b8d9-08059fe75c13" SourceId="1" SourceUrl="http://emsfe-issvc1/EDDY.IS.LeadScoring.Service/LeadScoringService.svc?wsdl" />
+    <MetadataFile FileName="LeadScoringService43.xsd" MetadataType="Schema" ID="18af4e70-62f3-420e-8364-24115e17f858" SourceId="1" SourceUrl="http://emsfe-issvc1/EDDY.IS.LeadScoring.Service/LeadScoringService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,90 @@
+@using System.Web.Http
+@using System.Web.Http.Controllers
+@using System.Web.Http.Description
+@using System.Collections.ObjectModel
+@using EDDY.IS.Vendor.Web.API.Areas.HelpPage.Models
+@model Collection<ApiDescription>
+
+@{
+    ViewBag.Title = "Education Dynamics Partner API ";
+
+    // Group APIs by controller
+    ILookup<HttpControllerDescriptor, ApiDescription> apiGroups = Model.ToLookup(api => api.ActionDescriptor.ControllerDescriptor);
+}
+
+<link type="text/css" href="~/Areas/HelpPage/HelpPage.css" rel="stylesheet" />
+<header class="help-page">
+    <div class="content-wrapper">
+        <div class="float-left">
+            <h1>@ViewBag.Title</h1>
+
+        </div>
+    </div>
+</header>
+<div id="body" class="help-page">
+    <section class="featured">
+        <div class="content-wrapper">
+            <h2>Introduction</h2>
+            <p>
+                The EducationDynamics Partner API services expose institution and program data from the EducationDynamics platform. Partners can use the API to retrieve content data for currently active institutions and/or programs (enabled for that particular partner), and incorporate this data into the partner’s own web applications and services. The API also returns links to EDDY-hosted forms and directories that the partner can utilize to monetize their traffic. Partners who are Host & Post partners of EDDY can also use the API to retrieve content data to use with their own forms to post leads into the EDDY system.
+                The API methods are defined below. The API can be called using simple HTTP POSTs, and will return JSON formatted results.  Clients can also integrate the API into client side code as they wish.
+
+            </p>
+
+            <h2>Usage</h2>
+            <p>A detailed description of each API method is available later in this document. There are several different scenarios that the API was designed to support. </p>
+            <h3>Directory</h3>
+            <h4>Scenario 1</h4>
+            <p>A partner adds institution/program content to a website, and then relies on EDDY forms to validate and submit user lead data.</p>
+            <p>In this scenario the partner should retrieve institution and/or program content from API methods such as <a href="#api/directory/programs">api/directory/programs</a> and <a href="#api/directory/Institutions">api/directory/Institutions</a>. They should keep it cached in their system for publication to their sites. Depending on their own site’s update schedule, they can re-pull this EDDY content every 10 minutes to update their sites with the currently active programs/institutions. At a minimum the partners should update their content at least once per day.</p>
+            <p>A partner should never pull content from the EDDY API in real time as their users hit their web sites. If a partner’s site is generated dynamically when users request their site’s pages, the partner should always pre-cache EDDY content, and then pull from their own servers during page load.</p>
+            <h4>Scenario 2</h4>
+            <p>A partner publishes institution/program content, and then uses their own form to collect user data and send that data to EDDY so that EDDY can deliver the lead data to the institution.</p>
+            <p>In this scenario a partner would call <a href="#api/directory/programs">api/directory/programs</a> and/or <a href="#api/directory/Institutions">api/directory/Institutions</a> to retrieve content and pre-cache the data (similar to Scenario #1 above). However instead of sending their users to EDDY hosted forms, the partner would call <a href="#api/program/form">api/program/form</a> to retreive required form fields and program rules then use their own form to collect and validate their user’s data. The partner is responsible for validating the user data in this case.</p>
+            <p>After collecting the user data, the partner would pass it to EDDY by posting it to the EDDY Host & Post system (described later in this document).</p>
+            <h3>Wizard</h3>
+            <h4>Scenario 1</h4>
+            <p>In this scenario the partner would capture user data on the partner’s form, and then pass that data to the EDDY api/directory/programmatches <a href="#api/directory/programmatches">api/directory/programmatches</a> API method. This method would then return potentially available programs based upon the data that was submitted (EDDY validates the data for the partner in this case). They then would allow the user to pick from the available programs and then the partner would post that data to EDDY via the EDDY Host & Post url.</p>
+            <p>In this example the data returned from api/directory/programmatches cannot be cached. It is generated in real-time based upon the user data and the available programs at that particular moment. In addition, the fields asked and submitted to <a href="#api/directory/programmatches">api/directory/programmatches</a> must match the fields EDDY expects. We have different fields based upon the type of program (undergrad, nursing, grad, etc.). Partner’s should work with their account representatives at EDDY to get the required fields.</p>
+            <h3>Marketing Client/Partner</h3>
+            <h4>Scenario 1</h4>
+            <p>In this scenario the Marketing Client/Partner would capture user data on the Marketing Client/Partner’s forms or from other systems, and then pass that data to the EDDY <a href="#api/marketing/lead/save">api/marketing/lead/save</a> API method. This method would then returnwill return an JSON-formatted response indicating the success or failure of the client’s submission, along with details if applicable. The Request must include all the required key-value pairs defined by the API’s https://partners.educationdynamics.com/api/program/form method. </p>
+            <h3>Institution Clients</h3>
+            <h4>Scenario 1</h4>
+            <p>In this scenario the Institution Client would capture user data on the Institution’s forms or from other systems, and then pass that data to the EDDY <a href="#api/institutions/lead/save">api/institutions/lead/save</a> API method. This method would then returnwill return an JSON-formatted response indicating the success or failure of the client’s submission, along with details if applicable. The Request must include all the required key-value pairs defined by the API’s https://partners.educationdynamics.com/api/program/form method. </p>
+
+            <h2>Getting Started</h2>
+            <h3>Postman</h3>
+            <p>Postman is a powerful HTTP client for testing web services.</p>
+            <p>Postman will help you create requests and see responses quickly before writing any custom code.</p>
+            <p>
+                The easiest wat to get started is to download Postman here:
+                <br />
+                <a target="_blank" href="https://www.getpostman.com/">https://www.getpostman.com/</a>
+            </p>
+            <p>
+                Here is a link to their documentation:
+                <br />
+                <a target="_blank" href="https://www.getpostman.com/docs/">https://www.getpostman.com/docs/</a>
+            </p>
+            <p>
+                Here is a link to our postman request collection to get you started:
+                <br />
+                Just import it into PostMan add your API Key and click send.
+                <br />
+                <a target="_blank" href="~/PartnerAPICollection.txt">Download Collection</a>
+            </p>
+            <h2>API Methods</h2>
+            <p>The API’s exposed web methods are designed to be extremely simple and flexible. In order to meet the dual requirements of reduced complexity and enhanced flexibility, each method accepts one or more optional parameters that can be used to query the API in multiple ways, depending on the needs of the partner. </p>
+            <p>The methods consist of the following:</p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+        @foreach (var group in apiGroups
+                                 .OrderBy(g => ViewBag.DisplayOrder.ContainsKey(g.Key.ControllerType) ?
+                                   ViewBag.DisplayOrder[g.Key.ControllerType] : Int32.MaxValue))
+        {
+            @Html.DisplayFor(m => group, "ApiGroup")
+        }
+    </section>
+</div>

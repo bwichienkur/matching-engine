@@ -1,0 +1,1042 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F9FBFA65-B5BD-4CFD-BA12-5B2EE01E1C32}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EDDY.IS.FormsEngine</RootNamespace>
+    <AssemblyName>EDDY.IS.FormsEngine</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>IS.Signature.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\Enum.cs" />
+    <Compile Include="Caching\Constants.cs" />
+    <Compile Include="Caching\FormsEngineCache.cs" />
+    <Compile Include="Caching\FormsEngineCacheHelper.cs" />
+    <Compile Include="Caching\FormsEngineCacheProxy.cs" />
+    <Compile Include="Caching\TemplateMappingCache.cs" />
+    <Compile Include="DataModel\Campaign.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CampaignDataService.cs" />
+    <Compile Include="DataModel\EDDY_FE_GetCreativeURLs_Result.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\EMSTCPAMessageDataService.cs" />
+    <Compile Include="DataModel\KVCode.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\KVCodeData.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\LandingPageDataService.cs" />
+    <Compile Include="DataModel\OpenMailDataService.cs" />
+    <Compile Include="DataModel\OpenMailProfile.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\OpenMailRule.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\ProgramLevel.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\TemplateApplicationOverride.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\VW_EMSInstitutionTCPAMessages.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\VW_LandingPageSettings.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\VW_ProspectResubmissions.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\CampaignDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\EDDY_FE_GetCreativeURLs_ResultDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\Extended\OpenMailValidationDTO.cs" />
+    <Compile Include="DTO\Extended\ProspectResubmitRequestDTO.cs" />
+    <Compile Include="DTO\Extended\TemplateControlDTO.cs" />
+    <Compile Include="DTO\KVCodeDataDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\KVCodeDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\OpenMailProfileDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\OpenMailRuleDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ProgramLevelDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\TemplateApplicationOverrideDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\VW_EMSInstitutionTCPAMessagesDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\VW_LandingPageSettingsDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\VW_ProspectResubmissionsDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormsEngineOpenMail.cs" />
+    <Compile Include="FormsRelatedServices.EmsLeadEngine.cs" />
+    <Compile Include="FormsRelatedServices.Five9.cs" />
+    <Compile Include="DataModel\ErrorCode.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\ErrorMessage.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\HTMLRenderingStrategy.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\HTMLRenderingStrategyAssignment.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\PreDefinedListBaseResult.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\PreDefinedValueList.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\ProgramTemplateMessage.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\ResourceMetaData.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\ResourceMetaDataService.cs" />
+    <Compile Include="DataModel\RenderingStrategyDataService.cs" />
+    <Compile Include="DataModel\StandardControl.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\StandardControlCode.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\StandardControlCodeFilter.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\StandardControlDataType.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\StandardControlGroup.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\StandardControlType.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\StandardControlValidation.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Submission.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SubmissionDataService.cs" />
+    <Compile Include="DataModel\SubmissionDetail.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SubmissionDetailAdditional.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SubmissionLeadScoringResponse.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SubmissionMatchResponse.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SubmissionValidationError.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Template.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\TemplateAssignment.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\TemplateControl.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\TemplateControlDefault.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\TemplateDataService.cs" />
+    <Compile Include="DataModel\FEModel.Context.cs">
+      <DependentUpon>FEModel.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataModel\FEModel.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataModel\FEModel.Designer.cs">
+      <DependentUpon>FEModel.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataModel\TemplateSection.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\TemplateStep.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\TemplateType.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\ValidationLibrary.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\ValueList.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\VW_ProgramProductTemplate.cs">
+      <DependentUpon>FEModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\DTO.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ErrorCodeDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ErrorMessageDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\Extended\APIMultiValidationResultDTO.cs" />
+    <Compile Include="DTO\Extended\APIMultSubmissionResultDTO.cs" />
+    <Compile Include="DTO\Extended\APIProgramMatchesDTO.cs" />
+    <Compile Include="DTO\Extended\APISubmissionResultDTO.cs" />
+    <Compile Include="DTO\Extended\APITemplateControlResultDTO.cs" />
+    <Compile Include="DTO\Extended\APIValidationResultDTO.cs" />
+    <Compile Include="DTO\Extended\CampaignDetailDTO.cs" />
+    <Compile Include="DTO\Extended\CrossSellResultDTO.cs" />
+    <Compile Include="DTO\Extended\DisclaimerTypeDTO.cs" />
+    <Compile Include="DTO\Extended\EddyLogosDTO.cs" />
+    <Compile Include="DTO\Extended\ExpressConsentCheckDTO.cs" />
+    <Compile Include="DTO\Extended\FiltersDTO.cs" />
+    <Compile Include="DTO\Extended\FormsEngineWorkflowStatus.cs" />
+    <Compile Include="DTO\Extended\FormValidationResultType.cs" />
+    <Compile Include="DTO\Extended\LeadScoreDTO.cs" />
+    <Compile Include="DTO\Extended\LeadSubmissionsDTO.cs" />
+    <Compile Include="DTO\Extended\LeadSubmissionsResultDTO.cs" />
+    <Compile Include="DTO\Extended\ManagedChoiceResultDTO.cs" />
+    <Compile Include="DTO\Extended\ManagedChoiceSubmissionResultDTO.cs" />
+    <Compile Include="DTO\Extended\MatchMessageResultsDTO.cs" />
+    <Compile Include="DTO\Extended\NoMatchResultDTO.cs" />
+    <Compile Include="DTO\Extended\PixelCheckDTO.cs" />
+    <Compile Include="DTO\Extended\SubmissionResultDTO.cs" />
+    <Compile Include="DTO\Extended\SubmissionValidationResultDTO.cs" />
+    <Compile Include="DTO\Extended\TemplateAdditionalQuestionDTO.cs" />
+    <Compile Include="DTO\Extended\TemplateBasicDTO.cs" />
+    <Compile Include="DTO\Extended\TemplateControlResultDTO.cs" />
+    <Compile Include="DTO\Extended\TemplateResultDTO.cs" />
+    <Compile Include="DTO\Extended\ThankYouResultDTO.cs" />
+    <Compile Include="DTO\Extended\ThemeDTO.cs" />
+    <Compile Include="DTO\Extended\UserSelectionDTO.cs" />
+    <Compile Include="DTO\Extended\ValidateMatchResponseDTO.cs" />
+    <Compile Include="DTO\HTMLRenderingStrategyAssignmentDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\HTMLRenderingStrategyDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\PreDefinedListBaseResultDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\PreDefinedValueListDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ProgramTemplateMessageDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ResourceMetaDataDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\StandardControlCodeDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\StandardControlCodeFilterDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\StandardControlDataTypeDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\StandardControlDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\StandardControlGroupDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\StandardControlTypeDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\StandardControlValidationDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\SubmissionDetailAdditionalDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\SubmissionDetailDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\SubmissionDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\SubmissionLeadScoringResponseDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\SubmissionMatchResponseDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\SubmissionValidationErrorDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\TemplateAssignmentDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\TemplateControlDefaultDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\TemplateControlDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\TemplateDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\TemplateSectionDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\TemplateStepDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\TemplateTypeDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ValidationLibraryDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ValueListDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\VW_ProgramProductTemplateDTO.cs">
+      <DependentUpon>DTO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityBuildHelper.cs" />
+    <Compile Include="FESession.cs" />
+    <Compile Include="FormsEngine.cs" />
+    <Compile Include="FormsEngineAPI.cs" />
+    <Compile Include="FormsEngineBase.cs" />
+    <Compile Include="FormsRelatedServices.LeadScoring.cs" />
+    <Compile Include="FormsRelatedServices.Pixel.cs" />
+    <Compile Include="FormsRelatedServices.Prospect.cs" />
+    <Compile Include="FormsRelatedServices.MatchingEngine.cs" />
+    <Compile Include="FormsRelatedServices.ValidationService.cs" />
+    <Compile Include="LeadSaveManager.cs" />
+    <Compile Include="Mapper\CampaignMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\EDDY_FE_GetCreativeURLs_ResultMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\ErrorCodeMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\ErrorMessageMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\Extended\CustomMappingAttribute.cs" />
+    <Compile Include="Mapper\HTMLRenderingStrategyAssignmentMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\HTMLRenderingStrategyMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\KVCodeDataMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\KVCodeMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\Mapper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\OpenMailProfileMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\OpenMailRuleMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\PreDefinedListBaseResultMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\PreDefinedValueListMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\ProgramLevelMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\ProgramTemplateMessageMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\ResourceMetaDataMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\StandardControlCodeFilterMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\StandardControlCodeMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\StandardControlDataTypeMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\StandardControlGroupMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\StandardControlMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\StandardControlTypeMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\StandardControlValidationMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\SubmissionDetailAdditionalMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\SubmissionDetailMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\SubmissionLeadScoringResponseMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\SubmissionMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\SubmissionMatchResponseMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\SubmissionValidationErrorMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\TemplateApplicationOverrideMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\TemplateAssignmentMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\TemplateControlDefaultMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\TemplateControlMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\TemplateMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\TemplateSectionMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\TemplateStepMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\TemplateTypeMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\ValidationLibraryMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\ValueListMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\VW_EMSInstitutionTCPAMessagesMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\VW_LandingPageSettingsMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\VW_ProgramProductTemplateMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\VW_ProspectResubmissionsMapper.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProspectInputBuilder.cs" />
+    <Compile Include="Service References\Five9Service\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LeadPingService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LeadScoringService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MatchingEngine\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PixelsService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProspectService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ValidationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="DataModel\FEModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FEModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataModel\FEModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FEModel.edmx</DependentUpon>
+      <LastGenOutput>FEModel.Context.cs</LastGenOutput>
+    </Content>
+    <None Include="Service References\MatchingEngine\MatchingService28.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService29.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService30.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService6.disco" />
+    <None Include="Service References\MatchingEngine\MatchingService24.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService25.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService26.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService27.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService3.wsdl" />
+    <None Include="Service References\ProspectService\ProspectService.disco" />
+    <None Include="Service References\LeadScoringService\LeadScoringService1.disco" />
+    <None Include="Service References\LeadScoringService\LeadScoringService1.wsdl" />
+    <None Include="Service References\LeadScoringService\LeadScoringService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LeadScoringService\LeadScoringService41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LeadScoringService\LeadScoringService42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LeadScoringService\LeadScoringService43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService23.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PixelsService\Service1.wsdl" />
+    <None Include="Service References\PixelsService\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PixelsService\Service31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PixelsService\Service32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService.wsdl" />
+    <None Include="Service References\ProspectService\ProspectService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService1.wsdl" />
+    <None Include="Service References\ProspectService\ProspectService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProspectService\ProspectService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ValidationService\EDDY.IS.FormsEngine.ValidationService.Location.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ValidationService\ValidationService1.disco" />
+    <None Include="Service References\MatchingEngine\MatchingService.disco" />
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.AdServerClientRelationshipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.ApiProgramResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.ApolloCampusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.CampaignDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.CampusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.CampusTypeMatchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.CampusZipCodeRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.CategoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.CrossSellProgramResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.FormProgramResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.InstitutionDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.InstitutionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.NavigationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.ProgramDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.ProgramLevelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.ProgramProductValidateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.ProgramResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.ProgramRuleDefinition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.ProgramValidateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.SiteMapResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.SpecialtyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.SubjectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.TemplateMatchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\EDDY.IS.FormsEngine.MatchingEngine.WizardMatchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService18.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService19.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService20.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService5.disco" />
+    <None Include="Service References\LeadScoringService\LeadScoringService1.disco" />
+    <None Include="Service References\LeadScoringService\LeadScoringService1.wsdl" />
+    <None Include="Service References\LeadScoringService\LeadScoringService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LeadScoringService\LeadScoringService41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LeadScoringService\LeadScoringService42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LeadScoringService\LeadScoringService43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService2.wsdl" />
+    <None Include="Service References\MatchingEngine\MatchingService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PixelsService\Service1.wsdl" />
+    <None Include="Service References\PixelsService\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PixelsService\Service31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PixelsService\Service32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ValidationService\EDDY.IS.FormsEngine.ValidationService.Location.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ValidationService\ValidationService1.disco" />
+    <None Include="Service References\ProspectService\ProspectService1.disco" />
+    <None Include="Service References\MatchingEngine\MatchingService.disco" />
+    <None Include="Service References\MatchingEngine\MatchingService13.disco" />
+    <None Include="Service References\MatchingEngine\MatchingService11.disco" />
+    <None Include="Service References\MatchingEngine\MatchingService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ValidationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ValidationService\configuration.svcinfo" />
+    <None Include="Service References\ValidationService\configuration91.svcinfo" />
+    <None Include="Properties\DataSources\EDDY.IS.Validation.DTO.Extended.ResultItemDTO.datasource" />
+    <None Include="Properties\DataSources\EDDY.IS.Validation.DTO.TargusPhoneValidationResultDTO.datasource" />
+    <None Include="Service References\ProspectService\EDDY.IS.FormsEngine.ProspectService.SaveHomeSecurityProspectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Five9Service\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Five9Service\configuration.svcinfo" />
+    <None Include="Service References\Five9Service\configuration91.svcinfo" />
+    <None Include="Service References\Five9Service\Service.disco" />
+    <None Include="Service References\Five9Service\Service.wsdl" />
+    <None Include="Service References\Five9Service\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Five9Service\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Five9Service\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Five9Service\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService1.disco" />
+    <None Include="Service References\MatchingEngine\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MatchingEngine\configuration.svcinfo" />
+    <None Include="Service References\MatchingEngine\configuration91.svcinfo" />
+    <None Include="Service References\MatchingEngine\MatchingService.wsdl" />
+    <None Include="Service References\MatchingEngine\MatchingService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchingEngine\MatchingService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LeadScoringService\EDDY.IS.FormsEngine.LeadScoringService.ScoringResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LeadScoringService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\LeadScoringService\configuration.svcinfo" />
+    <None Include="Service References\LeadScoringService\configuration91.svcinfo" />
+    <None Include="IS.Signature.snk" />
+    <None Include="Service References\ProspectService\EDDY.IS.FormsEngine.ProspectService.GetProspectCountByStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.FormsEngine.ProspectService.GetProspectFlowDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.FormsEngine.ProspectService.ProspectDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.FormsEngine.ProspectService.ProspectFlowEmailLogDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.FormsEngine.ProspectService.ProspectFlowTypeDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.FormsEngine.ProspectService.SaveProspectDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.FormsEngine.ProspectService.SaveProspectNotesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.FormsEngine.ProspectService.SaveProspectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.FormsEngine.ProspectService.SaveProspectStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.FormsEngine.ProspectService.SearchProspectsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.FormsEngine.ProspectService.SendLeadEmailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\EDDY.IS.FormsEngine.ProspectService.StatusHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProspectService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ProspectService\configuration.svcinfo" />
+    <None Include="Service References\ProspectService\configuration91.svcinfo" />
+    <None Include="Service References\PixelsService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PixelsService\configuration.svcinfo" />
+    <None Include="Service References\PixelsService\configuration91.svcinfo" />
+    <None Include="Service References\LeadPingService\EDDY.IS.FormsEngine.LeadPingService.ValidationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LeadPingService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\LeadPingService\configuration.svcinfo" />
+    <None Include="Service References\LeadPingService\configuration91.svcinfo" />
+    <None Include="Service References\ValidationService\ValidationService1.wsdl" />
+    <None Include="Service References\ValidationService\ValidationService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ValidationService\ValidationService61.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ValidationService\ValidationService62.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ValidationService\ValidationService63.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ValidationService\ValidationService64.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ValidationService\ValidationService65.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataModel\FEModel.edmx.diagram">
+      <DependentUpon>FEModel.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataModel\FEModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FEModel.edmx</DependentUpon>
+      <LastGenOutput>FEModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="DTO\DTO.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DTO.cs</LastGenOutput>
+    </None>
+    <None Include="Mapper\Mapper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Mapper.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\LeadPingService\Service.wsdl" />
+    <None Include="Service References\LeadPingService\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LeadPingService\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LeadPingService\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LeadPingService\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\LeadEngine\EDDY.IS.LeadEngine-RF\EDDY.IS.LeadEngine.csproj">
+      <Project>{779e8cec-5404-4888-83ea-24cd543b63f6}</Project>
+      <Name>EDDY.IS.LeadEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Five9Service\" />
+    <WCFMetadataStorage Include="Service References\LeadPingService\" />
+    <WCFMetadataStorage Include="Service References\LeadScoringService\" />
+    <WCFMetadataStorage Include="Service References\MatchingEngine\" />
+    <WCFMetadataStorage Include="Service References\PixelsService\" />
+    <WCFMetadataStorage Include="Service References\ProspectService\" />
+    <WCFMetadataStorage Include="Service References\ValidationService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EDDY.IS.Base">
+      <Version>2.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="EDDY.IS.Core.Logging">
+      <Version>2.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="EDDY.IS.EmsLeadEngine.Entities">
+      <Version>1.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="EDDY.IS.LocalCache">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="EDDY.IS.Util">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="EDDY.IS.Validation">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="EmailVerifyFor.Net">
+      <Version>5.6.0.2684</Version>
+    </PackageReference>
+    <PackageReference Include="EntityFramework">
+      <Version>6.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
